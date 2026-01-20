@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Limicelia accompanies organizations, communities, and movements through transformation. Part of the Present of Work movement, we assemble practitioners to walk with you through threshold moments.">
+    <title>Limicelia - Accompanying Transformation</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #0d5c63;
+            --secondary: #7d8e7f;
+            --accent: #c96a3d;
+            --energy: #e8a754;
+            --text: #1a1a1a;
+            --text-light: #5a5a5a;
+            --bg: #f7f3ed;
+            --white: #ffffff;
+            --border: #e0ddd8;
+            --forest: #2d4a3e;
+            --nav-height: 70px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 2rem);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus { top: 0; }
+
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-right: clamp(2rem, 4vw, 4rem);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 2vw, 1.75rem);
+            flex-wrap: nowrap;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover, .nav-links a:focus { 
+            color: var(--primary); 
+            outline: none; 
+        }
+        
+        .nav-links a.active { 
+            border-bottom-color: var(--accent); 
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-shrink: 0;
+            z-index: 1002;
+        }
+
+        /* Mobile menu backdrop */
+        .nav-backdrop {
+            display: none;
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--nav-height));
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .nav-backdrop.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Medium screens - slightly smaller text/spacing */
+        @media (max-width: 1340px) {
+            .nav-links {
+                gap: 0.85rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.88rem;
+            }
+            
+            .logo {
+                margin-right: 2.5rem;
+            }
+        }
+
+        /* Tablet and below - hamburger menu */
+        @media (max-width: 1280px) {
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                max-width: 350px;
+                height: calc(100vh - var(--nav-height));
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 0;
+                transition: left 0.3s ease-in-out;
+                overflow-y: auto;
+                box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+                z-index: 1001;
+            }
+            
+            .nav-links.active { 
+                left: 0; 
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+                padding: 1rem 0;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+            
+            .mobile-menu-btn { 
+                display: block; 
+            }
+        }
+
+        /* Small mobile - full width menu */
+        @media (max-width: 480px) {
+            .nav-links {
+                max-width: 100%;
+            }
+        }
+
+        /* Mobile menu overlay */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--nav-height));
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .nav-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (min-width: 1281px) {
+            .nav-overlay {
+                display: none !important;
+            }
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 2.5rem 1rem; }
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.3; }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--primary); margin-bottom: 2rem; }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 1.5rem 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 3rem 1rem 2rem; }
+        }
+
+        .hero h1 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .etymology {
+            background: var(--white);
+            border-left: 4px solid var(--accent);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            margin: 2rem auto;
+            max-width: 700px;
+            font-style: italic;
+            color: var(--text-light);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .follow-up {
+            background: var(--white);
+            padding: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .follow-up-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .founders-grid, .three-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            margin: 2rem 0;
+        }
+
+        .founder-card, .col-item {
+            background: var(--white);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .founder-card:hover, .col-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+
+        .founder-role {
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-name {
+            color: var(--primary);
+            margin: 0.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .founder-bio {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-quote {
+            font-style: italic;
+            color: var(--text-light);
+            padding-left: 1rem;
+            border-left: 3px solid var(--energy);
+        }
+
+        /* Expandable Content Styles */
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .expandable-content.active {
+            max-height: 2000px;
+        }
+
+        .expand-btn {
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .expand-btn:hover, .expand-btn:focus {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .expand-btn .icon {
+            transition: transform 0.3s;
+        }
+
+        .expand-btn.active .icon {
+            transform: rotate(180deg);
+        }
+
+        .founder-card.compact .expandable-content {
+            max-height: 0;
+        }
+
+        .founder-summary {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Show More Pattern for Network */
+        .network-grid-hidden {
+            display: none;
+        }
+
+        .network-grid-hidden.visible {
+            display: contents;
+        }
+
+        .show-more-btn {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .show-more-btn button {
+            background: none;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 0.75rem 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .show-more-btn button:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .philosophy-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            margin: 2rem 0;
+        }
+
+        .philosophy-point {
+            background: var(--white);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .philosophy-point h3, .philosophy-point h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .traditions-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .tradition-tag {
+            background: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        .accordion-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .accordion-item:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.06); }
+
+        .accordion-header {
+            padding: clamp(1rem, 2.5vw, 1.5rem);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: background 0.3s;
+            user-select: none;
+        }
+
+        .accordion-header:hover, .accordion-header:focus {
+            background: var(--bg);
+        }
+
+        .accordion-header:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: -2px;
+        }
+
+        .accordion-title { flex: 1; }
+
+        .accordion-title h4, .accordion-title h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary);
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+        }
+
+        .accordion-question {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: clamp(0.9rem, 2vw, 0.95rem);
+            margin: 0;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.active .accordion-icon { transform: rotate(45deg); }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-item.active .accordion-content { max-height: 1000px; }
+
+        .accordion-body {
+            padding: 0 clamp(1rem, 2.5vw, 2rem) clamp(1rem, 2.5vw, 1.5rem);
+        }
+
+        .accordion-body p { margin-bottom: 1rem; }
+
+        .accordion-body ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .accordion-body li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-item {
+            background: var(--white);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-item h4 {
+            margin-bottom: 1rem;
+        }
+
+        .comparison-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .comparison-item li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
+            margin: 4rem 0 0 0;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.95);
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+            border: 2px solid var(--white);
+            background: transparent;
+            color: var(--white);
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover, .btn:focus {
+            background: var(--white);
+            color: var(--forest);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Contact Section Specific Styles */
+        .cta-section.alt {
+            background: var(--white);
+            color: var(--text);
+            border-top: 2px solid var(--border);
+        }
+
+        .cta-section.alt h2 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section.alt p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--bg);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section.alt .btn {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        /* Utility Classes */
+        .bg-white {
+            background: var(--white);
+        }
+
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--accent); text-decoration: underline; }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .highlight-box {
+            background: var(--white);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            margin: 2rem 0;
+            border-left: 4px solid var(--energy);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .section-intro {
+            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+            line-height: 1.8;
+            max-width: 900px;
+            margin-bottom: 2rem;
+        }
+
+        a[target="_blank"]::after {
+            content: " ↗";
+            font-size: 0.8em;
+        }
+
+        button:focus-visible, a:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Limicelia</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#who-we-are">Who We Are</a></li>
+                <li><a href="#our-approach">Our Approach</a></li>
+                <li><a href="#who-this-is-for">Who This Is For</a></li>
+                <li><a href="#how-we-work">How We Work</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#network">Network</a></li>
+                <li><a href="#lineage">Lineage</a></li>
+                <li><a href="#modalities">Modalities</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#present-of-work">Present of Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile menu overlay -->
+    <div class="nav-overlay"></div>
+
+    <main id="main-content">
+        <section class="hero">
+            <h1>Can you accompany transformation<br>without extracting from it?</h1>
+            <p>
+                Limicelia is part of the <strong>Present of Work</strong> movement—a network of practitioners 
+                who assemble to walk with organizations, communities, and movements through threshold moments.
+            </p>
+            <div class="etymology">
+                <strong>Limicelia</strong> — From Latin <em>limen</em> (threshold) and <em>celia</em> (hidden chamber). 
+                The practice of attending to what emerges at boundaries, staying present through transformation 
+                without forcing the outcome.
+            </div>
+        </section>
+
+        <!-- WHO THIS IS FOR -->
+        <section id="who-this-is-for" class="bg-white">
+            <h2>Who This Is For</h2>
+            <p class="section-intro">We serve interconnected communities, each with different needs and entry points.</p>
+            
+            <div class="three-col">
+                <div class="col-item">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">🏢 Mission-Driven Organizations</h3>
+                    <p><strong>You're a nonprofit, funder network, or social enterprise.</strong></p>
+                    <p style="margin-top: 1rem;">You're growing but coordination is breaking down. You want distributed leadership but don't know how to structure it. Your teams feel fragmented even though you share values.</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-light);">
+                        We help you build decision-making capacity and relational practices so you can scale culture alongside operations.
+                    </p>
+                </div>
+                
+                <div class="col-item">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">🤝 Practitioners & Facilitators</h3>
+                    <p><strong>You're a coach, facilitator, or organizational developer.</strong></p>
+                    <p style="margin-top: 1rem;">You're tired of extractive consulting models. You want to work with peers, develop skills continuously, and make sustainable livelihood from work you believe in.</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-light);">
+                        We're a network where you learn, access organizational opportunities, and organize your work collaboratively instead of in isolation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO WE ARE -->
+        <section id="who-we-are">
+            <h2>Who We Are</h2>
+            <p class="section-intro">
+                Two practitioners who met through the commons, now weaving a practice that holds both organizational 
+                transformation and practitioner livelihood. We coordinate teams of facilitators, coaches, and 
+                organizers who work at the intersection of systems change and relational practice.
+            </p>
+
+            <div class="founders-grid">
+                <div class="founder-card compact">
+                    <div class="founder-role">Co-Steward</div>
+                    <h3 class="founder-name">Carol Xu, Ph.D.</h3>
+                    <p class="founder-summary">
+                        Academic research rigor meets deep systems thinking. Bridging theory and practice through 
+                        funder networks, distributed decision-making, and warm data methodology.
+                    </p>
+                    <button class="expand-btn" data-expand="carol">
+                        <span class="text">Read More</span>
+                        <span class="icon">↓</span>
+                    </button>
+                    <div class="expandable-content" id="carol-bio">
+                        <p class="founder-bio">
+                            Carol brings academic research rigor and deep systems thinking. With a Ph.D. focusing on 
+                            funder networks, distributed decision-making, and warm data methodology, she bridges theory 
+                            and practice—translating complex systems concepts into practical organizational tools.
+                        </p>
+                        <p class="founder-bio">
+                            Before co-creating Limicelia, Carol led research initiatives exploring how networks coordinate 
+                            without hierarchy, studying cooperation patterns across social change organizations.
+                        </p>
+                        <div class="founder-quote">
+                            "I'm interested in how organizations can hold complexity without collapsing into either chaos 
+                            or control. That edge—where emergence meets intention—is where real transformation happens."
+                        </div>
+                    </div>
+                </div>
+
+                <div class="founder-card compact">
+                    <div class="founder-role">Co-Steward</div>
+                    <h3 class="founder-name">BK Dubé</h3>
+                    <p class="founder-summary">
+                        Two decades of facilitation and community organizing. Creating spaces where groups move from 
+                        debate to genuine collective intelligence.
+                    </p>
+                    <button class="expand-btn" data-expand="bk">
+                        <span class="text">Read More</span>
+                        <span class="icon">↓</span>
+                    </button>
+                    <div class="expandable-content" id="bk-bio">
+                        <p class="founder-bio">
+                            BK brings two decades of facilitation and community organizing. Trained in dialogue, 
+                            conflict transformation, and participatory methods, BK creates spaces where groups can 
+                            think together differently—moving from debate to genuine collective intelligence.
+                        </p>
+                        <p class="founder-bio">
+                            Before co-creating Limicelia, BK worked with grassroots organizations, nonprofits, and 
+                            movement networks—facilitating strategic conversations and building capacity for 
+                            self-organization.
+                        </p>
+                        <div class="founder-quote">
+                            "Most organizational problems aren't technical—they're relational. When we tend to the 
+                            quality of relationship, the technical solutions often emerge naturally."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR APPROACH -->
+        <section id="our-approach" class="bg-white">
+            <h2>Our Approach</h2>
+            <p class="section-intro">
+                We don't believe in silver bullets. Transformation happens through sustained accompaniment, 
+                not quick fixes. We work with what's present, not what "should" be there.
+            </p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>Start With Relationship</h3>
+                            <p class="accordion-question">How do we begin transformation work?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>
+                                Before strategy, before structure, before new practices—we begin by understanding the 
+                                relational field. Who trusts whom? Where's the resilience? Where's the friction? 
+                                Transformation happens through relationship, not around it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>Attend to Emergence</h3>
+                            <p class="accordion-question">What about planning and strategy?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>
+                                We don't impose predetermined solutions. Instead, we create conditions for what needs to 
+                                emerge. This requires patience, skill at pattern recognition, and trust that groups hold 
+                                their own answers—they just need the right containers to discover them.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>Build Capacity, Not Dependency</h3>
+                            <p class="accordion-question">What happens when the work ends?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>
+                                When we leave, you should be more capable than when we arrived. We transfer practices, 
+                                not just results. We work alongside your team, not above them. The work itself becomes 
+                                the training ground for new ways of being together.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>Integrate Multiple Ways of Knowing</h3>
+                            <p class="accordion-question">Is intellectual understanding enough?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>
+                                Cognitive understanding is necessary but not sufficient. We engage embodied wisdom, 
+                                emotional intelligence, relational knowing, and systems awareness. Different situations 
+                                require different ways of knowing—and groups that can access multiple modes are more resilient.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>Work at Multiple Scales</h3>
+                            <p class="accordion-question">Where does change happen?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>
+                                Personal transformation, team dynamics, organizational culture, network coordination—these 
+                                aren't separate challenges. They're nested systems. We work across scales simultaneously, 
+                                recognizing that change at one level affects all others.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>Center Justice & Liberation</h3>
+                            <p class="accordion-question">What about power and equity?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>
+                                Transformation work that doesn't address power, privilege, and systemic oppression isn't 
+                                transformation—it's rearranging deck chairs. We bring explicit analysis of how dominant 
+                                culture patterns show up in organizations and work to dismantle them.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW WE WORK -->
+        <section id="how-we-work">
+            <h2>How We Work With You</h2>
+            <p class="section-intro">
+                We walk alongside those navigating change—organizations, communities, movements, teams. 
+                Staying present as things unfold, adapting as patterns reveal themselves.
+            </p>
+
+            <div class="accordion">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>For Organizations</h3>
+                            <p class="accordion-question">Mission-driven organizations, funders, networks</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="philosophy-points">
+                                <div class="philosophy-point">
+                                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Organizational Accompaniment</h4>
+                                    <p style="margin-bottom: 1rem;">
+                                        We work alongside your team over sustained time (typically 3-6 months), helping you build 
+                                        distributed decision-making capacity, clarify governance, and implement coordination practices 
+                                        aligned with your values. Investment is determined in conversation based on your capacity and 
+                                        the scope of work.
+                                    </p>
+                                </div>
+
+                                <div class="philosophy-point">
+                                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Facilitated Gatherings</h4>
+                                    <p style="margin-bottom: 1rem;">
+                                        Designing and hosting spaces where groups can think together differently—stakeholder dialogues, 
+                                        strategic retreats, community sensing sessions. Creating containers for collective intelligence 
+                                        to surface.
+                                    </p>
+                                </div>
+
+                                <div class="philosophy-point">
+                                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Grant-Funded Cohort Programs</h4>
+                                    <p style="margin-bottom: 1rem;">
+                                        Multi-organization capacity building programs funded by foundations. We develop and deliver 
+                                        programs that build leadership capacity across networks of mission-driven organizations. 
+                                        Participants join at low or no cost.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h3>For Practitioners</h3>
+                            <p class="accordion-question">Facilitators, coaches, organizational developers</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="philosophy-points">
+                                <div class="philosophy-point">
+                                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Monthly Practice Spaces</h4>
+                                    <p style="margin-bottom: 1rem;">
+                                        Join ongoing gatherings using circle, dialogue, and contemplative methods. Open to all who 
+                                        want to develop capacity for authentic communication, navigating conflict, and collective 
+                                        presence. Accessible through gift economy.
+                                    </p>
+                                </div>
+
+                                <div class="philosophy-point">
+                                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Intensive Learning Communities</h4>
+                                    <p style="margin-bottom: 1rem;">
+                                        Multi-month cohorts exploring specific territories—organizational change, communications practice, 
+                                        creating sustainable livelihoods. Combines skill development with relationship building and mutual 
+                                        support. Sliding scale based on capacity.
+                                    </p>
+                                </div>
+
+                                <div class="philosophy-point">
+                                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">Collaborative Practice Opportunities</h4>
+                                    <p style="margin-bottom: 1rem;">
+                                        When organizational projects require multi-disciplinary teams, we coordinate practitioners and 
+                                        manage project delivery with transparent, equitable arrangements. You develop skills while 
+                                        accessing organizational-scale work.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">How Resources Work</h3>
+                <p style="line-height: 1.8; margin: 0;">
+                    Organizations with resources support the work at levels that allow practitioners to sustain it. 
+                    Practitioners and grassroots organizations access learning on sliding scale or through gift economy. 
+                    This isn't separate economies—it's one practice where resources flow to create capacity for all.
+                </p>
+            </div>
+        </section>
+
+        <!-- IMPACT -->
+        <section id="impact" class="bg-white">
+            <h2>What Accompaniment Produces</h2>
+            <p class="section-intro">Real outcomes from working with mission-driven organizations on transformation.</p>
+
+            <div style="max-width: 900px; margin: 3rem auto;">
+                <div style="background: var(--bg); padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--energy);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Funder Network Collaboration</h3>
+                    <p style="margin-bottom: 1rem;">
+                        <strong>The Challenge:</strong> A network of funders working on peace and global security 
+                        struggled to coordinate across different priorities and geographies. They wanted to 
+                        collaborate but lacked shared frameworks for decision-making and communication.
+                    </p>
+                    <p style="margin-bottom: 1rem;">
+                        <strong>What We Did:</strong> Over 6 months, we facilitated shared decision-making practices, 
+                        created communication protocols, designed how funders could learn from each other without 
+                        centralizing decision-making, and built capacity for distributed coordination.
+                    </p>
+                    <p>
+                        <strong>Outcomes:</strong> The network renewed their partnership commitment. Decision quality 
+                        improved. Participants reported feeling less isolated, more connected to shared mission. They 
+                        chose to continue the partnership and expand their collaboration.
+                    </p>
+                </div>
+
+                <div style="background: var(--white); padding: 2rem; border: 1px solid var(--border);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">What "Accompaniment" Means</h3>
+                    <p style="margin-bottom: 1rem;">
+                        We don't parachute in with recommendations. We work <em>alongside</em> your team—listening 
+                        more than telling, building your capacity rather than creating dependency, treating the work 
+                        itself as the practice where transformation happens.
+                    </p>
+                    <p>
+                        After we leave, you have not just new practices, but the relational foundation and distributed 
+                        understanding to evolve them. The transformation stays because your people own it.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRESS CHECKPOINT: 50% COMPLETE -->
+
+        <!-- NETWORK -->
+        <section id="network">
+            <h2>Our Network of Practitioners</h2>
+            <p class="section-intro">
+                We're not lone operators. We coordinate a network of skilled practitioners who bring diverse expertise. 
+                Depending on what your work needs, we assemble teams with the right combination of capacities.
+            </p>
+
+            <div class="three-col">
+                <div class="col-item">
+                    <h3>Facilitation & Dialogue</h3>
+                    <p>
+                        Practitioners trained in circle, World Café, Theory U, Appreciative Inquiry, Art of Hosting, 
+                        and other participatory methods. Experts at creating containers where groups can think together differently.
+                    </p>
+                </div>
+
+                <div class="col-item">
+                    <h3>Conflict & Mediation</h3>
+                    <p>
+                        Practitioners skilled in restorative justice, nonviolent communication, transformative mediation. 
+                        People who can help groups work productively with tension instead of avoiding or escalating it.
+                    </p>
+                </div>
+
+                <div class="col-item">
+                    <h3>Governance & Coordination</h3>
+                    <p>
+                        Practitioners experienced with sociocracy, holacracy, consent-based decision-making, distributed 
+                        governance. People who understand both the mechanics and the relational dimensions of shared power.
+                    </p>
+                </div>
+
+                <div class="col-item network-grid-hidden">
+                    <h3>Learning & Development</h3>
+                    <p>
+                        Practitioners who design learning experiences, cohort-based programs, peer learning structures. 
+                        People who know how adults learn and how to create conditions for collective skill development.
+                    </p>
+                </div>
+
+                <div class="col-item network-grid-hidden">
+                    <h3>Research & Sensemaking</h3>
+                    <p>
+                        Practitioners skilled in participatory action research, systems mapping, warm data methodology. 
+                        People who help groups understand their own patterns and generate knowledge together.
+                    </p>
+                </div>
+
+                <div class="col-item network-grid-hidden">
+                    <h3>Communications & Story</h3>
+                    <p>
+                        Practitioners who work with narrative, storytelling, strategic communications. People who help 
+                        groups articulate their work, find their voice, and communicate impact.
+                    </p>
+                </div>
+
+                <div class="show-more-btn">
+                    <button id="network-show-more">
+                        <span class="text">Show 3 More Capabilities</span>
+                        <span class="icon"> ↓</span>
+                    </button>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; font-style: italic; color: var(--text-light);">
+                When you work with Limicelia, you're not just getting Carol and BK—you're accessing a network of 
+                practitioners who we've worked alongside for years, people we trust to show up with skill and integrity.
+            </p>
+        </section>
+
+        <!-- LINEAGE -->
+        <section id="lineage" class="bg-white">
+            <h2>Our Lineage</h2>
+            <p class="section-intro">
+                We don't work in a vacuum. Our practice draws from multiple traditions, lineages, and movements. 
+                We honor these roots while adapting practices to contemporary contexts.
+            </p>
+
+            <div class="traditions-grid">
+                <span class="tradition-tag">Participatory Action Research</span>
+                <span class="tradition-tag">Community Organizing</span>
+                <span class="tradition-tag">Systems Thinking</span>
+                <span class="tradition-tag">Warm Data</span>
+                <span class="tradition-tag">Restorative Justice</span>
+                <span class="tradition-tag">Art of Hosting</span>
+                <span class="tradition-tag">Theory U</span>
+                <span class="tradition-tag">Sociocracy</span>
+                <span class="tradition-tag">Nonviolent Communication</span>
+                <span class="tradition-tag">Contemplative Practice</span>
+                <span class="tradition-tag">Popular Education</span>
+                <span class="tradition-tag">Emergent Strategy</span>
+                <span class="tradition-tag">Gift Economy</span>
+                <span class="tradition-tag">Commons Governance</span>
+            </div>
+
+            <div class="comparison-grid" style="margin-top: 3rem;">
+                <div class="comparison-item">
+                    <h4 style="color: var(--primary);">What We're Moving Away From</h4>
+                    <ul>
+                        <li>Expert-driven consulting</li>
+                        <li>Quick-fix solutions</li>
+                        <li>Extractive engagement models</li>
+                        <li>One-size-fits-all frameworks</li>
+                        <li>Dependency on consultants</li>
+                        <li>Separation of head, heart, body</li>
+                        <li>Ignoring power dynamics</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-item">
+                    <h4 style="color: var(--primary);">What We're Moving Toward</h4>
+                    <ul>
+                        <li>Collaborative accompaniment</li>
+                        <li>Sustained transformation</li>
+                        <li>Regenerative relationships</li>
+                        <li>Context-specific adaptation</li>
+                        <li>Building internal capacity</li>
+                        <li>Integrated ways of knowing</li>
+                        <li>Centering justice and equity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODALITIES -->
+        <section id="modalities">
+            <h2>Our Modalities</h2>
+            <p class="section-intro">
+                Different situations require different approaches. We draw from a rich toolkit of practices, 
+                selecting and adapting based on what the moment requires.
+            </p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Circle & Dialogue Practice</h4>
+                            <p class="accordion-question">How do we create genuine listening and speaking?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Structured conversation formats that shift groups from debate to dialogue.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Circle Process (Peacemaking Circles)</li>
+                                <li>World Café</li>
+                                <li>Fishbowl Conversations</li>
+                                <li>Council Practice</li>
+                                <li>Appreciative Inquiry</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Systems & Complexity Work</h4>
+                            <p class="accordion-question">How do we see the whole, not just the parts?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Methods for mapping relationships, feedback loops, and emergent patterns.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Causal Loop Diagrams</li>
+                                <li>Network Mapping</li>
+                                <li>Theory U</li>
+                                <li>Warm Data Labs (Nora Bateson)</li>
+                                <li>Pattern Languages</li>
+                                <li>Viable Systems Model</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Decision-Making & Governance</h4>
+                            <p class="accordion-question">How do we share power without gridlock or chaos?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Structures for distributed decision-making and shared governance.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Sociocracy (Circles & Consent)</li>
+                                <li>Holacracy</li>
+                                <li>Consensus Process</li>
+                                <li>Consent-Based Decision-Making</li>
+                                <li>Delegation Poker</li>
+                                <li>Advice Process</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Conflict Transformation</h4>
+                            <p class="accordion-question">Can conflict be a doorway instead of a dead-end?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Approaches that work with tension productively, not avoiding or escalating.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Nonviolent Communication (NVC)</li>
+                                <li>Restorative Justice Circles</li>
+                                <li>Transformative Mediation</li>
+                                <li>Difficult Conversations Framework</li>
+                                <li>Conflict Resilience Practices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Play, Games & Emergence</h4>
+                            <p class="accordion-question">Does serious work always have to feel serious?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Structured play and games that create safe experimentation spaces.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Serious Games for Social Change</li>
+                                <li>Simulation Games</li>
+                                <li>Liberating Structures (33 microstructures)</li>
+                                <li>LEGO Serious Play</li>
+                                <li>Improv for Organizations</li>
+                                <li>Gamestorming</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Story, Narrative & Meaning</h4>
+                            <p class="accordion-question">What stories are we telling ourselves about what's possible?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Practices for collective storytelling and narrative shift.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Collective Story Harvest</li>
+                                <li>Story Circles</li>
+                                <li>Journey Mapping</li>
+                                <li>Future Histories</li>
+                                <li>Oral History Projects</li>
+                                <li>Narrative Intelligence Work</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Embodied & Arts-Based</h4>
+                            <p class="accordion-question">Do our bodies know things our minds don't?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Somatic and creative practices that access embodied wisdom.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Social Presencing Theater</li>
+                                <li>Theatre of the Oppressed</li>
+                                <li>Constellation Work (Systemic Constellations)</li>
+                                <li>Internal Family Systems (IFS) for Organizations</li>
+                                <li>Authentic Relating</li>
+                                <li>Body-Based Decision Making</li>
+                                <li>Visual Harvesting</li>
+                                <li>Ritual Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Community Research & Learning</h4>
+                            <p class="accordion-question">Who gets to be the "expert" on our experience?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Participatory approaches that center lived experience.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Popular Education (Freirian)</li>
+                                <li>Learning Circles</li>
+                                <li>Action Learning Sets</li>
+                                <li>Communities of Practice</li>
+                                <li>Citizen Science</li>
+                                <li>Asset-Based Community Development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Open Space & Self-Organization</h4>
+                            <p class="accordion-question">Could we trust the group to organize itself?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Frameworks for emergence and distributed coordination.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Open Space Technology</li>
+                                <li>Unconferences</li>
+                                <li>Emergent Strategy Practices</li>
+                                <li>Swarm Intelligence</li>
+                                <li>Self-Organizing Teams</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <h4>Governance of the Commons</h4>
+                            <p class="accordion-question">How do we care for what belongs to everyone?</p>
+                        </div>
+                        <div class="accordion-icon">+</div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Models for stewarding shared resources collectively.</p>
+                            <strong>Examples:</strong>
+                            <ul>
+                                <li>Ostrom's Principles</li>
+                                <li>Time Banking</li>
+                                <li>Gift Economy Practices</li>
+                                <li>Mutual Aid Networks</li>
+                                <li>Cooperative Governance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESOURCES -->
+        <section id="resources" class="bg-white">
+            <h2>How We Handle Resources</h2>
+            <p class="section-intro">
+                We need resources to sustain this work. And we're committed to accessibility for those building capacity. How do we honor both?
+            </p>
+
+            <div class="philosophy-points" style="margin-top: 3rem;">
+                <div class="philosophy-point">
+                    <h4>Fee-for-Service Work</h4>
+                    <p>Organizations with resource capacity pay for accompaniment at rates that reflect the deep, sustained nature of the work. These fees support practitioner compensation, infrastructure, subsidizing accessibility, and building commons resources.</p>
+                </div>
+                
+                <div class="philosophy-point">
+                    <h4>Sliding Scale</h4>
+                    <p>Grassroots organizations and community groups access services on a sliding scale based on actual capacity. We ask what's genuinely sustainable for you.</p>
+                </div>
+                
+                <div class="philosophy-point">
+                    <h4>Gift-Based Offerings</h4>
+                    <p>Monthly practice spaces and some workshops operate on gift economy principles. Come if called. Give what you can. This isn't charity; it's reciprocity operating on different timelines.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">What We Ask</h3>
+                <p style="margin-bottom: 1rem;"><strong>If you have resources:</strong> Pay what allows practitioners to sustain this work and creates capacity for others.</p>
+                <p style="margin-bottom: 1rem;"><strong>If you're building capacity:</strong> Be honest about what's sustainable. We'll find a way that honors both.</p>
+                <p><strong>For everyone:</strong> Recognize that economic relationships are relational. How we handle money together matters.</p>
+            </div>
+
+            <h3 style="margin-top: 3rem; color: var(--primary);">What We're Creating</h3>
+            <p style="margin-bottom: 2rem;">
+                Beyond consulting, we're documenting and sharing what we learn about transformation. These tools support both our practitioners and the wider movement.
+            </p>
+
+            <div class="philosophy-points">
+                <div class="philosophy-point">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">📻 Warm Data Stories Podcast</h4>
+                    <p style="margin-bottom: 0.5rem;">
+                        Conversations with funders, practitioners, and thinkers about what's actually happening in organizational transformation and regenerative work. Exploring warm data methodology in practice.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Free via Substack | Monthly episodes | Join the community
+                    </p>
+                </div>
+
+                <div class="philosophy-point">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🛠️ Accompaniment Framework Toolkit</h4>
+                    <p style="margin-bottom: 0.5rem;">
+                        Practical guide to how we structure organizational consulting. Templates, tools, and step-by-step practices you can adapt for your own work. From assessment through integration.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Available on sliding scale | Digital guide + templates + worksheets
+                    </p>
+                </div>
+
+                <div class="philosophy-point">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">📚 Research & Writing</h4>
+                    <p style="margin-bottom: 0.5rem;">
+                        Carol's research on funder networks, distributed decision-making, warm data methodology, and alternative economics. Essays and frameworks shared openly with the movement.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Free essays | Published via Starter Cultures & Substack | Subscribe to stay updated
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRESENT OF WORK -->
+        <section id="present-of-work" class="bg-white" style="padding: 4rem 1.5rem; border-top: 2px solid var(--border); margin: 4rem 0 0 0;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2>About Present of Work</h2>
+                <p class="section-intro">
+                    Present of Work is a learning network reimagining work as sacred practice rather than industrial extraction. The name holds three meanings: being fully present, working in the present moment rather than anxious future projection, and work as gift—an offering that strengthens the web of life.
+                </p>
+
+                <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 2rem;">The Ecosystem</h3>
+                <div class="three-col">
+                    <div class="col-item">
+                        <h4 style="color: var(--accent);">🌱 Soil/Commons</h4>
+                        <p>Free resources accessible to all: monthly practice spaces (CommDojo, Conflict Kinship Dojo, Soul Space), open-source toolkits, peer learning podcasts, community calls. Gift economy accessible.</p>
+                    </div>
+                    <div class="col-item">
+                        <h4 style="color: var(--accent);">🪢 Knots (Learning Guilds)</h4>
+                        <p>Intensive 8-12 week programs: Organizational Emergence Guild, Economic Livelihood Guild, Warm Data Guild, Communications Guild. Deep skill development in cohorts.</p>
+                    </div>
+                    <div class="col-item">
+                        <h4 style="color: var(--accent);">🕸️ Social Web (Labs)</h4>
+                        <p>ATEM (Alternatives to Extractive Methods) Labs exploring systems transformation. Current: Reimagining Philanthropy—bringing together funders, recipients, and intermediaries.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1rem;">How Limicelia and Present of Work Work Together</h3>
+                <p style="max-width: 900px; line-height: 1.8; margin-bottom: 2rem;">
+                    Limicelia is a nonprofit that does fee-for-service organizational transformation work. Present of Work is a learning network that operates gift-based communities and pursues grants for capacity building programs.
+                </p>
+                <p style="max-width: 900px; line-height: 1.8; margin-bottom: 2rem;">
+                    Resources from Limicelia's consulting work flow to support Present of Work's gift-based offerings and accessibility. This structure allows both to thrive: Limicelia can ask organizations with capacity to support the work sustainably, while Present of Work can offer learning on gift and sliding scale principles. It's one integrated practice, aligned economics.
+                </p>
+
+                <div class="highlight-box">
+                    <p style="margin: 0; text-align: center;">
+                        <strong>Learn more:</strong> 
+                        <a href="https://presentofwork.org" target="_blank" rel="noopener">presentofwork.org</a> | 
+                        Monthly community calls open to all | 
+                        Apply for learning guilds
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CONTACT - DUAL CTA -->
+    <div class="cta-section alt" id="contact">
+        <div class="contact-container">
+            <h2>Let's Work Together</h2>
+            <p>Choose the entry point that matches where you are.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>🏢 For Organizations</h3>
+                    <p>
+                        Ready to build distributed decision-making capacity? Let's explore what accompaniment might look like for your work.
+                    </p>
+                    <a href="/cdn-cgi/l/email-protection#d3bbb6bfbfbc93bfbabebab0b6bfbab2fdbca1b4" class="btn">Start Conversation</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>🤝 For Practitioners</h3>
+                    <p>
+                        Seeking community, skill development, and sustainable livelihood? Join our monthly practice spaces or explore deeper learning opportunities.
+                    </p>
+                    <a href="https://presentofwork.org" target="_blank" rel="noopener" class="btn">Explore Community</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Limicelia</strong> — Accompanying transformation through threshold moments</p>
+        <p style="margin-top: 1rem;">Stewarded by Carol Xu, Ph.D. & BK Dubé</p>
+        <p style="margin-top: 1rem;">
+            Connected to <a href="https://presentofwork.org" target="_blank" rel="noopener">Present of Work</a> | 
+            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Starter Cultures</a>
+        </p>
+        <p style="margin-top: 1rem;">
+            <a href="https://warmdatastories.substack.com" target="_blank" rel="noopener">Podcast</a> | 
+            <a href="#resources">Toolkit</a> | 
+            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Updates</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Work globally. Gift economy principles. No one turned away.</p>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">© 2025 Limicelia</p>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+        
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        
+        // Close menu when clicking overlay
+        navOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Close menu when clicking a nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Close menu on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Active Nav
+        const sections = document.querySelectorAll('section[id], div[id="contact"]');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        function setActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveNav);
+        setActiveNav();
+
+        // Accordion
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Expandable Founder Cards
+        document.querySelectorAll('.expand-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-expand') + '-bio';
+                const content = document.getElementById(targetId);
+                const card = this.closest('.founder-card');
+                const textSpan = this.querySelector('.text');
+                
+                if (content.classList.contains('active')) {
+                    content.classList.remove('active');
+                    this.classList.remove('active');
+                    textSpan.textContent = 'Read More';
+                    card.classList.add('compact');
+                } else {
+                    content.classList.add('active');
+                    this.classList.add('active');
+                    textSpan.textContent = 'Read Less';
+                    card.classList.remove('compact');
+                }
+            });
+        });
+
+        // Network Show More
+        const networkShowMoreBtn = document.getElementById('network-show-more');
+        if (networkShowMoreBtn) {
+            networkShowMoreBtn.addEventListener('click', function() {
+                const hiddenItems = document.querySelectorAll('.network-grid-hidden');
+                const textSpan = this.querySelector('.text');
+                const iconSpan = this.querySelector('.icon');
+                
+                hiddenItems.forEach(item => {
+                    item.classList.toggle('visible');
+                });
+                
+                if (hiddenItems[0].classList.contains('visible')) {
+                    textSpan.textContent = 'Show Less';
+                    iconSpan.textContent = ' ↑';
+                } else {
+                    textSpan.textContent = 'Show 3 More Capabilities';
+                    iconSpan.textContent = ' ↓';
+                }
+            });
+        }
+
+        // Back to Top
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        
