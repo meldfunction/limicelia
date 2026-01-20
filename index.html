@@ -1699,9 +1699,18 @@
         const navLinks = document.querySelector('.nav-links');
         const navOverlay = document.querySelector('.nav-overlay');
         
-        function toggleMobileMenu() {
+        console.log('Mobile menu button:', mobileMenuBtn);
+        console.log('Nav links:', navLinks);
+        console.log('Nav overlay:', navOverlay);
+        
+        function toggleMobileMenu(e) {
+            console.log('Toggle menu clicked');
+            e.preventDefault();
+            e.stopPropagation();
+            
             if (navLinks) {
                 navLinks.classList.toggle('active');
+                console.log('Nav links active:', navLinks.classList.contains('active'));
             }
             if (navOverlay) {
                 navOverlay.classList.toggle('active');
@@ -1715,6 +1724,7 @@
         }
         
         function closeMobileMenu() {
+            console.log('Close menu');
             if (navLinks) {
                 navLinks.classList.remove('active');
             }
@@ -1725,7 +1735,11 @@
         }
         
         if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            console.log('Adding click listener to mobile menu button');
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu, false);
+            mobileMenuBtn.addEventListener('touchstart', toggleMobileMenu, false);
+        } else {
+            console.error('Mobile menu button not found!');
         }
         
         // Close menu when clicking overlay
@@ -1840,4 +1854,9 @@
             }
         });
 
-        
+                backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
