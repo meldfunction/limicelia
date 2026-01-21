@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Present of Work is a learning commons exploring work as participation in life on earth. Retrieving ancient patterns - gift economy, peer learning, collective stewardship - for transformation practitioners.">
+    <title>Present of Work - Learning Commons</title>
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Present of Work - Learning Commons">
+    <meta property="og:description" content="A third space for practitioners exploring work as participation in life on earth, not extraction from it.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://limicelia.org/present-of-work">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #0d5c63;
+            --secondary: #7d8e7f;
+            --accent: #c96a3d;
+            --energy: #e8a754;
+            --text: #1a1a1a;
+            --text-light: #5a5a5a;
+            --bg: #f7f3ed;
+            --white: #ffffff;
+            --border: #e0ddd8;
+            --forest: #2d4a3e;
+            --nav-height: 70px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 2rem);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 2.5rem 1rem; }
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.3; color: var(--primary); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--primary); margin-bottom: 2rem; }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin-bottom: 1rem; }
+        h4 { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--primary); margin-bottom: 0.75rem; }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 1.5rem 4rem;
+            background: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 3rem 1rem 2rem; }
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .section-intro {
+            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+            line-height: 1.8;
+            max-width: 900px;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--white);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            margin: 2rem auto;
+            max-width: 900px;
+            border-left: 4px solid var(--energy);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .three-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            margin: 2rem 0;
+        }
+
+        .col-item {
+            background: var(--white);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .col-item h4 {
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--accent); text-decoration: underline; }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .bg-white {
+            background: var(--white);
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        em {
+            font-style: italic;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Limicelia</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/media">Share</a></li>
+                <li><a href="https://startercultures.substack.com" target="_blank">Substack</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <h1>Present of Work</h1>
+            <p>
+                A learning commons for practitioners exploring work as participation in life on earth—not extraction from it. Third space where we practice gift economy, peer learning, and collective stewardship as lived experience.
+            </p>
+        </section>
+
+        <!-- WHAT IS WORK -->
+        <section id="what-is-work" style="background: var(--bg); padding: 4rem 1.5rem;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="text-align: center;">Three Questions About Work</h2>
+                
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">What is work when it's alive?</h3>
+                    <p style="line-height: 1.8; margin-bottom: 1rem;">
+                        Not occupational labor that some enjoy or endure, but work that makes you MORE yourself, more connected, more capable. Work where you learn and grow. Work that serves something larger while nourishing who you are.
+                    </p>
+                    <p style="line-height: 1.8; font-style: italic; color: var(--text-light);">
+                        Ancient traditions called this different things: <em>Kammathana</em> (Buddhist - work as occupation of mind, spiritual practice), <em>Ayni</em> (Andean - work as reciprocal community weaving), <em>Gelassenheit</em> (Amish - work as yielding to collective need).
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">What is work when it's submerging?</h3>
+                    <p style="line-height: 1.8; margin-bottom: 1rem;">
+                        The traditions that saw work as extension of life on earth. Work as craft and calling. The understanding that how we work shapes who we become.
+                    </p>
+                    <p style="line-height: 1.8;">
+                        <strong>We've fragmented the question:</strong> Reimagining the world (SDGs) without reimagining work. Reinventing organizations (new structures) without reimagining ourselves. Transforming systems without transforming how we show up.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">What holds us back from living work?</h3>
+                    <p style="line-height: 1.8;">
+                        The belief that work is separate from life. That inner development happens over here, organizational change over there, systems transformation somewhere else entirely. That we can change the world without changing how we work.
+                    </p>
+                </div>
+
+                <div class="highlight-box" style="text-align: center; margin-top: 3rem;">
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin: 0;">
+                        <strong>Present of Work begins here:</strong> Work is the bridge. Not separate from transformation but the site of it. How we work shapes who we become. And who we become shapes what's possible.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMMONS + MCLUHAN -->
+        <section id="the-commons" class="bg-white" style="padding: 4rem 1.5rem;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2>A Counter-Environment to Extractive Professional Culture</h2>
+                
+                <p class="section-intro">
+                    Present of Work is a learning commons—a counter-environment where practitioners experimenting with transformation work gather, practice, and learn together. Like fish discovering water, we can't see our work culture until we step into a different stream. <strong>This is that different stream.</strong>
+                </p>
+
+                <div style="max-width: 900px; margin: 2rem auto; padding: 2rem; background: var(--white); border-left: 4px solid var(--energy); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                    <p style="margin-bottom: 1rem;">
+                        Think of it as a third space—not work, not home, but where practitioners gather to experiment. Like a park where some practice tai chi, others hold dialogue circles, still others test new organizing models. Not owned by any one organization; <strong>collectively stewarded as commons.</strong>
+                    </p>
+                    <p style="margin: 0; font-weight: 500; color: var(--primary);">
+                        The name holds three meanings: work as <em>present</em> (gift), being <em>present</em> (attentive), making alternatives <em>present</em> (manifest by embodying them).
+                    </p>
+                </div>
+                
+                <p style="max-width: 900px; line-height: 1.8; margin: 2rem auto;">
+                    <strong>The medium is the message.</strong> The commons doesn't teach gift economy—it <em>is</em> gift-stewarded. It doesn't explain peer learning—practitioners <em>practice</em> as peers. It doesn't advocate for commons governance—it <em>operates</em> as commons. <strong>The structure itself teaches</strong> by existing as a living alternative.
+                </p>
+
+                <p style="max-width: 900px; line-height: 1.8; margin: 2rem auto;">
+                    This isn't random organizing—it's deliberate positioning at the <strong>edge</strong> where different systems meet. Nonprofits ↔ Social enterprises. Practitioners ↔ Organizations. Sacred ↔ Economic. Individual ↔ Collective. Edges are the most fertile zones. The commons sits at that boundary, creating contrast that makes dominant patterns visible and therefore changeable.
+                </p>
+
+                <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1.5rem;">What You Might Find in the Commons</h3>
+                <p style="max-width: 900px; line-height: 1.8; margin-bottom: 2rem; font-style: italic; color: var(--text-light);">
+                    Different experiences emerge in different seasons, stewarded by various practitioners. The commons itself is collectively maintained.
+                </p>
+                
+                <div class="three-col">
+                    <div class="col-item">
+                        <h4 style="color: var(--accent);">🌱 Always Accessible</h4>
+                        <p><strong>The base layer:</strong> Monthly practice spaces (CommDojo, Conflict Kinship Dojo, Soul Space), open conversations, peer learning circles, shared tools. Like public paths in a park—anyone can walk them. Gift-stewarded, freely accessible.</p>
+                    </div>
+                    <div class="col-item">
+                        <h4 style="color: var(--accent);">🪢 Seasonal Intensives</h4>
+                        <p><strong>Concentrated practice:</strong> When practitioners organize learning cohorts—8-12 week deep dives in specific territories. Retrieving the guild tradition for transformation work. Emerge based on need and collective energy.</p>
+                    </div>
+                    <div class="col-item">
+                        <h4 style="color: var(--accent);">🕸️ Edge Encounters</h4>
+                        <p><strong>Movement connections:</strong> Transformation labs where the commons meets wider movements. Cross-pollination with other communities experimenting with new organizing models.</p>
+                    </div>
+                </div>
+
+                <p style="max-width: 900px; line-height: 1.8; margin: 2.5rem auto 0; text-align: center;">
+                    <a href="/blog/the-medium-is-the-teaching" style="color: var(--primary); text-decoration: underline; font-weight: 500;">Read more: Why organizing as commons creates transformation →</a>
+                </p>
+
+                <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1rem;">How Structure Shapes Practitioners (And Therefore Organizations)</h3>
+                
+                <div style="max-width: 900px; margin: 0 auto 2rem;">
+                    <div style="padding: 2rem; background: var(--bg); border-radius: 4px; border-left: 4px solid var(--primary);">
+                        <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                            <strong>McLuhan's insight:</strong> "We shape our tools, and thereafter our tools shape us." If we organize as hierarchy, we create hierarchical practitioners. If we organize as market, we create market-minded practitioners. If we organize as commons, we create commoners.
+                        </p>
+                        <p style="line-height: 1.8; margin: 0;">
+                            Present of Work is organized as commons because <strong>the structure shapes what practitioners embody.</strong> When you participate in gift-stewarded space, peer learning, and distributed authority—not as concepts but as lived practice—you carry that in your nervous system. That's what you bring to organizational work.
+                        </p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1rem;">How Limicelia Participates</h3>
+                <p style="max-width: 900px; line-height: 1.8; margin-bottom: 1.5rem;">
+                    <strong>Limicelia is one practitioner stewarding this commons, among others.</strong> We help maintain infrastructure, participate in learning, bring what we discover to consulting work. It's a living cycle:
+                </p>
+
+                <div style="max-width: 900px; margin: 0 auto 2rem;">
+                    <div style="padding: 1.5rem; background: var(--white); border: 2px solid var(--border); border-radius: 4px;">
+                        <p style="line-height: 1.8; margin: 0;">
+                            <strong>Organizations with capacity</strong> hire Limicelia for transformation work → <strong>Consulting revenue</strong> helps steward commons infrastructure → <strong>Practitioners</strong> gather, learn, experiment in the commons → <strong>Embodied experience</strong> shapes how we work with organizations → <strong>Transformation spreads</strong> through practice, not ideology.
+                        </p>
+                    </div>
+                </div>
+
+                <p style="max-width: 900px; line-height: 1.8; margin-bottom: 2rem;">
+                    When Limicelia practitioners work with your organization, we bring lived experience from this commons. We've practiced distributed authority with peers, participated in gift-stewarded spaces, engaged in collective governance. Not as theory but as embodied knowing. <strong>The commons shapes us; we bring that shaping to the work. This is how transformation spreads—through practitioners shaped by different structures.</strong>
+                </p>
+
+                <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1rem;">Two Different Paths</h3>
+                
+                <div class="three-col" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 2rem;">
+                    <div class="col-item">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem;">If You're an Organization</h4>
+                        <p style="margin-bottom: 1rem;">
+                            Looking for accompaniment through transformation? Capacity building for distributed decision-making? Support navigating complexity?
+                        </p>
+                        <p style="margin: 0; font-weight: 500;">
+                            → <strong>Hire Limicelia specifically</strong> for consulting work. Fee-for-service with sliding scale based on capacity.
+                        </p>
+                    </div>
+
+                    <div class="col-item">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem;">If You're a Practitioner</h4>
+                        <p style="margin-bottom: 1rem;">
+                            Seeking peer learning? Experimentation with new models? Space to develop craft alongside others? Want to be shaped by structures that embody what you teach?
+                        </p>
+                        <p style="margin: 0; font-weight: 500;">
+                            → <strong>Participate in Present of Work</strong> as commons. Join open spaces, propose what wants to emerge, connect with peers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 3rem;">
+                    <p style="margin: 0; text-align: center;">
+                        <strong>Step into the different stream:</strong> 
+                        <a href="https://presentofwork.org" target="_blank" rel="noopener">presentofwork.org</a> | 
+                        Monthly community calls open to all | 
+                        See what's emerging this season
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Present of Work</strong> — Learning commons for transformation practitioners</p>
+        <p style="margin-top: 1rem;">Collectively stewarded | <a href="/">Limicelia</a> is one participant among others</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://presentofwork.org" target="_blank" rel="noopener">Main Site</a> | 
+            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Substack</a> | 
+            <a href="/blog/the-medium-is-the-teaching">Blog</a> |
+            <a href="/media">Share</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Gift-stewarded commons. Open participation.</p>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">© 2025 Present of Work Commons</p>
+    </footer>
+</body>
+</html>
