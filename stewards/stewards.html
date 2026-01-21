@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limicelia Stewards Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .documents {
+            display: none;
+        }
+
+        .documents.show {
+            display: block;
+        }
+
+        .doc-section {
+            margin-bottom: 32px;
+        }
+
+        .doc-section h2 {
+            font-size: 20px;
+            color: #2d3748;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .doc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .doc-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: #f7fafc;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2d3748;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .doc-item:hover {
+            background: #edf2f7;
+            border-color: #667eea;
+            transform: translateX(4px);
+        }
+
+        .doc-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .doc-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .doc-description {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .footer {
+            padding: 24px 40px;
+            background: #f7fafc;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+        }
+
+        @media (max-width: 640px) {
+            .content {
+                padding: 24px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .doc-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .doc-icon {
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Limicelia Stewards Portal</h1>
+            <p>Strategic documentation for Carol and BK</p>
+        </div>
+
+        <div class="content">
+            <div id="loginForm" class="login-form">
+                <div class="error-message" id="errorMessage">
+                    Incorrect password. Please try again.
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Enter Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="Enter password to access documents"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <button type="button" class="submit-btn" onclick="checkPassword()">
+                    Access Portal
+                </button>
+            </div>
+
+            <div id="documents" class="documents">
+                <div class="doc-section">
+                    <h2>Core Documents</h2>
+                    <div class="doc-list">
+                        <a href="/stewards/00-master-index.md" class="doc-item">
+                            <div class="doc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                                </svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-title">Master Index</div>
+                                <div class="doc-description">Overview of all strategic documentation and frameworks</div>
+                            </div>
+                        </a>
+
+                        <a href="/stewards/co-steward-constitution.md" class="doc-item">
+                            <div class="doc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                                </svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-title">Co-Steward Constitution</div>
+                                <div class="doc-description">How Carol and BK collaborate - shared framings and individual autonomy</div>
+                            </div>
+                        </a>
+
+                        <a href="/stewards/limicelia-strategy-canvases.md" class="doc-item">
+                            <div class="doc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                                </svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-title">Limicelia Strategy Canvases</div>
+                                <div class="doc-description">Complete strategy, product framework, customer discovery, and revenue scenarios</div>
+                            </div>
+                        </a>
+
+                        <a href="/stewards/strategic-essays.md" class="doc-item">
+                            <div class="doc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                </svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-title">Strategic Essays</div>
+                                <div class="doc-description">Narrative explanations for advisors on strategy, integration, and approach</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="doc-section">
+                    <h2>Internal Documents</h2>
+                    <div class="doc-list">
+                        <a href="/stewards/private-collaboration-agreement.md" class="doc-item">
+                            <div class="doc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                </svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-title">Private Collaboration Agreement</div>
+                                <div class="doc-description">Internal operational agreement - financials, conflict resolution, exit protocols</div>
+                            </div>
+                        </a>
+
+                        <a href="/stewards/present-of-work-canvas.md" class="doc-item">
+                            <div class="doc-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div class="doc-info">
+                                <div class="doc-title">Present of Work Canvas</div>
+                                <div class="doc-description">Knowledge commons framework - provisional until organizing team forms</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Last Updated: January 21, 2026 | Limicelia Co-Stewards: Carol & BK
+        </div>
+    </div>
+
+    <script>
+        const CORRECT_PASSWORD = "growing2026#";
+
+        document.getElementById('password').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+            const loginForm = document.getElementById('loginForm');
+            const documents = document.getElementById('documents');
+
+            if (passwordInput.value === CORRECT_PASSWORD) {
+                loginForm.style.display = 'none';
+                documents.classList.add('show');
+                errorMessage.classList.remove('show');
+                
+                // Store authentication in sessionStorage (clears on browser close)
+                sessionStorage.setItem('stewardsAuth', 'true');
+            } else {
+                errorMessage.classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        }
+
+        // Check if already authenticated in this session
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('stewardsAuth') === 'true') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('documents').classList.add('show');
+            } else {
+                document.getElementById('password').focus();
+            }
+        });
+    </script>
+</body>
+</html>
