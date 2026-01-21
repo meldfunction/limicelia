@@ -1,0 +1,12 @@
+stewards.html | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
+stewards.html | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
+stewards.html | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
+stewards.html | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
+stewards.html | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
+stewards.html | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
+strategic-essays.md | /stewards/ -> /limicelia/stewards/
+private-collaboration-agreement.md | /stewards/ -> /limicelia/stewards/
+present-of-work-canvas.md | /stewards/ -> /limicelia/stewards/
+limicelia-strategy-canvases.md | /stewards/ -> /limicelia/stewards/
+co-steward-constitution.md | /stewards/ -> /limicelia/stewards/
+00-master-index.md | /stewards/ -> /limicelia/stewards/
