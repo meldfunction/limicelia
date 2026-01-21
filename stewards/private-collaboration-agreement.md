@@ -430,11 +430,11 @@ Date: ______________
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/limiceliaviewer.html?doc=/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Co-Steward Constitution](/limiceliaviewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - Public articulation of collaboration
-- [Limicelia Strategy Canvases](/limiceliaviewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
-- [Strategic Essays](/limiceliaviewer.html?doc=/limicelia/stewards/strategic-essays.md) - Narrative explanations
-- [Present of Work Canvas](/limiceliaviewer.html?doc=/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
+- [Master Index](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Co-Steward Constitution](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - Public articulation of collaboration
+- [Limicelia Strategy Canvases](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
+- [Strategic Essays](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/strategic-essays.md) - Narrative explanations
+- [Present of Work Canvas](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
 
 ---
 

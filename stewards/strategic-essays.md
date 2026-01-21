@@ -85,11 +85,11 @@ The privacy section also signals to practitioners that Present of Work won't req
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/limiceliaviewer.html?doc=/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Co-Steward Constitution](/limiceliaviewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
-- [Limicelia Strategy Canvases](/limiceliaviewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy and execution framework
-- [Private Collaboration Agreement](/limiceliaviewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
-- [Present of Work Canvas](/limiceliaviewer.html?doc=/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
+- [Master Index](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Co-Steward Constitution](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
+- [Limicelia Strategy Canvases](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy and execution framework
+- [Private Collaboration Agreement](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
+- [Present of Work Canvas](/limiceliaviewer.html?doc=viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
 
 ---
 

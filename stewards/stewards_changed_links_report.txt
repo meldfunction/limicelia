@@ -1,36 +1,36 @@
-00-master-index.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
-00-master-index.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
-00-master-index.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
-00-master-index.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
-00-master-index.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
-co-steward-constitution.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
-co-steward-constitution.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
-co-steward-constitution.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
-co-steward-constitution.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
-co-steward-constitution.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
-limicelia-strategy-canvases.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
-limicelia-strategy-canvases.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
-limicelia-strategy-canvases.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
-limicelia-strategy-canvases.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
-limicelia-strategy-canvases.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
-present-of-work-canvas.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
-present-of-work-canvas.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
-present-of-work-canvas.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
-present-of-work-canvas.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
-present-of-work-canvas.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
-private-collaboration-agreement.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
-private-collaboration-agreement.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
-private-collaboration-agreement.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
-private-collaboration-agreement.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
-private-collaboration-agreement.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
-strategic-essays.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
-strategic-essays.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
-strategic-essays.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
-strategic-essays.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
-strategic-essays.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
 stewards.html | viewer.html?doc=/limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md (ensured doc-item)
 stewards.html | viewer.html?doc=/limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md (ensured doc-item)
 stewards.html | viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md (ensured doc-item)
 stewards.html | viewer.html?doc=/limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md (ensured doc-item)
 stewards.html | viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md (ensured doc-item)
 stewards.html | viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md (ensured doc-item)
+strategic-essays.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
+strategic-essays.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
+strategic-essays.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
+strategic-essays.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
+strategic-essays.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
+private-collaboration-agreement.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
+private-collaboration-agreement.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
+private-collaboration-agreement.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
+private-collaboration-agreement.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
+private-collaboration-agreement.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
+present-of-work-canvas.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
+present-of-work-canvas.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
+present-of-work-canvas.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
+present-of-work-canvas.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
+present-of-work-canvas.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
+limicelia-strategy-canvases.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
+limicelia-strategy-canvases.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
+limicelia-strategy-canvases.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
+limicelia-strategy-canvases.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
+limicelia-strategy-canvases.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
+co-steward-constitution.md | /limicelia/stewards/00-master-index.md -> viewer.html?doc=/limicelia/stewards/00-master-index.md
+co-steward-constitution.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
+co-steward-constitution.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
+co-steward-constitution.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
+co-steward-constitution.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
+00-master-index.md | /limicelia/stewards/co-steward-constitution.md -> viewer.html?doc=/limicelia/stewards/co-steward-constitution.md
+00-master-index.md | /limicelia/stewards/limicelia-strategy-canvases.md -> viewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md
+00-master-index.md | /limicelia/stewards/strategic-essays.md -> viewer.html?doc=/limicelia/stewards/strategic-essays.md
+00-master-index.md | /limicelia/stewards/private-collaboration-agreement.md -> viewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md
+00-master-index.md | /limicelia/stewards/present-of-work-canvas.md -> viewer.html?doc=/limicelia/stewards/present-of-work-canvas.md
