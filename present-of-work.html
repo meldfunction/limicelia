@@ -501,6 +501,7 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
         // Mobile Menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -550,6 +551,7 @@
                 closeMobileMenu();
             }
         });
+        }); // End DOMContentLoaded
     </script>
 </body>
 </html>

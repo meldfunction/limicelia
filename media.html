@@ -532,6 +532,7 @@ Worth reading if you work in organizational development, systems change, or tran
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
         function copySnippet(button) {
             const snippet = button.previousElementSibling;
             const text = snippet.textContent;
@@ -599,6 +600,7 @@ Worth reading if you work in organizational development, systems change, or tran
                 closeMobileMenu();
             }
         });
+        }); // End DOMContentLoaded
     </script>
 </body>
 </html>
