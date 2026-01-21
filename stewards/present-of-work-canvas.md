@@ -353,14 +353,14 @@ Possible directions:
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Co-Steward Constitution](/stewards/co-steward-constitution.md) - How Carol and BK collaborate
-- [Limicelia Strategy Canvases](/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
-- [Strategic Essays](/stewards/strategic-essays.md) - Narrative explanations
-- [Private Collaboration Agreement](/stewards/private-collaboration-agreement.md) - Internal operational agreement
+- [Master Index](/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Co-Steward Constitution](/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
+- [Limicelia Strategy Canvases](/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
+- [Strategic Essays](/limicelia/stewards/strategic-essays.md) - Narrative explanations
+- [Private Collaboration Agreement](/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
 
 ---
 
 *Provisional Framework - Awaiting Organizing Team*  
 *Last Updated: January 21, 2026*  
-*Stewards Portal: [/stewards](/stewards/)*
+*Stewards Portal: [/stewards](/limicelia/stewards/)*

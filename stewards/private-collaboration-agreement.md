@@ -430,14 +430,14 @@ Date: ______________
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Co-Steward Constitution](/stewards/co-steward-constitution.md) - Public articulation of collaboration
-- [Limicelia Strategy Canvases](/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
-- [Strategic Essays](/stewards/strategic-essays.md) - Narrative explanations
-- [Present of Work Canvas](/stewards/present-of-work-canvas.md) - Knowledge commons framework
+- [Master Index](/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Co-Steward Constitution](/limicelia/stewards/co-steward-constitution.md) - Public articulation of collaboration
+- [Limicelia Strategy Canvases](/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
+- [Strategic Essays](/limicelia/stewards/strategic-essays.md) - Narrative explanations
+- [Present of Work Canvas](/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
 
 ---
 
 *Private Document - Carol & BK Only*  
 *Last Updated: January 21, 2026*  
-*Stewards Portal: [/stewards](/stewards/)*
+*Stewards Portal: [/stewards](/limicelia/stewards/)*

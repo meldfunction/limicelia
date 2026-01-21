@@ -353,17 +353,17 @@ We practice what we offer organizations: **distributed authority as lived experi
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Limicelia Strategy Canvases](/stewards/limicelia-strategy-canvases.md) - Complete strategy and execution framework
-- [Strategic Essays](/stewards/strategic-essays.md) - Narrative explanations for advisors
-- [Private Collaboration Agreement](/stewards/private-collaboration-agreement.md) - Internal operational agreement
-- [Present of Work Canvas](/stewards/present-of-work-canvas.md) - Knowledge commons framework
+- [Master Index](/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Limicelia Strategy Canvases](/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy and execution framework
+- [Strategic Essays](/limicelia/stewards/strategic-essays.md) - Narrative explanations for advisors
+- [Private Collaboration Agreement](/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
+- [Present of Work Canvas](/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
 
 ---
 
 *Living Document - Reviewed Annually*  
 *Last Updated: January 21, 2026*  
-*Stewards Portal: [/stewards](/stewards/)*
+*Stewards Portal: [/stewards](/limicelia/stewards/)*
 
 ---
 
