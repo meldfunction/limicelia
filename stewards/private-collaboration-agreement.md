@@ -430,11 +430,11 @@ Date: ______________
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/limicelia/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Co-Steward Constitution](/limicelia/limicelia/stewards/co-steward-constitution.md) - Public articulation of collaboration
-- [Limicelia Strategy Canvases](/limicelia/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
-- [Strategic Essays](/limicelia/limicelia/stewards/strategic-essays.md) - Narrative explanations
-- [Present of Work Canvas](/limicelia/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
+- [Master Index](/limiceliaviewer.html?doc=/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Co-Steward Constitution](/limiceliaviewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - Public articulation of collaboration
+- [Limicelia Strategy Canvases](/limiceliaviewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
+- [Strategic Essays](/limiceliaviewer.html?doc=/limicelia/stewards/strategic-essays.md) - Narrative explanations
+- [Present of Work Canvas](/limiceliaviewer.html?doc=/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
 
 ---
 

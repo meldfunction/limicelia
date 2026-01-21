@@ -297,11 +297,11 @@ Prefers not repeating information already shared. Recognizes pattern of making c
 
 ## RELATED DOCUMENTS
 
-- [Co-Steward Constitution](/limicelia/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
-- [Limicelia Strategy Canvases](/limicelia/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy and execution framework
-- [Strategic Essays](/limicelia/limicelia/stewards/strategic-essays.md) - Narrative explanations for advisors
-- [Private Collaboration Agreement](/limicelia/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
-- [Present of Work Canvas](/limicelia/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
+- [Co-Steward Constitution](/limiceliaviewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
+- [Limicelia Strategy Canvases](/limiceliaviewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy and execution framework
+- [Strategic Essays](/limiceliaviewer.html?doc=/limicelia/stewards/strategic-essays.md) - Narrative explanations for advisors
+- [Private Collaboration Agreement](/limiceliaviewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
+- [Present of Work Canvas](/limiceliaviewer.html?doc=/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
 
 ---
 

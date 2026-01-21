@@ -353,11 +353,11 @@ Possible directions:
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/limicelia/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Co-Steward Constitution](/limicelia/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
-- [Limicelia Strategy Canvases](/limicelia/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
-- [Strategic Essays](/limicelia/limicelia/stewards/strategic-essays.md) - Narrative explanations
-- [Private Collaboration Agreement](/limicelia/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
+- [Master Index](/limiceliaviewer.html?doc=/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Co-Steward Constitution](/limiceliaviewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
+- [Limicelia Strategy Canvases](/limiceliaviewer.html?doc=/limicelia/stewards/limicelia-strategy-canvases.md) - Complete strategy framework
+- [Strategic Essays](/limiceliaviewer.html?doc=/limicelia/stewards/strategic-essays.md) - Narrative explanations
+- [Private Collaboration Agreement](/limiceliaviewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
 
 ---
 

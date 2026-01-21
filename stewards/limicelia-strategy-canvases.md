@@ -432,11 +432,11 @@ $75K total project:
 
 ## RELATED DOCUMENTS
 
-- [Master Index](/limicelia/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
-- [Co-Steward Constitution](/limicelia/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
-- [Strategic Essays](/limicelia/limicelia/stewards/strategic-essays.md) - Narrative explanations for advisors
-- [Private Collaboration Agreement](/limicelia/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
-- [Present of Work Canvas](/limicelia/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
+- [Master Index](/limiceliaviewer.html?doc=/limicelia/stewards/00-master-index.md) - Overview of all strategic documentation
+- [Co-Steward Constitution](/limiceliaviewer.html?doc=/limicelia/stewards/co-steward-constitution.md) - How Carol and BK collaborate
+- [Strategic Essays](/limiceliaviewer.html?doc=/limicelia/stewards/strategic-essays.md) - Narrative explanations for advisors
+- [Private Collaboration Agreement](/limiceliaviewer.html?doc=/limicelia/stewards/private-collaboration-agreement.md) - Internal operational agreement
+- [Present of Work Canvas](/limiceliaviewer.html?doc=/limicelia/stewards/present-of-work-canvas.md) - Knowledge commons framework
 
 ---
 
