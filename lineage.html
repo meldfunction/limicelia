@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our lineage draws from participatory action research, community organizing, systems thinking, restorative justice, and commons governance traditions.">
+    <title>Our Lineage - Limicelia</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #0d5c63;
+            --secondary: #7d8e7f;
+            --accent: #c96a3d;
+            --energy: #e8a754;
+            --text: #1a1a1a;
+            --text-light: #5a5a5a;
+            --bg: #f7f3ed;
+            --white: #ffffff;
+            --border: #e0ddd8;
+            --forest: #2d4a3e;
+            --nav-height: 70px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 2rem);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 2vw, 1.75rem);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-shrink: 0;
+            z-index: 1002;
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--nav-height));
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .nav-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 1280px) {
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                max-width: 350px;
+                height: calc(100vh - var(--nav-height));
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 0;
+                transition: left 0.3s ease-in-out;
+                overflow-y: auto;
+                box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+                z-index: 1001;
+            }
+            
+            .nav-links.active { left: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                font-size: 1rem;
+                padding: 1rem 0;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links li:last-child a { border-bottom: none; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 2.5rem 1rem; }
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.3; color: var(--primary); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--primary); margin-bottom: 2rem; }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+        h4 { font-size: clamp(1rem, 2vw, 1.15rem); }
+
+        .section-intro {
+            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+            line-height: 1.8;
+            max-width: 900px;
+            margin-bottom: 2rem;
+        }
+
+        .traditions-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .tradition-tag {
+            background: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-item {
+            background: var(--white);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-item h4 {
+            margin-bottom: 1rem;
+        }
+
+        .comparison-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .comparison-item li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--accent); text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Limicelia</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#who-we-are">Who We Are</a></li>
+                <li><a href="/#our-approach">Our Approach</a></li>
+                <li><a href="/#how-we-work">How We Work</a></li>
+                <li><a href="/lineage.html">Lineage</a></li>
+                <li><a href="/practices.html">Practices</a></li>
+                <li><a href="/resources.html">Resources</a></li>
+                <li><a href="/#present-of-work">Present of Work</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="nav-overlay"></div>
+
+    <main>
+        <section id="lineage" class="bg-white">
+            <h1>Our Lineage</h1>
+            <p class="section-intro">
+                We don't work in a vacuum. Our practice draws from multiple traditions, lineages, and movements. 
+                We honor these roots while adapting practices to contemporary contexts.
+            </p>
+
+            <div class="traditions-grid">
+                <span class="tradition-tag">Participatory Action Research</span>
+                <span class="tradition-tag">Community Organizing</span>
+                <span class="tradition-tag">Systems Thinking</span>
+                <span class="tradition-tag">Warm Data</span>
+                <span class="tradition-tag">Restorative Justice</span>
+                <span class="tradition-tag">Art of Hosting</span>
+                <span class="tradition-tag">Theory U</span>
+                <span class="tradition-tag">Sociocracy</span>
+                <span class="tradition-tag">Nonviolent Communication</span>
+                <span class="tradition-tag">Contemplative Practice</span>
+                <span class="tradition-tag">Popular Education</span>
+                <span class="tradition-tag">Emergent Strategy</span>
+                <span class="tradition-tag">Gift Economy</span>
+                <span class="tradition-tag">Commons Governance</span>
+            </div>
+
+            <div class="comparison-grid" style="margin-top: 3rem;">
+                <div class="comparison-item">
+                    <h4 style="color: var(--primary);">What We're Moving Away From</h4>
+                    <ul>
+                        <li>Expert-driven consulting</li>
+                        <li>Quick-fix solutions</li>
+                        <li>Extractive engagement models</li>
+                        <li>One-size-fits-all frameworks</li>
+                        <li>Dependency on consultants</li>
+                        <li>Separation of head, heart, body</li>
+                        <li>Ignoring power dynamics</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-item">
+                    <h4 style="color: var(--primary);">What We're Moving Toward</h4>
+                    <ul>
+                        <li>Collaborative accompaniment</li>
+                        <li>Sustained becoming</li>
+                        <li>Regenerative relationships</li>
+                        <li>Context-specific adaptation</li>
+                        <li>Building internal capacity</li>
+                        <li>Integrated ways of knowing</li>
+                        <li>Liberation as practice</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Limicelia</strong> — Accompanying threshold-crossing</p>
+        <p style="margin-top: 1rem;">Stewarded by Carol Xu, Ph.D. & BK Dubé</p>
+        <p style="margin-top: 1rem;">
+            Connected to <a href="https://presentofwork.org" target="_blank" rel="noopener">Present of Work</a> | 
+            <a href="https://www.intentionalsociety.org/dojo" target="_blank" rel="noopener">Intentional Society</a> |
+            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Starter Cultures</a>
+        </p>
+        <p style="margin-top: 1rem;">
+            <a href="https://warmdatastories.substack.com" target="_blank" rel="noopener">Podcast</a> | 
+            <a href="/resources.html">Resources</a> | 
+            <a href="/present-of-work.html">About Present of Work</a> |
+            <a href="/blog/the-medium-is-the-teaching.html">Blog</a> |
+            <a href="/media.html">Share</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Work globally. Aligned economics. No one turned away.</p>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">© 2025 Limicelia</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+        
+        function toggleMobileMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (navLinks) navLinks.classList.toggle('active');
+            if (navOverlay) navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks && navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            if (navLinks) navLinks.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu, false);
+        if (navOverlay) navOverlay.addEventListener('click', closeMobileMenu);
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+        });
+    </script>
+</body>
+</html>

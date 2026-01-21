@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How we handle resources - fee-for-service, sliding scale, and gift economy. Plus our podcast, toolkit, and research offerings.">
+    <title>Resources - Limicelia</title>
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #0d5c63;
+            --secondary: #7d8e7f;
+            --accent: #c96a3d;
+            --energy: #e8a754;
+            --text: #1a1a1a;
+            --text-light: #5a5a5a;
+            --bg: #f7f3ed;
+            --white: #ffffff;
+            --border: #e0ddd8;
+            --forest: #2d4a3e;
+            --nav-height: 70px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 2rem);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 2vw, 1.75rem);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-shrink: 0;
+            z-index: 1002;
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--nav-height));
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .nav-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 1280px) {
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                max-width: 350px;
+                height: calc(100vh - var(--nav-height));
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 0;
+                transition: left 0.3s ease-in-out;
+                overflow-y: auto;
+                box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+                z-index: 1001;
+            }
+            
+            .nav-links.active { left: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                font-size: 1rem;
+                padding: 1rem 0;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links li:last-child a { border-bottom: none; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 2.5rem 1rem; }
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.3; color: var(--primary); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--primary); margin-bottom: 2rem; }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin-bottom: 1rem; }
+        h4 { font-size: clamp(1rem, 2vw, 1.15rem); }
+
+        .section-intro {
+            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+            line-height: 1.8;
+            max-width: 900px;
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            margin: 2rem 0;
+        }
+
+        .philosophy-point {
+            background: var(--white);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .philosophy-point h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: var(--white);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            margin: 2rem 0;
+            border-left: 4px solid var(--energy);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--accent); text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Limicelia</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/#who-we-are">Who We Are</a></li>
+                <li><a href="/#our-approach">Our Approach</a></li>
+                <li><a href="/#how-we-work">How We Work</a></li>
+                <li><a href="/lineage.html">Lineage</a></li>
+                <li><a href="/practices.html">Practices</a></li>
+                <li><a href="/resources.html">Resources</a></li>
+                <li><a href="/#present-of-work">Present of Work</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="nav-overlay"></div>
+
+    <main>
+        <section id="resources" class="bg-white">
+            <h1>How We Handle Resources</h1>
+            <p class="section-intro">
+                We need resources to sustain this work. And we're committed to accessibility for those building capacity. How do we honor both?
+            </p>
+
+            <div class="philosophy-points" style="margin-top: 3rem;">
+                <div class="philosophy-point">
+                    <h4>Fee-for-Service Work</h4>
+                    <p>Organizations with resource capacity pay for accompaniment at rates that reflect the deep, sustained nature of the work. These fees support practitioner compensation, infrastructure, subsidizing accessibility, and building commons resources.</p>
+                </div>
+                
+                <div class="philosophy-point">
+                    <h4>Sliding Scale</h4>
+                    <p>Grassroots organizations and community groups access services on a sliding scale based on actual capacity. We ask what's genuinely sustainable for you.</p>
+                </div>
+                
+                <div class="philosophy-point">
+                    <h4>Gift-Based Offerings</h4>
+                    <p>Monthly practice spaces and some workshops operate on gift economy principles. Come if called. Give what you can. This isn't charity; it's reciprocity operating on different timelines.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">What We Ask</h3>
+                <p style="margin-bottom: 1rem;"><strong>If you have resources:</strong> Pay what allows practitioners to sustain this work and creates capacity for others.</p>
+                <p style="margin-bottom: 1rem;"><strong>If you're building capacity:</strong> Be honest about what's sustainable. We'll find a way that honors both.</p>
+                <p><strong>For everyone:</strong> Recognize that economic relationships are relational. How we handle money together matters.</p>
+            </div>
+
+            <h2 style="margin-top: 4rem;">What We're Creating</h2>
+            <p style="margin-bottom: 2rem; max-width: 900px;">
+                Beyond consulting, we're documenting and sharing what we learn. These tools support both our practitioners and the wider movement.
+            </p>
+
+            <div class="philosophy-points">
+                <div class="philosophy-point">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">📻 Warm Data Stories Podcast</h4>
+                    <p style="margin-bottom: 0.5rem;">
+                        Conversations with funders, practitioners, and thinkers about what's actually happening in organizational work and regenerative practice. Exploring warm data methodology in practice.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Free via Substack | Monthly episodes | <a href="https://warmdatastories.substack.com" target="_blank" rel="noopener" style="color: var(--primary);">Listen now</a>
+                    </p>
+                </div>
+
+                <div class="philosophy-point">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">🛠️ Accompaniment Framework Toolkit</h4>
+                    <p style="margin-bottom: 0.5rem;">
+                        Practical guide to how we structure organizational consulting. Templates, tools, and step-by-step practices you can adapt for your own work. From assessment through integration.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Available on sliding scale | Digital guide + templates + worksheets
+                    </p>
+                </div>
+
+                <div class="philosophy-point">
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem;">📚 Research & Writing</h4>
+                    <p style="margin-bottom: 0.5rem;">
+                        Carol's research on funder networks, distributed decision-making, warm data methodology, and alternative economics. Essays and frameworks shared openly with the movement.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                        Free essays | Published via <a href="https://startercultures.substack.com" target="_blank" rel="noopener" style="color: var(--primary);">Starter Cultures</a> | Subscribe to stay updated
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Limicelia</strong> — Accompanying threshold-crossing</p>
+        <p style="margin-top: 1rem;">Stewarded by Carol Xu, Ph.D. & BK Dubé</p>
+        <p style="margin-top: 1rem;">
+            Connected to <a href="https://presentofwork.org" target="_blank" rel="noopener">Present of Work</a> | 
+            <a href="https://www.intentionalsociety.org/dojo" target="_blank" rel="noopener">Intentional Society</a> |
+            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Starter Cultures</a>
+        </p>
+        <p style="margin-top: 1rem;">
+            <a href="https://warmdatastories.substack.com" target="_blank" rel="noopener">Podcast</a> | 
+            <a href="/resources.html">Resources</a> | 
+            <a href="/present-of-work.html">About Present of Work</a> |
+            <a href="/blog/the-medium-is-the-teaching.html">Blog</a> |
+            <a href="/media.html">Share</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Work globally. Aligned economics. No one turned away.</p>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">© 2025 Limicelia</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+        
+        function toggleMobileMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (navLinks) navLinks.classList.toggle('active');
+            if (navOverlay) navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks && navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            if (navLinks) navLinks.classList.remove('active');
+            if (navOverlay) navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu, false);
+        if (navOverlay) navOverlay.addEventListener('click', closeMobileMenu);
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+        });
+    </script>
+</body>
+</html>
