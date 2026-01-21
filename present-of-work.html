@@ -95,6 +95,79 @@
 
         .nav-links a:hover { color: var(--primary); }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-shrink: 0;
+            z-index: 1002;
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--nav-height));
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .nav-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                max-width: 350px;
+                height: calc(100vh - var(--nav-height));
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                gap: 0;
+                transition: left 0.3s ease-in-out;
+                overflow-y: auto;
+                box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+                z-index: 1001;
+            }
+            
+            .nav-links.active { 
+                left: 0; 
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+                padding: 1rem 0;
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+            
+            .mobile-menu-btn { 
+                display: block; 
+            }
+        }
+
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -211,13 +284,21 @@
     <nav>
         <div class="nav-container">
             <a href="/" class="logo">Limicelia</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/media">Share</a></li>
-                <li><a href="https://startercultures.substack.com" target="_blank">Substack</a></li>
+                <li><a href="/#who-we-are">Who We Are</a></li>
+                <li><a href="/#our-approach">Our Approach</a></li>
+                <li><a href="/#how-we-work">How We Work</a></li>
+                <li><a href="/#present-of-work">Present of Work</a></li>
+                <li><a href="/blog/the-medium-is-the-teaching.html">Blog</a></li>
+                <li><a href="/media.html">Share</a></li>
+                <li><a href="/#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Mobile menu overlay -->
+    <div class="nav-overlay"></div>
 
     <main>
         <!-- HERO -->
@@ -226,6 +307,11 @@
             <p>
                 A learning commons for practitioners exploring work as participation in life on earth—not extraction from it. Third space where we practice gift economy, peer learning, and collective stewardship as lived experience.
             </p>
+            <div style="max-width: 700px; margin: 2rem auto; padding: 1.5rem; background: var(--bg); border-left: 4px solid var(--primary);">
+                <p style="margin: 0; line-height: 1.8;">
+                    <strong>Threshold-crossing isn't change management.</strong> It's becoming fundamentally different, not just doing things differently. The commons itself is the threshold, not a tool for crossing it elsewhere.
+                </p>
+            </div>
         </section>
 
         <!-- WHAT IS WORK -->
@@ -262,7 +348,7 @@
 
                 <div class="highlight-box" style="text-align: center; margin-top: 3rem;">
                     <p style="font-size: 1.2rem; line-height: 1.8; margin: 0;">
-                        <strong>Present of Work begins here:</strong> Work is the bridge. Not separate from transformation but the site of it. How we work shapes who we become. And who we become shapes what's possible.
+                        <strong>Present of Work begins here:</strong> Work is the bridge. Not separate from becoming but the site of it. How we work shapes who we become. And who we become shapes what's possible.
                     </p>
                 </div>
             </div>
@@ -274,7 +360,7 @@
                 <h2>A Counter-Environment to Extractive Professional Culture</h2>
                 
                 <p class="section-intro">
-                    Present of Work is a learning commons—a counter-environment where practitioners experimenting with transformation work gather, practice, and learn together. Like fish discovering water, we can't see our work culture until we step into a different stream. <strong>This is that different stream.</strong>
+                    Present of Work is a learning commons—a counter-environment where practitioners experimenting with threshold work gather, practice, and learn together. Like fish discovering water, we can't see our work culture until we step into a different stream. <strong>This is that different stream.</strong>
                 </p>
 
                 <div style="max-width: 900px; margin: 2rem auto; padding: 2rem; background: var(--white); border-left: 4px solid var(--energy); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
@@ -294,6 +380,20 @@
                     This isn't random organizing—it's deliberate positioning at the <strong>edge</strong> where different systems meet. Nonprofits ↔ Social enterprises. Practitioners ↔ Organizations. Sacred ↔ Economic. Individual ↔ Collective. Edges are the most fertile zones. The commons sits at that boundary, creating contrast that makes dominant patterns visible and therefore changeable.
                 </p>
 
+                <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1rem;">Justice Through Form, Not Ideology</h3>
+                
+                <p style="max-width: 900px; line-height: 1.8; margin: 2rem auto;">
+                    <strong>You can't liberate through forms that reproduce domination.</strong> If we organize as hierarchy to create equity, the hierarchy wins. If we extract value to fund regeneration, extraction wins. The form IS the politics.
+                </p>
+
+                <p style="max-width: 900px; line-height: 1.8; margin: 2rem auto;">
+                    This is what Bayo Akomolafe calls "post-activism"—not implementing justice as a goal but creating conditions where liberation becomes possible through practice. Justice as <strong>right relationship</strong> with work, with each other, with power, with resources. The commons doesn't declare liberation—it practices it through gift-stewarding, peer learning, collective governance.
+                </p>
+
+                <p style="max-width: 900px; line-height: 1.8; margin: 2rem auto;">
+                    <em>"The times are urgent, let us slow down."</em> The commons is compost—messy, slow, generative. Not efficient. Not scalable. Not trying to win against extractive models but creating cracks where alternatives can grow.
+                </p>
+
                 <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1.5rem;">What You Might Find in the Commons</h3>
                 <p style="max-width: 900px; line-height: 1.8; margin-bottom: 2rem; font-style: italic; color: var(--text-light);">
                     Different experiences emerge in different seasons, stewarded by various practitioners. The commons itself is collectively maintained.
@@ -306,7 +406,7 @@
                     </div>
                     <div class="col-item">
                         <h4 style="color: var(--accent);">🪢 Seasonal Intensives</h4>
-                        <p><strong>Concentrated practice:</strong> When practitioners organize learning cohorts—8-12 week deep dives in specific territories. Retrieving the guild tradition for transformation work. Emerge based on need and collective energy.</p>
+                        <p><strong>Concentrated practice:</strong> When practitioners organize learning cohorts—8-12 week deep dives in specific territories. Retrieving the guild tradition for threshold work. Emerge based on need and collective energy.</p>
                     </div>
                     <div class="col-item">
                         <h4 style="color: var(--accent);">🕸️ Edge Encounters</h4>
@@ -339,13 +439,13 @@
                 <div style="max-width: 900px; margin: 0 auto 2rem;">
                     <div style="padding: 1.5rem; background: var(--white); border: 2px solid var(--border); border-radius: 4px;">
                         <p style="line-height: 1.8; margin: 0;">
-                            <strong>Organizations with capacity</strong> hire Limicelia for transformation work → <strong>Consulting revenue</strong> helps steward commons infrastructure → <strong>Practitioners</strong> gather, learn, experiment in the commons → <strong>Embodied experience</strong> shapes how we work with organizations → <strong>Transformation spreads</strong> through practice, not ideology.
+                            <strong>Organizations with capacity</strong> hire Limicelia for threshold work → <strong>Consulting revenue</strong> helps steward commons infrastructure → <strong>Practitioners</strong> gather, learn, experiment in the commons → <strong>Embodied experience</strong> shapes how we work with organizations → <strong>Becoming spreads</strong> through practice, not ideology.
                         </p>
                     </div>
                 </div>
 
                 <p style="max-width: 900px; line-height: 1.8; margin-bottom: 2rem;">
-                    When Limicelia practitioners work with your organization, we bring lived experience from this commons. We've practiced distributed authority with peers, participated in gift-stewarded spaces, engaged in collective governance. Not as theory but as embodied knowing. <strong>The commons shapes us; we bring that shaping to the work. This is how transformation spreads—through practitioners shaped by different structures.</strong>
+                    When Limicelia practitioners work with your organization, we bring lived experience from this commons. We've practiced distributed authority with peers, participated in gift-stewarded spaces, engaged in collective governance. Not as theory but as embodied knowing. <strong>The commons shapes us; we bring that shaping to the work. This is how becoming spreads—through practitioners shaped by different structures.</strong>
                 </p>
 
                 <h3 style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--primary); margin: 3rem 0 1rem;">Two Different Paths</h3>
@@ -354,7 +454,7 @@
                     <div class="col-item">
                         <h4 style="color: var(--accent); margin-bottom: 1rem;">If You're an Organization</h4>
                         <p style="margin-bottom: 1rem;">
-                            Looking for accompaniment through transformation? Capacity building for distributed decision-making? Support navigating complexity?
+                            Looking for accompaniment through thresholds? Capacity building for distributed decision-making? Support navigating complexity?
                         </p>
                         <p style="margin: 0; font-weight: 500;">
                             → <strong>Hire Limicelia specifically</strong> for consulting work. Fee-for-service with sliding scale based on capacity.
@@ -385,16 +485,71 @@
     </main>
 
     <footer>
-        <p><strong>Present of Work</strong> — Learning commons for transformation practitioners</p>
+        <p><strong>Present of Work</strong> — Learning commons for threshold practitioners</p>
         <p style="margin-top: 1rem;">Collectively stewarded | <a href="/">Limicelia</a> is one participant among others</p>
         <p style="margin-top: 1rem;">
+            Connected to <a href="https://www.intentionalsociety.org/dojo" target="_blank" rel="noopener">Intentional Society</a> |
             <a href="https://presentofwork.org" target="_blank" rel="noopener">Main Site</a> | 
-            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Substack</a> | 
-            <a href="/blog/the-medium-is-the-teaching">Blog</a> |
-            <a href="/media">Share</a>
+            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Substack</a>
+        </p>
+        <p style="margin-top: 1rem;">
+            <a href="/blog/the-medium-is-the-teaching.html">Blog</a> |
+            <a href="/media.html">Share</a>
         </p>
         <p style="margin-top: 1rem; font-size: 0.9rem;">Gift-stewarded commons. Open participation.</p>
         <p style="margin-top: 2rem; font-size: 0.8rem;">© 2025 Present of Work Commons</p>
     </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+        
+        function toggleMobileMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+            }
+            if (navOverlay) {
+                navOverlay.classList.toggle('active');
+            }
+            if (navLinks && navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        
+        function closeMobileMenu() {
+            if (navLinks) {
+                navLinks.classList.remove('active');
+            }
+            if (navOverlay) {
+                navOverlay.classList.remove('active');
+            }
+            document.body.style.overflow = '';
+        }
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu, false);
+        }
+        
+        if (navOverlay) {
+            navOverlay.addEventListener('click', closeMobileMenu);
+        }
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
