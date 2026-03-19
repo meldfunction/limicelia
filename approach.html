@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Approach — Limicelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
+body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
+body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
+body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);--amber-dim:rgba(143,175,120,.38);--tp:#d8ecd8;--ts:rgba(216,236,216,.72);--tm:rgba(216,236,216,.43);--sur:#141f16;--rul:rgba(216,236,216,.09);--ca:.22}
+body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
+.ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm)}
+.ps-row{display:flex;gap:.35rem}
+.ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
+.ps-dot:hover{transform:scale(1.2)}.ps-dot.on{border-color:var(--amber)}
+.ps-dot[data-p="dark"]{background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
+.ps-dot[data-p="warm"]{background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
+.ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
+.ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
+.ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
+#mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+section{position:relative;z-index:2}
+.wordmark{display:inline-flex;align-items:center;gap:.9rem}
+.wordmark-glyph{width:28px;height:28px;flex-shrink:0}
+.wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1}
+.hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
+.hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
+.hnav.scrolled::after{opacity:1}
+.hnav-links{display:flex;gap:2.5rem;list-style:none}
+.hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
+.hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
+.pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
+.sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
+.sec-num{opacity:.5;margin-right:.2rem}
+h2.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp)}
+h2.sec-title em{font-style:italic;color:var(--amber)}
+.body-text{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts)}
+.body-text strong{color:var(--tp);font-weight:400}
+.divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem)}
+.btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
+.btn-p:hover{background:transparent;color:var(--amber)}
+.btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
+.btn-g::after{content:'→';transition:transform .3s;display:inline-block}
+.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
+.content-section.alt{background:var(--sur)}.content-section{transition:background .5s}
+.page-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,5vh,4rem);position:relative;z-index:2}
+.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem}
+.page-hero h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--tp);max-width:18ch}
+.page-hero h1 em{font-style:italic;color:var(--amber)}
+.page-hero .hero-lede{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.75;color:var(--ts);max-width:54ch;margin-top:1.8rem;border-left:2px solid var(--amber-dim);padding-left:1.4rem}
+.prose{max-width:64ch}
+.prose p{font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts);margin-bottom:1.4rem}
+.prose p strong{color:var(--tp);font-weight:400}
+.prose h3{font-size:1.2rem;font-weight:400;color:var(--tp);margin:2rem 0 .8rem}
+.arc-step{display:flex;gap:1.5rem;padding:1.2rem 0;border-bottom:1px solid var(--rul);align-items:flex-start}
+.arc-step:last-child{border-bottom:none}
+.arc-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;min-width:2.5rem;padding-top:.3rem}
+.arc-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem}
+.arc-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts)}
+.tradition-block{padding:1.4rem 0;border-bottom:1px solid var(--rul)}
+.tradition-block:last-child{border-bottom:none}
+.trad-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem}
+.trad-origin{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.trad-use{font-size:.88rem;font-weight:300;line-height:1.72;color:var(--ts)}
+.trad-note{font-size:.82rem;font-weight:300;font-style:italic;color:var(--tm);margin-top:.4rem}
+.principle-row{padding:1rem 0;border-bottom:1px solid var(--rul);display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start}
+.principle-row:last-child{border-bottom:none}
+.principle-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;color:var(--amber);opacity:.5}
+.principle-text{font-size:.98rem;font-weight:300;line-height:1.78;color:var(--ts)}
+.principle-text strong{color:var(--tp);font-weight:400}
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a:hover{opacity:1}
+@media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body class="p-light">
+<div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row">
+  <button class="ps-dot" data-p="dark"></button><button class="ps-dot" data-p="warm"></button>
+  <button class="ps-dot" data-p="slate"></button><button class="ps-dot" data-p="forest"></button>
+  <button class="ps-dot on" data-p="light"></button>
+</div></div>
+<canvas id="mc"></canvas>
+
+<nav class="hnav" id="hnav">
+  <div class="wordmark">
+    <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
+      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
+      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
+      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"/>
+    </svg>
+    <a href="index.html"><span class="wordmark-name">Limicelia</span></a>
+  </div>
+  <ul class="hnav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <p class="eyebrow">Limicelia · Our Approach</p>
+  <h1 class="reveal">How we work.<br><em>Why it holds.</em></h1>
+  <p class="hero-lede reveal rd1">The practice is not a methodology applied to situations. It's a way of being with an organization that changes what becomes possible. This page describes how we work, where the practice comes from, and what we hold ourselves accountable to.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE ARC -->
+<section class="content-section pad">
+  <div class="sec-label reveal"><span class="sec-num">01 /</span> The engagement arc</div>
+  <h2 class="sec-title reveal" style="margin-bottom:1.5rem">Every engagement<br><em>follows the same arc.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">What changes is what the arc surfaces — not the process itself. These phases rarely proceed in a straight line. They loop, deepen, and sometimes restart from a more honest beginning.</p>
+
+  <div class="reveal rd2" style="max-width:60ch">
+    <div class="arc-step">
+      <span class="arc-num">01</span>
+      <div><p class="arc-name">Discovery</p><p class="arc-body">Not validating leadership's interpretation of the situation. Hearing what's actually true — from the people closest to the work, before the people with the most authority. Mapping where energy and capacity are being lost.</p></div>
+    </div>
+    <div class="arc-step">
+      <span class="arc-num">02</span>
+      <div><p class="arc-name">Deep Listening</p><p class="arc-body">Frontline workers before leadership. Separate before joint — each voice needs to be heard without the other present first. The separation is not procedural. It's what makes genuine contact possible later.</p></div>
+    </div>
+    <div class="arc-step">
+      <span class="arc-num">03</span>
+      <div><p class="arc-name">Honest Diagnosis</p><p class="arc-body">Naming what's actually broken, not the softened version. Naming what's working too — both matter. Structure produces behavior. What the organization is experiencing is not random; it's the predictable output of the system it has built.</p></div>
+    </div>
+    <div class="arc-step">
+      <span class="arc-num">04</span>
+      <div><p class="arc-name">Co-Design</p><p class="arc-body">The organization discovers its own path forward. We don't arrive with answers. The people who will inhabit any redesigned structure need to be part of designing it — otherwise it won't hold.</p></div>
+    </div>
+    <div class="arc-step">
+      <span class="arc-num">05</span>
+      <div><p class="arc-name">Accompaniment</p><p class="arc-body">Staying through the messy middle. Sustained presence — bi-weekly or monthly — holding accountability to agreements, navigating backsliding without collapse, noticing when the system is trying to return to what it knows. This phase is where most consulting ends and where accompaniment begins.</p></div>
+    </div>
+    <div class="arc-step">
+      <span class="arc-num">06</span>
+      <div><p class="arc-name">Harvest</p><p class="arc-body">What changed. What the organization is committing to. An internal memory document — not a funder report. A playbook for future transitions. Exit or deepening into longer-term presence. The goal is always to leave capacity, not dependency.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT WE BELIEVE -->
+<section class="content-section alt pad">
+  <div class="sec-label reveal"><span class="sec-num">02 /</span> What we believe</div>
+  <h2 class="sec-title reveal" style="margin-bottom:1.5rem">The positions<br><em>we hold.</em></h2>
+
+  <div class="reveal rd1" style="max-width:60ch">
+    <div class="principle-row">
+      <span class="principle-num">01</span>
+      <p class="principle-text"><strong>Organizations are not broken.</strong> They are producing exactly what their structure was designed to produce. The question is never "how do we fix this?" — it's "what is this structure making inevitable, and what would we need to change to make something different possible?"</p>
+    </div>
+    <div class="principle-row">
+      <span class="principle-num">02</span>
+      <p class="principle-text"><strong>Transformation cannot be implemented from the outside.</strong> It can only be accompanied — supported to become more legible to itself. The timeline of transformation is the organization's own timeline, not a project plan.</p>
+    </div>
+    <div class="principle-row">
+      <span class="principle-num">03</span>
+      <p class="principle-text"><strong>The stewards' own practice is not incidental to the work.</strong> You cannot accompany an organization through territory you haven't genuinely traversed. The depth of the accompaniment is inseparable from the depth of the accompanier's practice.</p>
+    </div>
+    <div class="principle-row">
+      <span class="principle-num">04</span>
+      <p class="principle-text"><strong>We are accountable to the whole system, not just the buyer.</strong> The person who signs the contract has expectations. Our accountability includes those expectations and extends beyond them — to what is actually happening in the organization, including what the sponsor would prefer not to name.</p>
+    </div>
+    <div class="principle-row">
+      <span class="principle-num">05</span>
+      <p class="principle-text"><strong>We will tell you when conditions aren't right.</strong> And we will walk away from an engagement rather than deliver something that looks like transformation but isn't. This is not a marketing position. It describes what has happened. It will happen again.</p>
+    </div>
+    <div class="principle-row">
+      <span class="principle-num">06</span>
+      <p class="principle-text"><strong>We do not mistake accompaniment for liberation.</strong> Inside-system work can reproduce the system. That risk is real in every engagement we take. The question is not whether to engage but how to stay honest about what is and isn't changing — including when the answer is uncomfortable for us.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LINEAGE IN DEPTH -->
+<section class="content-section pad">
+  <div class="sec-label reveal"><span class="sec-num">03 /</span> Full lineage</div>
+  <h2 class="sec-title reveal" style="margin-bottom:1rem">Where this practice<br><em>comes from.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">Attribution is an act of integrity. Ideas travel without their origins in this field. We name ours because knowing where practice comes from helps you decide whether to trust it — and keeps us honest about what we've learned versus what we've invented.</p>
+
+  <div class="reveal rd2" style="max-width:64ch">
+
+    <div class="tradition-block">
+      <h3 class="trad-name">Sociocracy (Consent-based Governance)</h3>
+      <p class="trad-origin">Gerard Endenburg · 1970s Netherlands · Developed as S3 by James Priest and Bernhard Bockelbrink</p>
+      <p class="trad-use">A governance technology — how organizations make decisions, hold roles, and distribute authority over time. Not about convening or facilitation; about ongoing organizational structure. We draw from it in Organizational Health & Governance work when redesigning decision-making systems.</p>
+      <p class="trad-note">Sociocracy is specifically not what "Systems Convening" means. The two are complementary — a systems convener might introduce sociocratic governance within a cooperative network — but they operate at different levels.</p>
+    </div>
+
+    <div class="tradition-block">
+      <h3 class="trad-name">Art of Hosting</h3>
+      <p class="trad-origin">Christina Baldwin, Ann Linnea, Harrison Owen, Juanita Brown, David Isaacs · developed globally through practice since the 1990s</p>
+      <p class="trad-use">A gathering technology and facilitation philosophy — World Café, Open Space Technology, Circle Practice, Pro Action Café. Designed to activate collective intelligence within specific convenings. We use it as one methodology among several within Systems Convening work and team retreats.</p>
+      <p class="trad-note">Art of Hosting is a tool Limicelia uses within convenings — not a synonym for Systems Convening. A systems convener may host an Art of Hosting gathering, but the convening work extends far beyond any single gathering.</p>
+    </div>
+
+    <div class="tradition-block">
+      <h3 class="trad-name">Warm Data</h3>
+      <p class="trad-origin">Nora Bateson · International Bateson Institute · 2017–present</p>
+      <p class="trad-use">A methodology for surfacing the relationships and contexts that conventional data analysis misses. Grounded in Gregory Bateson's systems epistemology and Nora Bateson's concept of Symmathesy — mutual learning across living systems. Warm Data Labs create conditions for groups to encounter the relational complexity of a situation they're embedded in. Nearly 1,000 Labs held globally including at Harvard, the EU Parliament, and with Microsoft's AI team.</p>
+      <p class="trad-note">BK is a certified Warm Data Host. Warm Data methodology is formally associated with the International Bateson Institute — we are practitioners of it, not its originators.</p>
+    </div>
+
+    <div class="tradition-block">
+      <h3 class="trad-name">Deep Democracy</h3>
+      <p class="trad-origin">Arnold Mindell · Process Work Institute · 1980s–present</p>
+      <p class="trad-use">Process-oriented psychology applied to groups and organizations. Attends to the voices at the margins of a system — the dissent, the silence, the emotion — as signals rather than noise. The group's difficult edges carry information the center doesn't have. We draw from it in conflict navigation work and team facilitation.</p>
+    </div>
+
+    <div class="tradition-block">
+      <h3 class="trad-name">Systems Convening</h3>
+      <p class="trad-origin">Etienne and Beverly Wenger-Trayner · <em>Systems Conveners</em> (2023)</p>
+      <p class="trad-use">The practice of holding learning and connection across organizational and community boundaries over time. A systems convener is not a facilitator of meetings — it's a sustained function of tending to a system's capacity to understand itself across the organizations and communities that compose it. The convener maintains relationships across boundaries, creates conditions for mutual learning, and holds the system's complexity without collapsing it into any single organization's agenda.</p>
+      <p class="trad-note">This is distinct from Sociocracy (governance within organizations) and Art of Hosting (facilitation of specific gatherings). Systems Convening is a role sustained across time and boundaries, not a methodology applied in sessions.</p>
+    </div>
+
+    <div class="tradition-block">
+      <h3 class="trad-name">Accompaniment</h3>
+      <p class="trad-origin">Liberation theology · Gustavo Gutiérrez · Paul Farmer / Partners in Health · adapted for organizational contexts</p>
+      <p class="trad-use">Walking alongside rather than serving from above. In its original theological and global health context, accompaniment meant being accountable to the people being accompanied rather than to external definitions of success, and refusing to leave when things became difficult or unprofitable. We use this term because it accurately describes what we do — and we hold ourselves to the standard it implies: we stay when it's hard, and we tell the truth when what's happening isn't what was hoped.</p>
+    </div>
+
+    <div class="tradition-block">
+      <h3 class="trad-name">Generative Somatics</h3>
+      <p class="trad-origin">Staci Haines · generative somatics · rooted in Rolfing, aikido, and social justice organizing</p>
+      <p class="trad-use">The body as a site of transformation — not just the mind. Organizational culture lives in bodies as much as in documents and structures. The patterns of how people hold themselves under pressure, how they respond to conflict, how they physically occupy authority — these are somatic realities that cannot be changed through strategy alone. Carol's facilitation practice draws from this tradition in experiential learning design.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT WE DON'T DO -->
+<section class="content-section alt pad">
+  <div class="sec-label reveal"><span class="sec-num">04 /</span> What we don't do</div>
+  <h2 class="sec-title reveal" style="margin-bottom:1.2rem">The honest<br><em>limits.</em></h2>
+  <div class="prose reveal rd1">
+    <p>We don't do fundraising consulting, grant writing, financial audits, legal incorporation, or software development. We don't arrive with answers. We don't do one-day trainings disconnected from a longer arc. We don't provide diversity dashboards or engagement surveys as a substitute for genuine listening.</p>
+    <p>If you need a deliverable that doesn't require organizational discomfort, we're not the right fit — and we'll say so in the first conversation. We don't promise transformation. We work on the conditions that make it possible.</p>
+  </div>
+  <div style="margin-top:2rem" class="reveal rd2">
+    <a href="index.html#contact" class="btn-p">Begin a conversation</a>
+    <span style="display:inline-block;width:1.5rem"></span>
+    <a href="services.html" class="btn-g">See our services</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STRUCTURE -->
+<section class="content-section pad">
+  <div class="sec-label reveal"><span class="sec-num">05 /</span> Structure &amp; access</div>
+  <h2 class="sec-title reveal" style="margin-bottom:1rem">How this practice<br><em>is held.</em></h2>
+  <div class="prose reveal rd1">
+    <p>Limicelia operates as a nonprofit practice — not for the purpose of accumulation, but because the work is more honest when it isn't organized around extraction. Consulting revenue funds community offerings that carry no fee: open-access Warm Data Labs, commons-oriented practice spaces, and the broader field-building work of <strong>The Present of Work</strong> — a translocal project rethinking how work, workers, and workplaces can be organized around human aliveness.</p>
+    <p>We price on a sliding scale based on what an organization can sustain — not what the market charges for comparable work. Organizations with larger budgets pay rates that make access possible for organizations with smaller ones. This mirrors the cooperative economics we bring into client spaces: those with more resources carry some of the weight for those with less.</p>
+    <p>Fees are discussed in the first conversation, after we understand what the situation actually calls for. If budget is a real constraint, say so early — it changes the scope conversation, not whether we have it.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Limicelia</span>
+  <div class="footer-links">
+    <a href="services.html">Services</a>
+  </div>
+  <span class="footer-note">Nonprofit practice · Est. 2026</span>
+</footer>
+
+<script>
+(function(){
+  var bd=document.body,dots=document.querySelectorAll('.ps-dot'),canvas=document.getElementById('mc'),ctx=canvas.getContext('2d');
+  var W,H,nodes=[],edges=[],frame=0,rgb=[201,145,74];
+  var PAL={dark:[201,145,74],warm:[192,128,60],slate:[126,170,191],forest:[143,175,120],light:[150,96,28]};
+  function tp(){var h=new Date().getHours();if(h>=5&&h<8)return'warm';if(h>=8&&h<13)return'light';if(h>=13&&h<17)return'slate';if(h>=17&&h<20)return'forest';return'dark';}
+  function sp(p){bd.classList.remove('p-warm','p-slate','p-forest','p-light');if(p!=='dark')bd.classList.add('p-'+p);dots.forEach(function(d){d.classList.toggle('on',d.dataset.p===p);});rgb=PAL[p]||PAL.dark;}
+  dots.forEach(function(d){d.addEventListener('click',function(){sp(d.dataset.p);try{sessionStorage.setItem('lim-manual',d.dataset.p);}catch(e){}});});
+  var m=null;try{m=sessionStorage.getItem('lim-manual');}catch(e){}sp(m||tp());
+  setInterval(function(){var mn=null;try{mn=sessionStorage.getItem('lim-manual');}catch(e){}if(!mn)sp(tp());},300000);
+  function be(){edges=[];var mx=130;for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<mx)edges.push([i,j,d,mx]);}}
+  function ini(){nodes=[];edges=[];var n=Math.floor(W*H/28000);for(var i=0;i<n;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.09,r:Math.random()*1.2+.3});be();}
+  function rsz(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight*3;ini();}
+  function drw(){ctx.clearRect(0,0,W,H);var r=rgb[0],g=rgb[1],b=rgb[2];for(var e=0;e<edges.length;e++){var a=(1-edges[e][2]/edges[e][3])*.18;ctx.strokeStyle='rgba('+r+','+g+','+b+','+a+')';ctx.lineWidth=(1-edges[e][2]/edges[e][3])*.6;ctx.beginPath();ctx.moveTo(nodes[edges[e][0]].x,nodes[edges[e][0]].y);ctx.lineTo(nodes[edges[e][1]].x,nodes[edges[e][1]].y);ctx.stroke();}for(var ni=0;ni<nodes.length;ni++){ctx.fillStyle='rgba('+r+','+g+','+b+',.32)';ctx.beginPath();ctx.arc(nodes[ni].x,nodes[ni].y,nodes[ni].r,0,Math.PI*2);ctx.fill();}}
+  function tk(){for(var ni=0;ni<nodes.length;ni++){nodes[ni].x+=nodes[ni].vx;nodes[ni].y+=nodes[ni].vy;if(nodes[ni].x<0||nodes[ni].x>W)nodes[ni].vx*=-1;if(nodes[ni].y<0||nodes[ni].y>H)nodes[ni].vy*=-1;}}
+  function lp(){tk();if(frame%4===0)be();drw();frame++;requestAnimationFrame(lp);}
+  window.addEventListener('resize',rsz);rsz();lp();
+  var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+  var nav=document.getElementById('hnav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);});
+})();
+</script>
+</body>
+</html>

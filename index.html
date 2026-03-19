@@ -1,733 +1,481 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)https://www.limicelia.org/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Limicelia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./Limicelia_files/css2" rel="stylesheet">
+<title>Limicelia — Organizational Accompaniment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
-/* ─── PALETTES ─────────────────────────── */
-:root{
-  --ink:#0e0d0a;--parchment:#f2ead8;--amber:#c9914a;
-  --amber-glow:rgba(201,145,74,.15);--amber-dim:rgba(201,145,74,.4);
-  --soil:#1a1710;--spore:rgba(242,234,216,.06);
-  --tp:#f2ead8;--ts:rgba(242,234,216,.75);--tm:rgba(242,234,216,.48);
-  --sur:#1c1a15;--rul:rgba(242,234,216,.1);--ca:.32;
-}
-body.p-warm{--ink:#221b12;--parchment:#f6edd8;--amber:#c0803c;--amber-glow:rgba(192,128,60,.18);--amber-dim:rgba(192,128,60,.45);--soil:#302516;--spore:rgba(246,237,216,.07);--tp:#f6edd8;--ts:rgba(246,237,216,.78);--tm:rgba(246,237,216,.48);--sur:#302516;--rul:rgba(246,237,216,.1);--ca:.22}
-body.p-slate{--ink:#131820;--parchment:#dce6f0;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.15);--amber-dim:rgba(126,170,191,.4);--soil:#1a2230;--spore:rgba(220,230,240,.05);--tp:#dce6f0;--ts:rgba(220,230,240,.75);--tm:rgba(220,230,240,.45);--sur:#1a2230;--rul:rgba(220,230,240,.1);--ca:.28}
-body.p-forest{--ink:#0d1510;--parchment:#d8ecd8;--amber:#8faf78;--amber-glow:rgba(143,175,120,.15);--amber-dim:rgba(143,175,120,.4);--soil:#141f16;--spore:rgba(216,236,216,.05);--tp:#d8ecd8;--ts:rgba(216,236,216,.75);--tm:rgba(216,236,216,.45);--sur:#141f16;--rul:rgba(216,236,216,.1);--ca:.25}
-body.p-light{--ink:#f5f0e8;--parchment:#1e1a14;--amber:#96601c;--amber-glow:rgba(150,96,28,.1);--amber-dim:rgba(150,96,28,.35);--soil:#ede6d6;--spore:rgba(30,26,20,.04);--tp:#1e1a14;--ts:rgba(30,26,20,.72);--tm:rgba(30,26,20,.45);--sur:#ede6d6;--rul:rgba(30,26,20,.1);--ca:.1}
-
-/* ─── BASE ─────────────────────────────── */
+:root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
+body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
+body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
+body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);--amber-dim:rgba(143,175,120,.38);--tp:#d8ecd8;--ts:rgba(216,236,216,.72);--tm:rgba(216,236,216,.43);--sur:#141f16;--rul:rgba(216,236,216,.09);--ca:.22}
+body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
 a{color:inherit;text-decoration:none}
-
-/* ─── PALETTE SWITCHER ─────────────────── */
 .ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
 .ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
 .ps-row{display:flex;gap:.35rem}
 .ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
-.ps-dot:hover{transform:scale(1.2)}
-.ps-dot.on{border-color:var(--amber)}
-.ps-dot[data-p="dark"] {background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
-.ps-dot[data-p="warm"] {background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
+.ps-dot:hover{transform:scale(1.2)}.ps-dot.on{border-color:var(--amber)}
+.ps-dot[data-p="dark"]{background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
+.ps-dot[data-p="warm"]{background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
 .ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
 .ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
 .ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
-
-/* ─── CANVAS ───────────────────────────── */
 #mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 section{position:relative;z-index:2}
-
-/* ─── WORDMARK ───────────────────────────── */
-.wordmark{display:inline-flex;align-items:center;gap:.9rem;opacity:0;animation:fadeUp 1.2s .2s forwards}
+.wordmark{display:inline-flex;align-items:center;gap:.9rem}
 .wordmark-glyph{width:28px;height:28px;flex-shrink:0}
-.wordmark-text{display:flex;flex-direction:column;gap:.2rem}
 .wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1;transition:color .4s}
-.wordmark-sub{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);opacity:.55;transition:color .4s}
-
-/* ─── SHARED ─────────────────────────────── */
+.hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
+.hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
+.hnav.scrolled::after{opacity:1}
+.hnav-links{display:flex;gap:2.5rem;list-style:none}
+.hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
+.hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
 .pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
-.pad-sm{padding:clamp(2rem,4vh,3rem) clamp(2rem,7vw,7rem)}
 .sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;transition:color .4s}
 .sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
 .sec-num{opacity:.5;margin-right:.2rem}
 h2.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp);transition:color .4s}
-h2.sec-title em{font-style:italic;color:var(--amber);transition:color .4s}
+h2.sec-title em{font-style:italic;color:var(--amber)}
 .body-text{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);transition:color .4s}
 .body-text strong{color:var(--tp);font-weight:400}
 .divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem);transition:background .4s}
 .btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
 .btn-p:hover{background:transparent;color:var(--amber)}
-.btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:flex;align-items:center;gap:.6rem;transition:color .3s}
+.btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
 .btn-g::after{content:'→';transition:transform .3s;display:inline-block}
-.btn-g:hover{color:var(--tp)}
-.btn-g:hover::after{transform:translateX(5px)}
-
-/* ─── STICKY NAV ──────────────────────── */
-.hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;opacity:0;animation:fadeUp 1.2s .2s forwards;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
-.hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
-.hnav.scrolled::after{opacity:1}
-
-/* ─── ACCOMPANIMENT DRAWER ────────────── */
-.oa-drawer-wrap{max-width:58ch}
-.oa-trigger{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;margin-top:1.2rem;transition:color .3s;background:none;border:none;padding:0}
-.oa-trigger::after{content:'+';font-size:.9rem;display:inline-block;transition:transform .35s;line-height:1}
-.oa-trigger:hover{color:var(--tp)}
-.oa-trigger[aria-expanded="true"]::after{transform:rotate(45deg)}
-.oa-drawer{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.4,0,.2,1),opacity .4s;opacity:0;margin-top:0}
-.oa-drawer.open{opacity:1;margin-top:1.5rem}
-.oa-drawer-inner{padding-bottom:1rem}
-.oa-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rul);margin-bottom:2rem;transition:border-color .4s}
-.oa-compare-head{padding:.7rem .9rem;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:var(--amber-glow);border-bottom:1px solid var(--rul)}
-.oa-compare-head:first-child{border-right:1px solid var(--rul)}
-.oa-compare-row{display:contents}
-.oa-compare-cell{padding:.75rem .9rem;font-size:.88rem;font-weight:300;line-height:1.65;border-top:1px solid var(--rul);color:var(--tm);transition:color .4s,border-color .4s}
-.oa-compare-cell:nth-child(odd){border-right:1px solid var(--rul)}
-.oa-compare-cell:nth-child(even){color:var(--ts)}
-.oa-phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin-top:.5rem}
-.oa-phase{background:var(--ink);padding:1.2rem 1.1rem;transition:background .4s}
-.oa-phase:hover{background:var(--amber-glow)}
-.oa-phase-num{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;color:var(--amber);opacity:.6;margin-bottom:.5rem}
-.oa-phase-name{font-size:.95rem;font-weight:400;color:var(--tp);margin-bottom:.4rem;transition:color .4s}
-.oa-phase-desc{font-size:.82rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
-@media(max-width:1000px){.oa-phase-grid{grid-template-columns:repeat(2,1fr)}.oa-compare{grid-template-columns:1fr}}
-@media(max-width:700px){.oa-phase-grid{grid-template-columns:1fr}}
-.hero{min-height:50vh;display:flex;flex-direction:column;justify-content:space-between;padding:0 clamp(2rem,7vw,7rem) clamp(1.2rem,2vw,2rem)}
-.hnav-links{display:flex;gap:2.5rem;list-style:none}
-.hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
-.hnav-links a:hover{color:var(--amber)}
-.hero-body{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,3vh,2.5rem) 0 clamp(1rem,2vh,2rem)}
-.eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;opacity:0;animation:fadeUp 1s .5s forwards;transition:color .4s}
-.hero-headline{font-size:clamp(3.2rem,7vw,6.5rem);font-weight:300;line-height:1.02;letter-spacing:-.02em;color:var(--tp);opacity:0;animation:fadeUp 1.2s .65s forwards;transition:color .4s;max-width:16ch}
-.hero-headline em{font-style:italic;color:var(--amber);transition:color .4s}
-.hero-mission-line{font-size:clamp(1rem,1.6vw,1.2rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:58ch;margin-top:2rem;opacity:0;animation:fadeUp 1.2s .88s forwards;transition:color .4s;border-left:2px solid var(--amber-dim);padding-left:1.4rem}
-.hero-cta{display:flex;gap:1.5rem;align-items:center;margin-top:2.8rem;opacity:0;animation:fadeUp 1.2s 1.08s forwards}
-.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;opacity:0;animation:fadeUp 1s 1.3s forwards}
-.scroll-ind{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);writing-mode:vertical-rl;display:flex;align-items:center;gap:1rem;transition:color .4s}
-.scroll-ind::before{content:'';display:block;width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--amber-dim));animation:pulse-line 2.5s infinite}
-.tagline-v{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);writing-mode:vertical-rl;transition:color .4s}
-
-/* ─── STORY BEAT ─────────────────────────── */
-.story-beat{padding:clamp(2.5rem,5vh,4.5rem) clamp(2rem,7vw,7rem);background:var(--sur);transition:background .5s}
-.story-inner{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid var(--rul);transition:border-color .4s;max-width:900px}
-.story-tag{padding:2rem 1.6rem;border-right:1px solid var(--rul);display:flex;flex-direction:column;gap:1.2rem;background:var(--amber-glow);transition:border-color .4s}
-.story-tag-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.8}
-.story-tag-type{font-size:.92rem;font-weight:300;color:var(--tp);line-height:1.5}
-.story-tag-meta{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;color:var(--tm);line-height:1.7}
-.story-content{padding:2rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1rem}
-.story-quote{font-size:clamp(1.05rem,1.5vw,1.25rem);font-weight:300;line-height:1.8;color:var(--ts);font-style:italic}
-.story-quote strong{font-style:normal;color:var(--tp);font-weight:400}
-.story-outcome{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-top:.5rem}
-
-/* ─── WHAT WE DO ─────────────────────────── */
-.section-what{}
-.domain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rul);margin-bottom:3rem;transition:background .4s}
-.domain-box{background:var(--ink);padding:1.5rem 1.4rem;transition:background .4s;cursor:default}
-.domain-box:hover{background:var(--amber-glow)}
-.db-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--amber);opacity:.6;margin-bottom:.7rem;transition:color .4s}
-.db-title{font-size:1rem;font-weight:400;line-height:1.25;color:var(--tp);margin-bottom:.55rem;transition:color .4s}
-.db-title em{font-style:italic;color:var(--amber);transition:color .4s}
-.db-desc{font-size:.82rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
-
-.why-not-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 5rem;align-items:start;margin-bottom:3rem}
-.traditional-list{list-style:none;display:flex;flex-direction:column;gap:0;margin-top:1.2rem}
-.tl-item{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rul);transition:border-color .4s}
-.tl-item:last-child{border-bottom:1px solid var(--rul)}
-.tl-left,.tl-right{padding:.85rem .9rem}
-.tl-left{font-size:.93rem;font-weight:300;color:var(--tm);border-right:1px solid var(--rul);transition:color .4s,border-color .4s}
-.tl-right{font-size:.93rem;font-weight:300;color:var(--ts);padding-left:1.1rem;transition:color .4s}
-.tl-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7;display:block;margin-bottom:.2rem}
-
-.name-etymology{display:grid;grid-template-columns:220px 1fr;gap:0;border:1px solid var(--rul);margin-bottom:0;transition:border-color .4s}
-.etym-left{padding:1.8rem 1.5rem;border-right:1px solid var(--rul);display:flex;flex-direction:column;gap:.8rem;background:rgba(201,145,74,.04);transition:border-color .4s}
-.etym-latin{font-size:1.4rem;font-weight:300;font-style:italic;color:var(--amber);line-height:1.2;transition:color .4s}
-.etym-parts{display:flex;flex-direction:column;gap:.5rem;margin-top:.3rem}
-.etym-part{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.08em;color:var(--tm);line-height:1.6;transition:color .4s}
-.etym-part strong{color:var(--ts);font-weight:400}
-.etym-right{padding:1.8rem 2rem;display:flex;flex-direction:column;justify-content:center;gap:.9rem}
-.etym-def{font-size:1rem;font-weight:300;line-height:1.8;color:var(--ts);transition:color .4s}
-.etym-def strong{color:var(--tp);font-weight:400}
-
-/* ─── PRINCIPLES ─────────────────────────── */
-.section-principles{background:var(--sur);transition:background .5s}
-.principle-pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rul);transition:border-color .4s}
-.principle-pair:last-child{border-bottom:1px solid var(--rul)}
-.pp-visual{border-right:1px solid var(--rul);padding:2.5rem 2rem;display:flex;align-items:center;justify-content:center;background:var(--sur);transition:background .4s,border-color .4s;min-height:240px}
-.pp-text{padding:2.5rem 3rem;display:flex;flex-direction:column;gap:.9rem;justify-content:center}
-.pp-num{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.6}
-.pp-title{font-size:clamp(1.3rem,2vw,1.75rem);font-weight:300;line-height:1.2;color:var(--tp);transition:color .4s}
-.pp-title em{font-style:italic;color:var(--amber);transition:color .4s}
-.pp-body{font-size:.98rem;font-weight:300;line-height:1.85;color:var(--ts);max-width:50ch;transition:color .4s}
-.pp-body strong{color:var(--tp);font-weight:400}
-
-/* ─── WHO WE SERVE ───────────────────────── */
-.section-practice{transition:background .5s}
-.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);transition:background .4s}
-.who-card{background:var(--ink);padding:2.2rem;transition:background .4s}
-.who-card:hover{background:var(--sur)}
-.who-icon{font-size:1.5rem;margin-bottom:1rem;display:block;color:var(--amber);transition:color .4s}
-.who-type{font-size:clamp(1.1rem,1.7vw,1.45rem);font-weight:300;margin-bottom:.7rem;line-height:1.2;color:var(--tp);transition:color .4s}
-.who-type em{font-style:italic;color:var(--amber);transition:color .4s}
-.who-desc{font-size:.92rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
-.who-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
-.who-tag{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--amber-dim);color:var(--amber);opacity:.65;transition:border-color .4s,color .4s}
-
-/* ─── EVIDENCE STRIP ─────────────────────── */
-.evidence-strip{padding:2.5rem clamp(2rem,7vw,7rem);background:var(--sur);border-top:1px solid var(--rul);border-bottom:1px solid var(--rul);transition:background .5s,border-color .4s}
-.evidence-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul)}
-.ev-item{background:var(--ink);padding:2rem 1.8rem;transition:background .4s}
-.ev-num{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;color:var(--amber);line-height:1;margin-bottom:.5rem;transition:color .4s}
-.ev-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);margin-bottom:.5rem;transition:color .4s}
-.ev-desc{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--ts);transition:color .4s}
-
-/* ─── LINEAGE ────────────────────────────── */
-.section-lineage{transition:background .5s}
-.lineage-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 5rem;align-items:start}
-.lineage-traditions{display:flex;flex-direction:column;gap:1.2rem;margin-top:1.5rem}
-.lt-item{padding:1.1rem 1.3rem;border-left:2px solid var(--amber-dim);background:var(--spore);transition:border-color .4s}
-.lt-name{font-size:.95rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
-.lt-desc{font-size:.85rem;font-weight:300;line-height:1.7;color:var(--tm);transition:color .4s}
-
-/* ─── BIO INTRO GRID ─────────────────────── */
-.bio-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 5rem;align-items:start;margin-top:1.8rem}
-.bio-intro-left{}
-.bio-intro-right{padding-left:2.5rem;border-left:1px solid var(--rul);transition:border-color .4s}
-.bio-intro-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem;transition:color .4s}
-.bio-values-list{list-style:none;display:flex;flex-direction:column;gap:0}
-.bio-values-list li{font-size:.95rem;font-weight:300;color:var(--ts);padding:.5rem 0;border-bottom:1px solid var(--rul);display:flex;align-items:center;gap:.8rem;transition:color .4s,border-color .4s}
-.bio-values-list li::before{content:'—';color:var(--amber);opacity:.5;font-family:'DM Mono',monospace;font-size:.6rem;flex-shrink:0}
-.bio-values-note{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm);transition:color .4s}
-@media(max-width:1000px){.bio-intro-grid{grid-template-columns:1fr}.bio-intro-right{border-left:none;border-top:1px solid var(--rul);padding-left:0;padding-top:1.5rem}}
-.section-bios{background:var(--sur);transition:background .5s}
-.bio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin-top:2rem;transition:background .4s}
-.bio-card{background:var(--ink);padding:2.2rem;transition:background .4s}
-.bio-card:hover{background:var(--sur)}
-.bio-initials{width:48px;height:48px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;color:var(--amber);transition:background .4s,border-color .4s,color .4s}
-.bio-name{font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
-.bio-role{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem;transition:color .4s}
-.bio-text{font-size:.92rem;font-weight:300;line-height:1.78;color:var(--ts);transition:color .4s}
-.bio-text+.bio-text{margin-top:.7rem}
-.bio-cred{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
-.bio-tag{font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm);transition:border-color .4s,color .4s}
-.bio-link{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-top:1rem;display:inline-block;border-bottom:1px solid var(--amber-dim);padding-bottom:.1rem;transition:opacity .2s}
-.bio-link:hover{opacity:1}
-
-/* ─── CTA ────────────────────────────────── */
+.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}.rd4{transition-delay:.5s}
+.content-section.alt{background:var(--sur)}.content-section{transition:background .5s}
+/* HERO */
+.hero{padding:clamp(5rem,10vh,8rem) clamp(2rem,7vw,7rem) clamp(3rem,6vh,5rem);min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:2;background-image:linear-gradient(to bottom,rgba(245,240,232,0) 0%,rgba(245,240,232,.55) 55%,rgba(245,240,232,.95) 100%),url('forest-path.jpg');background-size:cover;background-position:center top}
+body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{background-image:linear-gradient(to bottom,rgba(14,13,10,0) 0%,rgba(14,13,10,.6) 55%,rgba(14,13,10,.97) 100%),url('forest-path.jpg')}
+.hero-headline{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);max-width:14ch;margin-bottom:2rem;transition:color .4s}
+.hero-headline em{font-style:italic;color:var(--amber)}
+.hero-lede{font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:50ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2.5rem;transition:color .4s,border-color .4s}
+.hero-sub{font-size:clamp(.88rem,1.1vw,.98rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
+.hero-cta{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap}
+/* PHOTO CREDIT */
+.photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.5;margin-top:.6rem;line-height:1.6}
+.photo-credit a{color:var(--tm);opacity:.7;border-bottom:1px solid var(--rul)}
+/* MISSION BLOCK */
+.mission-block{padding:clamp(2.5rem,5vh,4rem) clamp(2rem,7vw,7rem);background:var(--sur);border-top:1px solid var(--rul);border-bottom:1px solid var(--rul);position:relative;z-index:2;transition:background .5s}
+.mission-body{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.85;color:var(--ts);max-width:64ch;margin-bottom:1.5rem;transition:color .4s}
+.mission-body em{font-style:italic;color:var(--amber)}
+.mission-close{font-size:clamp(1.15rem,2vw,1.5rem);font-weight:300;line-height:1.4;color:var(--tp);font-style:italic;transition:color .4s}
+/* NAME */
+.name-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+@media(max-width:800px){.name-grid{grid-template-columns:1fr}}
+.ety-row{display:flex;gap:1rem;align-items:baseline;margin-bottom:.6rem}
+.ety-word{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);min-width:5rem}
+.ety-def{font-size:.9rem;font-weight:300;color:var(--tm);transition:color .4s}
+.crossing-list{font-size:.95rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
+/* WHO */
+.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:.8rem 0 0;transition:background .4s}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.who-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
+.who-card:hover{background:var(--amber-glow)}
+.who-cluster-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
+.who-card-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
+.who-card-name em{font-style:italic;color:var(--amber)}
+.who-card-scene{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.who-card-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
+/* SERVICES */
+.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+@media(max-width:700px){.service-grid{grid-template-columns:1fr}}
+.service-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
+.service-card:hover{background:var(--sur)}
+.service-path{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.service-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.6rem;transition:color .4s}
+.service-name em{font-style:italic;color:var(--amber)}
+.service-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.service-badge{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.8rem;display:inline-block;padding:.25rem .65rem;border:1px solid var(--amber-dim);color:var(--amber)}
+/* PATHS */
+.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+@media(max-width:900px){.paths-grid{grid-template-columns:1fr}}
+.path-card{background:var(--ink);padding:2rem 2rem 2.4rem;transition:background .4s}
+.path-card:hover{background:var(--sur)}
+.path-num{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
+.path-name{font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
+.path-when{font-size:.88rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
+.path-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
+.path-tags{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2}
+.path-link{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
+.path-link::after{content:'→';display:inline-block;transition:transform .3s}
+.path-link:hover{opacity:.75}.path-link:hover::after{transform:translateX(4px)}
+/* LINEAGE */
+.tradition-row{display:flex;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
+.tradition-row:last-child{border-bottom:none}
+.tradition-name{font-size:.95rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
+.tradition-note{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
+/* HOW WE HOLD */
+.how-prose{max-width:62ch}
+.how-prose p{font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
+.how-prose p:last-child{margin-bottom:0}
+.how-prose strong{color:var(--tp);font-weight:400}
+/* BIOS */
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+@media(max-width:800px){.bio-grid{grid-template-columns:1fr}}
+.bio-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s}
+.bio-avatar{width:52px;height:52px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--amber);margin-bottom:1.2rem}
+.bio-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
+.bio-role{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
+.bio-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.bio-clients{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
+.bio-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
+/* PARTNER */
+.partner-card{border:1px solid var(--amber-dim);padding:1.8rem 2rem;background:var(--amber-glow);margin:2rem 0}
+.partner-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
+.partner-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
+.partner-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+/* CTA */
 .section-cta{text-align:center;position:relative;overflow:hidden}
 .section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
-.cta-word{font-size:clamp(3rem,7vw,7rem);font-weight:300;line-height:1;letter-spacing:-.02em;margin-bottom:1.8rem;color:var(--tp);transition:color .4s}
-.cta-word em{font-style:italic;color:var(--amber);transition:color .4s}
-.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 2.5rem;transition:color .4s}
+.cta-word{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;color:var(--tp);transition:color .4s}
+.cta-word em{font-style:italic;color:var(--amber)}
+.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 1rem;transition:color .4s}
+.cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--amber);max-width:44ch;margin:0 auto 2.5rem;font-style:italic;transition:color .4s}
 .cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
-
-/* ─── FOOTER ─────────────────────────────── */
-footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem;transition:border-color .4s}
-.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);transition:color .4s}
-.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6;transition:color .4s}
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
 .footer-links{display:flex;gap:2rem}
 .footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
-
-/* ─── CARDS ─────────────────────────────── */
-.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin-top:2rem}
-@media(max-width:900px){.card-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.card-grid{grid-template-columns:1fr}}
-.card{background:var(--ink);padding:2.2rem 2rem;display:flex;flex-direction:column;gap:1rem;transition:background .3s;cursor:pointer;position:relative;overflow:hidden;text-decoration:none}
-.card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
-.card:hover{background:var(--amber-glow)}
-.card:hover::before{transform:scaleX(1)}
-.card-num{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);opacity:.6}
-.card-title{font-size:clamp(1.1rem,1.6vw,1.4rem);font-weight:300;color:var(--tp);line-height:1.2}
-.card-title em{font-style:italic;color:var(--amber)}
-.card-body{font-size:.88rem;font-weight:300;color:var(--ts);line-height:1.7;flex:1}
-.card-link{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:.5rem;margin-top:auto;padding-top:.8rem}
-.card-link::after{content:'→';transition:transform .3s;display:inline-block}
-.card:hover .card-link::after{transform:translateX(5px)}
-
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse-line{0%,100%{opacity:.3}50%{opacity:1}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
-
-/* ─── RESPONSIVE ─────────────────────────── */
-@media(max-width:1000px){
-  .domain-grid{grid-template-columns:repeat(2,1fr)}
-  .why-not-grid{grid-template-columns:1fr}
-  .principle-pair{grid-template-columns:1fr}
-  .pp-visual{min-height:200px;border-right:none;border-bottom:1px solid var(--rul)}
-  .lineage-grid{grid-template-columns:1fr}
-  .bio-grid{grid-template-columns:1fr}
-  .who-grid{grid-template-columns:1fr}
-  .story-inner{grid-template-columns:1fr}
-  .story-tag{border-right:none;border-bottom:1px solid var(--rul)}
-  .name-etymology{grid-template-columns:1fr}
-  .etym-left{border-right:none;border-bottom:1px solid var(--rul)}
-  .evidence-inner{grid-template-columns:1fr}
-}
-@media(max-width:700px){
-  .domain-grid{grid-template-columns:1fr}
-  .tl-item{grid-template-columns:1fr}
-  .tl-left{border-right:none;border-bottom:1px solid var(--rul)}
-  .hnav-links{gap:1.2rem}
-  footer{flex-direction:column;text-align:center}
-  .ps{bottom:1rem;right:1rem}
-}
+@media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
 </style>
 </head>
-<body class="p-forest">
+<body class="p-light">
+<div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row">
+  <button class="ps-dot" data-p="dark" title="Dark"></button>
+  <button class="ps-dot" data-p="warm" title="Warm"></button>
+  <button class="ps-dot" data-p="slate" title="Slate"></button>
+  <button class="ps-dot" data-p="forest" title="Forest"></button>
+  <button class="ps-dot on" data-p="light" title="Light"></button>
+</div></div>
+<canvas id="mc"></canvas>
 
-
-<!-- ── PALETTE SWITCHER ── -->
-<div class="ps">
-  <p class="ps-lbl">Theme</p>
-  <div class="ps-row">
-    <button class="ps-dot" data-p="dark" title="Dark"></button>
-    <button class="ps-dot" data-p="warm" title="Warm"></button>
-    <button class="ps-dot" data-p="slate" title="Slate"></button>
-    <button class="ps-dot on" data-p="forest" title="Forest"></button>
-    <button class="ps-dot" data-p="light" title="Light"></button>
+<nav class="hnav" id="hnav">
+  <div class="wordmark">
+    <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
+      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
+      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
+      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"/>
+      <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"/>
+    </svg>
+    <span class="wordmark-name">Limicelia</span>
   </div>
+  <ul class="hnav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h1 class="hero-headline reveal">Never arrived.<br><em>Always becoming.</em></h1>
+  <p class="hero-lede reveal rd1">We walk with organizations through the changes that change them.</p>
+  <p class="hero-sub reveal rd2">The work of becoming requires company. We walk alongside organizations, communities, and leaders through structural change — the moments that require more than strategy, and more than facilitation, to complete.</p>
+  <div class="hero-cta reveal rd2">
+    <a href="#contact" class="btn-p">Begin a conversation</a>
+    <a href="services.html" class="btn-g">See our practice</a>
+  </div>
+  <p class="photo-credit">Image by <a href="https://pixabay.com/users/silvana_art-4637256/" target="_blank">Silvana Lingg</a> from <a href="https://pixabay.com/" target="_blank">Pixabay</a></p>
+</section>
+
+<!-- MISSION STATEMENT -->
+<div class="mission-block reveal">
+  <div style="margin:-clamp(2.5rem,5vh,4rem) -clamp(2rem,7vw,7rem) 2rem;overflow:hidden;max-height:380px">
+    <img src="waterfall.jpg" alt="A waterfall descending through moss-covered rocks — water, threshold, the river at the crossing" style="width:100%;height:380px;object-fit:cover;object-position:center 30%;display:block;opacity:.85">
+    <p class="photo-credit" style="padding:.4rem clamp(2rem,7vw,7rem)">Image by <a href="https://pixabay.com/users/fietzfotos-6795508/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6656672" target="_blank">Albrecht Fietz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6656672" target="_blank">Pixabay</a></p>
+  </div>
+  <p class="mission-body">Across every tradition that has tried to make sense of profound change, there is a river. And a guide who knows its currents.<br><br>The moments we walk alongside — <em>succession and rupture, structures dissolving, cultures shifting beneath their own feet, rapid growth that outpaces what an organization knows about itself, the values reckoning that splits what came before from what must come next</em> — these are passages. Not problems to be solved from the outside. Passages to be completed in relationship, with someone willing to stay in the water.<br><br>Every wisdom tradition has a name for this figure. The ferryman. The one who carries the lantern into the threshold. The guide who has traversed the territory and does not flinch at the dark.<br><br>What we have learned from that lineage: the guide does not carry you across. They walk alongside. And in that walking, something is built — the collective capacity to read your own currents, to hold uncertainty without collapsing it, to move together in ways that were not possible before you entered the water. The crossing itself becomes the teacher.</p>
+  <p class="mission-close">We stay until you can cross without us.</p>
 </div>
 
-<canvas id="mc" width="2048" height="3132"></canvas>
+<div class="divider"></div>
 
-<!-- ══════════════════════════════════════
-     HERO
-═══════════════════════════════════════ -->
-<nav class="hnav">
-    <!-- Wordmark -->
-    <div class="wordmark">
-      <!-- Mycelium node glyph — threshold + network -->
-      <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"></circle>
-        <!-- radiating threads -->
-        <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"></line>
-        <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"></line>
-        <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
-        <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
-        <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
-        <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
-        <line x1="15.6" y1="12.4" x2="22.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"></line>
-        <line x1="12.4" y1="15.6" x2="5.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"></line>
-        <!-- outer node dots -->
-        <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"></circle>
-        <circle cx="14" cy="25" r="1.1" fill="var(--amber)" opacity=".25"></circle>
-        <circle cx="3" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle>
-        <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle>
-        <circle cx="5.5" cy="5.5" r=".9" fill="var(--amber)" opacity=".22"></circle>
-        <circle cx="22.5" cy="22.5" r=".9" fill="var(--amber)" opacity=".22"></circle>
-      </svg>
-      <div class="wordmark-text">
-        <span class="wordmark-name">Limicelia</span>
-        <!-- subtitle removed -->
+<!-- NAME SECTION -->
+<section class="content-section pad" id="name">
+  <div class="sec-label reveal"><span class="sec-num">00 /</span> The name</div>
+  <div class="name-grid">
+    <div>
+      <h2 class="sec-title reveal" style="margin-bottom:1.5rem"><em>Limicelia</em></h2>
+      <div class="reveal rd1">
+        <div class="ety-row"><span class="ety-word">limen</span><span class="ety-def">threshold · the space of crossing</span></div>
+        <div class="ety-row"><span class="ety-word">mycelia</span><span class="ety-def">underground networks enabling exchange between organisms</span></div>
+      </div>
+      <p class="body-text reveal rd2" style="margin-top:1.5rem;max-width:38ch">The mycelium doesn't produce uncapped growth — it connects, communicates, and makes possible what couldn't exist alone. Our name carries the methodology.</p>
+      <div style="margin-top:1.5rem">
+        <img src="puffball.jpg" alt="Puffball mushrooms emerging from forest floor — the visible fruiting of the mycelium network beneath" style="width:100%;max-width:340px;height:200px;object-fit:cover;object-position:center;display:block;opacity:.8">
+        <p class="photo-credit" style="margin-top:.4rem">Image by <a href="https://pixabay.com/users/jagjeet_dhuna-39790983/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8288991" target="_blank">Jagjeet Dhuna</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8288991" target="_blank">Pixabay</a></p>
       </div>
     </div>
-    <ul class="hnav-links">
-      <li><a href="https://www.limicelia.org/services.html">Services</a></li>
-      <li><a href="https://www.limicelia.org/our-approach.html">Our Approach</a></li>
-      <li><a href="https://www.limicelia.org/commons-model.html">Our Model</a></li>
-      <li><a href="https://www.limicelia.org/#bios">About</a></li>
-      <li><a href="https://www.limicelia.org/#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-<section class="hero">
-
-  <div class="hero-body">
-    <p class="eyebrow">Regenerative Transformation</p>
-    <h1 class="hero-headline">
-      The work of <em>becoming</em> requires company.
-    </h1>
-    <p class="hero-mission-line">
-      We work alongside organizations, communities, and leaders through the passages of structural change — bringing rigorous presence to what conventional consulting cannot reach.
-    </p>
-    <div class="hero-cta">
-      <a href="https://www.limicelia.org/#contact" class="btn-p">Begin a Conversation</a>
-      <a href="https://www.limicelia.org/#what" class="btn-g">See our practice</a>
-    </div>
-  </div>
-
-  <div class="hero-foot">
-    <div class="scroll-ind">Scroll</div>
-    <p class="tagline-v">Presence · Transformation · Practice</p>
-  </div>
-</section>
-
-<!-- Etymology -->
-<section class="pad-sm" style="background:var(--sur)">
-  <div class="name-etymology reveal">
-    <div class="etym-left">
-      <p class="etym-latin">limicelia</p>
-      <div class="etym-parts">
-        <p class="etym-part"><strong>limen</strong> — threshold, the space of crossing</p>
-        <p class="etym-part"><strong>mycelia</strong> — the underground networks that connects and enables exchange between organisms</p>
-      </div>
-    </div>
-    <div class="etym-right">
-      <p class="etym-def">Our name is drawn from the biology of threshold crossings. The mycelium doesn't produce uncapped growth — it <strong>connects, communicates, and creates conditions</strong> for what is trying to emerge. We believe organizations face genuine thresholds, not just problems: moments when old structures dissolve before new ones have formed.</p>
-      <p class="etym-def" style="margin-top:.7rem">A guide that can stay present at a threshold makes the difference between <strong>productive and destructive passage</strong>. That is what we are trained to do at Limicelia.</p>
+    <div class="reveal rd2">
+      <p class="body-text" style="margin-bottom:.8rem">Most organizations face the same passage twice — because nothing changed the first time.</p>
+      <p class="body-text" style="margin-bottom:1rem">A passage is a specific kind of moment — when the old structure can no longer hold but the new one hasn't formed yet. Not a problem with a solution. A threshold that requires presence.</p>
+      <p class="crossing-list">A succession. A merger. A founding team split. A values reckoning. A coalition forming. A rapid change in leadership. A restructure. A culture that shifted and never came back.</p>
+      <p class="body-text" style="margin-top:.8rem">What happens at a passage depends entirely on whether anyone is present enough to help the organization complete it — not just survive it.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════════════════════════════════════
-     01 — WHO WE ACCOMPANY
-═══════════════════════════════════════ -->
-<section class="section-practice pad" id="who">
-  <p class="sec-label reveal"><span class="sec-num">01 /</span> Who we work with</p>
-  <h2 class="sec-title reveal" style="margin-bottom:.7rem">Organizations, communities,<br><em>networks, and individuals</em></h2>
+<!-- THRESHOLD IMAGE -->
+<div style="position:relative;z-index:2;overflow:hidden;max-height:260px">
+  <img src="threshold-doors.jpg" alt="A row of identical doors — each one a different threshold, each one opening to something unknown" style="width:100%;height:260px;object-fit:cover;object-position:center 40%;display:block;opacity:.75">
+  <p class="photo-credit" style="position:absolute;bottom:.5rem;right:1rem;color:var(--tm);opacity:.55">Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1767562" target="_blank" style="color:var(--tm)">Arek Socha</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1767562" target="_blank" style="color:var(--tm)">Pixabay</a></p>
+</div>
 
-  <div class="who-grid reveal">
-    <div class="who-card">
-      <span class="who-icon">◎</span>
-      <h3 class="who-type">Mission-driven orgs<br><em>&amp; networks</em></h3>
-      <p class="who-desc">Nonprofits, cooperatives, foundations, social enterprises, and the networks that connect them — organizations whose purpose runs deeper than profit, and whose collective dynamics often reflect that depth in complex ways.</p>
-      <div class="who-tags">
-        <span class="who-tag">Nonprofits</span><span class="who-tag">Cooperatives</span>
-        <span class="who-tag">Networks</span><span class="who-tag">Coalitions</span>
-        <span class="who-tag">Social enterprise</span>
+<!-- WHO WE WORK WITH -->
+<section class="content-section alt pad" id="who">
+  <div class="sec-label reveal"><span class="sec-num">01 /</span> Who we work with</div>
+
+  <div class="who-cluster reveal" style="margin-bottom:2.5rem">
+    <p class="who-cluster-label">When the system is at a threshold</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <h3 class="who-card-name">Organizations</h3>
+        <p class="who-card-scene">When a founding team splits and the culture hasn't recovered. When the equity commitment made it onto the website but not into the room. When rapid growth revealed something the strategic plan didn't anticipate. When the company has outgrown the culture that built it. When the same problem keeps coming back.</p>
+        <div class="who-card-tags">Nonprofits · Cooperatives · Foundations · B-Corps · Social Enterprise</div>
+      </div>
+      <div class="who-card">
+        <h3 class="who-card-name">Institutions <em>&amp; civic systems</em></h3>
+        <p class="who-card-scene">When the institution has made a public commitment — to equity, to modernization, to a different kind of service — and the internal culture hasn't caught up. When a technology adoption is failing not because of the technology. When what the agency says it does and what the people inside it experience every day have quietly come apart.</p>
+        <div class="who-card-tags">Government Agencies · Civic Institutions · Public Sector · Anchor Institutions</div>
+      </div>
+      <div class="who-card">
+        <h3 class="who-card-name">Communities <em>&amp; networks</em></h3>
+        <p class="who-card-scene">When a shared purpose exists but shared governance doesn't yet. When a coalition, mutual aid network, or practitioner field has grown beyond what informal trust can hold. When the work is to build enough common ground that movement becomes possible — before anyone agrees on what that movement is.</p>
+        <div class="who-card-tags">Mutual Aid Networks · Coalitions · Place-based Communities · Practitioner Fields · Movement Organizations</div>
       </div>
     </div>
-    <div class="who-card">
-      <span class="who-icon">◈</span>
-      <h3 class="who-type">Teams &amp; orgs at<br><em>inflection points</em></h3>
-      <p class="who-desc">Organizations at any stage confronting the gap between founding vision and operational reality — birth, growth, maturity, or transformation. Founding teams, leadership transitions, mergers, mission pivots, and the passages no strategic plan fully prepares you for.</p>
-      <div class="who-tags">
-        <span class="who-tag">Founding teams</span><span class="who-tag">Growth stage</span>
-        <span class="who-tag">Restructuring</span><span class="who-tag">Succession</span>
+  </div>
+
+  <div class="who-cluster reveal rd1">
+    <p class="who-cluster-label">When the people are at a threshold</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <h3 class="who-card-name">Leaders <em>at their own threshold</em></h3>
+        <p class="who-card-scene">Sometimes the most significant passage an organization faces is the one its leader is walking through. When what's being asked of you has outgrown the person you were when you stepped into the role. When the thing you built has become the thing you're navigating from inside. We walk alongside — not to optimize performance, but to accompany what's actually happening.</p>
+        <div class="who-card-tags">Executive Directors · Founders · Emerging Leaders · Co-founders</div>
       </div>
-    </div>
-    <div class="who-card">
-      <span class="who-icon">◐</span>
-      <h3 class="who-type">Leaders &amp;<br><em>individuals</em></h3>
-      <p class="who-desc">Executives, directors, and emerging leaders navigating identity transitions, role complexity, and the personal work that systemic change requires.</p>
-      <div class="who-tags">
-        <span class="who-tag">Executive leadership</span><span class="who-tag">EDs &amp; CEOs</span>
-        <span class="who-tag">Emerging leaders</span><span class="who-tag">Co-founders</span>
-      </div>
-    </div>
-    <div class="who-card">
-      <span class="who-icon">◬</span>
-      <h3 class="who-type">Institutions &amp;<br><em>societal systems</em></h3>
-      <p class="who-desc">Organizations carrying something larger than themselves — public trust, collective narrative, societal-level function. Government agencies, anchor institutions, and the civic organizations that shape how communities understand themselves and what is possible.</p>
-      <div class="who-tags">
-        <span class="who-tag">Public agencies</span><span class="who-tag">Civic institutions</span>
-        <span class="who-tag">Anchor orgs</span><span class="who-tag">Systems change</span>
+      <div class="who-card">
+        <h3 class="who-card-name">The People <em>doing this work</em></h3>
+        <p class="who-card-scene">Teams, units, and communities carrying the work of change together. When the people doing the work are giving more than they're receiving from it — across a team, a coalition, a field. When the capacity to facilitate, hold conflict, or sustain community is depleting faster than it's being restored. We work with the collective, not just the individual.</p>
+        <div class="who-card-tags">Teams · Coalitions · Facilitation Networks · Community Orgs · Capacity Builders</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- evidence strip removed -->
-
 <div class="divider"></div>
 
-<!-- ══════════════════════════════════════
-     02 — WHAT WE DO
-═══════════════════════════════════════ -->
-<section class="section-what pad" id="what">
-
-  <p class="sec-label reveal"><span class="sec-num">02 /</span> What we do</p>
-  <h2 class="sec-title reveal" style="margin-bottom:.6rem">Two service domains.<br><em>One through line: accompaniment.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2.5rem">We work across the full arc of organizational life — in the domains where structural, relational, and cultural challenges converge. Each domain can be engaged independently or as part of a longer transformation journey arc.</p>
-
-  <!-- Domains first -->
-  <div class="domain-grid reveal">
-    <div class="domain-box">
-      <p class="db-num">01</p>
-      <h3 class="db-title">Conflict<br><em>Navigation</em></h3>
-      <p class="db-desc">Power-aware conflict navigation. Post-rupture repair. Deep Democracy facilitation. Relational skills.</p>
+<!-- SERVICES -->
+<section class="content-section pad" id="services">
+  <div class="sec-label reveal"><span class="sec-num">02 /</span> What we do</div>
+  <h2 class="sec-title reveal" style="margin-bottom:1.5rem">Many domains.<br><em>One through line: accompaniment.</em></h2>
+  <div class="service-grid reveal rd2">
+    <div class="service-card">
+      <h3 class="service-name">Organizational Health <em>&amp; Governance</em></h3>
+      <p class="service-body">Structure produces behavior. When roles are unclear, when leadership and the people doing the work are speaking different languages, when the culture says one thing and the incentives say another — the problem is structural. We redesign the conditions from which behavior emerges.</p>
     </div>
-    <div class="domain-box">
-      <p class="db-num">02</p>
-      <h3 class="db-title">System<br><em>Convening</em></h3>
-      <p class="db-desc">Ecosystem mapping. Coalition building. Collective action. Movement infrastructure.</p>
+    <div class="service-card">
+      <h3 class="service-name">Conflict Navigation <em>&amp; Repair</em></h3>
+      <p class="service-body">Conflict carries information the organization hasn't found another way to say. We stay with what it's surfacing — not just making it stop. In partnership with Colmenar Cooperative Consulting, a bilingual, worker-owned mediation practice.</p>
+      <span class="service-badge">Partnership with Colmenar</span>
     </div>
-    <div class="domain-box" style="display:flex;align-items:center;justify-content:center;background:var(--spore)">
-      <a href="https://www.limicelia.org/services.html" style="font-family:&#39;DM Mono&#39;,monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">Full service detail →</a>
+    <div class="service-card">
+      <h3 class="service-name">Systems <em>Convening</em></h3>
+      <p class="service-body">For organizations and communities building shared understanding across boundaries. When a coalition can't move, when community engagement produces data nobody acts on. We design for what the room can produce — not what we planned to extract.</p>
+    </div>
+    <div class="service-card">
+      <h3 class="service-name">Leadership <em>&amp; Relational Development</em></h3>
+      <p class="service-body">For those who believe the work should be changing the person doing it as much as the organization it's aimed at. When the skills are there but the ground isn't deep enough yet to hold them.</p>
     </div>
   </div>
-
-
-</section>
-
-<div class="divider"></div>
-
-<!-- ══════════════════════════════════════
-     03 — HOW WE WORK
-═══════════════════════════════════════ -->
-<section class="pad" id="principles">
-  <p class="sec-label reveal"><span class="sec-num">03 /</span> How we work</p>
-  <h2 class="reveal rd1" style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2;color:var(--tp);max-width:28ch;margin-bottom:1.5rem">
-    Three paths.<br><em style="font-style:italic;color:var(--amber)">Custom every time.</em>
-  </h2>
-  <p class="body-text reveal rd2" style="max-width:55ch">The work is never a menu selection. Every engagement begins with a diagnostic conversation, then is built at the intersection of the path and the situation that actually calls for it.</p>
-
-  <div class="card-grid reveal rd3">
-    <a href="#" class="card">
-      <div class="card-num">Path One</div>
-      <div class="card-title">Accompany.<br><em>When your organization is working against itself.</em></div>
-      <div class="card-body">For organizations where something internal isn't working — scaled too fast, board and staff misaligned, equity commitments that didn't land, decisions that don't stick. We walk with you through the messy middle and help you get unstuck.</div>
-      <div class="card-link">Org Health · Governance · Relational Vitality · Equity</div>
-    </a>
-    <a href="#" class="card">
-      <div class="card-num">Path Two</div>
-      <div class="card-title">Convene.<br><em>When the work requires building something between organizations or communities.</em></div>
-      <div class="card-body">For coalitions, cooperatives, and communities that need to build something between people. We design for emergence, not extraction. Warm Data Labs, cooperative economics, regenerative technology.</div>
-      <div class="card-link">Stakeholder Convening · Co-op Alliance · Regenerative Tech</div>
-    </a>
-    <a href="#" class="card">
-      <div class="card-num">Path Three</div>
-      <div class="card-title">Cultivate.<br><em>When your people want to deepen their capacities to champion and embody change.</em></div>
-      <div class="card-body">For practitioners who have hit a ceiling. Tools alone won't help. What's needed is deeper capacity to cultivate the change you want to see in the organization.</div>
-      <div class="card-link">System thinking · Deep equity · Relational practice</div>
-    </a>
+  <div style="text-align:right;margin-top:1.2rem">
+    <a href="services.html" class="btn-g reveal rd3">Full service detail</a>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════════════════════════════════════
-     04 — LINEAGE (condensed)
-═══════════════════════════════════════ -->
-<section class="section-lineage pad" id="lineage">
-  <p class="sec-label reveal"><span class="sec-num">04 /</span> Lineage</p>
-  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">We stand on<br><em>many shoulders.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch">Our practice is synthesized from systems thinking, sociocracy, Deep Democracy, generative somatics, complexity leadership, and organizational narrative traditions — shaped by decades of work across movements and institutions. We name our lineage because attribution matters, and because it helps you understand what we bring.</p>
-  <div style="margin-top:1.8rem;display:flex;flex-wrap:wrap;gap:1rem" class="reveal rd2">
-    <a href="https://www.limicelia.org/our-approach.html" class="btn-g" style="display:inline-flex">Full lineage &amp; acknowledgements →</a>
+<!-- HOW WE WORK -->
+<section class="content-section alt pad" id="how">
+  <div class="sec-label reveal"><span class="sec-num">03 /</span> How we work</div>
+  <h2 class="sec-title reveal" style="margin-bottom:.5rem">We start from<br><em>where you are.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:1.5rem">Every engagement begins with a genuine conversation about what's happening — not a needs assessment, not a sales call. The work finds its shape from there. Depending on what the situation calls for, we might be working inside an organization, building something between organizations, or developing the people doing the work. Often all three at once.</p>
+  <p class="body-text reveal rd2" style="max-width:58ch;margin-bottom:.5rem">What keeps repeating isn't the problem. It's the structure underneath it.</p>
+  <div style="margin-top:1.8rem" class="reveal rd3">
+    <a href="services.html" class="btn-g">See the full work →</a>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════════════════════════════════════
-     05 — BIOS
-═══════════════════════════════════════ -->
-<section class="section-bios pad" id="bios">
-  <p class="sec-label reveal"><span class="sec-num">05 /</span> Co-stewards</p>
-  <h2 class="sec-title reveal">Two practitioners.<br><em>A network of collaborators.</em></h2>
-
-  <div class="bio-grid" style="margin-top:2rem">
-    <div class="bio-card reveal">
-      <div class="bio-initials">BK</div>
-      <p class="bio-name">BK</p>
-      <p class="bio-role">Co-steward · Regenerative Technologist · Systems &amp; Governance Coach</p>
-      <p class="bio-text">BK brings over fifteen years spanning private sector, public sector, cooperatives, and community — moving between worlds most consultants occupy only one of. His practice focuses on governance architecture, systems thinking, and the organizational conditions that allow communities to make decisions that actually hold.</p>
-      <p class="bio-text">He is a practitioner of Warm Data, designing and hosting spaces for community dialogue that surface the patterns and relationships that conventional data misses. Outside of client work, he is building the <em>Present of Work</em> — an ecosystem community and podcast exploring how modern work, workers, and workplace can become more humane and alive.</p>
-      <div class="bio-cred">
-        <span class="bio-tag">Regenerative Tech</span>
-        <span class="bio-tag">Governance</span>
-        <span class="bio-tag">Warm Data</span>
-        <span class="bio-tag">Systems Coaching</span>
-        <span class="bio-tag">Present of Work</span>
-      </div>
-      <a href="https://www.limicelia.org/#" class="bio-link">Full bio →</a>
+<!-- LINEAGE -->
+<section class="content-section pad" id="lineage">
+  <div class="sec-label reveal"><span class="sec-num">04 /</span> Lineage</div>
+  <h2 class="sec-title reveal" style="margin-bottom:1rem">We stand on<br><em>many shoulders.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:1.8rem">Our practice draws from participatory, governance, and wisdom traditions built by others over decades. These are among the most significant — not a complete account. We name them because attribution is an act of integrity, not courtesy.</p>
+  <div style="margin:0 0 1.8rem;overflow:hidden;max-height:300px;position:relative;z-index:2" class="reveal rd1">
+    <img src="river-ferryman.jpg" alt="A small boat crossing a misty river through karst mountains — the ferryman on the water between worlds" style="width:100%;height:300px;object-fit:cover;object-position:center 45%;display:block;opacity:.8">
+    <p class="photo-credit" style="position:absolute;bottom:.5rem;right:1rem;color:rgba(242,234,216,.6);opacity:.8">Image by <a href="https://pixabay.com/users/dezalb-1045091/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5690564" target="_blank" style="color:rgba(242,234,216,.6)">DEZALB</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5690564" target="_blank" style="color:rgba(242,234,216,.6)">Pixabay</a></p>
+  </div>
+  <div class="reveal rd2" style="max-width:62ch">
+    <div class="tradition-row">
+      <span class="tradition-name"><a href="https://www.artofhosting.org" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Art of Hosting</a></span>
+      <span class="tradition-note">A living network of practices for hosting conversations that matter — including World Café, Open Space Technology, and Circle Practice. artofhosting.org</span>
     </div>
-    <div class="bio-card reveal rd1">
-      <div class="bio-initials">CX</div>
-      <p class="bio-name">Carol Xu</p>
+    <div class="tradition-row">
+      <span class="tradition-name"><a href="https://www.sociocracy.info" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Sociocracy</a></span>
+      <span class="tradition-note"><em>Socius</em> (Latin: companion) + <em>kratia</em> (Greek: rule) — governance by those in relationship with each other. Developed by Gerard Endenburg in the Netherlands in the 1970s, drawing from cybernetics: the science of self-regulating systems through feedback loops. Endenburg applied that thinking to human organizations — how groups can steer themselves without hierarchy. <a href="https://www.sociocracy.info" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.04em">sociocracy.info</a></span>
+    </div>
+    <div class="tradition-row">
+      <span class="tradition-name"><a href="https://systemsconvening.net" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Systems Convening</a></span>
+      <span class="tradition-note">A role and a practice: nurturing learning and connection across the boundaries of a landscape. Etienne and Beverly Wenger-Trayner. systemsconvening.net</span>
+    </div>
+    <div class="tradition-row">
+      <span class="tradition-name"><a href="https://warmdatalab.net" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Warm Data</a></span>
+      <span class="tradition-note">Transcontextual information about the interrelationships that integrate a complex system. International Bateson Institute / Nora Bateson. warmdatalab.net</span>
+    </div>
+    <div class="tradition-row">
+      <span class="tradition-name">Deep Democracy</span>
+      <span class="tradition-note">Arnold Mindell's process work — attending to the voices at the margins of a system, the ones not speaking in the meeting but shaping everything. The work is with what a group is avoiding as much as what it's engaging.</span>
+    </div>
+    <div class="tradition-row">
+      <span class="tradition-name">Popular Education</span>
+      <span class="tradition-note">Paulo Freire and the tradition of learning that starts from people's own experience and context. The knowledge is already in the room. The work is creating conditions for it to become visible and actionable. A foundation of how Colmenar holds its work.</span>
+    </div>
+    <div class="tradition-row">
+      <span class="tradition-name">Wisdom &amp; contemplative traditions</span>
+      <span class="tradition-note">Across many lineages — including Vedic, somatic, and contemplative practice traditions — the quality of a guide's attention is not incidental to the work. It is the work.</span>
+    </div>
+  </div>
+  <p class="body-text reveal rd3" style="max-width:58ch;margin-top:1.5rem;font-style:italic;color:var(--tm)">These traditions are living. We are practitioners within them, not their authors — and other lineages continue to shape this practice. We continue to learn.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW WE HOLD THE WORK -->
+<section class="content-section alt pad" id="practice">
+  <div class="sec-label reveal"><span class="sec-num">05 /</span> How we hold the work</div>
+  <div class="how-prose reveal rd1">
+    <p>Every engagement follows the same arc: we listen from the frontline up before we speak with leadership. We name what we find honestly — what's working and what the structure is producing that no one wants to name. We stay through the co-design and the rebuilding, not just the diagnosis. The goal is always to leave capacity, not dependency.</p>
+    <p>The stewards' own practice — contemplative, relational, across years of working inside organizations at moments of genuine difficulty — is not incidental to this. It is what makes accompaniment possible. You cannot guide someone through territory you have not traversed.</p>
+    <p>We operate as a nonprofit practice. Consulting revenue funds gift-based community offerings that carry no fee. We price on a sliding scale based on what an organization can sustain. Fees are discussed after we understand what the situation calls for — say early if budget is a real constraint.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BIOS -->
+<section class="content-section pad" id="bios">
+  <div class="sec-label reveal"><span class="sec-num">06 /</span> Co-stewards</div>
+  <h2 class="sec-title reveal" style="margin-bottom:.6rem">Two people who have done<br><em>this work for a long time.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:52ch;margin-bottom:1.5rem">A network of collaborators who do it with them.</p>
+  <div class="bio-grid reveal rd2">
+    <div class="bio-card">
+      <div class="bio-avatar">BK</div>
+      <h3 class="bio-name">BK</h3>
+      <p class="bio-role">Co-steward · Systems &amp; Governance Coach · Technology Strategist</p>
+      <p class="bio-body">I've spent over 15 years moving between private sector, public sector, cooperatives, and community — between worlds most consultants occupy only one of. My practice focuses on governance architecture, systems thinking, and the organizational conditions that allow communities to make decisions that actually hold.</p>
+      <p class="bio-body">I'm a practitioner of Warm Data, designing and hosting spaces for community dialogue that surface the patterns and relationships conventional data misses. Outside of client work, I steward the Present of Work — a translocal project rethinking how work, workers, and workplaces can be organized around human aliveness rather than extraction.</p>
+      <p class="bio-clients">Work includes: large government institutions and technology organizations · community cooperative networks</p>
+      <div class="bio-tags">Governance · Warm Data · Systems Coaching · Technology Strategy · Present of Work</div>
+    </div>
+    <div class="bio-card">
+      <div class="bio-avatar">CX</div>
+      <h3 class="bio-name">Carol Xu</h3>
       <p class="bio-role">Co-steward · Organizational Transformation Designer</p>
-      <p class="bio-text">Being a former academic researcher of management science, Carol has always been fascinated with new ways of organizing people and resources that support regenerative purposes in the world. Her personal experience with work burnout more than a decade ago turned out to be a great gift that shaped her interest in building regenerative systems that energize and nourish the people who work in them.</p>
-      <p class="bio-text">Carol designs and facilitates experiential "containers" that integrate contemplative, creative, and strategic elements into learning for organizational leaders, community stewards, and purpose-driven individuals. Carol holds a Ph.D. in Management Science and Engineering in the area of cross-cultural communication and management from Stanford University. Outside of work, she loves going on hikes (in-person, virtual, or metaphorical) with people from all walks of life.</p>
-      <div class="bio-cred">
-        <span class="bio-tag">Experiential Learning</span>
-        <span class="bio-tag">Generative Dialogues</span>
-        <span class="bio-tag">Org Transformation</span>
-      </div>
-      <a href="https://www.limicelia.org/#" class="bio-link">Full bio →</a>
+      <p class="bio-body">I spent a decade as a management science researcher at Stanford before turning toward the organizational questions that formal research couldn't fully hold. My own encounter with the costs of unsustainable work shaped my commitment to building systems that don't exhaust the people inside them.</p>
+      <p class="bio-body">I design and facilitate experiential containers integrating contemplative, creative, and strategic elements for organizational leaders and community stewards. I hold a Ph.D. in Management Science and Engineering in cross-cultural communication and management from Stanford University. I love going on hikes with people from all walks of life.</p>
+      <p class="bio-clients">Work includes: Compass (technology) · academic and research institutions · international convenings</p>
+      <div class="bio-tags">Experiential Learning · Generative Dialogues · Org Transformation · Contemplative Practice</div>
+    </div>
+  </div>
+
+  <div class="partner-card reveal rd3">
+    <p class="partner-label">Practice Partners</p>
+    <div style="border-bottom:1px solid var(--amber-dim);padding-bottom:1.2rem;margin-bottom:1.2rem">
+      <h3 class="partner-name"><a href="https://colmenar.coop" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Colmenar Cooperative Consulting</a></h3>
+      <p class="partner-body" style="margin-bottom:.7rem">A bilingual (Spanish/English) worker-owned cooperative offering education, technical assistance, facilitation, and conflict mediation for the sustainable development of worker cooperatives and democratic workplaces. Guided by Solidarity Economy principles. <a href="https://colmenar.coop" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">colmenar.coop</a></p>
+      <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: conflict navigation · cooperative development · mediation · bilingual engagements</p>
+    </div>
+    <div>
+      <h3 class="partner-name"><a href="https://www.fixchr.com" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">fixchr</a></h3>
+      <p class="partner-body" style="margin-bottom:.7rem">A facilitation and organizational design practice helping technology companies, government agencies, and mission-driven organizations build resilient cultures through expert facilitation, leadership coaching, and collaborative strategy design. <a href="https://www.fixchr.com" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">fixchr.com</a></p>
+      <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: facilitation design · team development · leadership retreats</p>
+    </div>
+    <div style="border-top:1px solid var(--amber-dim);padding-top:1.2rem;margin-top:1.2rem">
+      <h3 class="partner-name"><a href="https://www.linkedin.com/in/agnes-meneses-115bb86/" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">AGMeneses Consulting</a></h3>
+      <p class="partner-body" style="margin-bottom:.7rem">Founded by Agnes Meneses, a strategic advisor with over 25 years in the nonprofit and philanthropy sectors. Agnes catalyzes the power of people to become agents of their own change — anchoring her practice in equity, dialogue, and collective sensemaking. She facilitates systems change convenings, supports nonprofits and foundations in deep equity work, and coaches grassroots leaders. Previously Director of Strategic Initiatives at Chicago Foundation for Women and Senior Program Officer at Alphawood Foundation. <a href="https://www.linkedin.com/in/agnes-meneses-115bb86/" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">LinkedIn</a></p>
+      <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: systems convening · equity-centered dialogue · philanthropy & foundations</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ══════════════════════════════════════
-     06 — CTA
-═══════════════════════════════════════ -->
+<!-- CTA -->
 <section class="section-cta pad" id="contact">
   <h2 class="cta-word reveal">Let's find out<br>if we're a <em>fit.</em></h2>
   <p class="cta-sub reveal rd1">We take on a small number of engagements at a time. A first conversation is free and without obligation — it's how we both find out whether this work can help you.</p>
-  <div class="cta-group reveal rd2">
-    <a href="https://www.limicelia.org/cdn-cgi/l/email-protection#c9a1aca5a5a689a5a0a4a0aaaca5a0a8e7a6bbae" class="btn-p"><span class="__cf_email__" data-cfemail="523a373e3e3d123e3b3f3b31373e3b337c3d2035">[email&nbsp;protected]</span></a>
-    <a href="https://www.limicelia.org/#" class="btn-g">Schedule a call</a>
+  <p class="cta-note reveal rd2">We stay until you can cross without us.</p>
+  <div class="cta-group reveal rd3">
+    <a href="mailto:hello@limicelia.org" class="btn-p">Begin a conversation</a>
+    <a href="services.html" class="btn-g">See our practice</a>
   </div>
 </section>
 
 <footer>
   <span class="footer-logo">Limicelia</span>
   <div class="footer-links">
-    <a href="https://www.limicelia.org/our-approach.html">Our Approach</a>
-    <a href="https://www.limicelia.org/services.html">Services</a>
-    <a href="https://www.limicelia.org/limicelia-budget-intelligence.html">Pricing</a>
-    <a href="https://www.limicelia.org/commons-model.html">Commons Model</a>
+    <a href="services.html">Services</a>
   </div>
-  <span class="footer-note">ISI 501(c)(3) · Est. 2026</span>
+  <span class="footer-note">Nonprofit practice · Est. 2026</span>
 </footer>
 
-<script data-cfasync="false" src="./Limicelia_files/email-decode.min.js.download"></script><script>
+<script>
 (function(){
-  /* ── All vars declared first ───────────────────────── */
-  var bd = document.body;
-  var dots = document.querySelectorAll('.ps-dot');
-  var canvas = document.getElementById('mc');
-  var ctx = canvas.getContext('2d');
-  var W, H, nodes = [], edges = [], frame = 0;
-  var rgb = [201,145,74];
-  var PALETTES = {
-    dark:[201,145,74], warm:[192,128,60], slate:[126,170,191],
-    forest:[143,175,120], light:[150,96,28]
-  };
-
-  /* ── Palette ────────────────────────────────────────── */
-
-  /* ── Time-of-day palette cycling ──────────────────── */
-  function getTimePalette() {
-    var h = new Date().getHours();
-    if (h >= 5  && h < 8)  return 'warm';
-    if (h >= 8  && h < 13) return 'light';
-    if (h >= 13 && h < 17) return 'slate';
-    if (h >= 17 && h < 20) return 'forest';
-    return 'dark';
-  }
-
-  function setPalette(p) {
-    bd.classList.remove('p-warm','p-slate','p-forest','p-light');
-    if (p !== 'dark') bd.classList.add('p-' + p);
-    dots.forEach(function(d){ d.classList.toggle('on', d.dataset.p === p); });
-    rgb = PALETTES[p] || PALETTES.dark;
-  }
-
-  /* Manual click: override for this session */
-  dots.forEach(function(d){
-    d.addEventListener('click', function(){
-      setPalette(d.dataset.p);
-      try { sessionStorage.setItem('lim-manual', d.dataset.p); } catch(e){}
-    });
-  });
-
-  /* On load: manual override wins, otherwise follow the clock */
-  var manual = null;
-  try { manual = sessionStorage.getItem('lim-manual'); } catch(e){}
-  setPalette(manual || getTimePalette());
-
-  /* Check every 5 min — if no manual override, shift with the light */
-  setInterval(function(){
-    var m = null;
-    try { m = sessionStorage.getItem('lim-manual'); } catch(e){}
-    if (!m) setPalette(getTimePalette());
-  }, 300000);
-
-  /* ── Canvas / mycelium ──────────────────────────────── */
-  function buildEdges() {
-    edges = [];
-    var mx = 130;
-    for (var i = 0; i < nodes.length; i++)
-      for (var j = i+1; j < nodes.length; j++) {
-        var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if (d < mx) edges.push([i, j, d, mx]);
-      }
-  }
-  function initNet() {
-    nodes = []; edges = [];
-    var n = Math.floor(W * H / 24000);
-    for (var i = 0; i < n; i++)
-      nodes.push({
-        x: Math.random()*W, y: Math.random()*H,
-        vx: (Math.random()-.5)*.14, vy: (Math.random()-.5)*.11,
-        r: Math.random()*1.4+.3
-      });
-    buildEdges();
-  }
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight * 3;
-    initNet();
-  }
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    var r=rgb[0], g=rgb[1], b=rgb[2];
-    for (var e = 0; e < edges.length; e++) {
-      var ei=edges[e][0], ej=edges[e][1], ed=edges[e][2], em=edges[e][3];
-      var a = (1 - ed/em) * .2;
-      ctx.strokeStyle = 'rgba('+r+','+g+','+b+','+a+')';
-      ctx.lineWidth   = (1 - ed/em) * .7;
-      ctx.beginPath();
-      ctx.moveTo(nodes[ei].x, nodes[ei].y);
-      ctx.lineTo(nodes[ej].x, nodes[ej].y);
-      ctx.stroke();
-    }
-    for (var ni = 0; ni < nodes.length; ni++) {
-      ctx.fillStyle = 'rgba('+r+','+g+','+b+',.38)';
-      ctx.beginPath();
-      ctx.arc(nodes[ni].x, nodes[ni].y, nodes[ni].r, 0, Math.PI*2);
-      ctx.fill();
-    }
-  }
-  function tick() {
-    for (var ni = 0; ni < nodes.length; ni++) {
-      nodes[ni].x += nodes[ni].vx; nodes[ni].y += nodes[ni].vy;
-      if (nodes[ni].x < 0 || nodes[ni].x > W) nodes[ni].vx *= -1;
-      if (nodes[ni].y < 0 || nodes[ni].y > H) nodes[ni].vy *= -1;
-    }
-  }
-  function loop() {
-    tick();
-    if (frame % 4 === 0) buildEdges();
-    draw();
-    frame++;
-    requestAnimationFrame(loop);
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  loop();
-
-  /* ── Scroll reveal ──────────────────────────────────── */
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, {threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
-
-  /* ── Sticky nav scroll state ───────────────────────── */
-  var nav = document.querySelector('.hnav');
-  window.addEventListener('scroll', function(){
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }, {passive:true});
-
-  /* ── Accompaniment drawer toggle ───────────────────── */
-  var oaBtn = document.getElementById('oa-toggle');
-  var oaPanel = document.getElementById('oa-panel');
-  if (oaBtn && oaPanel) {
-    oaBtn.addEventListener('click', function(){
-      var isOpen = oaPanel.classList.contains('open');
-      if (isOpen) {
-        oaPanel.style.maxHeight = '0px';
-        oaPanel.classList.remove('open');
-        oaBtn.setAttribute('aria-expanded','false');
-      } else {
-        oaPanel.style.maxHeight = oaPanel.scrollHeight + 'px';
-        oaPanel.classList.add('open');
-        oaBtn.setAttribute('aria-expanded','true');
-      }
-    });
-  }
-
+  var bd=document.body,dots=document.querySelectorAll('.ps-dot'),canvas=document.getElementById('mc'),ctx=canvas.getContext('2d');
+  var W,H,nodes=[],edges=[],frame=0,rgb=[201,145,74];
+  var PAL={dark:[201,145,74],warm:[192,128,60],slate:[126,170,191],forest:[143,175,120],light:[150,96,28]};
+  function tp(){var h=new Date().getHours();if(h>=5&&h<8)return'warm';if(h>=8&&h<13)return'light';if(h>=13&&h<17)return'slate';if(h>=17&&h<20)return'forest';return'dark';}
+  function sp(p){bd.classList.remove('p-warm','p-slate','p-forest','p-light');if(p!=='dark')bd.classList.add('p-'+p);dots.forEach(function(d){d.classList.toggle('on',d.dataset.p===p);});rgb=PAL[p]||PAL.dark;}
+  dots.forEach(function(d){d.addEventListener('click',function(){sp(d.dataset.p);try{sessionStorage.setItem('lim-manual',d.dataset.p);}catch(e){}});});
+  var m=null;try{m=sessionStorage.getItem('lim-manual');}catch(e){}sp(m||tp());
+  setInterval(function(){var mn=null;try{mn=sessionStorage.getItem('lim-manual');}catch(e){}if(!mn)sp(tp());},300000);
+  function be(){edges=[];var mx=130;for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<mx)edges.push([i,j,d,mx]);}}
+  function ini(){nodes=[];edges=[];var n=Math.floor(W*H/28000);for(var i=0;i<n;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.09,r:Math.random()*1.2+.3});be();}
+  function rsz(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight*3;ini();}
+  function drw(){ctx.clearRect(0,0,W,H);var r=rgb[0],g=rgb[1],b=rgb[2];for(var e=0;e<edges.length;e++){var a=(1-edges[e][2]/edges[e][3])*.18;ctx.strokeStyle='rgba('+r+','+g+','+b+','+a+')';ctx.lineWidth=(1-edges[e][2]/edges[e][3])*.6;ctx.beginPath();ctx.moveTo(nodes[edges[e][0]].x,nodes[edges[e][0]].y);ctx.lineTo(nodes[edges[e][1]].x,nodes[edges[e][1]].y);ctx.stroke();}for(var ni=0;ni<nodes.length;ni++){ctx.fillStyle='rgba('+r+','+g+','+b+',.32)';ctx.beginPath();ctx.arc(nodes[ni].x,nodes[ni].y,nodes[ni].r,0,Math.PI*2);ctx.fill();}}
+  function tk(){for(var ni=0;ni<nodes.length;ni++){nodes[ni].x+=nodes[ni].vx;nodes[ni].y+=nodes[ni].vy;if(nodes[ni].x<0||nodes[ni].x>W)nodes[ni].vx*=-1;if(nodes[ni].y<0||nodes[ni].y>H)nodes[ni].vy*=-1;}}
+  function lp(){tk();if(frame%4===0)be();drw();frame++;requestAnimationFrame(lp);}
+  window.addEventListener('resize',rsz);rsz();lp();
+  var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+  var nav=document.getElementById('hnav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);});
 })();
 </script>
-
-</body></html>
+</body>
+</html>
