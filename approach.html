@@ -89,6 +89,16 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}}
+.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:600px){
+  .hamburger{display:flex}
+  .hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}
+  .hnav-links.open{display:flex}
+}
 </style>
 </head>
 <body class="p-light">
@@ -111,11 +121,14 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
     </svg>
     <a href="index.html"><span class="wordmark-name">Limicelia</span></a>
   </div>
-  <ul class="hnav-links">
+  <ul class="hnav-links" id="navlinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <section class="page-hero">
@@ -313,6 +326,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
   var nav=document.getElementById('hnav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);});
 })();
+function toggleNav(){var h=document.getElementById('hamburger');var n=document.getElementById('navlinks');h.classList.toggle('open');n.classList.toggle('open');}
 </script>
 </body>
 </html>

@@ -133,6 +133,40 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .flinks a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .flinks a:hover{opacity:1}
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}}
+.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:600px){
+  .hamburger{display:flex}
+  .hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}
+  .hnav-links.open{display:flex}
+}
+/* MOBILE FIXES */
+@media(max-width:480px){
+  /* Service block header: stack vertically */
+  .sb-head{flex-direction:column;gap:.8rem}
+  .sb-meta{align-items:flex-start}
+  /* Entry grid: already 1col at 700px */
+  /* Eng grid: already 1col at 800px */
+  /* Hero text */
+  .hero h1{font-size:2.4rem}
+  /* Nav */
+  .hnav{flex-wrap:wrap;gap:.5rem;padding:1rem}
+  .hnav-links{gap:.8rem}
+  /* Leads line: allow wrapping */
+  .leads{font-size:.46rem}
+  /* Rec chips: smaller on mobile */
+  .rec-chip{font-size:.5rem}
+  /* CTA */
+  .cta-btns{flex-direction:column;align-items:stretch;text-align:center}
+  .btn-p{text-align:center}
+}
+@media(max-width:375px){
+  .hnav-links a{font-size:.58rem;letter-spacing:.08em}
+  .wordmark-name{font-size:.88rem}
+}
 .photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.55;margin-top:.5rem;line-height:1.6}
 .photo-credit a{color:var(--tm);border-bottom:1px solid var(--rul)}
 /* COLLAPSIBLES */
@@ -167,7 +201,10 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
     </svg>
     <a href="index.html"><span class="wm-n">Limicelia</span></a>
   </div>
-  <ul class="hnav-links">
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="hnav-links" id="navlinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html" class="active">Services</a></li>
     <li><a href="index.html#contact">Contact</a></li>

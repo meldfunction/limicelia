@@ -39,6 +39,16 @@ section{position:relative;z-index:2}
 .hnav-links{display:flex;gap:2.5rem;list-style:none}
 .hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
 .hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
+.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:600px){
+  .hamburger{display:flex}
+  .hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}
+  .hnav-links.open{display:flex}
+}
 .pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
 .sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;transition:color .4s}
 .sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
@@ -63,7 +73,7 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .hero-headline{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);max-width:14ch;margin-bottom:2rem;transition:color .4s}
 .hero-headline em{font-style:italic;color:var(--amber)}
 .hero-lede{font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:50ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2.5rem;transition:color .4s,border-color .4s}
-.hero-sub{font-size:clamp(.88rem,1.1vw,.98rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
+.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
 .hero-cta{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap}
 /* PHOTO CREDIT */
 .photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.5;margin-top:.6rem;line-height:1.6}
@@ -86,6 +96,7 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .who-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
 .who-card:hover{background:var(--amber-glow)}
 .who-cluster-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
+@media(max-width:600px){.who-cluster{margin-bottom:1.5rem}}
 .who-card-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
 .who-card-name em{font-style:italic;color:var(--amber)}
 .who-card-scene{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
@@ -118,6 +129,7 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .tradition-row:last-child{border-bottom:none}
 .tradition-name{font-size:.95rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
 .tradition-note{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
+@media(max-width:600px){.tradition-row{flex-direction:column;gap:.4rem}.tradition-name{min-width:unset}}
 /* HOW WE HOLD */
 .how-prose{max-width:62ch}
 .how-prose p{font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
@@ -153,6 +165,35 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
+/* MOBILE FIXES */
+@media(max-width:480px){
+  /* Nav: wrap to two lines on very small screens */
+  .hnav{flex-wrap:wrap;gap:.5rem;padding:1rem}
+  .hnav-links{gap:.8rem}
+  /* Hero: reduce min-height, ensure text readable over image */
+  .hero{min-height:70vh}
+  /* Mission block: remove negative margins on mobile */
+  .mission-block > div:first-child{margin-left:0!important;margin-right:0!important;border-radius:0}
+  /* System cluster: 3 cards stack to 1 col (already handled at 700px) */
+  /* Service cards: ensure no overflow */
+  .service-grid{grid-template-columns:1fr}
+  /* Partner card wrapping */
+  .partner-card{padding:1.2rem}
+  /* CTA group stack */
+  .cta-group{flex-direction:column;align-items:stretch;text-align:center}
+  .btn-p,.btn-g{text-align:center;justify-content:center}
+  /* Bio grid */
+  .bio-grid{grid-template-columns:1fr}
+  /* Lineage rows: allow wrapping on very narrow screens */
+  .tradition-row{flex-direction:column;gap:.4rem}
+  .tradition-name{min-width:unset}
+}
+@media(max-width:375px){
+  /* Smallest common phone - iPhone SE */
+  .hero-headline{font-size:2.4rem}
+  .hnav-links a{font-size:.58rem;letter-spacing:.08em}
+  .wordmark-name{font-size:.88rem}
+}
 .toggle-btn{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 0;margin-top:.8rem;border-top:1px solid var(--amber-dim)}
 .toggle-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
 .toggle-btn:hover .toggle-lbl{opacity:1}
@@ -187,7 +228,10 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
     </svg>
     <span class="wordmark-name">Limicelia</span>
   </div>
-  <ul class="hnav-links">
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="hnav-links" id="navlinks">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -502,6 +546,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);});
 })();
 function toggleSection(btn){var body=btn.nextElementSibling;var open=btn.classList.contains('open');btn.classList.toggle('open',!open);body.classList.toggle('open',!open);}
+function toggleNav(){var h=document.getElementById('hamburger');var n=document.getElementById('navlinks');h.classList.toggle('open');n.classList.toggle('open');}
 </script>
 </body>
 </html>
