@@ -153,6 +153,13 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
+.toggle-btn{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 0;margin-top:.8rem;border-top:1px solid var(--amber-dim)}
+.toggle-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
+.toggle-btn:hover .toggle-lbl{opacity:1}
+.toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
+.toggle-btn.open .toggle-icon{transform:rotate(45deg)}
+.toggle-body{display:none;padding-top:.8rem}
+.toggle-body.open{display:block}
 </style>
 </head>
 <body class="p-light">
@@ -417,18 +424,36 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
     <p class="partner-label">Practice Partners</p>
     <div style="border-bottom:1px solid var(--amber-dim);padding-bottom:1.2rem;margin-bottom:1.2rem">
       <h3 class="partner-name"><a href="https://colmenar.coop" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Colmenar Cooperative Consulting</a></h3>
-      <p class="partner-body" style="margin-bottom:.7rem">A bilingual (Spanish/English) worker-owned cooperative offering education, technical assistance, facilitation, and conflict mediation for the sustainable development of worker cooperatives and democratic workplaces. Guided by Solidarity Economy principles. <a href="https://colmenar.coop" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">colmenar.coop</a></p>
+      <button class="toggle-btn" onclick="toggleSection(this)">
+        <span class="toggle-lbl">About &amp; partnership</span>
+        <span class="toggle-icon">+</span>
+      </button>
+      <div class="toggle-body">
+      <p class="partner-body" style="margin-bottom:.7rem;margin-top:.7rem">A bilingual (Spanish/English) worker-owned cooperative offering education, technical assistance, facilitation, and conflict mediation for the sustainable development of worker cooperatives and democratic workplaces. Guided by Solidarity Economy principles. <a href="https://colmenar.coop" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">colmenar.coop</a></p>
       <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: conflict navigation · cooperative development · mediation · bilingual engagements</p>
+      </div>
     </div>
     <div>
       <h3 class="partner-name"><a href="https://www.fixchr.com" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">fixchr</a></h3>
-      <p class="partner-body" style="margin-bottom:.7rem">A facilitation and organizational design practice helping technology companies, government agencies, and mission-driven organizations build resilient cultures through expert facilitation, leadership coaching, and collaborative strategy design. <a href="https://www.fixchr.com" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">fixchr.com</a></p>
+      <button class="toggle-btn" onclick="toggleSection(this)">
+        <span class="toggle-lbl">About &amp; partnership</span>
+        <span class="toggle-icon">+</span>
+      </button>
+      <div class="toggle-body">
+      <p class="partner-body" style="margin-bottom:.7rem;margin-top:.7rem">A facilitation and organizational design practice helping technology companies, government agencies, and mission-driven organizations build resilient cultures through expert facilitation, leadership coaching, and collaborative strategy design. <a href="https://www.fixchr.com" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">fixchr.com</a></p>
       <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: facilitation design · team development · leadership retreats</p>
+      </div>
     </div>
     <div style="border-top:1px solid var(--amber-dim);padding-top:1.2rem;margin-top:1.2rem">
       <h3 class="partner-name"><a href="https://www.linkedin.com/in/agnes-meneses-115bb86/" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">AGMeneses Consulting</a></h3>
-      <p class="partner-body" style="margin-bottom:.7rem">Founded by Agnes Meneses, a strategic advisor with over 25 years in the nonprofit and philanthropy sectors. Agnes catalyzes the power of people to become agents of their own change — anchoring her practice in equity, dialogue, and collective sensemaking. She facilitates systems change convenings, supports nonprofits and foundations in deep equity work, and coaches grassroots leaders. Previously Director of Strategic Initiatives at Chicago Foundation for Women and Senior Program Officer at Alphawood Foundation. <a href="https://www.linkedin.com/in/agnes-meneses-115bb86/" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">LinkedIn</a></p>
+      <button class="toggle-btn" onclick="toggleSection(this)">
+        <span class="toggle-lbl">About &amp; partnership</span>
+        <span class="toggle-icon">+</span>
+      </button>
+      <div class="toggle-body">
+      <p class="partner-body" style="margin-bottom:.7rem;margin-top:.7rem">Founded by Agnes Meneses, a strategic advisor with over 25 years in the nonprofit and philanthropy sectors. Agnes catalyzes the power of people to become agents of their own change — anchoring her practice in equity, dialogue, and collective sensemaking. She facilitates systems change convenings, supports nonprofits and foundations in deep equity work, and coaches grassroots leaders. Previously Director of Strategic Initiatives at Chicago Foundation for Women and Senior Program Officer at Alphawood Foundation. <a href="https://www.linkedin.com/in/agnes-meneses-115bb86/" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">LinkedIn</a></p>
       <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: systems convening · equity-centered dialogue · philanthropy & foundations</p>
+      </div>
     </div>
   </div>
 </section>
@@ -476,6 +501,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   var nav=document.getElementById('hnav');
   window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);});
 })();
+function toggleSection(btn){var body=btn.nextElementSibling;var open=btn.classList.contains('open');btn.classList.toggle('open',!open);body.classList.toggle('open',!open);}
 </script>
 </body>
 </html>

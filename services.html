@@ -135,6 +135,14 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}}
 .photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.55;margin-top:.5rem;line-height:1.6}
 .photo-credit a{color:var(--tm);border-bottom:1px solid var(--rul)}
+/* COLLAPSIBLES */
+.sb-toggle{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.5rem 0 0;margin-top:.8rem;border-top:1px solid var(--rul)}
+.sb-toggle-lbl{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
+.sb-toggle:hover .sb-toggle-lbl{opacity:1}
+.sb-toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
+.sb-toggle.open .sb-toggle-icon{transform:rotate(45deg)}
+.sb-detail{display:none;padding-top:1rem}
+.sb-detail.open{display:block}
 </style>
 </head>
 <body class="p-light">
@@ -220,7 +228,12 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
     </div>
     <p class="belief">Conflict carries information the organization hasn't found another way to say. Working with it as information — not just making it stop — is the difference between resolving a dispute and understanding what created it.</p>
-    <div class="rec">
+    <button class="sb-toggle" onclick="toggleDetail(this)">
+      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
+      <span class="sb-toggle-icon">+</span>
+    </button>
+    <div class="sb-detail">
+    <div class="rec" style="margin-top:1rem">
       <p class="rec-lbl">You might be saying —</p>
       <div class="rec-wrap">
         <span class="rec-chip">"A founding team split we haven't recovered from"</span>
@@ -238,6 +251,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       <li>Conflict navigation system design — building the organization's own capacity to hold future conflict</li>
     </ul>
     <div class="leads"><span class="leads-lbl">Who leads</span>Colmenar Cooperative Consulting leads most engagements. Limicelia co-delivers when conflict is part of a longer arc. We refer without condition.</div>
+    </div>
   </div>
 
   <!-- ORGANIZATIONAL HEALTH -->
@@ -251,7 +265,12 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
     </div>
     <p class="belief">Structure produces behavior. What the organization is experiencing is not random — it's the predictable output of how the system is built. Change the structure, and the behavior follows.</p>
-    <div class="rec">
+    <button class="sb-toggle" onclick="toggleDetail(this)">
+      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
+      <span class="sb-toggle-icon">+</span>
+    </button>
+    <div class="sb-detail">
+    <div class="rec" style="margin-top:1rem">
       <p class="rec-lbl">You might be saying —</p>
       <div class="rec-wrap">
         <span class="rec-chip">"We scaled fast and lost ourselves"</span>
@@ -268,6 +287,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       <li>Leadership transition accompaniment — present through succession and the organizational grief it carries, not just the logistics</li>
     </ul>
     <div class="leads"><span class="leads-lbl">Who leads</span>BK and Carol Xu · Work includes: large government institutions, technology organizations, cooperative networks</div>
+    </div>
   </div>
 
   <!-- SYSTEMS CONVENING -->
@@ -282,7 +302,12 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
     </div>
     <p class="belief">A well-designed convening shifts how people see each other and the system they share. Most don't. The difference is whether the gathering was designed to extract what the facilitator wanted to find, or to surface what the system already knows.</p>
     <p class="notice">We've delivered elements of this work — Warm Data Labs, multi-stakeholder convenings, coalition design — and are building toward full sustained Systems Convening engagements. If this describes what you need, reach out now.</p>
-    <div class="rec">
+    <button class="sb-toggle" onclick="toggleDetail(this)">
+      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
+      <span class="sb-toggle-icon">+</span>
+    </button>
+    <div class="sb-detail">
+    <div class="rec" style="margin-top:1rem">
       <p class="rec-lbl">You might be saying —</p>
       <div class="rec-wrap">
         <span class="rec-chip">"Our coalition meets but nothing moves"</span>
@@ -299,6 +324,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       <li>Coalition and field-building — gatherings that shift how a network sees itself and what becomes possible between its members</li>
     </ul>
     <div class="leads"><span class="leads-lbl">Who leads</span>BK (Warm Data certified host) and Carol Xu · Cooperative-sector convenings with Colmenar</div>
+    </div>
   </div>
 
   <!-- LEADERSHIP & RELATIONAL DEVELOPMENT -->
@@ -312,7 +338,12 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
     </div>
     <p class="belief">For those who believe the work should be changing the person doing it as much as the organization it's aimed at. When the skills are there but the ground isn't deep enough yet to hold them — and when the work itself is depleting faster than it's restoring.</p>
-    <div class="rec">
+    <button class="sb-toggle" onclick="toggleDetail(this)">
+      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
+      <span class="sb-toggle-icon">+</span>
+    </button>
+    <div class="sb-detail">
+    <div class="rec" style="margin-top:1rem">
       <p class="rec-lbl">You might be saying —</p>
       <div class="rec-wrap">
         <span class="rec-chip">"The team hasn't recovered from six months ago"</span>
@@ -330,6 +361,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       <li>Developmental coaching — for leaders in transition, relational and developmental rather than performance-focused</li>
     </ul>
     <div class="leads"><span class="leads-lbl">Who leads</span>Carol Xu and BK · Carol's work includes: Compass (technology), academic and research institutions, international convenings. Partner org: fixchr.</div>
+    </div>
   </div>
 
 </section>
