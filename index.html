@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Limicelia — Organizational Accompaniment</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Limicelia — Organizational Accompaniment — Limicelia</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"><style>
 :root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
 body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
 body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
@@ -201,352 +192,71 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .toggle-btn.open .toggle-icon{transform:rotate(45deg)}
 .toggle-body{display:none;padding-top:.8rem}
 .toggle-body.open{display:block}
-</style>
-</head>
-<body class="p-light">
-<div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row">
-  <button class="ps-dot" data-p="dark" title="Dark"></button>
-  <button class="ps-dot" data-p="warm" title="Warm"></button>
-  <button class="ps-dot" data-p="slate" title="Slate"></button>
-  <button class="ps-dot" data-p="forest" title="Forest"></button>
-  <button class="ps-dot on" data-p="light" title="Light"></button>
-</div></div>
-<canvas id="mc"></canvas>
-
-<nav class="hnav" id="hnav">
-  <div class="wordmark">
-    <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
-      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
-      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
-      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"/>
-      <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"/>
-    </svg>
-    <span class="wordmark-name">Limicelia</span>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="hnav-links" id="navlinks">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <h1 class="hero-headline reveal">Never arrived.<br><em>Always becoming.</em></h1>
-  <p class="hero-lede reveal rd1">We walk with organizations through the changes that change them.</p>
-  <p class="hero-sub reveal rd2">The work of becoming requires company. We walk alongside organizations, communities, and leaders through structural change — the moments that require more than strategy, and more than facilitation, to complete.</p>
-  <div class="hero-cta reveal rd2">
-    <a href="#contact" class="btn-p">Begin a conversation</a>
-    <a href="services.html" class="btn-g">See our practice</a>
-  </div>
-  <p class="photo-credit">Image by <a href="https://pixabay.com/users/silvana_art-4637256/" target="_blank">Silvana Lingg</a> from <a href="https://pixabay.com/" target="_blank">Pixabay</a></p>
-</section>
-
-<!-- MISSION STATEMENT -->
-<div class="mission-block reveal">
-  <div style="margin:-clamp(2.5rem,5vh,4rem) -clamp(2rem,7vw,7rem) 2rem;overflow:hidden;max-height:380px">
-    <img src="waterfall.jpg" alt="A waterfall descending through moss-covered rocks — water, threshold, the river at the crossing" style="width:100%;height:380px;object-fit:cover;object-position:center 30%;display:block;opacity:.85">
-    <p class="photo-credit" style="padding:.4rem clamp(2rem,7vw,7rem)">Image by <a href="https://pixabay.com/users/fietzfotos-6795508/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6656672" target="_blank">Albrecht Fietz</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6656672" target="_blank">Pixabay</a></p>
-  </div>
-  <p class="mission-body">Across every tradition that has tried to make sense of profound change, there is a river. And a guide who knows its currents.<br><br>The moments we walk alongside — <em>succession and rupture, structures dissolving, cultures shifting beneath their own feet, rapid growth that outpaces what an organization knows about itself, the values reckoning that splits what came before from what must come next</em> — these are passages. Not problems to be solved from the outside. Passages to be completed in relationship, with someone willing to stay in the water.<br><br>Every wisdom tradition has a name for this figure. The ferryman. The one who carries the lantern into the threshold. The guide who has traversed the territory and does not flinch at the dark.<br><br>What we have learned from that lineage: the guide does not carry you across. They walk alongside. And in that walking, something is built — the collective capacity to read your own currents, to hold uncertainty without collapsing it, to move together in ways that were not possible before you entered the water. The crossing itself becomes the teacher.</p>
-  <p class="mission-close">We stay until you can cross without us.</p>
-</div>
-
-<div class="divider"></div>
-
-<!-- NAME SECTION -->
-<section class="content-section pad" id="name">
-  <div class="sec-label reveal"><span class="sec-num">00 /</span> The name</div>
-  <div class="name-grid">
-    <div>
-      <h2 class="sec-title reveal" style="margin-bottom:1.5rem"><em>Limicelia</em></h2>
-      <div class="reveal rd1">
-        <div class="ety-row"><span class="ety-word">limen</span><span class="ety-def">threshold · the space of crossing</span></div>
-        <div class="ety-row"><span class="ety-word">mycelia</span><span class="ety-def">underground networks enabling exchange between organisms</span></div>
-      </div>
-      <p class="body-text reveal rd2" style="margin-top:1.5rem;max-width:38ch">The mycelium doesn't produce uncapped growth — it connects, communicates, and makes possible what couldn't exist alone. Our name carries the methodology.</p>
-      <div style="margin-top:1.5rem">
-        <img src="puffball.jpg" alt="Puffball mushrooms emerging from forest floor — the visible fruiting of the mycelium network beneath" style="width:100%;max-width:340px;height:200px;object-fit:cover;object-position:center;display:block;opacity:.8">
-        <p class="photo-credit" style="margin-top:.4rem">Image by <a href="https://pixabay.com/users/jagjeet_dhuna-39790983/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8288991" target="_blank">Jagjeet Dhuna</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8288991" target="_blank">Pixabay</a></p>
-      </div>
-    </div>
-    <div class="reveal rd2">
-      <p class="body-text" style="margin-bottom:.8rem">Most organizations face the same passage twice — because nothing changed the first time.</p>
-      <p class="body-text" style="margin-bottom:1rem">A passage is a specific kind of moment — when the old structure can no longer hold but the new one hasn't formed yet. Not a problem with a solution. A threshold that requires presence.</p>
-      <p class="crossing-list">A succession. A merger. A founding team split. A values reckoning. A coalition forming. A rapid change in leadership. A restructure. A culture that shifted and never came back.</p>
-      <p class="body-text" style="margin-top:.8rem">What happens at a passage depends entirely on whether anyone is present enough to help the organization complete it — not just survive it.</p>
-    </div>
+</style></head><body><nav class="hnav" id="hnav"><a href="index.html" class="wordmark"><svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"></circle>
+      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"></line>
+      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"></line>
+      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
+      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
+      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
+      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
+      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"></circle>
+      <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle>
+    </svg><span class="wordmark-name">Limicelia</span></a><ul class="hnav-links"><li><a href="index.html" class="active">Home</a></li><li><a href="services.html">Services</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="commons-model.html">Our Model</a></li><li><a href="bios.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+<section style="position:relative;z-index:2;padding:clamp(6rem,12vw,11rem) clamp(2rem,7vw,7rem) clamp(4rem,8vw,7rem)">
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Organizational Accompaniment</p>
+  <h1 class="reveal" style="font-size:clamp(3.2rem,6vw,5.5rem);font-weight:300;line-height:1.06;max-width:16ch;margin-bottom:2rem">Never arrived.<br><em>Always becoming.</em></h1>
+  <p class="reveal rd1" style="font-size:clamp(1.05rem,1.3vw,1.2rem);color:var(--ts);max-width:50ch;line-height:1.78;margin-bottom:3rem">The moments we walk alongside — succession and rupture, structures dissolving, cultures shifting beneath their own feet. We stay through the hard part. We leave capacity, not dependency.</p>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap" class="reveal rd2">
+    <a href="contact.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
+    <a href="services.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.7rem 1.6rem">See our practice</a>
   </div>
 </section>
-
-<div class="divider"></div>
-
-<!-- THRESHOLD IMAGE -->
-<div style="position:relative;z-index:2;overflow:hidden;max-height:260px">
-  <img src="threshold-doors.jpg" alt="A row of identical doors — each one a different threshold, each one opening to something unknown" style="width:100%;height:260px;object-fit:cover;object-position:center 40%;display:block;opacity:.75">
-  <p class="photo-credit" style="position:absolute;bottom:.5rem;right:1rem;color:var(--tm);opacity:.55">Image by <a href="https://pixabay.com/users/qimono-1962238/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1767562" target="_blank" style="color:var(--tm)">Arek Socha</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1767562" target="_blank" style="color:var(--tm)">Pixabay</a></p>
-</div>
-
-<!-- WHO WE WORK WITH -->
-<section class="content-section alt pad" id="who">
-  <div class="sec-label reveal"><span class="sec-num">01 /</span> Who we work with</div>
-
-  <div class="who-cluster reveal" style="margin-bottom:2.5rem">
-    <p class="who-cluster-label">When the system is at a threshold</p>
-    <div class="who-grid">
-      <div class="who-card">
-        <h3 class="who-card-name">Organizations</h3>
-        <p class="who-card-scene">When a founding team splits and the culture hasn't recovered. When the equity commitment made it onto the website but not into the room. When rapid growth revealed something the strategic plan didn't anticipate. When the company has outgrown the culture that built it. When the same problem keeps coming back.</p>
-        <div class="who-card-tags">Nonprofits · Cooperatives · Foundations · B-Corps · Social Enterprise</div>
-      </div>
-      <div class="who-card">
-        <h3 class="who-card-name">Institutions <em>&amp; civic systems</em></h3>
-        <p class="who-card-scene">When the institution has made a public commitment — to equity, to modernization, to a different kind of service — and the internal culture hasn't caught up. When a technology adoption is failing not because of the technology. When what the agency says it does and what the people inside it experience every day have quietly come apart.</p>
-        <div class="who-card-tags">Government Agencies · Civic Institutions · Public Sector · Anchor Institutions</div>
-      </div>
-      <div class="who-card">
-        <h3 class="who-card-name">Communities <em>&amp; networks</em></h3>
-        <p class="who-card-scene">When a shared purpose exists but shared governance doesn't yet. When a coalition, mutual aid network, or practitioner field has grown beyond what informal trust can hold. When the work is to build enough common ground that movement becomes possible — before anyone agrees on what that movement is.</p>
-        <div class="who-card-tags">Mutual Aid Networks · Coalitions · Place-based Communities · Practitioner Fields · Movement Organizations</div>
-      </div>
-    </div>
+<div style="background:url(images/waterfall.jpg) center/cover no-repeat;height:45vh;position:relative;z-index:2"></div><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / Who we work with</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2rem">When the system is at a threshold</h2>
+  <div class="reveal rd1" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--rul);margin-bottom:3rem">
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Organizations</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Nonprofits · Cooperatives · Foundations · B-Corps · Social Enterprise</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Institutions &amp; civic systems</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Government Agencies · Civic Institutions · Public Sector · Anchor Institutions</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Communities &amp; networks</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Mutual Aid Networks · Coalitions · Place-based Communities · Practitioner Fields</p></div>
   </div>
-
-  <div class="who-cluster reveal rd1">
-    <p class="who-cluster-label">When the people are at a threshold</p>
-    <div class="who-grid">
-      <div class="who-card">
-        <h3 class="who-card-name">Leaders <em>at their own threshold</em></h3>
-        <p class="who-card-scene">Sometimes the most significant passage an organization faces is the one its leader is walking through. When what's being asked of you has outgrown the person you were when you stepped into the role. When the thing you built has become the thing you're navigating from inside. We walk alongside — not to optimize performance, but to accompany what's actually happening.</p>
-        <div class="who-card-tags">Executive Directors · Founders · Emerging Leaders · Co-founders</div>
-      </div>
-      <div class="who-card">
-        <h3 class="who-card-name">The People <em>doing this work</em></h3>
-        <p class="who-card-scene">Teams, units, and communities carrying the work of change together. When the people doing the work are giving more than they're receiving from it — across a team, a coalition, a field. When the capacity to facilitate, hold conflict, or sustain community is depleting faster than it's being restored. We work with the collective, not just the individual.</p>
-        <div class="who-card-tags">Teams · Coalitions · Facilitation Networks · Community Orgs · Capacity Builders</div>
-      </div>
-    </div>
+  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2rem">When the people are at a threshold</h2>
+  <div class="reveal rd1" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--rul)">
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Leaders at their own threshold</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Executive Directors · Founders · Emerging Leaders · Co-founders</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">The people doing this work</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Teams · Coalitions · Facilitation Networks · Community Orgs</p></div>
   </div>
 </section>
-
-<div class="divider"></div>
-
-<!-- SERVICES -->
-<section class="content-section pad" id="services">
-  <div class="sec-label reveal"><span class="sec-num">02 /</span> What we do</div>
-  <h2 class="sec-title reveal" style="margin-bottom:1.5rem">Many domains.<br><em>One through line: accompaniment.</em></h2>
-  <div class="service-grid reveal rd2">
-    <div class="service-card">
-      <h3 class="service-name">Organizational Health <em>&amp; Governance</em></h3>
-      <p class="service-body">Structure produces behavior. When roles are unclear, when leadership and the people doing the work are speaking different languages, when the culture says one thing and the incentives say another — the problem is structural. We redesign the conditions from which behavior emerges.</p>
-    </div>
-    <div class="service-card">
-      <h3 class="service-name">Conflict Navigation <em>&amp; Repair</em></h3>
-      <p class="service-body">Conflict carries information the organization hasn't found another way to say. We stay with what it's surfacing — not just making it stop. In partnership with Colmenar Cooperative Consulting, a bilingual, worker-owned mediation practice.</p>
-      <span class="service-badge">Partnership with Colmenar</span>
-    </div>
-    <div class="service-card">
-      <h3 class="service-name">Systems <em>Convening</em></h3>
-      <p class="service-body">For organizations and communities building shared understanding across boundaries. When a coalition can't move, when community engagement produces data nobody acts on. We design for what the room can produce — not what we planned to extract.</p>
-    </div>
-    <div class="service-card">
-      <h3 class="service-name">Leadership <em>&amp; Relational Development</em></h3>
-      <p class="service-body">For those who believe the work should be changing the person doing it as much as the organization it's aimed at. When the skills are there but the ground isn't deep enough yet to hold them.</p>
-    </div>
+<div style="background:url(images/circle-hands.jpg) center/cover no-repeat;height:40vh;position:relative;z-index:2"></div><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / What we do</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">Two service domains.<br><em>One through line: accompaniment.</em></h2>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.78;margin-bottom:1.5rem">We work across the full arc of organizational life — in the domains where structural, relational, and cultural challenges converge.</p>
+  <!-- Carol approved language Mar 19 session -->
+  <div class="reveal rd1" style="display:grid;grid-template-columns:1fr 1fr auto;gap:1px;background:var(--rul);margin-bottom:2rem">
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">01</p><h3 style="font-size:1.3rem;font-weight:300;line-height:1.2;margin-bottom:.8rem">Conflict<br><em>Navigation</em></h3><p style="font-size:.9rem;color:var(--ts);line-height:1.72">Power-aware conflict navigation. Post-rupture repair. Deep Democracy facilitation. Relational skills.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">02</p><h3 style="font-size:1.3rem;font-weight:300;line-height:1.2;margin-bottom:.8rem">System<br><em>Convening</em></h3><p style="font-size:.9rem;color:var(--ts);line-height:1.72">Ecosystem mapping. Coalition building. Collective action. Movement infrastructure.</p></div>
+    <div style="background:var(--spore);padding:2rem 1.8rem;display:flex;align-items:center;justify-content:center;min-width:120px"><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Full service detail →</a></div>
   </div>
-  <div style="text-align:right;margin-top:1.2rem">
-    <a href="services.html" class="btn-g reveal rd3">Full service detail</a>
+</section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / How we work</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Three paths.<br><em>Custom every time.</em></h2>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.78;margin-bottom:1.5rem">The work is never a menu selection. Every engagement begins with a diagnostic conversation, then is built at the intersection of the path and the situation.</p>
+  <!-- Three-path names only; text form under co-steward discussion -->
+  <div class="reveal rd1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin-bottom:2rem">
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path One</p><h3 style="font-size:1.3rem;font-weight:300"><em>Accompany.</em></h3><!--text pending--></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path Two</p><h3 style="font-size:1.3rem;font-weight:300"><em>Convene.</em></h3><!--text pending--></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path Three</p><h3 style="font-size:1.3rem;font-weight:300"><em>Cultivate.</em></h3><!--text pending--></div>
   </div>
+  <a href="approach.html" class="reveal rd2" style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.6rem 1.3rem;display:inline-flex;align-items:center;gap:.5rem">See the full approach →</a>
 </section>
-
-<div class="divider"></div>
-
-<!-- HOW WE WORK -->
-<section class="content-section alt pad" id="how">
-  <div class="sec-label reveal"><span class="sec-num">03 /</span> How we work</div>
-  <h2 class="sec-title reveal" style="margin-bottom:.5rem">We start from<br><em>where you are.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:1.5rem">Every engagement begins with a genuine conversation about what's happening — not a needs assessment, not a sales call. The work finds its shape from there. Depending on what the situation calls for, we might be working inside an organization, building something between organizations, or developing the people doing the work. Often all three at once.</p>
-  <p class="body-text reveal rd2" style="max-width:58ch;margin-bottom:.5rem">What keeps repeating isn't the problem. It's the structure underneath it.</p>
-  <div style="margin-top:1.8rem" class="reveal rd3">
-    <a href="services.html" class="btn-g">See the full work →</a>
+<div style="background:url(images/puffball.jpg) center/cover no-repeat;height:40vh;position:relative;z-index:2"></div><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / Co-stewards</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul)" class="reveal rd1">
+    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1.2rem">BK</div><h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.25rem">BK <span style="font-size:.7rem;color:var(--tm)">(he/él)</span></h3><p style="font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.9rem">Co-steward · Systems &amp; Governance Coach</p><p style="font-size:.9rem;color:var(--ts);line-height:1.72">15+ years spanning private sector, cooperatives, nonprofits, and community organizing. Governance architecture, systems thinking, and the conditions that make organizational change sustainable.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1.2rem">CX</div><h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.25rem">Carol Xu <span style="font-size:.7rem;color:var(--tm)">(she/her)</span></h3><p style="font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.9rem">Co-steward · Organizational Transformation Designer</p><p style="font-size:.9rem;color:var(--ts);line-height:1.72">Ph.D., Management Science &amp; Engineering, Stanford. Translating rigorous training into something warmer and more embodied. Committed to practices that sustain the people doing the work.</p></div>
   </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- LINEAGE -->
-<section class="content-section pad" id="lineage">
-  <div class="sec-label reveal"><span class="sec-num">04 /</span> Lineage</div>
-  <h2 class="sec-title reveal" style="margin-bottom:1rem">We stand on<br><em>many shoulders.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:1.8rem">Our practice draws from participatory, governance, and wisdom traditions built by others over decades. These are among the most significant — not a complete account. We name them because attribution is an act of integrity, not courtesy.</p>
-  <div style="margin:0 0 1.8rem;overflow:hidden;max-height:300px;position:relative;z-index:2" class="reveal rd1">
-    <img src="river-ferryman.jpg" alt="A small boat crossing a misty river through karst mountains — the ferryman on the water between worlds" style="width:100%;height:300px;object-fit:cover;object-position:center 45%;display:block;opacity:.8">
-    <p class="photo-credit" style="position:absolute;bottom:.5rem;right:1rem;color:rgba(242,234,216,.6);opacity:.8">Image by <a href="https://pixabay.com/users/dezalb-1045091/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5690564" target="_blank" style="color:rgba(242,234,216,.6)">DEZALB</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5690564" target="_blank" style="color:rgba(242,234,216,.6)">Pixabay</a></p>
+  <a href="bios.html" class="reveal rd2" style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem">Full profiles &amp; the network →</a>
+</section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Let’s find out<br>if we’re a <em>fit.</em></h2>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.78;margin-bottom:1.5rem">The first conversation is not a sales call. It’s genuine inquiry — including whether Limicelia is the right fit. We will tell you if we’re not.</p>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap" class="reveal rd2">
+    <a href="contact.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
+    <a href="services.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.7rem 1.6rem">See our practice</a>
   </div>
-  <div class="reveal rd2" style="max-width:62ch">
-    <div class="tradition-row">
-      <span class="tradition-name"><a href="https://www.artofhosting.org" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Art of Hosting</a></span>
-      <span class="tradition-note">A living network of practices for hosting conversations that matter — including World Café, Open Space Technology, and Circle Practice. artofhosting.org</span>
-    </div>
-    <div class="tradition-row">
-      <span class="tradition-name"><a href="https://www.sociocracy.info" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Sociocracy</a></span>
-      <span class="tradition-note"><em>Socius</em> (Latin: companion) + <em>kratia</em> (Greek: rule) — governance by those in relationship with each other. Developed by Gerard Endenburg in the Netherlands in the 1970s, drawing from cybernetics: the science of self-regulating systems through feedback loops. Endenburg applied that thinking to human organizations — how groups can steer themselves without hierarchy. <a href="https://www.sociocracy.info" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.04em">sociocracy.info</a></span>
-    </div>
-    <div class="tradition-row">
-      <span class="tradition-name"><a href="https://systemsconvening.net" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Systems Convening</a></span>
-      <span class="tradition-note">A role and a practice: nurturing learning and connection across the boundaries of a landscape. Etienne and Beverly Wenger-Trayner. systemsconvening.net</span>
-    </div>
-    <div class="tradition-row">
-      <span class="tradition-name"><a href="https://warmdatalab.net" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Warm Data</a></span>
-      <span class="tradition-note">Transcontextual information about the interrelationships that integrate a complex system. International Bateson Institute / Nora Bateson. warmdatalab.net</span>
-    </div>
-    <div class="tradition-row">
-      <span class="tradition-name">Deep Democracy</span>
-      <span class="tradition-note">Arnold Mindell's process work — attending to the voices at the margins of a system, the ones not speaking in the meeting but shaping everything. The work is with what a group is avoiding as much as what it's engaging.</span>
-    </div>
-    <div class="tradition-row">
-      <span class="tradition-name">Popular Education</span>
-      <span class="tradition-note">Paulo Freire and the tradition of learning that starts from people's own experience and context. The knowledge is already in the room. The work is creating conditions for it to become visible and actionable. A foundation of how Colmenar holds its work.</span>
-    </div>
-    <div class="tradition-row">
-      <span class="tradition-name">Wisdom &amp; contemplative traditions</span>
-      <span class="tradition-note">Across many lineages — including Vedic, somatic, and contemplative practice traditions — the quality of a guide's attention is not incidental to the work. It is the work.</span>
-    </div>
-  </div>
-  <p class="body-text reveal rd3" style="max-width:58ch;margin-top:1.5rem;font-style:italic;color:var(--tm)">These traditions are living. We are practitioners within them, not their authors — and other lineages continue to shape this practice. We continue to learn.</p>
-</section>
-
-<div class="divider"></div>
-
-<!-- HOW WE HOLD THE WORK -->
-<section class="content-section alt pad" id="practice">
-  <div class="sec-label reveal"><span class="sec-num">05 /</span> How we hold the work</div>
-  <div class="how-prose reveal rd1">
-    <p>Every engagement follows the same arc: we listen from the frontline up before we speak with leadership. We name what we find honestly — what's working and what the structure is producing that no one wants to name. We stay through the co-design and the rebuilding, not just the diagnosis. The goal is always to leave capacity, not dependency.</p>
-    <p>The stewards' own practice — contemplative, relational, across years of working inside organizations at moments of genuine difficulty — is not incidental to this. It is what makes accompaniment possible. You cannot guide someone through territory you have not traversed.</p>
-    <p>We operate as a nonprofit practice. Consulting revenue funds gift-based community offerings that carry no fee. We price on a sliding scale based on what an organization can sustain. Fees are discussed after we understand what the situation calls for — say early if budget is a real constraint.</p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- BIOS -->
-<section class="content-section pad" id="bios">
-  <div class="sec-label reveal"><span class="sec-num">06 /</span> Co-stewards</div>
-  <h2 class="sec-title reveal" style="margin-bottom:.6rem">Two people who have done<br><em>this work for a long time.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:52ch;margin-bottom:1.5rem">A network of collaborators who do it with them.</p>
-  <div class="bio-grid reveal rd2">
-    <div class="bio-card">
-      <div class="bio-avatar">BK</div>
-      <h3 class="bio-name">BK</h3>
-      <p class="bio-role">Co-steward · Systems &amp; Governance Coach · Technology Strategist</p>
-      <p class="bio-body">I've spent over 15 years moving between private sector, public sector, cooperatives, and community — between worlds most consultants occupy only one of. My practice focuses on governance architecture, systems thinking, and the organizational conditions that allow communities to make decisions that actually hold.</p>
-      <p class="bio-body">I'm a practitioner of Warm Data, designing and hosting spaces for community dialogue that surface the patterns and relationships conventional data misses. Outside of client work, I steward the Present of Work — a translocal project rethinking how work, workers, and workplaces can be organized around human aliveness rather than extraction.</p>
-      <p class="bio-clients">Work includes: large government institutions and technology organizations · community cooperative networks</p>
-      <div class="bio-tags">Governance · Warm Data · Systems Coaching · Technology Strategy · Present of Work</div>
-    </div>
-    <div class="bio-card">
-      <div class="bio-avatar">CX</div>
-      <h3 class="bio-name">Carol Xu</h3>
-      <p class="bio-role">Co-steward · Organizational Transformation Designer</p>
-      <p class="bio-body">I spent a decade as a management science researcher at Stanford before turning toward the organizational questions that formal research couldn't fully hold. My own encounter with the costs of unsustainable work shaped my commitment to building systems that don't exhaust the people inside them.</p>
-      <p class="bio-body">I design and facilitate experiential containers integrating contemplative, creative, and strategic elements for organizational leaders and community stewards. I hold a Ph.D. in Management Science and Engineering in cross-cultural communication and management from Stanford University. I love going on hikes with people from all walks of life.</p>
-      <p class="bio-clients">Work includes: Compass (technology) · academic and research institutions · international convenings</p>
-      <div class="bio-tags">Experiential Learning · Generative Dialogues · Org Transformation · Contemplative Practice</div>
-    </div>
-  </div>
-
-  <div class="partner-card reveal rd3">
-    <p class="partner-label">Practice Partners</p>
-    <div style="border-bottom:1px solid var(--amber-dim);padding-bottom:1.2rem;margin-bottom:1.2rem">
-      <h3 class="partner-name"><a href="https://colmenar.coop" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Colmenar Cooperative Consulting</a></h3>
-      <button class="toggle-btn" onclick="toggleSection(this)">
-        <span class="toggle-lbl">About &amp; partnership</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="toggle-body">
-      <p class="partner-body" style="margin-bottom:.7rem;margin-top:.7rem">A bilingual (Spanish/English) worker-owned cooperative offering education, technical assistance, facilitation, and conflict mediation for the sustainable development of worker cooperatives and democratic workplaces. Guided by Solidarity Economy principles. <a href="https://colmenar.coop" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">colmenar.coop</a></p>
-      <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: conflict navigation · cooperative development · mediation · bilingual engagements</p>
-      </div>
-    </div>
-    <div>
-      <h3 class="partner-name"><a href="https://www.fixchr.com" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">fixchr</a></h3>
-      <button class="toggle-btn" onclick="toggleSection(this)">
-        <span class="toggle-lbl">About &amp; partnership</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="toggle-body">
-      <p class="partner-body" style="margin-bottom:.7rem;margin-top:.7rem">A facilitation and organizational design practice helping technology companies, government agencies, and mission-driven organizations build resilient cultures through expert facilitation, leadership coaching, and collaborative strategy design. <a href="https://www.fixchr.com" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">fixchr.com</a></p>
-      <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: facilitation design · team development · leadership retreats</p>
-      </div>
-    </div>
-    <div style="border-top:1px solid var(--amber-dim);padding-top:1.2rem;margin-top:1.2rem">
-      <h3 class="partner-name"><a href="https://www.linkedin.com/in/agnes-meneses-115bb86/" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">AGMeneses Consulting</a></h3>
-      <button class="toggle-btn" onclick="toggleSection(this)">
-        <span class="toggle-lbl">About &amp; partnership</span>
-        <span class="toggle-icon">+</span>
-      </button>
-      <div class="toggle-body">
-      <p class="partner-body" style="margin-bottom:.7rem;margin-top:.7rem">Founded by Agnes Meneses, a strategic advisor with over 25 years in the nonprofit and philanthropy sectors. Agnes catalyzes the power of people to become agents of their own change — anchoring her practice in equity, dialogue, and collective sensemaking. She facilitates systems change convenings, supports nonprofits and foundations in deep equity work, and coaches grassroots leaders. Previously Director of Strategic Initiatives at Chicago Foundation for Women and Senior Program Officer at Alphawood Foundation. <a href="https://www.linkedin.com/in/agnes-meneses-115bb86/" target="_blank" style="color:var(--amber);font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.06em">LinkedIn</a></p>
-      <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.7">We partner with them on: systems convening · equity-centered dialogue · philanthropy & foundations</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CTA -->
-<section class="section-cta pad" id="contact">
-  <h2 class="cta-word reveal">Let's find out<br>if we're a <em>fit.</em></h2>
-  <p class="cta-sub reveal rd1">We take on a small number of engagements at a time. A first conversation is free and without obligation — it's how we both find out whether this work can help you.</p>
-  <p class="cta-note reveal rd2">We stay until you can cross without us.</p>
-  <div class="cta-group reveal rd3">
-    <a href="mailto:hello@limicelia.org" class="btn-p">Begin a conversation</a>
-    <a href="services.html" class="btn-g">See our practice</a>
-  </div>
-</section>
-
-<footer>
-  <span class="footer-logo">Limicelia</span>
-  <div class="footer-links">
-    <a href="services.html">Services</a>
-  </div>
-  <span class="footer-note">Nonprofit practice · Est. 2026</span>
-</footer>
-
-<script>
-(function(){
-  var bd=document.body,dots=document.querySelectorAll('.ps-dot'),canvas=document.getElementById('mc'),ctx=canvas.getContext('2d');
-  var W,H,nodes=[],edges=[],frame=0,rgb=[201,145,74];
-  var PAL={dark:[201,145,74],warm:[192,128,60],slate:[126,170,191],forest:[143,175,120],light:[150,96,28]};
-  function tp(){var h=new Date().getHours();if(h>=5&&h<8)return'warm';if(h>=8&&h<13)return'light';if(h>=13&&h<17)return'slate';if(h>=17&&h<20)return'forest';return'dark';}
-  function sp(p){bd.classList.remove('p-warm','p-slate','p-forest','p-light');if(p!=='dark')bd.classList.add('p-'+p);dots.forEach(function(d){d.classList.toggle('on',d.dataset.p===p);});rgb=PAL[p]||PAL.dark;}
-  dots.forEach(function(d){d.addEventListener('click',function(){sp(d.dataset.p);try{sessionStorage.setItem('lim-manual',d.dataset.p);}catch(e){}});});
-  var m=null;try{m=sessionStorage.getItem('lim-manual');}catch(e){}sp(m||tp());
-  setInterval(function(){var mn=null;try{mn=sessionStorage.getItem('lim-manual');}catch(e){}if(!mn)sp(tp());},300000);
-  function be(){edges=[];var mx=130;for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<mx)edges.push([i,j,d,mx]);}}
-  function ini(){nodes=[];edges=[];var n=Math.floor(W*H/28000);for(var i=0;i<n;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.09,r:Math.random()*1.2+.3});be();}
-  function rsz(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight*3;ini();}
-  function drw(){ctx.clearRect(0,0,W,H);var r=rgb[0],g=rgb[1],b=rgb[2];for(var e=0;e<edges.length;e++){var a=(1-edges[e][2]/edges[e][3])*.18;ctx.strokeStyle='rgba('+r+','+g+','+b+','+a+')';ctx.lineWidth=(1-edges[e][2]/edges[e][3])*.6;ctx.beginPath();ctx.moveTo(nodes[edges[e][0]].x,nodes[edges[e][0]].y);ctx.lineTo(nodes[edges[e][1]].x,nodes[edges[e][1]].y);ctx.stroke();}for(var ni=0;ni<nodes.length;ni++){ctx.fillStyle='rgba('+r+','+g+','+b+',.32)';ctx.beginPath();ctx.arc(nodes[ni].x,nodes[ni].y,nodes[ni].r,0,Math.PI*2);ctx.fill();}}
-  function tk(){for(var ni=0;ni<nodes.length;ni++){nodes[ni].x+=nodes[ni].vx;nodes[ni].y+=nodes[ni].vy;if(nodes[ni].x<0||nodes[ni].x>W)nodes[ni].vx*=-1;if(nodes[ni].y<0||nodes[ni].y>H)nodes[ni].vy*=-1;}}
-  function lp(){tk();if(frame%4===0)be();drw();frame++;requestAnimationFrame(lp);}
-  window.addEventListener('resize',rsz);rsz();lp();
-  var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-  var nav=document.getElementById('hnav');
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);});
-})();
-function toggleSection(btn){var body=btn.nextElementSibling;var open=btn.classList.contains('open');btn.classList.toggle('open',!open);body.classList.toggle('open',!open);}
-function toggleNav(){var h=document.getElementById('hamburger');var n=document.getElementById('navlinks');h.classList.toggle('open');n.classList.toggle('open');}
-</script>
-</body>
-</html>
+</section><footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark"></button><button class="ps-dot" data-p="warm"></button><button class="ps-dot" data-p="slate"></button><button class="ps-dot" data-p="forest"></button><button class="ps-dot" data-p="light"></button></div></div><script>const nav=document.getElementById("hnav");if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));document.querySelectorAll(".ps-dot").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));btn.classList.add("on");const p=btn.dataset.p;document.body.className=p==="dark"?"":"p-"+p;});});document.querySelectorAll(".reveal").forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add("visible")},{threshold:.1}).observe(el);});</script></body></html>

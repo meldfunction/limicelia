@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Limicelia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
 body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
@@ -18,7 +16,7 @@ html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
 a{color:inherit;text-decoration:none}
 .ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
-.ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm)}
+.ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
 .ps-row{display:flex;gap:.35rem}
 .ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
 .ps-dot:hover{transform:scale(1.2)}.ps-dot.on{border-color:var(--amber)}
@@ -27,112 +25,18 @@ a{color:inherit;text-decoration:none}
 .ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
 .ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
 .ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
-#mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none}
+#mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 section{position:relative;z-index:2}
-.wm{display:inline-flex;align-items:center;gap:.9rem}
-.wm-g{width:28px;height:28px;flex-shrink:0}
-.wm-n{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1;transition:color .4s}
+.wordmark{display:inline-flex;align-items:center;gap:.9rem}
+.wordmark-glyph{width:28px;height:28px;flex-shrink:0}
+.wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1;transition:color .4s}
 .hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
 .hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
 .hnav.scrolled::after{opacity:1}
 .hnav-links{display:flex;gap:2.5rem;list-style:none}
 .hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
 .hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
-.pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
-.pad-sm{padding:clamp(1.5rem,3vh,2.5rem) clamp(2rem,7vw,7rem)}
-.sl{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem}
-.sl::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
-.sn{opacity:.5;margin-right:.2rem}
-h2.st{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp)}
-h2.st em{font-style:italic;color:var(--amber)}
-.bt{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts)}
-.divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem)}
-.btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
-.btn-p:hover{background:transparent;color:var(--amber)}
-.btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
-.btn-g::after{content:'→';transition:transform .3s;display:inline-block}
-.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
-.rv.visible{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.36s}
-.alt{background:var(--sur)}
-
-/* HERO */
-.hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,5vh,4rem);position:relative;z-index:2}
-.hero-ey{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem}
-.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--tp);max-width:20ch}
-.hero h1 em{font-style:italic;color:var(--amber)}
-.hero-lede{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.75;color:var(--ts);max-width:54ch;margin-top:1.8rem}
-
-/* ENTRY ILLUSTRATIONS */
-.entry-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0}
-@media(max-width:700px){.entry-grid{grid-template-columns:1fr}}
-.entry-card{background:var(--ink);padding:1.6rem 1.8rem;transition:background .3s}
-.entry-card:hover{background:var(--amber-glow)}
-.entry-quote{font-size:1rem;font-weight:300;line-height:1.65;color:var(--ts);font-style:italic;margin-bottom:.6rem}
-.entry-note{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
-
-/* MODES NOTE */
-.modes-note{padding:1rem clamp(2rem,7vw,7rem);background:var(--sur);border-top:1px solid var(--rul);border-bottom:1px solid var(--rul);position:relative;z-index:2}
-.modes-note p{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm);max-width:68ch}
-.modes-note strong{color:var(--ts);font-weight:400}
-
-/* CAPABILITY BADGE */
-.cap{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .65rem;border:1px solid}
-.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.cap-s{border-color:rgba(143,175,120,.4);color:#8faf78}.dot-s{background:#8faf78}
-.cap-a{border-color:var(--amber-dim);color:var(--amber)}.dot-a{background:var(--amber)}
-.cap-i{border-color:var(--rul);color:var(--tm)}.dot-i{background:var(--tm)}
-.cap-p{border-color:var(--amber-dim);color:var(--amber)}
-
-/* SERVICE BLOCK */
-.sb{border-top:1px solid var(--rul);padding:2.5rem 0}
-.sb:first-of-type{border-top:none}
-.sb-head{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;margin-bottom:1.4rem;flex-wrap:wrap}
-.sb-name{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:400;color:var(--tp)}
-.sb-name em{font-style:italic;color:var(--amber)}
-.sb-meta{display:flex;flex-direction:column;gap:.4rem;align-items:flex-end}
-@media(max-width:600px){.sb-meta{align-items:flex-start}}
-.belief{font-size:1rem;font-weight:300;font-style:italic;color:var(--ts);line-height:1.7;margin-bottom:1.2rem;max-width:58ch}
-.notice{font-size:.88rem;font-weight:300;line-height:1.72;color:var(--tm);padding:.7rem 1rem;border-left:2px solid var(--amber-dim);margin-bottom:1.2rem;font-style:italic}
-.rec{margin-bottom:1.4rem}
-.rec-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.6rem}
-.rec-wrap{display:flex;flex-wrap:wrap;gap:.4rem}
-.rec-chip{font-family:'DM Mono',monospace;font-size:.55rem;padding:.38rem .8rem;background:var(--spore);border:1px solid var(--rul);color:var(--ts);transition:all .25s}
-.rec-chip:hover{border-color:var(--amber-dim);background:var(--amber-glow)}
-.wl{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.4rem}
-.wl li{font-size:.95rem;font-weight:300;line-height:1.72;color:var(--ts);padding-left:1.2rem;position:relative}
-.wl li::before{content:'—';position:absolute;left:0;color:var(--amber);opacity:.55}
-.leads{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.05em;color:var(--tm);line-height:1.6;margin-top:.4rem}
-.leads-lbl{color:var(--amber);opacity:.65;margin-right:.5rem}
-
-/* ENGAGEMENT TIERS */
-.eng-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:1.5rem 0}
-@media(max-width:800px){.eng-grid{grid-template-columns:1fr}}
-.eng-card{background:var(--ink);padding:1.6rem 1.8rem;transition:background .3s}
-.eng-card:hover{background:var(--sur)}
-.eng-lbl{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.4rem}
-.eng-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem}
-.eng-dur{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--amber);opacity:.5;margin-bottom:.65rem;letter-spacing:.04em}
-.eng-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts)}
-.eng-body em{font-style:italic;color:var(--amber)}
-
-/* CTA */
-.cta-sec{text-align:center;position:relative;overflow:hidden}
-.cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
-.cta-hl{font-size:clamp(2.2rem,4.5vw,4rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.4rem;color:var(--tp)}
-.cta-hl em{font-style:italic;color:var(--amber)}
-.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 2.2rem}
-.cta-btns{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
-
-footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
-.fl{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
-.fn{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
-.flinks{display:flex;gap:2rem}
-.flinks a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
-.flinks a:hover{opacity:1}
-@media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}}
 .hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
@@ -143,347 +47,383 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   .hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}
   .hnav-links.open{display:flex}
 }
+.pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
+.sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;transition:color .4s}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
+.sec-num{opacity:.5;margin-right:.2rem}
+h2.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp);transition:color .4s}
+h2.sec-title em{font-style:italic;color:var(--amber)}
+.body-text{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);transition:color .4s}
+.body-text strong{color:var(--tp);font-weight:400}
+.divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem);transition:background .4s}
+.btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
+.btn-p:hover{background:transparent;color:var(--amber)}
+.btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
+.btn-g::after{content:'→';transition:transform .3s;display:inline-block}
+.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}.rd4{transition-delay:.5s}
+.content-section.alt{background:var(--sur)}.content-section{transition:background .5s}
+/* HERO */
+.hero{padding:clamp(5rem,10vh,8rem) clamp(2rem,7vw,7rem) clamp(3rem,6vh,5rem);min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:2;background-image:linear-gradient(to bottom,rgba(245,240,232,0) 0%,rgba(245,240,232,.55) 55%,rgba(245,240,232,.95) 100%),url('forest-path.jpg');background-size:cover;background-position:center top}
+body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{background-image:linear-gradient(to bottom,rgba(14,13,10,0) 0%,rgba(14,13,10,.6) 55%,rgba(14,13,10,.97) 100%),url('forest-path.jpg')}
+.hero-headline{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);max-width:14ch;margin-bottom:2rem;transition:color .4s}
+.hero-headline em{font-style:italic;color:var(--amber)}
+.hero-lede{font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:50ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2.5rem;transition:color .4s,border-color .4s}
+.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
+.hero-cta{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap}
+/* PHOTO CREDIT */
+.photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.5;margin-top:.6rem;line-height:1.6}
+.photo-credit a{color:var(--tm);opacity:.7;border-bottom:1px solid var(--rul)}
+/* MISSION BLOCK */
+.mission-block{padding:clamp(2.5rem,5vh,4rem) clamp(2rem,7vw,7rem);background:var(--sur);border-top:1px solid var(--rul);border-bottom:1px solid var(--rul);position:relative;z-index:2;transition:background .5s}
+.mission-body{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.85;color:var(--ts);max-width:64ch;margin-bottom:1.5rem;transition:color .4s}
+.mission-body em{font-style:italic;color:var(--amber)}
+.mission-close{font-size:clamp(1.15rem,2vw,1.5rem);font-weight:300;line-height:1.4;color:var(--tp);font-style:italic;transition:color .4s}
+/* NAME */
+.name-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+@media(max-width:800px){.name-grid{grid-template-columns:1fr}}
+.ety-row{display:flex;gap:1rem;align-items:baseline;margin-bottom:.6rem}
+.ety-word{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);min-width:5rem}
+.ety-def{font-size:.9rem;font-weight:300;color:var(--tm);transition:color .4s}
+.crossing-list{font-size:.95rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
+/* WHO */
+.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:.8rem 0 0;transition:background .4s}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.who-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
+.who-card:hover{background:var(--amber-glow)}
+.who-cluster-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
+@media(max-width:600px){.who-cluster{margin-bottom:1.5rem}}
+.who-card-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
+.who-card-name em{font-style:italic;color:var(--amber)}
+.who-card-scene{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.who-card-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
+/* SERVICES */
+.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+@media(max-width:700px){.service-grid{grid-template-columns:1fr}}
+.service-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
+.service-card:hover{background:var(--sur)}
+.service-path{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.service-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.6rem;transition:color .4s}
+.service-name em{font-style:italic;color:var(--amber)}
+.service-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.service-badge{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.8rem;display:inline-block;padding:.25rem .65rem;border:1px solid var(--amber-dim);color:var(--amber)}
+/* PATHS */
+.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+@media(max-width:900px){.paths-grid{grid-template-columns:1fr}}
+.path-card{background:var(--ink);padding:2rem 2rem 2.4rem;transition:background .4s}
+.path-card:hover{background:var(--sur)}
+.path-num{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
+.path-name{font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
+.path-when{font-size:.88rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
+.path-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
+.path-tags{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2}
+.path-link{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
+.path-link::after{content:'→';display:inline-block;transition:transform .3s}
+.path-link:hover{opacity:.75}.path-link:hover::after{transform:translateX(4px)}
+/* LINEAGE */
+.tradition-row{display:flex;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
+.tradition-row:last-child{border-bottom:none}
+.tradition-name{font-size:.95rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
+.tradition-note{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
+@media(max-width:600px){.tradition-row{flex-direction:column;gap:.4rem}.tradition-name{min-width:unset}}
+/* HOW WE HOLD */
+.how-prose{max-width:62ch}
+.how-prose p{font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
+.how-prose p:last-child{margin-bottom:0}
+.how-prose strong{color:var(--tp);font-weight:400}
+/* BIOS */
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+@media(max-width:800px){.bio-grid{grid-template-columns:1fr}}
+.bio-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s}
+.bio-avatar{width:52px;height:52px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--amber);margin-bottom:1.2rem}
+.bio-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
+.bio-role{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
+.bio-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.bio-clients{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
+.bio-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
+/* PARTNER */
+.partner-card{border:1px solid var(--amber-dim);padding:1.8rem 2rem;background:var(--amber-glow);margin:2rem 0}
+.partner-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
+.partner-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
+.partner-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+/* CTA */
+.section-cta{text-align:center;position:relative;overflow:hidden}
+.section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
+.cta-word{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;color:var(--tp);transition:color .4s}
+.cta-word em{font-style:italic;color:var(--amber)}
+.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 1rem;transition:color .4s}
+.cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--amber);max-width:44ch;margin:0 auto 2.5rem;font-style:italic;transition:color .4s}
+.cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a:hover{opacity:1}
+@media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
 /* MOBILE FIXES */
 @media(max-width:480px){
-  /* Service block header: stack vertically */
-  .sb-head{flex-direction:column;gap:.8rem}
-  .sb-meta{align-items:flex-start}
-  /* Entry grid: already 1col at 700px */
-  /* Eng grid: already 1col at 800px */
-  /* Hero text */
-  .hero h1{font-size:2.4rem}
-  /* Nav */
+  /* Nav: wrap to two lines on very small screens */
   .hnav{flex-wrap:wrap;gap:.5rem;padding:1rem}
   .hnav-links{gap:.8rem}
-  /* Leads line: allow wrapping */
-  .leads{font-size:.46rem}
-  /* Rec chips: smaller on mobile */
-  .rec-chip{font-size:.5rem}
-  /* CTA */
-  .cta-btns{flex-direction:column;align-items:stretch;text-align:center}
-  .btn-p{text-align:center}
+  /* Hero: reduce min-height, ensure text readable over image */
+  .hero{min-height:70vh}
+  /* Mission block: remove negative margins on mobile */
+  .mission-block > div:first-child{margin-left:0!important;margin-right:0!important;border-radius:0}
+  /* System cluster: 3 cards stack to 1 col (already handled at 700px) */
+  /* Service cards: ensure no overflow */
+  .service-grid{grid-template-columns:1fr}
+  /* Partner card wrapping */
+  .partner-card{padding:1.2rem}
+  /* CTA group stack */
+  .cta-group{flex-direction:column;align-items:stretch;text-align:center}
+  .btn-p,.btn-g{text-align:center;justify-content:center}
+  /* Bio grid */
+  .bio-grid{grid-template-columns:1fr}
+  /* Lineage rows: allow wrapping on very narrow screens */
+  .tradition-row{flex-direction:column;gap:.4rem}
+  .tradition-name{min-width:unset}
 }
 @media(max-width:375px){
+  /* Smallest common phone - iPhone SE */
+  .hero-headline{font-size:2.4rem}
   .hnav-links a{font-size:.58rem;letter-spacing:.08em}
   .wordmark-name{font-size:.88rem}
 }
-.photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.55;margin-top:.5rem;line-height:1.6}
-.photo-credit a{color:var(--tm);border-bottom:1px solid var(--rul)}
-/* COLLAPSIBLES */
-.sb-toggle{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.5rem 0 0;margin-top:.8rem;border-top:1px solid var(--rul)}
-.sb-toggle-lbl{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
-.sb-toggle:hover .sb-toggle-lbl{opacity:1}
-.sb-toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
-.sb-toggle.open .sb-toggle-icon{transform:rotate(45deg)}
-.sb-detail{display:none;padding-top:1rem}
-.sb-detail.open{display:block}
+.toggle-btn{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 0;margin-top:.8rem;border-top:1px solid var(--amber-dim)}
+.toggle-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
+.toggle-btn:hover .toggle-lbl{opacity:1}
+.toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
+.toggle-btn.open .toggle-icon{transform:rotate(45deg)}
+.toggle-body{display:none;padding-top:.8rem}
+.toggle-body.open{display:block}
 </style>
 </head>
-<body class="p-light">
-<div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row">
-  <button class="ps-dot" data-p="dark"></button><button class="ps-dot" data-p="warm"></button>
-  <button class="ps-dot" data-p="slate"></button><button class="ps-dot" data-p="forest"></button>
-  <button class="ps-dot on" data-p="light"></button>
-</div></div>
-<canvas id="mc"></canvas>
+<body>
+<nav class="hnav" id="hnav"><a href="index.html" class="wordmark"><svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"></circle>
+      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"></line>
+      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"></line>
+      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
+      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
+      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
+      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
+      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"></circle>
+      <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle>
+    </svg><span class="wordmark-name">Limicelia</span></a><ul class="hnav-links"><li><a href="index.html">Home</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="commons-model.html">Our Model</a></li><li><a href="bios.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 
-<nav class="hnav" id="hnav">
-  <div class="wm">
-    <svg class="wm-g" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
-      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
-      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
-      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"/>
-    </svg>
-    <a href="index.html"><span class="wm-n">Limicelia</span></a>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="hnav-links" id="navlinks">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <p class="hero-ey rv">Limicelia · Services</p>
-  <h1 class="rv">Wherever you start<br>is the <em>right place.</em></h1>
-  <p class="hero-lede rv d1">Clients don't arrive with a service in mind. They arrive with a situation — something that isn't working, something that needs to be built, something that has shifted in a way they can't yet name. We begin there. The work finds its shape from what the situation calls for.</p>
-</section>
-
-<!-- CLIENT ENTRY ILLUSTRATIONS -->
-<section class="pad" style="padding-top:0;position:relative;z-index:2">
-  <div class="entry-grid rv d2">
-    <div class="entry-card">
-      <p class="entry-quote">"We've restructured twice and the same problem keeps coming back."</p>
-    </div>
-    <div class="entry-card">
-      <p class="entry-quote">"Our coalition keeps meeting but nothing actually moves."</p>
-    </div>
-    <div class="entry-card">
-      <p class="entry-quote">"We have the values. The culture doesn't match them."</p>
-    </div>
-    <div class="entry-card">
-      <p class="entry-quote">"The people doing this work are running out of ground to stand on."</p>
-    </div>
+<section style="position:relative;z-index:2;padding:clamp(5rem,10vw,9rem) clamp(2rem,7vw,7rem) clamp(3rem,6vw,6rem)">
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Services</p>
+  <h1 class="reveal" style="font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.08;margin-bottom:2rem">Wherever you start<br>is the <em>right place.</em></h1>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ts);max-width:54ch;line-height:1.78;margin-bottom:1.5rem">Clients don't arrive with a service in mind. They arrive with a situation — something that isn't working, something that needs to be built, something that has shifted in a way they can't yet name. We begin there. The work finds its shape from what the situation calls for.</p>
+  <div class="reveal rd2" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul);margin-top:2rem">
+    <div style="background:var(--ink);padding:1.4rem 1.6rem;font-style:italic;color:var(--ts);font-size:.95rem;line-height:1.65">"We've restructured twice and the same problem keeps coming back."</div>
+    <div style="background:var(--ink);padding:1.4rem 1.6rem;font-style:italic;color:var(--ts);font-size:.95rem;line-height:1.65">"Our coalition keeps meeting but nothing actually moves."</div>
+    <div style="background:var(--ink);padding:1.4rem 1.6rem;font-style:italic;color:var(--ts);font-size:.95rem;line-height:1.65">"We have the values. The culture doesn't match them."</div>
+    <div style="background:var(--ink);padding:1.4rem 1.6rem;font-style:italic;color:var(--ts);font-size:.95rem;line-height:1.65">"The people doing this work are running out of ground to stand on."</div>
   </div>
 </section>
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / Work we do</p>
+  <div style="display:flex;align-items:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap" class="reveal">
+    <p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Service maturity:</p>
+    <span style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber-dim);color:var(--amber);padding:.12rem .45rem;white-space:nowrap;flex-shrink:0">Established</span> <span style="font-family:'DM Mono',monospace;font-size:.55rem;color:var(--tm)">Delivered repeatedly, case studies available</span>
+    &nbsp;&nbsp;
+    <span style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber-dim);color:var(--amber);padding:.12rem .45rem;white-space:nowrap;flex-shrink:0">Active</span> <span style="font-family:'DM Mono',monospace;font-size:.55rem;color:var(--tm)">Delivered, building track record</span>
+    &nbsp;&nbsp;
+    <span style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber-dim);color:var(--amber);padding:.12rem .45rem;white-space:nowrap;flex-shrink:0">Actively Growing</span> <span style="font-family:'DM Mono',monospace;font-size:.55rem;color:var(--tm)">Elements delivered, building full arc</span>
+  </div>
 
-<!-- CIRCLE IMAGE -->
-<div style="position:relative;z-index:2;overflow:hidden;max-height:320px">
-  <img src="circle-hands.jpg" alt="People sitting in a circle on grass, hands and feet reaching toward the centre — arrival from every direction to the same ground" style="width:100%;height:320px;object-fit:cover;object-position:center 35%;display:block;opacity:.8">
-  <p class="photo-credit" style="position:absolute;bottom:.5rem;right:1rem;color:rgba(242,234,216,.6);opacity:.8">Image by <a href="https://pixabay.com/users/henning_w-327613/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=386673" target="_blank" style="color:rgba(242,234,216,.6)">Henning Westerkamp</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=386673" target="_blank" style="color:rgba(242,234,216,.6)">Pixabay</a></p>
+  <div id="conflict" style="margin-bottom:3rem;padding-top:1rem;border-top:1px solid var(--rul)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.5rem" class="reveal">
+      <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2">Conflict Navigation <em>&amp; Repair</em></h2>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0">
+        <span style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber-dim);color:var(--amber);padding:.12rem .45rem;white-space:nowrap;flex-shrink:0">Established</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">With Colmenar Cooperative Consulting</span>
+      </div>
+    </div>
+    <p class="reveal" style="font-size:1.05rem;font-style:italic;color:var(--ts);line-height:1.72;max-width:60ch;margin-bottom:1.5rem">Conflict carries information the organization hasn't found another way to say. Working with it as information — not just making it stop — is the difference between resolving a dispute and understanding what created it.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem" class="reveal rd1">
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">You might recognize this</p>
+        <ul style="list-style:none;padding:0;font-size:.92rem;color:var(--ts);line-height:1.8">
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"We have been having the same conversation for two years and it isn't moving."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"There is something unspoken in the room that everyone knows about and no one is naming."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"A key relationship has broken down and we don't know how to repair it without losing someone critical."</li>
+          <li style="padding:.25rem 0">"We tried everything and the dynamic keeps resetting."</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">What we do</p>
+        <p style="font-size:.92rem;color:var(--ts);line-height:1.78">We enter the situation as an accompanier, not as a mediator or arbitrator. We help the system become legible to itself — to see what the conflict is actually about, which is often not what it appears to be about on the surface. Conflict in organizations is almost never only about what it says it is about. Behind most organizational conflict is a power dynamic that has not been named, a values divergence that has not been made explicit, or a structural problem that is being carried interpersonally.</p>
+        <p style="font-size:.92rem;color:var(--ts);line-height:1.78;margin-top:.8rem">In partnership with <a href="https://www.colmenarconsulting.com/" target="_blank" style="color:var(--amber);border-bottom:1px solid var(--amber-dim)">Colmenar Cooperative Consulting</a>, a bilingual (Spanish/English) worker-owned mediation practice.</p>
+        <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;color:var(--tm);margin-top:.8rem">Case studies: PSFG (won competitive RFP, 30+ bidders, repeat engagement) · CFL (multi-year, came back year after year)</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="governance" style="margin-bottom:3rem;padding-top:1rem;border-top:1px solid var(--rul)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.5rem" class="reveal">
+      <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2">Organizational Health <em>&amp; Governance</em></h2>
+      <span style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber-dim);color:var(--amber);padding:.12rem .45rem;white-space:nowrap;flex-shrink:0">Active</span>
+    </div>
+    <p class="reveal" style="font-size:1.05rem;font-style:italic;color:var(--ts);line-height:1.72;max-width:60ch;margin-bottom:1.5rem">Structure produces behavior. What the organization is experiencing is not random — it's the predictable output of how the system is built. Change the structure, and the behavior follows.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem" class="reveal rd1">
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">You might recognize this</p>
+        <ul style="list-style:none;padding:0;font-size:.92rem;color:var(--ts);line-height:1.8">
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"We can't make decisions fast enough."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"People don't know who owns what."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"The same decisions keep coming back up."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"We've grown and our structure hasn't caught up."</li>
+          <li style="padding:.25rem 0">"Our values and our culture are in different rooms."</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">What we do</p>
+        <p style="font-size:.92rem;color:var(--ts);line-height:1.78">We begin with frontline listening — talking to the people closest to the work before we talk to leadership. The diagnostic produces a clear picture of what the structure is actually producing, not what leadership believes it is producing. From there, we work with leadership and staff together to redesign the conditions. Sociocratic and consent-based methods adapted to your organization's culture. The goal is structures the organization owns and can maintain after we leave.</p>
+        <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;color:var(--tm);margin-top:.8rem">Diagnostic established · Full 3–9 month arc actively developing</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="convening" style="margin-bottom:3rem;padding-top:1rem;border-top:1px solid var(--rul)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.5rem" class="reveal">
+      <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2">Systems <em>Convening</em></h2>
+      <span style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber-dim);color:var(--amber);padding:.12rem .45rem;white-space:nowrap;flex-shrink:0">Actively Growing</span>
+    </div>
+    <p class="reveal" style="font-size:1.05rem;font-style:italic;color:var(--ts);line-height:1.72;max-width:60ch;margin-bottom:1rem">A well-designed convening shifts how people see each other and the system they share. Most don't. The difference is whether the gathering was designed to extract what the facilitator wanted to find, or to surface what the system already knows.</p>
+    <p class="reveal" style="font-size:.9rem;color:var(--tm);border-left:2px solid var(--amber-dim);padding-left:1rem;margin-bottom:1.5rem;font-style:italic">We've delivered elements of this work — Warm Data Labs, multi-stakeholder convenings, coalition design — and are building toward full sustained Systems Convening engagements. If this describes what you need, reach out now.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem" class="reveal rd1">
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">You might recognize this</p>
+        <ul style="list-style:none;padding:0;font-size:.92rem;color:var(--ts);line-height:1.8">
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"Our coalition keeps meeting but nothing actually moves."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"Community engagement produces data nobody acts on."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"Nobody has the authority to convene this field — but someone needs to."</li>
+          <li style="padding:.25rem 0">"We have ten organizations who agree on the vision but can't coordinate."</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">What we do</p>
+        <p style="font-size:.92rem;color:var(--ts);line-height:1.78">Warm Data Labs (Nora Bateson / International Bateson Institute) for groups of 12 to 500+. Multi-stakeholder convenings designed for the power dynamics actually in the room. Coalition design and participatory community processes. Building toward sustained Systems Convening engagements in the Wenger-Trayner tradition — a sustained role across organizational boundaries enabling cross-system learning.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="leadership" style="padding-top:1rem;border-top:1px solid var(--rul)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.5rem" class="reveal">
+      <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;line-height:1.2">Leadership <em>&amp; Relational Development</em></h2>
+      <span style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--amber-dim);color:var(--amber);padding:.12rem .45rem;white-space:nowrap;flex-shrink:0">Active</span>
+    </div>
+    <p class="reveal" style="font-size:1.05rem;font-style:italic;color:var(--ts);line-height:1.72;max-width:60ch;margin-bottom:1.5rem">For those who believe the work should be changing the person doing it as much as the organization it's aimed at. When the skills are there but the ground isn't deep enough yet to hold them — and when the work itself is depleting faster than it's restoring.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem" class="reveal rd1">
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">You might recognize this</p>
+        <ul style="list-style:none;padding:0;font-size:.92rem;color:var(--ts);line-height:1.8">
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"I've changed a lot personally and my leadership hasn't caught up."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"The team is capable but something in how we relate is blocking us."</li>
+          <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">"The work is important but it's grinding people down."</li>
+          <li style="padding:.25rem 0">"I keep having to mediate between the same two people."</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem">What we do</p>
+        <p style="font-size:.92rem;color:var(--ts);line-height:1.78">Developmental coaching for leaders at moments of genuine transition. Team relational work — including direct accompaniment through active conflict and container design for teams building the capacity to navigate difficulty. For organizations wanting to address the relational infrastructure that allows a team to disagree, repair, and return to each other.</p>
+        <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;color:var(--tm);margin-top:.8rem">Case study: CFL — multi-year relationship, workshops → coaching, came back year after year</p>
+      </div>
+    </div>
+  </div>
+</section>
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / How to engage</p>
+  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">The work takes<br><em>different shapes.</em></h2>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.78;margin-bottom:1.5rem">Most engagements begin with a genuine conversation about what's happening — not a needs assessment, not a sales call. We figure out together what the situation calls for, and what shape of engagement that implies.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul)" class="reveal rd1">
+    <div style="background:var(--ink);padding:2rem 1.8rem">
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Diagnostic</p>
+      <h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.4rem">What's actually happening</h3>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">A few weeks</p>
+      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">Deep listening, honest diagnosis. We talk to the people closest to the work before we talk to leadership. The output is a clear picture of what the system is producing and why — not a recommendation deck. The right starting point for most engagements.</p>
+    </div>
+    <div style="background:var(--ink);padding:2rem 1.8rem">
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Sustained Engagement</p>
+      <h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.4rem">Changing how you work</h3>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">Months, not weeks</p>
+      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">Full arc from discovery through harvest. Redesigned structures and practices the organization owns after we leave. Scope shaped by what the diagnostic reveals — not a pre-specified deliverable list.</p>
+    </div>
+    <div style="background:var(--ink);padding:2rem 1.8rem">
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Long-Term Presence</p>
+      <h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.4rem">A thinking partner over time</h3>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">A year or more</p>
+      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">For organizations navigating continuous transformation — a Limicelia steward as sustained presence through multiple passages. Not a project. A relationship. We stay until you can cross without us.</p>
+    </div>
+  </div>
+  <div class="reveal rd2" style="margin-top:2rem;padding:1.5rem 1.8rem;border:1px solid var(--rul)">
+    <p style="font-size:.92rem;color:var(--ts);line-height:1.75">The first conversation is not a sales call. It's genuine inquiry — including whether Limicelia is the right fit. We will tell you if we're not.<br><br>We price on a sliding scale based on what an organization can sustain, not market rate. Fees are discussed after we understand what the situation calls for. Say early if budget is a real constraint.</p>
+  </div>
+</section>
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / Practice partners</p>
+  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">People we work alongside.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul)" class="reveal rd1">
+    <div style="background:var(--ink);padding:2rem 1.8rem">
+      <h3 style="font-size:1rem;font-weight:300;margin-bottom:.4rem"><a href="https://www.colmenarconsulting.com/" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">Colmenar Cooperative Consulting</a></h3>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Conflict navigation · cooperative development · mediation · bilingual engagements</p>
+      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">A bilingual (Spanish/English) worker-owned cooperative offering education, technical assistance, facilitation, and conflict resolution. Deep roots in cooperative development and bilingual mediation.</p>
+    </div>
+    <div style="background:var(--ink);padding:2rem 1.8rem">
+      <h3 style="font-size:1rem;font-weight:300;margin-bottom:.4rem"><a href="https://fixchr.com/" target="_blank" style="color:var(--tp);border-bottom:1px solid var(--amber-dim)">fixchr</a></h3>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Facilitation design · team development · leadership retreats</p>
+      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">A facilitation and organizational design practice helping technology companies, government agencies, and mission-driven organizations build resilient cultures through expertise in learning design, team dynamics, and culture change.</p>
+    </div>
+    <div style="background:var(--ink);padding:2rem 1.8rem">
+      <h3 style="font-size:1rem;font-weight:300;margin-bottom:.4rem">AGMeneses Consulting</h3>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Systems convening · equity-centered dialogue · philanthropy &amp; foundations</p>
+      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">Founded by Agnes Meneses, a strategic advisor with over 25 years in the nonprofit and philanthropy sectors. Anchoring her practice in equity, dialogue, and collective sensemaking.</p>
+    </div>
+  </div>
+</section>
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
+  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Start with<br>a <em>conversation.</em></h2>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:48ch;line-height:1.78;margin-bottom:1.5rem">Tell us what's breaking. We'll figure out together what it needs.</p>
+  <a href="contact.html" class="reveal rd2" style="display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
+</section>
+
+<footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer>
+<div class="ps">
+  <p class="ps-lbl">Theme</p>
+  <div class="ps-row">
+    <button class="ps-dot on" data-p="dark" title="Dark"></button>
+    <button class="ps-dot" data-p="warm" title="Warm"></button>
+    <button class="ps-dot" data-p="slate" title="Slate"></button>
+    <button class="ps-dot" data-p="forest" title="Forest"></button>
+    <button class="ps-dot" data-p="light" title="Light"></button>
+  </div>
 </div>
-
-<!-- MODES NOTE -->
-<div class="modes-note rv">
-  <p>Depending on what a situation calls for, the work moves through different modes — <strong>listening and diagnosing, accompanying and redesigning, convening across boundaries, developing the people inside the work.</strong> In practice these overlap. A single engagement might involve all of them. If it helps to have a picture of how these modes relate, the double diamond is one way to hold it.</p>
-</div>
-
-<div class="divider"></div>
-
-<!-- SERVICE AREAS -->
-<section class="pad" style="position:relative;z-index:2">
-  <div class="sl rv">Work we do</div>
-
-  <!-- CONFLICT NAVIGATION -->
-  <div class="sb rv">
-    <div class="sb-head">
-      <div>
-        <h3 class="sb-name">Conflict Navigation <em>&amp; Repair</em></h3>
-      </div>
-      <div class="sb-meta">
-        <span class="cap cap-s"><span class="dot dot-s"></span>Established</span>
-        <span class="cap cap-p" style="margin-top:.3rem">With Colmenar Cooperative Consulting</span>
-      </div>
-    </div>
-    <p class="belief">Conflict carries information the organization hasn't found another way to say. Working with it as information — not just making it stop — is the difference between resolving a dispute and understanding what created it.</p>
-    <button class="sb-toggle" onclick="toggleDetail(this)">
-      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
-      <span class="sb-toggle-icon">+</span>
-    </button>
-    <div class="sb-detail">
-    <div class="rec" style="margin-top:1rem">
-      <p class="rec-lbl">You might be saying —</p>
-      <div class="rec-wrap">
-        <span class="rec-chip">"A founding team split we haven't recovered from"</span>
-        <span class="rec-chip">"Board and executive at an impasse"</span>
-        <span class="rec-chip">"A values conflict that went public"</span>
-        <span class="rec-chip">"We've tried mediation before and it didn't hold"</span>
-        <span class="rec-chip">"Trust broke during restructuring"</span>
-        <span class="rec-chip">"Power dynamics nobody will name"</span>
-      </div>
-    </div>
-    <ul class="wl">
-      <li>Transformative mediation — focused on relationships over resolutions, holding the presenting dispute and its structural roots simultaneously</li>
-      <li>Restorative circles — everyone affected present, moving at the pace required for genuine acknowledgment before agreement</li>
-      <li>Post-rupture accompaniment — staying through the rebuilding of trust, not just the initial intervention</li>
-      <li>Conflict navigation system design — building the organization's own capacity to hold future conflict</li>
-    </ul>
-    <div class="leads"><span class="leads-lbl">Who leads</span>Colmenar Cooperative Consulting leads most engagements. Limicelia co-delivers when conflict is part of a longer arc. We refer without condition.</div>
-    </div>
-  </div>
-
-  <!-- ORGANIZATIONAL HEALTH -->
-  <div class="sb rv">
-    <div class="sb-head">
-      <div>
-        <h3 class="sb-name">Organizational Health <em>&amp; Governance</em></h3>
-      </div>
-      <div class="sb-meta">
-        <span class="cap cap-a"><span class="dot dot-a"></span>Active</span>
-      </div>
-    </div>
-    <p class="belief">Structure produces behavior. What the organization is experiencing is not random — it's the predictable output of how the system is built. Change the structure, and the behavior follows.</p>
-    <button class="sb-toggle" onclick="toggleDetail(this)">
-      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
-      <span class="sb-toggle-icon">+</span>
-    </button>
-    <div class="sb-detail">
-    <div class="rec" style="margin-top:1rem">
-      <p class="rec-lbl">You might be saying —</p>
-      <div class="rec-wrap">
-        <span class="rec-chip">"We scaled fast and lost ourselves"</span>
-        <span class="rec-chip">"The org chart doesn't match how power flows"</span>
-        <span class="rec-chip">"We're not practicing what we preach"</span>
-        <span class="rec-chip">"We keep losing good people"</span>
-        <span class="rec-chip">"Board and staff can't find each other"</span>
-      </div>
-    </div>
-    <ul class="wl">
-      <li>Organizational health assessment — frontline interviews before leadership, structural analysis, diagnosis delivered to the whole organization</li>
-      <li>Governance redesign — participatory restructuring of decision-making, role clarity, and accountability systems drawing from sociocratic practice</li>
-      <li>Values-practice gap work — for organizations whose public commitments have outrun their internal practice</li>
-      <li>Leadership transition accompaniment — present through succession and the organizational grief it carries, not just the logistics</li>
-    </ul>
-    <div class="leads"><span class="leads-lbl">Who leads</span>BK and Carol Xu · Work includes: large government institutions, technology organizations, cooperative networks</div>
-    </div>
-  </div>
-
-  <!-- SYSTEMS CONVENING -->
-  <div class="sb rv">
-    <div class="sb-head">
-      <div>
-        <h3 class="sb-name">Systems <em>Convening</em></h3>
-      </div>
-      <div class="sb-meta">
-        <span class="cap cap-a"><span class="dot dot-a"></span>Actively growing</span>
-      </div>
-    </div>
-    <p class="belief">A well-designed convening shifts how people see each other and the system they share. Most don't. The difference is whether the gathering was designed to extract what the facilitator wanted to find, or to surface what the system already knows.</p>
-    <p class="notice">We've delivered elements of this work — Warm Data Labs, multi-stakeholder convenings, coalition design — and are building toward full sustained Systems Convening engagements. If this describes what you need, reach out now.</p>
-    <button class="sb-toggle" onclick="toggleDetail(this)">
-      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
-      <span class="sb-toggle-icon">+</span>
-    </button>
-    <div class="sb-detail">
-    <div class="rec" style="margin-top:1rem">
-      <p class="rec-lbl">You might be saying —</p>
-      <div class="rec-wrap">
-        <span class="rec-chip">"Our coalition meets but nothing moves"</span>
-        <span class="rec-chip">"We want community voice, not a survey"</span>
-        <span class="rec-chip">"The same twelve people keep showing up"</span>
-        <span class="rec-chip">"Organizations are working in parallel and missing each other"</span>
-        <span class="rec-chip">"We funded engagement and nothing changed"</span>
-      </div>
-    </div>
-    <ul class="wl">
-      <li>Warm Data Labs — groups of 12 to 500+ exploring complexity by moving between conversational contexts, surfacing the relationships conventional data misses. Held at Harvard, the EU Parliament, and with Microsoft's AI team.</li>
-      <li>Multi-stakeholder convenings — designed for the specific relational and power dynamics in the room, not lifted from a template</li>
-      <li>Participatory community design — genuine co-creation with community voice at the center, not consultation that produces a report</li>
-      <li>Coalition and field-building — gatherings that shift how a network sees itself and what becomes possible between its members</li>
-    </ul>
-    <div class="leads"><span class="leads-lbl">Who leads</span>BK (Warm Data certified host) and Carol Xu · Cooperative-sector convenings with Colmenar</div>
-    </div>
-  </div>
-
-  <!-- LEADERSHIP & RELATIONAL DEVELOPMENT -->
-  <div class="sb rv">
-    <div class="sb-head">
-      <div>
-        <h3 class="sb-name">Leadership <em>&amp; Relational Development</em></h3>
-      </div>
-      <div class="sb-meta">
-        <span class="cap cap-a"><span class="dot dot-a"></span>Active</span>
-      </div>
-    </div>
-    <p class="belief">For those who believe the work should be changing the person doing it as much as the organization it's aimed at. When the skills are there but the ground isn't deep enough yet to hold them — and when the work itself is depleting faster than it's restoring.</p>
-    <button class="sb-toggle" onclick="toggleDetail(this)">
-      <span class="sb-toggle-lbl">Recognition &amp; what we do</span>
-      <span class="sb-toggle-icon">+</span>
-    </button>
-    <div class="sb-detail">
-    <div class="rec" style="margin-top:1rem">
-      <p class="rec-lbl">You might be saying —</p>
-      <div class="rec-wrap">
-        <span class="rec-chip">"The team hasn't recovered from six months ago"</span>
-        <span class="rec-chip">"We committed to equity and nothing changed"</span>
-        <span class="rec-chip">"We need a retreat that isn't theater"</span>
-        <span class="rec-chip">"Good people keep leaving"</span>
-        <span class="rec-chip">"Information is transmitted but not integrated"</span>
-        <span class="rec-chip">"People attend and nothing changes on Monday"</span>
-      </div>
-    </div>
-    <ul class="wl">
-      <li>Team retreats and container design — real conversation about real dynamics, built from what the team is actually carrying rather than an agenda written in advance</li>
-      <li>Relational repair — accompaniment through rebuilding trust after rupture, not mediation of a specific dispute</li>
-      <li>Experiential course design — learning experiences where format and content are co-designed, built around what actually needs to change</li>
-      <li>Developmental coaching — for leaders in transition, relational and developmental rather than performance-focused</li>
-    </ul>
-    <div class="leads"><span class="leads-lbl">Who leads</span>Carol Xu and BK · Carol's work includes: Compass (technology), academic and research institutions, international convenings. Partner org: fixchr.</div>
-    </div>
-  </div>
-
-</section>
-
-<div class="divider"></div>
-
-<!-- CONVERSATION IMAGE -->
-<div style="position:relative;z-index:2;overflow:hidden;max-height:300px">
-  <img src="conversation-outdoor.jpg" alt="Three people in genuine conversation outdoors under a tree — the first conversation, unhurried and real" style="width:100%;height:300px;object-fit:cover;object-position:center 30%;display:block;opacity:.85">
-  <p class="photo-credit" style="position:absolute;bottom:.5rem;right:1rem;color:rgba(242,234,216,.6);opacity:.8">Image by <a href="https://pixabay.com/users/naassomz1-228013/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6027028" target="_blank" style="color:rgba(242,234,216,.6)">Naassom Azevedo</a> from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6027028" target="_blank" style="color:rgba(242,234,216,.6)">Pixabay</a></p>
-</div>
-
-<!-- HOW TO ENGAGE -->
-<section class="alt pad" id="engage" style="position:relative;z-index:2">
-  <div class="sl rv"><span class="sn">02 /</span> How to engage</div>
-  <h2 class="st rv" style="margin-bottom:.6rem">The work takes<br><em>different shapes.</em></h2>
-  <p class="bt rv d1" style="max-width:52ch;margin-bottom:1.5rem">Most engagements begin with a genuine conversation about what's happening — not a needs assessment, not a sales call. We figure out together what the situation calls for, and what shape of engagement that implies.</p>
-
-  <div class="eng-grid rv d2">
-    <div class="eng-card">
-      <p class="eng-lbl">Diagnostic</p>
-      <h3 class="eng-name">What's actually happening</h3>
-      <p class="eng-dur">A few weeks</p>
-      <p class="eng-body">Deep listening, honest diagnosis. We talk to the people closest to the work before we talk to leadership. The output is a clear picture of what the system is producing and why — not a recommendation deck. <em>The right starting point for most engagements.</em></p>
-    </div>
-    <div class="eng-card">
-      <p class="eng-lbl">Sustained engagement</p>
-      <h3 class="eng-name">Changing how you work</h3>
-      <p class="eng-dur">Months, not weeks</p>
-      <p class="eng-body">Full arc from discovery through harvest. Redesigned structures and practices the organization owns after we leave. Scope shaped by what the diagnostic reveals — not a pre-specified deliverable list.</p>
-    </div>
-    <div class="eng-card">
-      <p class="eng-lbl">Long-term presence</p>
-      <h3 class="eng-name">A thinking partner over time</h3>
-      <p class="eng-dur">A year or more</p>
-      <p class="eng-body">For organizations navigating continuous transformation — a Limicelia steward as sustained presence through multiple passages. Not a project. A relationship. We stay until you can cross without us.</p>
-    </div>
-  </div>
-
-  <div style="padding:.85rem 1.2rem;border:1px solid var(--rul);background:var(--spore);margin-top:1rem" class="rv d3">
-    <p class="bt" style="font-size:.9rem">The first conversation is not a sales call. It's genuine inquiry — including whether Limicelia is the right fit. We will tell you if we're not. We price on a sliding scale based on what an organization can sustain, not market rate. Fees are discussed after we understand what the situation calls for. Say early if budget is a real constraint.</p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="cta-sec pad" id="contact" style="position:relative;z-index:2">
-  <h2 class="cta-hl rv">Tell us<br>what's <em>happening.</em></h2>
-  <p class="cta-sub rv d1">We'll figure out together what it needs — and whether this is the work that can help.</p>
-  <div class="cta-btns rv d2">
-    <a href="mailto:hello@limicelia.org" class="btn-p">Begin a conversation</a>
-    <a href="index.html" class="btn-g">Back to home</a>
-  </div>
-</section>
-
-<footer>
-  <span class="fl">Limicelia</span>
-  <div class="flinks">
-    <a href="index.html">Home</a>
-  </div>
-  <span class="fn">Nonprofit practice · Est. 2026</span>
-</footer>
-
 <script>
-(function(){
-  var bd=document.body,dots=document.querySelectorAll('.ps-dot'),canvas=document.getElementById('mc'),ctx=canvas.getContext('2d');
-  var W,H,nodes=[],edges=[],frame=0,rgb=[201,145,74];
-  var PAL={dark:[201,145,74],warm:[192,128,60],slate:[126,170,191],forest:[143,175,120],light:[150,96,28]};
-  function tp(){var h=new Date().getHours();if(h>=5&&h<8)return'warm';if(h>=8&&h<13)return'light';if(h>=13&&h<17)return'slate';if(h>=17&&h<20)return'forest';return'dark';}
-  function sp(p){bd.classList.remove('p-warm','p-slate','p-forest','p-light');if(p!=='dark')bd.classList.add('p-'+p);dots.forEach(function(d){d.classList.toggle('on',d.dataset.p===p);});rgb=PAL[p]||PAL.dark;}
-  dots.forEach(function(d){d.addEventListener('click',function(){sp(d.dataset.p);try{sessionStorage.setItem('lim-manual',d.dataset.p);}catch(e){}});});
-  var m=null;try{m=sessionStorage.getItem('lim-manual');}catch(e){}sp(m||tp());
-  setInterval(function(){var mn=null;try{mn=sessionStorage.getItem('lim-manual');}catch(e){}if(!mn)sp(tp());},300000);
-  function be(){edges=[];var mx=130;for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<mx)edges.push([i,j,d,mx]);}}
-  function ini(){nodes=[];edges=[];var n=Math.floor(W*H/28000);for(var i=0;i<n;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.09,r:Math.random()*1.2+.3});be();}
-  function rsz(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight*4;ini();}
-  function drw(){ctx.clearRect(0,0,W,H);var r=rgb[0],g=rgb[1],b=rgb[2];for(var e=0;e<edges.length;e++){var a=(1-edges[e][2]/edges[e][3])*.18;ctx.strokeStyle='rgba('+r+','+g+','+b+','+a+')';ctx.lineWidth=(1-edges[e][2]/edges[e][3])*.6;ctx.beginPath();ctx.moveTo(nodes[edges[e][0]].x,nodes[edges[e][0]].y);ctx.lineTo(nodes[edges[e][1]].x,nodes[edges[e][1]].y);ctx.stroke();}for(var ni=0;ni<nodes.length;ni++){ctx.fillStyle='rgba('+r+','+g+','+b+',.32)';ctx.beginPath();ctx.arc(nodes[ni].x,nodes[ni].y,nodes[ni].r,0,Math.PI*2);ctx.fill();}}
-  function tk(){for(var ni=0;ni<nodes.length;ni++){nodes[ni].x+=nodes[ni].vx;nodes[ni].y+=nodes[ni].vy;if(nodes[ni].x<0||nodes[ni].x>W)nodes[ni].vx*=-1;if(nodes[ni].y<0||nodes[ni].y>H)nodes[ni].vy*=-1;}}
-  function lp(){tk();if(frame%4===0)be();drw();frame++;requestAnimationFrame(lp);}
-  window.addEventListener('resize',rsz);rsz();lp();
-  var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08});
-  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
-  var nav=document.getElementById('hnav');
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);});
-})();
+const nav=document.getElementById("hnav");
+if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
+document.querySelectorAll(".ps-dot").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));
+    btn.classList.add("on");
+    const p=btn.dataset.p;
+    document.body.className=p==="dark"?"":"p-"+p;
+  });
+});
+document.querySelectorAll(".reveal").forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add("visible")},{threshold:.1}).observe(el);
+});
+document.querySelectorAll(".accordion-trigger").forEach(btn=>{
+  btn.addEventListener("click",()=>btn.closest(".accordion-card").classList.toggle("open"));
+});
 </script>
 </body>
 </html>
