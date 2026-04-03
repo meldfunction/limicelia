@@ -6,7 +6,7 @@ body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);-
 body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:18px;line-height:1.785}
 a{color:inherit;text-decoration:none}
 .ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
 .ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
@@ -64,7 +64,7 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .hero-headline{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);max-width:14ch;margin-bottom:2rem;transition:color .4s}
 .hero-headline em{font-style:italic;color:var(--amber)}
 .hero-lede{font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:50ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2.5rem;transition:color .4s,border-color .4s}
-.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
+.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.78;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
 .hero-cta{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap}
 /* PHOTO CREDIT */
 .photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.5;margin-top:.6rem;line-height:1.6}
@@ -79,47 +79,47 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 @media(max-width:800px){.name-grid{grid-template-columns:1fr}}
 .ety-row{display:flex;gap:1rem;align-items:baseline;margin-bottom:.6rem}
 .ety-word{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);min-width:5rem}
-.ety-def{font-size:.9rem;font-weight:300;color:var(--tm);transition:color .4s}
-.crossing-list{font-size:.95rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
+.ety-def{font-size:1rem;font-weight:300;color:var(--tm);transition:color .4s}
+.crossing-list{font-size:1rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
 /* WHO */
 .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:.8rem 0 0;transition:background .4s}
 @media(max-width:700px){.who-grid{grid-template-columns:1fr}}
 .who-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
 .who-card:hover{background:var(--amber-glow)}
-.who-cluster-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
+.who-cluster-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
 @media(max-width:600px){.who-cluster{margin-bottom:1.5rem}}
 .who-card-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
 .who-card-name em{font-style:italic;color:var(--amber)}
-.who-card-scene{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.who-card-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
+.who-card-scene{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.who-card-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
 /* SERVICES */
 .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
 @media(max-width:700px){.service-grid{grid-template-columns:1fr}}
 .service-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
 .service-card:hover{background:var(--sur)}
-.service-path{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.service-path{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
 .service-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.6rem;transition:color .4s}
 .service-name em{font-style:italic;color:var(--amber)}
-.service-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.service-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
 .service-badge{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.8rem;display:inline-block;padding:.25rem .65rem;border:1px solid var(--amber-dim);color:var(--amber)}
 /* PATHS */
 .paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
 @media(max-width:900px){.paths-grid{grid-template-columns:1fr}}
 .path-card{background:var(--ink);padding:2rem 2rem 2.4rem;transition:background .4s}
 .path-card:hover{background:var(--sur)}
-.path-num{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
+.path-num{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
 .path-name{font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
-.path-when{font-size:.88rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
-.path-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
+.path-when{font-size:1rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
+.path-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
 .path-tags{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2}
-.path-link{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
+.path-link{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
 .path-link::after{content:'→';display:inline-block;transition:transform .3s}
 .path-link:hover{opacity:.75}.path-link:hover::after{transform:translateX(4px)}
 /* LINEAGE */
 .tradition-row{display:flex;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
 .tradition-row:last-child{border-bottom:none}
-.tradition-name{font-size:.95rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
-.tradition-note{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
+.tradition-name{font-size:1rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
+.tradition-note{font-size:1rem;font-weight:300;line-height:1.785;color:var(--tm);transition:color .4s}
 @media(max-width:600px){.tradition-row{flex-direction:column;gap:.4rem}.tradition-name{min-width:unset}}
 /* HOW WE HOLD */
 .how-prose{max-width:62ch}
@@ -132,15 +132,15 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .bio-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s}
 .bio-avatar{width:52px;height:52px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--amber);margin-bottom:1.2rem}
 .bio-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
-.bio-role{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
-.bio-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.bio-clients{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
-.bio-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
+.bio-role{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
+.bio-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.bio-clients{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
+.bio-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
 /* PARTNER */
 .partner-card{border:1px solid var(--amber-dim);padding:1.8rem 2rem;background:var(--amber-glow);margin:2rem 0}
-.partner-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
+.partner-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
 .partner-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
-.partner-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.partner-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
 /* CTA */
 .section-cta{text-align:center;position:relative;overflow:hidden}
 .section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
@@ -150,10 +150,10 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--amber);max-width:44ch;margin:0 auto 2.5rem;font-style:italic;transition:color .4s}
 .cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
 footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
-.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
+.footer-logo{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-note{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
 .footer-links{display:flex;gap:2rem}
-.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
 /* MOBILE FIXES */
@@ -182,11 +182,11 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 @media(max-width:375px){
   /* Smallest common phone - iPhone SE */
   .hero-headline{font-size:2.4rem}
-  .hnav-links a{font-size:.58rem;letter-spacing:.08em}
-  .wordmark-name{font-size:.88rem}
+  .hnav-links a{font-size:.68rem;letter-spacing:.08em}
+  .wordmark-name{font-size:1rem}
 }
 .toggle-btn{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 0;margin-top:.8rem;border-top:1px solid var(--amber-dim)}
-.toggle-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
+.toggle-lbl{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
 .toggle-btn:hover .toggle-lbl{opacity:1}
 .toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
 .toggle-btn.open .toggle-icon{transform:rotate(45deg)}
@@ -205,110 +205,110 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
     </svg><span class="wordmark-name">Limicelia</span></a><ul class="hnav-links"><li><a href="index.html">Home</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="commons-model.html">Our Model</a></li><li><a href="bios.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 <section style="position:relative;z-index:2;padding:clamp(5rem,10vw,9rem) clamp(2rem,7vw,7rem) clamp(3rem,6vw,6rem)">
   <a href="services.html" style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2.5rem;transition:color .2s">&#8592; Services</a>
-  <div style="display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.35rem .8rem;margin-bottom:2rem;display:flex;width:fit-content">
+  <div style="display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.35rem .8rem;margin-bottom:2rem;display:flex;width:fit-content">
     <span style="width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block"></span>
     Developing practice &nbsp;&middot;&nbsp; Reach out to explore
   </div>
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Technology &amp; AI</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Technology &amp; AI</p>
   <h1 class="reveal" style="font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.08;max-width:18ch;margin-bottom:2rem">Technology is already<br>reorganizing your<br><em>organization.</em></h1>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ts);max-width:55ch;line-height:1.78">The question is not whether to adopt AI. It is whether the reorganization happening is the one you intended — and whether the people most affected had any say in it.</p>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ts);max-width:55ch;line-height:1.788">The question is not whether to adopt AI. It is whether the reorganization happening is the one you intended — and whether the people most affected had any say in it.</p>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / What we are hearing</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / What we are hearing</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2.5rem">The situations<br>that bring people here.</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1px;background:var(--rul)" class="reveal rd1">
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:.95rem;font-style:italic;color:var(--ts);line-height:1.7;margin-bottom:1rem">"Everyone on the team is using AI. We have no idea what we have collectively agreed to — or whether we have agreed to anything."</p><p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Governance gap</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:.95rem;font-style:italic;color:var(--ts);line-height:1.7;margin-bottom:1rem">"AI is doing some people's jobs invisibly. Nobody is naming it. The people closest to that work are scared and not saying so."</p><p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Labor displacement, unspoken</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:.95rem;font-style:italic;color:var(--ts);line-height:1.7;margin-bottom:1rem">"We have a public commitment to equity. The way we are adopting AI contradicts it. Leadership does not see it yet."</p><p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Values-practice gap</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:.95rem;font-style:italic;color:var(--ts);line-height:1.7;margin-bottom:1rem">"We are a government agency implementing algorithmic tools that affect communities. Nobody in those communities helped design them."</p><p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Participatory design absent</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:.95rem;font-style:italic;color:var(--ts);line-height:1.7;margin-bottom:1rem">"Leadership is excited about AI. Frontline staff are not. We keep talking past each other and nothing is moving."</p><p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Internal misalignment</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:.95rem;font-style:italic;color:var(--ts);line-height:1.7;margin-bottom:1rem">"We built a decision-support tool for our team. Now the tool is making the decisions. Nobody noticed when that happened."</p><p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Authority migration</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:1rem;font-style:italic;color:var(--ts);line-height:1.78;margin-bottom:1rem">"Everyone on the team is using AI. We have no idea what we have collectively agreed to — or whether we have agreed to anything."</p><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Governance gap</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:1rem;font-style:italic;color:var(--ts);line-height:1.78;margin-bottom:1rem">"AI is doing some people's jobs invisibly. Nobody is naming it. The people closest to that work are scared and not saying so."</p><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Labor displacement, unspoken</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:1rem;font-style:italic;color:var(--ts);line-height:1.78;margin-bottom:1rem">"We have a public commitment to equity. The way we are adopting AI contradicts it. Leadership does not see it yet."</p><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Values-practice gap</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:1rem;font-style:italic;color:var(--ts);line-height:1.78;margin-bottom:1rem">"We are a government agency implementing algorithmic tools that affect communities. Nobody in those communities helped design them."</p><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Participatory design absent</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:1rem;font-style:italic;color:var(--ts);line-height:1.78;margin-bottom:1rem">"Leadership is excited about AI. Frontline staff are not. We keep talking past each other and nothing is moving."</p><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Internal misalignment</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-size:1rem;font-style:italic;color:var(--ts);line-height:1.78;margin-bottom:1rem">"We built a decision-support tool for our team. Now the tool is making the decisions. Nobody noticed when that happened."</p><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Authority migration</p></div>
   </div>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / What we actually do</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / What we actually do</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Not adoption consulting.<br><em>Accompaniment through<br>technological change.</em></h2>
   <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);margin-bottom:3rem">We do not prescribe a technology strategy. We help organizations see clearly what technology is already doing — to decision-making, to labor, to power — and act deliberately from there.</p>
   <div style="border-top:1px solid var(--rul)" class="reveal rd1">
     <div style="display:grid;grid-template-columns:2fr 3fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--rul)">
       <p style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);padding-top:.15rem">AI Governance &amp;<br>Decision Frameworks</p>
-      <p style="font-size:1rem;color:var(--ts);line-height:1.75">What decisions does your organization need to make about AI — and who needs to be in those conversations? We work with leadership and affected staff to name what is being decided, map who has voice in those decisions, and build frameworks for ongoing governance rather than one-time policy. The output is not a document. It is a living practice.</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.785">What decisions does your organization need to make about AI — and who needs to be in those conversations? We work with leadership and affected staff to name what is being decided, map who has voice in those decisions, and build frameworks for ongoing governance rather than one-time policy. The output is not a document. It is a living practice.</p>
     </div>
     <div style="display:grid;grid-template-columns:2fr 3fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--rul)">
       <p style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);padding-top:.15rem">Participatory<br>Technology Design</p>
-      <p style="font-size:1rem;color:var(--ts);line-height:1.75">When communities are affected by a technology, they should have voice in how it is built. We design and facilitate co-creation processes that bring affected people into the development of tools, platforms, and systems — not as testers or focus groups but as genuine co-designers. This is distinct from user research. It is a different relationship to who holds authority over the design.</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.785">When communities are affected by a technology, they should have voice in how it is built. We design and facilitate co-creation processes that bring affected people into the development of tools, platforms, and systems — not as testers or focus groups but as genuine co-designers. This is distinct from user research. It is a different relationship to who holds authority over the design.</p>
     </div>
     <div style="display:grid;grid-template-columns:2fr 3fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--rul)">
       <p style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);padding-top:.15rem">Organizational Readiness<br>&amp; Internal Alignment</p>
-      <p style="font-size:1rem;color:var(--ts);line-height:1.75">Before the technology question is a technology question, it is a readiness question. Is leadership aligned on what problem AI is solving? Is there a shared understanding of what the organization is and is not willing to automate? We work with teams to surface these misalignments before they become expensive.</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.785">Before the technology question is a technology question, it is a readiness question. Is leadership aligned on what problem AI is solving? Is there a shared understanding of what the organization is and is not willing to automate? We work with teams to surface these misalignments before they become expensive.</p>
     </div>
     <div style="display:grid;grid-template-columns:2fr 3fr;gap:2rem;padding:2rem 0">
       <p style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);padding-top:.15rem">Values-Technology<br>Gap Work</p>
-      <p style="font-size:1rem;color:var(--ts);line-height:1.75">What your organization says about equity, labor, and community benefit should match how it makes technology decisions. When there is a gap — and there usually is — we help name it honestly and design a path toward alignment. This is not compliance work. It is the harder question of whether the technology an organization uses is actually an expression of the organization it says it wants to be.</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.785">What your organization says about equity, labor, and community benefit should match how it makes technology decisions. When there is a gap — and there usually is — we help name it honestly and design a path toward alignment. This is not compliance work. It is the harder question of whether the technology an organization uses is actually an expression of the organization it says it wants to be.</p>
     </div>
   </div>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / How this is different</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / How this is different</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">What most AI consulting<br><em>cannot do.</em></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul)" class="reveal rd1">
     <div style="background:var(--ink);padding:2rem 1.8rem">
-      <h4 style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);margin-bottom:1rem">Most technology consulting</h4>
+      <h4 style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);margin-bottom:1rem">Most technology consulting</h4>
       <ul style="list-style:none;padding:0">
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Assesses technical readiness for adoption</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Produces a strategy document or implementation roadmap</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Works primarily with leadership and their designated proxies</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Treats community concern as a communications problem</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;line-height:1.65">Exits when the rollout begins</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Assesses technical readiness for adoption</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Produces a strategy document or implementation roadmap</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Works primarily with leadership and their designated proxies</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Treats community concern as a communications problem</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;line-height:1.785">Exits when the rollout begins</li>
       </ul>
     </div>
     <div style="background:var(--ink);padding:2rem 1.8rem">
-      <h4 style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem">Limicelia</h4>
+      <h4 style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem">Limicelia</h4>
       <ul style="list-style:none;padding:0">
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Asks what the technology is already doing to organizational power before recommending anything</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Stays through the messy middle of implementation, where the real decisions happen</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Centers the people closest to the impact — not just leadership</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.65">Treats community concern as organizational intelligence, not friction to manage</li>
-        <li style="font-size:.92rem;color:var(--ts);padding:.3rem 0;line-height:1.65">Works toward its own irrelevance: builds internal capacity to make these decisions without outside support</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Asks what the technology is already doing to organizational power before recommending anything</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Stays through the messy middle of implementation, where the real decisions happen</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Centers the people closest to the impact — not just leadership</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;border-bottom:1px solid var(--rul);line-height:1.785">Treats community concern as organizational intelligence, not friction to manage</li>
+        <li style="font-size:1rem;color:var(--ts);padding:.3rem 0;line-height:1.785">Works toward its own irrelevance: builds internal capacity to make these decisions without outside support</li>
       </ul>
     </div>
   </div>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / How to engage</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / How to engage</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">Two ways to begin.<br><em>A note on where we are.</em></h2>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul)" class="reveal rd1">
     <div style="background:var(--ink);padding:2rem 1.6rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Diagnostic</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Diagnostic</p>
       <h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.4rem">What is technology<br>actually doing here?</h3>
-      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">4–8 weeks</p>
-      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">A listening process — with leadership, with frontline staff, with community if relevant — that produces an honest picture of how technology is affecting decision-making, labor, equity, and power in your organization. Not a technology audit. A relational inquiry. The right starting point before any strategy is designed.</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">4–8 weeks</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.782">A listening process — with leadership, with frontline staff, with community if relevant — that produces an honest picture of how technology is affecting decision-making, labor, equity, and power in your organization. Not a technology audit. A relational inquiry. The right starting point before any strategy is designed.</p>
     </div>
     <div style="background:var(--ink);padding:2rem 1.6rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Sustained Engagement</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Sustained Engagement</p>
       <h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.4rem">Governance and<br>co-creation processes</h3>
-      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">3–6 months</p>
-      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">Building the structures, practices, and shared agreements that allow your organization to make technology decisions well — on an ongoing basis, not just for this implementation. For organizations implementing a specific tool or platform, or building a participatory design process for technology that affects a community.</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">3–6 months</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.782">Building the structures, practices, and shared agreements that allow your organization to make technology decisions well — on an ongoing basis, not just for this implementation. For organizations implementing a specific tool or platform, or building a participatory design process for technology that affects a community.</p>
     </div>
     <div style="background:var(--sur);border:1px solid var(--rul);padding:2rem 1.6rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);margin-bottom:.6rem">A note on scope</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);margin-bottom:.6rem">A note on scope</p>
       <h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.4rem">Where we are<br>in this practice</h3>
-      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">Developing</p>
-      <p style="font-size:.88rem;color:var(--ts);line-height:1.72">We are developing this practice through live engagements. If the situation you are facing sounds like what we have described here, reach out. We will tell you honestly if we are not the right fit, and point you toward someone who is if we know them.</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.06em;color:var(--tm);margin-bottom:.9rem">Developing</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.782">We are developing this practice through live engagements. If the situation you are facing sounds like what we have described here, reach out. We will tell you honestly if we are not the right fit, and point you toward someone who is if we know them.</p>
     </div>
   </div>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">The first conversation<br>is not a <em>sales call.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.78;margin-bottom:1.5rem">It is genuine inquiry into what is happening in your organization. Tell us what you are navigating. We will tell you whether we can help — and if not, what might.</p>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.788;margin-bottom:1.5rem">It is genuine inquiry into what is happening in your organization. Tell us what you are navigating. We will tell you whether we can help — and if not, what might.</p>
   <a href="contact.html" class="reveal rd2" style="display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
 </section>
-<footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark" title="Dark"></button><button class="ps-dot" data-p="warm" title="Warm"></button><button class="ps-dot" data-p="slate" title="Slate"></button><button class="ps-dot" data-p="forest" title="Forest"></button><button class="ps-dot" data-p="light" title="Light"></button></div></div><script>
+<footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark" title="Dark"></button><button class="ps-dot" data-p="warm" title="Warm"></button><button class="ps-dot" data-p="slate" title="Slate"></button><button class="ps-dot" data-p="forest" title="Forest"></button><button class="ps-dot" data-p="light" title="Light"></button></div></div><script>
 const nav=document.getElementById("hnav");
 if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
 document.querySelectorAll(".ps-dot").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));btn.classList.add("on");const p=btn.dataset.p;document.body.className=p==="dark"?"":"p-"+p;});});

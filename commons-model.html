@@ -6,7 +6,7 @@ body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);-
 body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:18px;line-height:1.785}
 a{color:inherit;text-decoration:none}
 .ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
 .ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
@@ -64,7 +64,7 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .hero-headline{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);max-width:14ch;margin-bottom:2rem;transition:color .4s}
 .hero-headline em{font-style:italic;color:var(--amber)}
 .hero-lede{font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:50ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2.5rem;transition:color .4s,border-color .4s}
-.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
+.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.78;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
 .hero-cta{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap}
 /* PHOTO CREDIT */
 .photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.5;margin-top:.6rem;line-height:1.6}
@@ -79,47 +79,47 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 @media(max-width:800px){.name-grid{grid-template-columns:1fr}}
 .ety-row{display:flex;gap:1rem;align-items:baseline;margin-bottom:.6rem}
 .ety-word{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);min-width:5rem}
-.ety-def{font-size:.9rem;font-weight:300;color:var(--tm);transition:color .4s}
-.crossing-list{font-size:.95rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
+.ety-def{font-size:1rem;font-weight:300;color:var(--tm);transition:color .4s}
+.crossing-list{font-size:1rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
 /* WHO */
 .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:.8rem 0 0;transition:background .4s}
 @media(max-width:700px){.who-grid{grid-template-columns:1fr}}
 .who-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
 .who-card:hover{background:var(--amber-glow)}
-.who-cluster-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
+.who-cluster-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
 @media(max-width:600px){.who-cluster{margin-bottom:1.5rem}}
 .who-card-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
 .who-card-name em{font-style:italic;color:var(--amber)}
-.who-card-scene{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.who-card-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
+.who-card-scene{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.who-card-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
 /* SERVICES */
 .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
 @media(max-width:700px){.service-grid{grid-template-columns:1fr}}
 .service-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
 .service-card:hover{background:var(--sur)}
-.service-path{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.service-path{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
 .service-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.6rem;transition:color .4s}
 .service-name em{font-style:italic;color:var(--amber)}
-.service-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.service-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
 .service-badge{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.8rem;display:inline-block;padding:.25rem .65rem;border:1px solid var(--amber-dim);color:var(--amber)}
 /* PATHS */
 .paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
 @media(max-width:900px){.paths-grid{grid-template-columns:1fr}}
 .path-card{background:var(--ink);padding:2rem 2rem 2.4rem;transition:background .4s}
 .path-card:hover{background:var(--sur)}
-.path-num{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
+.path-num{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
 .path-name{font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
-.path-when{font-size:.88rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
-.path-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
+.path-when{font-size:1rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
+.path-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
 .path-tags{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2}
-.path-link{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
+.path-link{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
 .path-link::after{content:'→';display:inline-block;transition:transform .3s}
 .path-link:hover{opacity:.75}.path-link:hover::after{transform:translateX(4px)}
 /* LINEAGE */
 .tradition-row{display:flex;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
 .tradition-row:last-child{border-bottom:none}
-.tradition-name{font-size:.95rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
-.tradition-note{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
+.tradition-name{font-size:1rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
+.tradition-note{font-size:1rem;font-weight:300;line-height:1.785;color:var(--tm);transition:color .4s}
 @media(max-width:600px){.tradition-row{flex-direction:column;gap:.4rem}.tradition-name{min-width:unset}}
 /* HOW WE HOLD */
 .how-prose{max-width:62ch}
@@ -132,15 +132,15 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .bio-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s}
 .bio-avatar{width:52px;height:52px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--amber);margin-bottom:1.2rem}
 .bio-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
-.bio-role{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
-.bio-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.bio-clients{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
-.bio-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
+.bio-role{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
+.bio-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.bio-clients{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
+.bio-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
 /* PARTNER */
 .partner-card{border:1px solid var(--amber-dim);padding:1.8rem 2rem;background:var(--amber-glow);margin:2rem 0}
-.partner-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
+.partner-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
 .partner-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
-.partner-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.partner-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
 /* CTA */
 .section-cta{text-align:center;position:relative;overflow:hidden}
 .section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
@@ -150,10 +150,10 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--amber);max-width:44ch;margin:0 auto 2.5rem;font-style:italic;transition:color .4s}
 .cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
 footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
-.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
+.footer-logo{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-note{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
 .footer-links{display:flex;gap:2rem}
-.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
 /* MOBILE FIXES */
@@ -182,11 +182,11 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 @media(max-width:375px){
   /* Smallest common phone - iPhone SE */
   .hero-headline{font-size:2.4rem}
-  .hnav-links a{font-size:.58rem;letter-spacing:.08em}
-  .wordmark-name{font-size:.88rem}
+  .hnav-links a{font-size:.68rem;letter-spacing:.08em}
+  .wordmark-name{font-size:1rem}
 }
 .toggle-btn{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 0;margin-top:.8rem;border-top:1px solid var(--amber-dim)}
-.toggle-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
+.toggle-lbl{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
 .toggle-btn:hover .toggle-lbl{opacity:1}
 .toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
 .toggle-btn.open .toggle-icon{transform:rotate(45deg)}
@@ -204,53 +204,53 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle>
     </svg><span class="wordmark-name">Limicelia</span></a><ul class="hnav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="commons-model.html" class="active">Our Model</a></li><li><a href="bios.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 <section style="position:relative;z-index:2;padding:clamp(5rem,10vw,9rem) clamp(2rem,7vw,7rem) clamp(3rem,6vw,6rem)">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Our Model</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Our Model</p>
   <h1 class="reveal" style="font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.08;max-width:18ch;margin-bottom:2rem">A practice that funds<br>more than <em>itself.</em></h1>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ts);max-width:54ch;line-height:1.78">Consulting revenue is not the end point. It funds a commons — gift-based offerings, subsidized engagements, and community work that carries no fee. Organizations with resources make the work available to those without them.</p>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ts);max-width:54ch;line-height:1.788">Consulting revenue is not the end point. It funds a commons — gift-based offerings, subsidized engagements, and community work that carries no fee. Organizations with resources make the work available to those without them.</p>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / How revenue flows</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / How revenue flows</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Two streams.<br><em>One practice.</em></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul);margin-bottom:2.5rem" class="reveal rd1">
     <div style="background:var(--ink);padding:2rem 1.8rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem">Consulting revenue</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem">Consulting revenue</p>
       <h3 style="font-size:1.1rem;font-weight:300;line-height:1.25;margin-bottom:.8rem">Sliding scale. Priced by what an organization can sustain.</h3>
-      <p style="font-size:.92rem;color:var(--ts);line-height:1.75">We do not price at market rate. We price at what an organization can sustain — which requires an honest conversation about budget early. Organizations with significant resources pay toward the higher end. Organizations with limited resources pay less. The difference is not charity. It is how the model works.</p>
-      <p style="font-size:.84rem;color:var(--tm);line-height:1.7;margin-top:.8rem">Fees are discussed after we understand what the situation calls for. Say early if budget is a real constraint — it will not disqualify you from a conversation.</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.785">We do not price at market rate. We price at what an organization can sustain — which requires an honest conversation about budget early. Organizations with significant resources pay toward the higher end. Organizations with limited resources pay less. The difference is not charity. It is how the model works.</p>
+      <p style="font-size:.94rem;color:var(--tm);line-height:1.78;margin-top:.8rem">Fees are discussed after we understand what the situation calls for. Say early if budget is a real constraint — it will not disqualify you from a conversation.</p>
     </div>
     <div style="background:var(--ink);padding:2rem 1.8rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem">Commons offerings</p>
+      <p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem">Commons offerings</p>
       <h3 style="font-size:1.1rem;font-weight:300;line-height:1.25;margin-bottom:.8rem">Gift-based. No fee. Open to communities that need them.</h3>
-      <p style="font-size:.92rem;color:var(--ts);line-height:1.75">A portion of consulting revenue funds offerings that carry no fee — Warm Data Labs, community convenings, facilitation trainings, and capacity-building with organizations that could not otherwise access this kind of support. These are not reduced-quality offerings. They are the same practice, made available differently.</p>
-      <p style="font-size:.84rem;color:var(--tm);line-height:1.7;margin-top:.8rem">If you are working on something important and resources are genuinely limited, tell us. The commons model exists for exactly this.</p>
+      <p style="font-size:1rem;color:var(--ts);line-height:1.785">A portion of consulting revenue funds offerings that carry no fee — Warm Data Labs, community convenings, facilitation trainings, and capacity-building with organizations that could not otherwise access this kind of support. These are not reduced-quality offerings. They are the same practice, made available differently.</p>
+      <p style="font-size:.94rem;color:var(--tm);line-height:1.78;margin-top:.8rem">If you are working on something important and resources are genuinely limited, tell us. The commons model exists for exactly this.</p>
     </div>
   </div>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / Where surplus goes</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / Where surplus goes</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">When there is more<br>than <em>enough.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.78;margin-bottom:1.5rem">When consulting revenue exceeds what the practice needs to operate, the surplus goes into the commons — funding more gift-based work, supporting the stewards' own development and practice, and building a reserve that makes the practice less fragile.</p>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.788;margin-bottom:1.5rem">When consulting revenue exceeds what the practice needs to operate, the surplus goes into the commons — funding more gift-based work, supporting the stewards' own development and practice, and building a reserve that makes the practice less fragile.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--rul)" class="reveal rd1">
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">More gift-based work</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">Additional community Warm Data Labs, subsidized engagements, and facilitation development for practitioners who cannot afford market-rate training.</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Steward practice</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">The quality of this work depends on the ongoing development of the people doing it. Retreats, training, supervision, and the contemplative practice that makes accompaniment possible.</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Practice reserve</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">A practice with no reserve is fragile. Building one means the work is not contingent on constant revenue — and can stay honest about fit rather than taking every engagement that comes.</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Network commons</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">Limicelia is one node in The Present of Work — a broader translocal project exploring regenerative work across sectors. Resources from the practice feed back into that wider field.</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">More gift-based work</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Additional community Warm Data Labs, subsidized engagements, and facilitation development for practitioners who cannot afford market-rate training.</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Steward practice</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">The quality of this work depends on the ongoing development of the people doing it. Retreats, training, supervision, and the contemplative practice that makes accompaniment possible.</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Practice reserve</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">A practice with no reserve is fragile. Building one means the work is not contingent on constant revenue — and can stay honest about fit rather than taking every engagement that comes.</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Network commons</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Limicelia is one node in The Present of Work — a broader translocal project exploring regenerative work across sectors. Resources from the practice feed back into that wider field.</p></div>
   </div>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / Fiscal structure</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / Fiscal structure</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Fiscally sponsored<br>by <em>ISI.</em></h2>
   <div style="display:grid;grid-template-columns:2fr 1fr;gap:3rem" class="reveal rd1">
     <div>
-      <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:100%;line-height:1.78;margin-bottom:1.5rem"><!-- ISI sponsorship pending finalization --> Limicelia is in the process of establishing fiscal sponsorship through Inquiring Systems Inc. (ISI), a 501(c)(3) nonprofit. Once finalized, Limicelia will operate as a project under ISI nonprofit status — enabling tax-deductible contributions, nonprofit pricing from vendors, and formal financial infrastructure without the overhead of a separate legal entity.</p>
-      <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:100%;line-height:1.78;margin-bottom:1.5rem">This structure is deliberate. The nonprofit sponsorship is not just legal convenience — it is an expression of what the practice is trying to be: a practice that serves organizations and communities, not a revenue-maximizing firm.</p>
+      <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:100%;line-height:1.788;margin-bottom:1.5rem"><!-- ISI sponsorship pending finalization --> Limicelia is in the process of establishing fiscal sponsorship through Inquiring Systems Inc. (ISI), a 501(c)(3) nonprofit. Once finalized, Limicelia will operate as a project under ISI nonprofit status — enabling tax-deductible contributions, nonprofit pricing from vendors, and formal financial infrastructure without the overhead of a separate legal entity.</p>
+      <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:100%;line-height:1.788;margin-bottom:1.5rem">This structure is deliberate. The nonprofit sponsorship is not just legal convenience — it is an expression of what the practice is trying to be: a practice that serves organizations and communities, not a revenue-maximizing firm.</p>
     </div>
     <div style="background:var(--sur);border:1px solid var(--rul);padding:1.5rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem">In practice this means</p>
-      <ul style="list-style:none;padding:0;font-size:.84rem;color:var(--ts);line-height:1.9">
+      <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem">In practice this means</p>
+      <ul style="list-style:none;padding:0;font-size:.94rem;color:var(--ts);line-height:1.9">
         <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)"><!-- Once ISI is finalized: Contributions to community work may be tax-deductible --><span style="color:var(--tm);font-style:italic">Pending ISI finalization</span></li>
         <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)"><!-- Once ISI finalized --> Foundations can fund Warm Data Labs and community convenings through ISI</li>
         <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)"><!-- ISI pending --> Client contracts will flow through ISI financial infrastructure</li>
@@ -261,22 +261,22 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / Available now in the commons</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / Available now in the commons</p>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">What we offer<br>at <em>no fee.</em></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul)" class="reveal rd1">
-    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Warm Data Labs</h3><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Community · Gift-based · Richmond VA and beyond</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">Participatory gatherings using the Warm Data Lab methodology (International Bateson Institute / Nora Bateson) for communities navigating complex challenges. No fee. Open to all. Previous labs: Richmond Second Warm Data Lab, Richmond Winter Solstice Lab. Upcoming: Limicon April 3.</p></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Community Convenings</h3><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Place-based · Gift-based · As capacity allows</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">Facilitated gatherings for mutual aid networks, coalitions, and place-based communities doing important work without resources to pay for facilitation. Available on a limited basis. Reach out to explore.</p></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Subsidized Engagements</h3><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Organizations with limited resources · Sliding scale to zero</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">For organizations doing genuinely important work in under-resourced contexts. The work is the same as any other Limicelia engagement — the fee is adjusted based on what the organization can honestly sustain. Say so early.</p></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">The Present of Work</h3><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Field building · Translocal · Ongoing</p><p style="font-size:.88rem;color:var(--ts);line-height:1.72">Limicelia is one node in The Present of Work — a translocal project exploring what regenerative work means across sectors and futures. Resources that emerge from the practice feed back into that wider field.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Warm Data Labs</h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Community · Gift-based · Richmond VA and beyond</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Participatory gatherings using the Warm Data Lab methodology (International Bateson Institute / Nora Bateson) for communities navigating complex challenges. No fee. Open to all. Previous labs: Richmond Second Warm Data Lab, Richmond Winter Solstice Lab. Upcoming: Limicon April 3.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Community Convenings</h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Place-based · Gift-based · As capacity allows</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Facilitated gatherings for mutual aid networks, coalitions, and place-based communities doing important work without resources to pay for facilitation. Available on a limited basis. Reach out to explore.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Subsidized Engagements</h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Organizations with limited resources · Sliding scale to zero</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">For organizations doing genuinely important work in under-resourced contexts. The work is the same as any other Limicelia engagement — the fee is adjusted based on what the organization can honestly sustain. Say so early.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">The Present of Work</h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;color:var(--tm);margin-bottom:.7rem">Field building · Translocal · Ongoing</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Limicelia is one node in The Present of Work — a translocal project exploring what regenerative work means across sectors and futures. Resources that emerge from the practice feed back into that wider field.</p></div>
   </div>
 </section>
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">If budget is<br>a real <em>constraint.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.78;margin-bottom:1.5rem">Tell us early. It will not disqualify you from a conversation — it will shape what kind of engagement makes sense. Some of the most important work happens at the edges of what is conventionally fundable.</p>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.788;margin-bottom:1.5rem">Tell us early. It will not disqualify you from a conversation — it will shape what kind of engagement makes sense. Some of the most important work happens at the edges of what is conventionally fundable.</p>
   <a href="contact.html" class="reveal rd2" style="display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
 </section>
-<footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark" title="Dark"></button><button class="ps-dot" data-p="warm" title="Warm"></button><button class="ps-dot" data-p="slate" title="Slate"></button><button class="ps-dot" data-p="forest" title="Forest"></button><button class="ps-dot" data-p="light" title="Light"></button></div></div><script>
+<footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark" title="Dark"></button><button class="ps-dot" data-p="warm" title="Warm"></button><button class="ps-dot" data-p="slate" title="Slate"></button><button class="ps-dot" data-p="forest" title="Forest"></button><button class="ps-dot" data-p="light" title="Light"></button></div></div><script>
 const nav=document.getElementById("hnav");
 if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
 document.querySelectorAll(".ps-dot").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));btn.classList.add("on");const p=btn.dataset.p;document.body.className=p==="dark"?"":"p-"+p;});});

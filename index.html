@@ -6,7 +6,7 @@ body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);-
 body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:18px;line-height:1.785}
 a{color:inherit;text-decoration:none}
 .ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
 .ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
@@ -64,7 +64,7 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .hero-headline{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);max-width:14ch;margin-bottom:2rem;transition:color .4s}
 .hero-headline em{font-style:italic;color:var(--amber)}
 .hero-lede{font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:50ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2.5rem;transition:color .4s,border-color .4s}
-.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.7;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
+.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.78;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
 .hero-cta{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap}
 /* PHOTO CREDIT */
 .photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.5;margin-top:.6rem;line-height:1.6}
@@ -79,47 +79,47 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 @media(max-width:800px){.name-grid{grid-template-columns:1fr}}
 .ety-row{display:flex;gap:1rem;align-items:baseline;margin-bottom:.6rem}
 .ety-word{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);min-width:5rem}
-.ety-def{font-size:.9rem;font-weight:300;color:var(--tm);transition:color .4s}
-.crossing-list{font-size:.95rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
+.ety-def{font-size:1rem;font-weight:300;color:var(--tm);transition:color .4s}
+.crossing-list{font-size:1rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
 /* WHO */
 .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:.8rem 0 0;transition:background .4s}
 @media(max-width:700px){.who-grid{grid-template-columns:1fr}}
 .who-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
 .who-card:hover{background:var(--amber-glow)}
-.who-cluster-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
+.who-cluster-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
 @media(max-width:600px){.who-cluster{margin-bottom:1.5rem}}
 .who-card-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
 .who-card-name em{font-style:italic;color:var(--amber)}
-.who-card-scene{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.who-card-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
+.who-card-scene{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.who-card-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
 /* SERVICES */
 .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
 @media(max-width:700px){.service-grid{grid-template-columns:1fr}}
 .service-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
 .service-card:hover{background:var(--sur)}
-.service-path{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.service-path{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
 .service-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.6rem;transition:color .4s}
 .service-name em{font-style:italic;color:var(--amber)}
-.service-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.service-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
 .service-badge{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.8rem;display:inline-block;padding:.25rem .65rem;border:1px solid var(--amber-dim);color:var(--amber)}
 /* PATHS */
 .paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
 @media(max-width:900px){.paths-grid{grid-template-columns:1fr}}
 .path-card{background:var(--ink);padding:2rem 2rem 2.4rem;transition:background .4s}
 .path-card:hover{background:var(--sur)}
-.path-num{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
+.path-num{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
 .path-name{font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
-.path-when{font-size:.88rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
-.path-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
+.path-when{font-size:1rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
+.path-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
 .path-tags{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2}
-.path-link{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
+.path-link{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
 .path-link::after{content:'→';display:inline-block;transition:transform .3s}
 .path-link:hover{opacity:.75}.path-link:hover::after{transform:translateX(4px)}
 /* LINEAGE */
 .tradition-row{display:flex;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
 .tradition-row:last-child{border-bottom:none}
-.tradition-name{font-size:.95rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
-.tradition-note{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
+.tradition-name{font-size:1rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
+.tradition-note{font-size:1rem;font-weight:300;line-height:1.785;color:var(--tm);transition:color .4s}
 @media(max-width:600px){.tradition-row{flex-direction:column;gap:.4rem}.tradition-name{min-width:unset}}
 /* HOW WE HOLD */
 .how-prose{max-width:62ch}
@@ -132,15 +132,15 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .bio-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s}
 .bio-avatar{width:52px;height:52px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--amber);margin-bottom:1.2rem}
 .bio-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
-.bio-role{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
-.bio-body{font-size:.9rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.bio-clients{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
-.bio-tags{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
+.bio-role{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
+.bio-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
+.bio-clients{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
+.bio-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
 /* PARTNER */
 .partner-card{border:1px solid var(--amber-dim);padding:1.8rem 2rem;background:var(--amber-glow);margin:2rem 0}
-.partner-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
+.partner-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
 .partner-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
-.partner-body{font-size:.9rem;font-weight:300;line-height:1.75;color:var(--ts);transition:color .4s}
+.partner-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
 /* CTA */
 .section-cta{text-align:center;position:relative;overflow:hidden}
 .section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
@@ -150,10 +150,10 @@ body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{backg
 .cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--amber);max-width:44ch;margin:0 auto 2.5rem;font-style:italic;transition:color .4s}
 .cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
 footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
-.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
+.footer-logo{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-note{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
 .footer-links{display:flex;gap:2rem}
-.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
 @media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
 /* MOBILE FIXES */
@@ -182,11 +182,11 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 @media(max-width:375px){
   /* Smallest common phone - iPhone SE */
   .hero-headline{font-size:2.4rem}
-  .hnav-links a{font-size:.58rem;letter-spacing:.08em}
-  .wordmark-name{font-size:.88rem}
+  .hnav-links a{font-size:.68rem;letter-spacing:.08em}
+  .wordmark-name{font-size:1rem}
 }
 .toggle-btn{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 0;margin-top:.8rem;border-top:1px solid var(--amber-dim)}
-.toggle-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
+.toggle-lbl{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
 .toggle-btn:hover .toggle-lbl{opacity:1}
 .toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
 .toggle-btn.open .toggle-icon{transform:rotate(45deg)}
@@ -204,59 +204,59 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle>
     </svg><span class="wordmark-name">Limicelia</span></a><ul class="hnav-links"><li><a href="index.html" class="active">Home</a></li><li><a href="services.html">Services</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="commons-model.html">Our Model</a></li><li><a href="bios.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 <section style="position:relative;z-index:2;padding:clamp(6rem,12vw,11rem) clamp(2rem,7vw,7rem) clamp(4rem,8vw,7rem)">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Organizational Accompaniment</p>
+  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Organizational Accompaniment</p>
   <h1 class="reveal" style="font-size:clamp(3.2rem,6vw,5.5rem);font-weight:300;line-height:1.06;max-width:16ch;margin-bottom:2rem">Never arrived.<br><em>Always becoming.</em></h1>
-  <p class="reveal rd1" style="font-size:clamp(1.05rem,1.3vw,1.2rem);color:var(--ts);max-width:50ch;line-height:1.78;margin-bottom:3rem">The moments we walk alongside — succession and rupture, structures dissolving, cultures shifting beneath their own feet. We stay through the hard part. We leave capacity, not dependency.</p>
+  <p class="reveal rd1" style="font-size:clamp(1.05rem,1.3vw,1.2rem);color:var(--ts);max-width:50ch;line-height:1.788;margin-bottom:3rem">The moments we walk alongside — succession and rupture, structures dissolving, cultures shifting beneath their own feet. We stay through the hard part. We leave capacity, not dependency.</p>
   <div style="display:flex;gap:1rem;flex-wrap:wrap" class="reveal rd2">
     <a href="contact.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
     <a href="services.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.7rem 1.6rem">See our practice</a>
   </div>
 </section>
 <div style="background:url(images/waterfall.jpg) center/cover no-repeat;height:45vh;position:relative;z-index:2"></div><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / Who we work with</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2rem">When the system is at a threshold</h2>
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / Who we work with</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2rem">When the system is at a threshold</h2>
   <div class="reveal rd1" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--rul);margin-bottom:3rem">
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Organizations</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Nonprofits · Cooperatives · Foundations · B-Corps · Social Enterprise</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Institutions &amp; civic systems</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Government Agencies · Civic Institutions · Public Sector · Anchor Institutions</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Communities &amp; networks</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Mutual Aid Networks · Coalitions · Place-based Communities · Practitioner Fields</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Organizations</h3><p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Nonprofits · Cooperatives · Foundations · B-Corps · Social Enterprise</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Institutions &amp; civic systems</h3><p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Government Agencies · Civic Institutions · Public Sector · Anchor Institutions</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Communities &amp; networks</h3><p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Mutual Aid Networks · Coalitions · Place-based Communities · Practitioner Fields</p></div>
   </div>
   <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2rem">When the people are at a threshold</h2>
   <div class="reveal rd1" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--rul)">
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Leaders at their own threshold</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Executive Directors · Founders · Emerging Leaders · Co-founders</p></div>
-    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">The people doing this work</h3><p style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Teams · Coalitions · Facilitation Networks · Community Orgs</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">Leaders at their own threshold</h3><p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Executive Directors · Founders · Emerging Leaders · Co-founders</p></div>
+    <div style="background:var(--ink);padding:1.8rem 1.6rem"><h3 style="font-size:1.05rem;font-weight:300;margin-bottom:.5rem">The people doing this work</h3><p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--tm);line-height:1.8">Teams · Coalitions · Facilitation Networks · Community Orgs</p></div>
   </div>
 </section>
 <div style="background:url(images/circle-hands.jpg) center/cover no-repeat;height:40vh;position:relative;z-index:2"></div><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / What we do</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">Two service domains.<br><em>One through line: accompaniment.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.78;margin-bottom:1.5rem">We work across the full arc of organizational life — in the domains where structural, relational, and cultural challenges converge.</p>
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / What we do</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">Two service domains.<br><em>One through line: accompaniment.</em></h2>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.788;margin-bottom:1.5rem">We work across the full arc of organizational life — in the domains where structural, relational, and cultural challenges converge.</p>
   <!-- Carol approved language Mar 19 session -->
   <div class="reveal rd1" style="display:grid;grid-template-columns:1fr 1fr auto;gap:1px;background:var(--rul);margin-bottom:2rem">
-    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">01</p><h3 style="font-size:1.3rem;font-weight:300;line-height:1.2;margin-bottom:.8rem">Conflict<br><em>Navigation</em></h3><p style="font-size:.9rem;color:var(--ts);line-height:1.72">Power-aware conflict navigation. Post-rupture repair. Deep Democracy facilitation. Relational skills.</p></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">02</p><h3 style="font-size:1.3rem;font-weight:300;line-height:1.2;margin-bottom:.8rem">System<br><em>Convening</em></h3><p style="font-size:.9rem;color:var(--ts);line-height:1.72">Ecosystem mapping. Coalition building. Collective action. Movement infrastructure.</p></div>
-    <div style="background:var(--spore);padding:2rem 1.8rem;display:flex;align-items:center;justify-content:center;min-width:120px"><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Full service detail →</a></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">01</p><h3 style="font-size:1.3rem;font-weight:300;line-height:1.2;margin-bottom:.8rem">Conflict<br><em>Navigation</em></h3><p style="font-size:1rem;color:var(--ts);line-height:1.782">Power-aware conflict navigation. Post-rupture repair. Deep Democracy facilitation. Relational skills.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">02</p><h3 style="font-size:1.3rem;font-weight:300;line-height:1.2;margin-bottom:.8rem">System<br><em>Convening</em></h3><p style="font-size:1rem;color:var(--ts);line-height:1.782">Ecosystem mapping. Coalition building. Collective action. Movement infrastructure.</p></div>
+    <div style="background:var(--spore);padding:2rem 1.8rem;display:flex;align-items:center;justify-content:center;min-width:120px"><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7">Full service detail →</a></div>
   </div>
 </section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / How we work</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Three paths.<br><em>Custom every time.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.78;margin-bottom:1.5rem">The work is never a menu selection. Every engagement begins with a diagnostic conversation, then is built at the intersection of the path and the situation.</p>
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / How we work</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Three paths.<br><em>Custom every time.</em></h2>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.788;margin-bottom:1.5rem">The work is never a menu selection. Every engagement begins with a diagnostic conversation, then is built at the intersection of the path and the situation.</p>
   <!-- Three-path names only; text form under co-steward discussion -->
   <div class="reveal rd1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin-bottom:2rem">
-    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path One</p><h3 style="font-size:1.3rem;font-weight:300"><em>Accompany.</em></h3><!--text pending--></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path Two</p><h3 style="font-size:1.3rem;font-weight:300"><em>Convene.</em></h3><!--text pending--></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path Three</p><h3 style="font-size:1.3rem;font-weight:300"><em>Cultivate.</em></h3><!--text pending--></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path One</p><h3 style="font-size:1.3rem;font-weight:300"><em>Accompany.</em></h3><!--text pending--></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path Two</p><h3 style="font-size:1.3rem;font-weight:300"><em>Convene.</em></h3><!--text pending--></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem">Path Three</p><h3 style="font-size:1.3rem;font-weight:300"><em>Cultivate.</em></h3><!--text pending--></div>
   </div>
   <a href="approach.html" class="reveal rd2" style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.6rem 1.3rem;display:inline-flex;align-items:center;gap:.5rem">See the full approach →</a>
 </section>
 <div style="background:url(images/puffball.jpg) center/cover no-repeat;height:40vh;position:relative;z-index:2"></div><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / Co-stewards</p>
+<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / Co-stewards</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul)" class="reveal rd1">
-    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1.2rem">BK</div><h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.25rem">BK <span style="font-size:.7rem;color:var(--tm)">(he/él)</span></h3><p style="font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.9rem">Co-steward · Systems &amp; Governance Coach</p><p style="font-size:.9rem;color:var(--ts);line-height:1.72">15+ years spanning private sector, cooperatives, nonprofits, and community organizing. Governance architecture, systems thinking, and the conditions that make organizational change sustainable.</p></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1.2rem">CX</div><h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.25rem">Carol Xu <span style="font-size:.7rem;color:var(--tm)">(she/her)</span></h3><p style="font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.9rem">Co-steward · Organizational Transformation Designer</p><p style="font-size:.9rem;color:var(--ts);line-height:1.72">Ph.D., Management Science &amp; Engineering, Stanford. Translating rigorous training into something warmer and more embodied. Committed to practices that sustain the people doing the work.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1.2rem">BK</div><h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.25rem">BK <span style="font-size:.7rem;color:var(--tm)">(he/él)</span></h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.9rem">Co-steward · Systems &amp; Governance Coach</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">15+ years spanning private sector, cooperatives, nonprofits, and community organizing. Governance architecture, systems thinking, and the conditions that make organizational change sustainable.</p></div>
+    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1.2rem">CX</div><h3 style="font-size:1.1rem;font-weight:300;margin-bottom:.25rem">Carol Xu <span style="font-size:.7rem;color:var(--tm)">(she/her)</span></h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.9rem">Co-steward · Organizational Transformation Designer</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Ph.D., Management Science &amp; Engineering, Stanford. Translating rigorous training into something warmer and more embodied. Committed to practices that sustain the people doing the work.</p></div>
   </div>
   <a href="bios.html" class="reveal rd2" style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem">Full profiles &amp; the network →</a>
 </section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 <section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Let’s find out<br>if we’re a <em>fit.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.78;margin-bottom:1.5rem">The first conversation is not a sales call. It’s genuine inquiry — including whether Limicelia is the right fit. We will tell you if we’re not.</p>
+  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.788;margin-bottom:1.5rem">The first conversation is not a sales call. It’s genuine inquiry — including whether Limicelia is the right fit. We will tell you if we’re not.</p>
   <div style="display:flex;gap:1rem;flex-wrap:wrap" class="reveal rd2">
     <a href="contact.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
     <a href="services.html" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.7rem 1.6rem">See our practice</a>
   </div>
-</section><footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark"></button><button class="ps-dot" data-p="warm"></button><button class="ps-dot" data-p="slate"></button><button class="ps-dot" data-p="forest"></button><button class="ps-dot" data-p="light"></button></div></div><script>const nav=document.getElementById("hnav");if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));document.querySelectorAll(".ps-dot").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));btn.classList.add("on");const p=btn.dataset.p;document.body.className=p==="dark"?"":"p-"+p;});});document.querySelectorAll(".reveal").forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add("visible")},{threshold:.1}).observe(el);});</script></body></html>
+</section><footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark"></button><button class="ps-dot" data-p="warm"></button><button class="ps-dot" data-p="slate"></button><button class="ps-dot" data-p="forest"></button><button class="ps-dot" data-p="light"></button></div></div><script>const nav=document.getElementById("hnav");if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));document.querySelectorAll(".ps-dot").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));btn.classList.add("on");const p=btn.dataset.p;document.body.className=p==="dark"?"":"p-"+p;});});document.querySelectorAll(".reveal").forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add("visible")},{threshold:.1}).observe(el);});</script></body></html>
