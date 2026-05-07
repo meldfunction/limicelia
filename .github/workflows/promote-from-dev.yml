@@ -1,0 +1,74 @@
+name: Promote — Dev → Staging
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Manual trigger only — promotes current dev (meldfunction/limicelia-dev)
+# to staging (meldfunction/limicelia → meldfunction.github.io/limicelia)
+#
+# How to run:
+#   GitHub → meldfunction/limicelia → Actions → "Promote — Dev → Staging"
+#   → Run workflow → confirm
+#
+# Pipeline:
+#   DEV (limicelia-dev) → STAGING (this repo) → PROD (limi → limicelia.org)
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type PROMOTE to confirm staging deploy'
+        required: true
+        default: ''
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-staging
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    if: github.event.inputs.confirm == 'PROMOTE'
+    runs-on: ubuntu-latest
+    name: Promote Dev → Staging
+    steps:
+      - name: Checkout staging repo (limicelia)
+        uses: actions/checkout@v4
+        with:
+          path: staging
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout dev repo (limicelia-dev)
+        uses: actions/checkout@v4
+        with:
+          repository: meldfunction/limicelia-dev
+          path: dev
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync dev → staging
+        run: |
+          cd staging
+          rsync -av --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='node_modules/' \
+            --exclude='*.jsonl' \
+            --exclude='*.pdf' \
+            --exclude='_*' \
+            ../dev/ ./
+          echo "Files synced"
+
+      - name: Commit and push
+        run: |
+          cd staging
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet && echo "No changes to promote" && exit 0
+          DEV_SHA=$(cd ../dev && git rev-parse --short HEAD)
+          git commit -m "promote: dev → staging (limicelia-dev@${DEV_SHA})"
+          git push
+          echo "✓ Staging → https://meldfunction.github.io/limicelia"
