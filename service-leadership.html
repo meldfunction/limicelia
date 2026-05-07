@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Service Design Guide — Leadership &amp; Culture — Limicelia</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"><style>
+:root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
+body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
+body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
+body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);--amber-dim:rgba(143,175,120,.38);--tp:#d8ecd8;--ts:rgba(216,236,216,.72);--tm:rgba(216,236,216,.43);--sur:#141f16;--rul:rgba(216,236,216,.09);--ca:.22}
+body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:18px;line-height:1.785}
+a{color:inherit;text-decoration:none}
+.ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
+.ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm)}
+.ps-row{display:flex;gap:.35rem}
+.ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
+.ps-dot:hover{transform:scale(1.2)}.ps-dot.on{border-color:var(--amber)}
+.ps-dot[data-p="dark"]{background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
+.ps-dot[data-p="warm"]{background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
+.ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
+.ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
+.ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
+#mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+section{position:relative;z-index:2}
+.wordmark{display:inline-flex;align-items:center;gap:.9rem}
+.wordmark-glyph{width:28px;height:28px;flex-shrink:0}
+.wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1}
+.hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
+.hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
+.hnav.scrolled::after{opacity:1}
+.hnav-links{display:flex;gap:2.5rem;list-style:none}
+.hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
+.hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
+.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:600px){.hamburger{display:flex}.hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}.hnav-links.open{display:flex}}
+.pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-note{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a:hover{opacity:1}
+.staging-banner{background:rgba(201,145,74,.12);border-bottom:1px solid var(--amber-dim);padding:1.2rem clamp(2rem,7vw,7rem);position:relative;z-index:200;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;line-height:1.9}
+.staging-banner strong{color:var(--amber);display:block;margin-bottom:.4rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
+.staging-banner p{color:var(--ts);opacity:.85}
+.guide-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,4vh,4rem);position:relative;z-index:2}
+.breadcrumb{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2.5rem;transition:color .2s}
+.breadcrumb:hover{color:var(--ts)}
+.guide-eyebrow{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.2rem}
+.guide-h1{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:300;line-height:1.1;max-width:20ch;margin-bottom:1.8rem}
+.guide-h1 em{font-style:italic;color:var(--amber)}
+.guide-lede{font-size:clamp(1rem,1.15vw,1.1rem);color:var(--ts);max-width:60ch;line-height:1.85;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2rem}
+.guide-meta{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);display:flex;gap:2rem;flex-wrap:wrap}
+.guide-meta span{color:var(--amber);opacity:.55}
+.sec-label{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--rul)}
+.sec-h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;margin-bottom:1rem}
+.sec-h2 em{font-style:italic;color:var(--amber)}
+.sec-intro{font-size:1rem;color:var(--tm);max-width:58ch;line-height:1.85;margin-bottom:3rem}
+.anatomy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
+.anatomy-card{background:var(--ink);padding:2.2rem 2rem;position:relative;cursor:pointer;transition:background .3s,transform .3s;border:1px dashed rgba(201,145,74,.2);margin:-1px}
+.anatomy-card:hover{background:var(--sur);transform:translateY(-6px);z-index:10;box-shadow:0 20px 48px rgba(0,0,0,.55)}
+.anatomy-card-num{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.4;margin-bottom:.8rem}
+.anatomy-card-title{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem}
+.anatomy-card-title em{font-style:italic;color:var(--amber)}
+.anatomy-card-ghost{font-size:.9rem;color:var(--tm);line-height:1.72;font-style:italic}
+.anatomy-card-hover-hint{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.35;margin-top:1.2rem;display:flex;align-items:center;gap:.5rem;transition:opacity .3s}
+.anatomy-card:hover .anatomy-card-hover-hint{opacity:.7}
+.anatomy-card-hover-hint::before{content:'↑';font-size:.7rem}
+.anat-popup{position:absolute;bottom:calc(100% + 12px);left:0;right:0;background:var(--sur);border:1px solid var(--amber-dim);padding:1.4rem 1.6rem;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;transform:translateY(6px);z-index:50;box-shadow:0 16px 48px rgba(0,0,0,.65)}
+.anatomy-card:hover .anat-popup{opacity:1;transform:translateY(0);pointer-events:auto}
+.anat-popup-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem;opacity:.8}
+.anat-popup-body{font-size:.92rem;color:var(--ts);line-height:1.78}
+.anat-popup-eg{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--amber);opacity:.6;margin-top:.8rem;border-top:1px solid var(--rul);padding-top:.7rem;line-height:1.7}
+.example-banner{background:rgba(201,145,74,.07);border:1px solid var(--amber-dim);padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:2.5rem;display:inline-flex;align-items:center;gap:.7rem}
+.example-banner::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0}
+.example-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
+.example-card{background:var(--sur);padding:2.2rem 2rem;border-left:2px solid var(--amber-dim)}
+.example-card-num{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
+.example-card-title{font-size:.72rem;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:.5rem}
+.example-card-body{font-size:.95rem;color:var(--ts);line-height:1.78}
+.example-card-body em{font-style:italic;color:var(--tp)}
+.prompt-stack{display:flex;flex-direction:column;gap:0;margin-bottom:4rem}
+.prompt-row{border-bottom:1px solid var(--rul);padding:2rem 0}
+.prompt-row:first-child{border-top:1px solid var(--rul)}
+.prompt-section-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:.6rem}
+.prompt-q{font-size:clamp(1.05rem,1.5vw,1.25rem);font-weight:300;color:var(--tp);line-height:1.6;margin-bottom:.5rem}
+.prompt-q em{font-style:italic;color:var(--amber)}
+.prompt-note{font-size:.88rem;color:var(--tm);line-height:1.72;font-style:italic;max-width:55ch}
+.perf-banner{background:rgba(201,145,74,.06);border:1px dashed var(--amber-dim);padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;opacity:.7}
+.perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
+.perf-card{background:var(--ink);padding:2rem 1.8rem}
+.perf-card-org{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:.5rem}
+.perf-card-situation{font-size:1rem;color:var(--ts);line-height:1.78;margin-bottom:.8rem;font-style:italic}
+.perf-card-outcome{font-size:.9rem;color:var(--tm);line-height:1.72}
+.perf-card-method{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.4;margin-top:.8rem}
+.guide-cta{text-align:center;padding:clamp(4rem,7vh,6rem) clamp(2rem,7vw,7rem);position:relative;overflow:hidden}
+.guide-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
+.guide-cta-h{font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.1;margin-bottom:1.2rem}
+.guide-cta-h em{font-style:italic;color:var(--amber)}
+.guide-cta-sub{font-size:1rem;color:var(--ts);max-width:44ch;margin:0 auto 2rem;line-height:1.8}
+.guide-cta-email{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.1em;color:var(--amber);opacity:.75}
+@media(max-width:700px){footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}.anatomy-card:hover{transform:translateY(0)}}
+</style></head>
+
+<body>
+<canvas id="mc"></canvas>
+
+<div class="staging-banner">
+  <strong>⚙ Staging — Service Design Guide · Leadership &amp; Culture Transformation</strong>
+  <p>Decision-prompting engine for BK + CX. Work through the anatomy, review the live example, answer the prompts. Answers become the public one-pager. Do not promote to prod until all prompts are resolved.</p>
+</div>
+
+<div class="ps"><span class="ps-lbl">Palette</span><div class="ps-row"><div class="ps-dot on" data-p="dark"></div><div class="ps-dot" data-p="warm"></div><div class="ps-dot" data-p="slate"></div><div class="ps-dot" data-p="forest"></div><div class="ps-dot" data-p="light"></div></div></div>
+
+<nav class="hnav" id="hnav">
+  <a href="index.html" class="wordmark">
+    <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"></circle><line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"></line><line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"></line><line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line><line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line><line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line><line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line><circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"></circle><circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle></svg>
+    <span class="wordmark-name">Limicelia</span>
+  </a>
+  <ul class="hnav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="our-approach.html">Our Approach</a></li>
+    <li><a href="bios.html">About</a></li>
+    <li><a href="https://calendly.com/limicelia">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="guide-hero">
+  <a href="services.html" class="breadcrumb reveal">← Services</a>
+  <p class="guide-eyebrow reveal">Service Design Guide · Leadership &amp; Culture Transformation</p>
+  <h1 class="guide-h1 reveal rd1">How we decide<br>what to<br><em>say about this.</em></h1>
+  <p class="guide-lede reveal rd2">Exploded anatomy of the Leadership &amp; Culture domain page — what each section is for, a live draft example, and prompts for BK and CX to resolve before publishing.</p>
+  <div class="guide-meta reveal rd3"><span>Domain: Leadership &amp; Culture Transformation</span><span>Status: Established practice</span></div>
+</section>
+
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+
+<!-- §A ANATOMY -->
+<section class="pad">
+  <p class="sec-label reveal">A / Page Anatomy — hover each section</p>
+  <h2 class="sec-h2 reveal rd1">Every service page is built<br>from <em>the same bones.</em></h2>
+  <p class="sec-intro reveal rd2">Hover each card to see what information type belongs in that section and how to know when you've got it right.</p>
+
+  <div class="anatomy-grid reveal rd3">
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 01</p>
+      <p class="anatomy-card-title">Hero Headline</p>
+      <p class="anatomy-card-ghost">[ When the ________ between what is said and what is real becomes ________. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">One sentence in the client's frame — the situation they are in, not the service you offer. For leadership work, this is almost always about a gap: between espoused values and actual behavior, between what leadership says and what culture does.</p>
+        <p class="anat-popup-eg">Not "We help leaders become more effective." Instead: the sentence that makes the right client feel seen.</p>
+      </div>
+    </div>
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 02</p>
+      <p class="anatomy-card-title">Lede — <em>who it's for</em></p>
+      <p class="anatomy-card-ghost">[ Two sentences. Who. What shifts. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">Two sentences maximum. First: who specifically — what kind of leader, organization, or moment. Second: what changes as a result. The test: does this describe a real transformation or a consulting aspiration?</p>
+        <p class="anat-popup-eg">Leadership work is personal. The lede needs to hold that — not hide behind "teams and leaders."</p>
+      </div>
+    </div>
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 03</p>
+      <p class="anatomy-card-title">Entry Scenarios</p>
+      <p class="anatomy-card-ghost">[ 3–4 cards. Real situations. Not diagnoses. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">Situations a client is in when they reach out — written as they would describe them, not as a practitioner would diagnose them. Leadership and culture entries are often emotional, relational, exhausted. Let the scenarios hold that.</p>
+        <p class="anat-popup-eg">Best source: what clients say in the first 10 minutes of a first call. Not what they say they need — what they describe happening.</p>
+      </div>
+    </div>
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 04</p>
+      <p class="anatomy-card-title">Engagement Types</p>
+      <p class="anatomy-card-ghost">[ 3–4 types. Named by what they produce. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">The actual work — named by what it produces, not the methodology behind it. For leadership work, this includes both the inner and the outer: what changes in the leader, what changes in the system around them.</p>
+        <p class="anat-popup-eg">Do not say "executive coaching." Say what actually happens in it and what comes out the other side.</p>
+      </div>
+    </div>
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 05</p>
+      <p class="anatomy-card-title">Contrast</p>
+      <p class="anatomy-card-ghost">[ What the market offers vs. what we do. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">An honest comparison. The leadership development market is enormous and full of approaches that don't stick. If Limicelia's approach is genuinely different, this section earns its place. If not, cut it.</p>
+        <p class="anat-popup-eg">The somatic dimension is real and rare. The inner-outer integration is unusual. Name those specifically — don't just say "we go deeper."</p>
+      </div>
+    </div>
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 06</p>
+      <p class="anatomy-card-title">Related Domains</p>
+      <p class="anatomy-card-ghost">[ 2–3 adjacent domains that travel with this. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">Adjacent domains that often arise from or alongside leadership work. Only list genuine relationships — not a tour of all Limicelia services. Leadership and Org Design almost always travel together. Conflict often surfaces through leadership gaps.</p>
+        <p class="anat-popup-eg">The test: would a client in the middle of this work naturally encounter the adjacent domain? If yes, list it.</p>
+      </div>
+    </div>
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 07</p>
+      <p class="anatomy-card-title">Invitation</p>
+      <p class="anatomy-card-ghost">[ Not a pitch. An honest next step. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">A short paragraph. The emotional register after reading a leadership page is often one of recognition and relief — someone finally named what's been happening. The invitation should meet that state. Not "book a call." Something more like: "tell us what's not working."</p>
+        <p class="anat-popup-eg">Email only. No Calendly on prod. The invitation should feel human, not transactional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+
+<!-- §B LIVE EXAMPLE -->
+<section class="pad">
+  <p class="sec-label reveal">B / Live Example — Leadership &amp; Culture Transformation</p>
+  <h2 class="sec-h2 reveal rd1">What it looks like<br><em>filled in.</em></h2>
+  <p class="sec-intro reveal rd2">Current working draft. Read for what rings true and what doesn't. This is the content that needs to be tested against real client language before publishing.</p>
+
+  <div class="example-banner reveal rd3">Live draft · Leadership &amp; Culture · review and revise</div>
+
+  <div class="example-grid reveal">
+    <div class="example-card">
+      <p class="example-card-num">Section 01</p>
+      <p class="example-card-title">Hero Headline</p>
+      <p class="example-card-body"><em>"When the gap between what leadership says and what culture does has become the organization's primary problem."</em></p>
+    </div>
+    <div class="example-card">
+      <p class="example-card-num">Section 02</p>
+      <p class="example-card-title">Lede</p>
+      <p class="example-card-body">For executives and teams who are doing the outer work of change while avoiding the inner work that makes it stick. We work with leaders and systems simultaneously — because culture doesn't change from the top down or the bottom up; it changes at the place where the two meet.</p>
+    </div>
+    <div class="example-card">
+      <p class="example-card-num">Section 03</p>
+      <p class="example-card-title">Entry Scenarios</p>
+      <p class="example-card-body"><em>The executive who says all the right things in the all-hands and then does the opposite in 1:1s.</em><br><br><em>The team that's exhausted not from the work but from the gap between what's said and what's real.</em><br><br><em>A leadership transition that revealed how much of the culture lived in one person's way of being.</em></p>
+    </div>
+    <div class="example-card">
+      <p class="example-card-num">Section 04</p>
+      <p class="example-card-title">Engagement Types</p>
+      <p class="example-card-body"><strong>Executive Accompaniment</strong> — Working one-on-one with leaders through periods of significant change. Inner and outer work together. The practitioner's body and presence are instruments of this work, not just conversational scaffolding.<br><br><strong>Culture Repair</strong> — For organizations where the relational fabric has frayed — through rapid growth, leadership failure, or accumulated harm. We don't restore what was; we build what's needed now.<br><br><strong>Team Recalibration</strong> — When a team has lost alignment — not on strategy, but on how they are together. Facilitated process for naming what's true and designing forward from there.</p>
+    </div>
+    <div class="example-card">
+      <p class="example-card-num">Section 05</p>
+      <p class="example-card-title">Contrast</p>
+      <p class="example-card-body"><strong>What most leadership development does:</strong> Workshop-based skill building. Personality frameworks. 360 feedback with no real follow-through. New behaviors that last until the next crisis.<br><br><strong>What we do:</strong> Work at the level of the practitioner's embodied presence — not just their thinking. The premise is that what a leader can hold in their body determines what the organization can hold in its culture. We don't train behaviors. We work with the thing underneath them.</p>
+    </div>
+    <div class="example-card">
+      <p class="example-card-num">Section 06</p>
+      <p class="example-card-title">Related Domains</p>
+      <p class="example-card-body"><strong>Organizational Design &amp; Governance</strong> — Culture changes rarely hold without parallel structural work. These domains almost always travel together.<br><br><strong>Conflict Resolution &amp; Coalition Building</strong> — Leadership gaps frequently surface as relational rupture. Sometimes the conflict is the entry point into the deeper leadership work.</p>
+    </div>
+    <div class="example-card">
+      <p class="example-card-num">Section 07</p>
+      <p class="example-card-title">Invitation</p>
+      <p class="example-card-body">If you're reading this and something in it named what you've been trying to describe — that's usually the sign. Tell us what's happening. We'll tell you honestly if this is the work, and if so, what it might look like.<br><br><em>hello [at] limicelia [dot] org</em></p>
+    </div>
+  </div>
+</section>
+
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+
+<!-- §C PROMPTS -->
+<section class="pad">
+  <p class="sec-label reveal">C / Co-Steward Prompts</p>
+  <h2 class="sec-h2 reveal rd1">Questions to answer<br><em>together.</em></h2>
+  <p class="sec-intro reveal rd2">Your answers become the content. Work in order. Some questions will surface disagreement — that's the point.</p>
+
+  <div class="prompt-stack reveal rd3">
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 01 · Hero Headline</p>
+      <p class="prompt-q">What does a client actually say when they first describe why they're calling about leadership or culture? What are the exact words?</p>
+      <p class="prompt-note">Not "we have a culture problem." What do they actually say? That language is the headline.</p>
+    </div>
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 01 · Hero Headline</p>
+      <p class="prompt-q">Is the entry to this work most often a leadership problem, a culture problem, or a relational problem — and how do clients distinguish between those, if at all?</p>
+      <p class="prompt-note">The headline should reflect the real entry. It's often not what the practitioner would call it.</p>
+    </div>
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 02 · Lede</p>
+      <p class="prompt-q">The current lede mentions "inner and outer work simultaneously." Is that language that clients recognize, or is it practitioner language that would confuse them?</p>
+      <p class="prompt-note">If it would confuse a potential client, it needs to be replaced with what they already understand.</p>
+    </div>
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 03 · Entry Scenarios</p>
+      <p class="prompt-q">What are the two or three real situations you've been called into for leadership and culture work? Describe them as the client would — not as you would diagnose them.</p>
+      <p class="prompt-note">The draft scenarios are written in practitioner voice. Replace with real situations if you have them.</p>
+    </div>
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 04 · Engagement Types</p>
+      <p class="prompt-q">Are the three engagement types (Executive Accompaniment, Culture Repair, Team Recalibration) the right names and the right scope? What's missing?</p>
+      <p class="prompt-note">Name only what you're currently offering and genuinely able to deliver. Not aspirational scope.</p>
+    </div>
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 04 · Engagement Types</p>
+      <p class="prompt-q">The somatic dimension is named in the contrast section but not in the engagement descriptions. Should it appear in the engagements themselves? How explicitly?</p>
+      <p class="prompt-note">Some clients will be drawn to it. Others will be confused or put off. Where does it belong on the page?</p>
+    </div>
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 05 · Contrast</p>
+      <p class="prompt-q">The current contrast says "We work at the level of the practitioner's embodied presence." Is that language right for this audience? Too insider?</p>
+      <p class="prompt-note">The contrast section only works if it names the distinction in a way a skeptical client would recognize, not a way that reads like a methodology description.</p>
+    </div>
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Overall</p>
+      <p class="prompt-q">Is there anything on this page that overstates what's currently being offered, or that you'd feel uncomfortable being held to by a prospective client?</p>
+      <p class="prompt-note">That's the editorial floor. If yes, cut it before the page goes live.</p>
+    </div>
+  </div>
+</section>
+
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+
+<!-- §D PAST PERFORMANCE -->
+<section class="pad">
+  <p class="sec-label reveal">D / Past Performance — staging only</p>
+  <h2 class="sec-h2 reveal rd1">Where this work<br>has <em>already happened.</em></h2>
+  <p class="sec-intro reveal rd2">Real engagements in this domain. Fill in from memory — even rough notes. Grounds the prompts above in actual history.</p>
+  <div class="perf-banner reveal">⚠ Staging only — do not promote without co-steward review</div>
+  <div class="perf-grid reveal rd2">
+    <div class="perf-card">
+      <p class="perf-card-org">[ Organization type · Sector ]</p>
+      <p class="perf-card-situation">[ Situation as the client described it — what were they experiencing? ]</p>
+      <p class="perf-card-outcome">[ What became possible that wasn't before? ]</p>
+      <p class="perf-card-method">[ Methods — optional ]</p>
+    </div>
+    <div class="perf-card">
+      <p class="perf-card-org">[ Organization type · Sector ]</p>
+      <p class="perf-card-situation">[ Situation ]</p>
+      <p class="perf-card-outcome">[ What shifted ]</p>
+      <p class="perf-card-method">[ Methods ]</p>
+    </div>
+    <div class="perf-card">
+      <p class="perf-card-org">[ Organization type · Sector ]</p>
+      <p class="perf-card-situation">[ Situation ]</p>
+      <p class="perf-card-outcome">[ What shifted ]</p>
+      <p class="perf-card-method">[ Methods ]</p>
+    </div>
+  </div>
+</section>
+
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+
+<section class="guide-cta" style="position:relative;z-index:2">
+  <p class="guide-cta-h reveal">Not sure what<br><em>to do next?</em></p>
+  <p class="guide-cta-sub reveal rd1">When prompts are answered, we build the final page. Send voice notes, rough answers, anything — we'll write from there.</p>
+  <p class="guide-cta-email reveal rd2">hello [at] limicelia [dot] org</p>
+</section>
+
+<footer>
+  <span class="footer-logo">Limicelia</span>
+  <div class="footer-links"><a href="our-approach.html">Our Approach</a><a href="services.html">Services</a><a href="bios.html">About</a></div>
+  <span class="footer-note">© 2026 Limicelia · Staging only</span>
+</footer>
+
+<script>
+var nav=document.getElementById('hnav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+document.getElementById('ham').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')});
+var body=document.body,stored=localStorage.getItem('limi-palette');
+if(stored){body.classList.add('p-'+stored);document.querySelector('[data-p="'+stored+'"]')?.classList.add('on')}
+document.querySelectorAll('.ps-dot').forEach(function(d){d.addEventListener('click',function(){document.querySelectorAll('.ps-dot').forEach(function(x){x.classList.remove('on')});body.className=body.className.replace(/p-\w+/g,'').trim();var p=this.getAttribute('data-p');if(p!=='dark'){body.classList.add('p-'+p)}this.classList.add('on');localStorage.setItem('limi-palette',p)})});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+(function(){var c=document.getElementById('mc');if(!c)return;var ctx=c.getContext('2d'),W,H,nodes=[];function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}resize();window.addEventListener('resize',resize,{passive:true});for(var i=0;i<55;i++)nodes.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});var a=[201,145,74];function draw(){ctx.clearRect(0,0,W,H);nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1});for(var i=0;i<nodes.length;i++){for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<160){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle='rgba('+a[0]+','+a[1]+','+a[2]+','+(1-d/160)*.18+')';ctx.lineWidth=.6;ctx.stroke()}}}requestAnimationFrame(draw)}draw()})();
+</script>
+</body></html>
