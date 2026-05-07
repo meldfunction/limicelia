@@ -1,206 +1,456 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mission &amp; Purpose — Limicelia</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"><style>
-:root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
-body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
-body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
-body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);--amber-dim:rgba(143,175,120,.38);--tp:#d8ecd8;--ts:rgba(216,236,216,.72);--tm:rgba(216,236,216,.43);--sur:#141f16;--rul:rgba(216,236,216,.09);--ca:.22}
-body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission &amp; Impact — Limicelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+/* ─── PALETTES ─────────────────────────── */
+:root{
+  --ink:#0e0d0a;--parchment:#f2ead8;--amber:#c9914a;
+  --amber-glow:rgba(201,145,74,.15);--amber-dim:rgba(201,145,74,.4);
+  --soil:#1a1710;--spore:rgba(242,234,216,.06);
+  --tp:#f2ead8;--ts:rgba(242,234,216,.75);--tm:rgba(242,234,216,.48);
+  --sur:#1c1a15;--rul:rgba(242,234,216,.1);--ca:.32;
+}
+body.p-warm{--ink:#221b12;--parchment:#f6edd8;--amber:#c0803c;--amber-glow:rgba(192,128,60,.18);--amber-dim:rgba(192,128,60,.45);--soil:#302516;--spore:rgba(246,237,216,.07);--tp:#f6edd8;--ts:rgba(246,237,216,.78);--tm:rgba(246,237,216,.48);--sur:#302516;--rul:rgba(246,237,216,.1);--ca:.22}
+body.p-slate{--ink:#131820;--parchment:#dce6f0;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.15);--amber-dim:rgba(126,170,191,.4);--soil:#1a2230;--spore:rgba(220,230,240,.05);--tp:#dce6f0;--ts:rgba(220,230,240,.75);--tm:rgba(220,230,240,.45);--sur:#1a2230;--rul:rgba(220,230,240,.1);--ca:.28}
+body.p-forest{--ink:#0d1510;--parchment:#d8ecd8;--amber:#8faf78;--amber-glow:rgba(143,175,120,.15);--amber-dim:rgba(143,175,120,.4);--soil:#141f16;--spore:rgba(216,236,216,.05);--tp:#d8ecd8;--ts:rgba(216,236,216,.75);--tm:rgba(216,236,216,.45);--sur:#141f16;--rul:rgba(216,236,216,.1);--ca:.25}
+body.p-light{--ink:#f5f0e8;--parchment:#1e1a14;--amber:#96601c;--amber-glow:rgba(150,96,28,.1);--amber-dim:rgba(150,96,28,.35);--soil:#ede6d6;--spore:rgba(30,26,20,.04);--tp:#1e1a14;--ts:rgba(30,26,20,.72);--tm:rgba(30,26,20,.45);--sur:#ede6d6;--rul:rgba(30,26,20,.1);--ca:.1}
+
+/* ─── BASE ─────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:18px;line-height:1.785}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
 a{color:inherit;text-decoration:none}
+
+/* ─── PALETTE SWITCHER ─────────────────── */
 .ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
 .ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
 .ps-row{display:flex;gap:.35rem}
 .ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
-.ps-dot:hover{transform:scale(1.2)}.ps-dot.on{border-color:var(--amber)}
-.ps-dot[data-p="dark"]{background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
-.ps-dot[data-p="warm"]{background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
+.ps-dot:hover{transform:scale(1.2)}
+.ps-dot.on{border-color:var(--amber)}
+.ps-dot[data-p="dark"] {background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
+.ps-dot[data-p="warm"] {background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
 .ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
 .ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
 .ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ─── CANVAS ───────────────────────────── */
+#mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 section{position:relative;z-index:2}
+
+/* ─── WORDMARK ───────────────────────────── */
 .wordmark{display:inline-flex;align-items:center;gap:.9rem}
 .wordmark-glyph{width:28px;height:28px;flex-shrink:0}
+.wordmark-text{display:flex;flex-direction:column;gap:.2rem}
 .wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1;transition:color .4s}
+
+/* ─── STICKY NAV ──────────────────────── */
 .hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
 .hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
 .hnav.scrolled::after{opacity:1}
 .hnav-links{display:flex;gap:2.5rem;list-style:none}
 .hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
 .hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
-.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
-.hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
-@media(max-width:600px){
-  .hamburger{display:flex}
-  .hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}
-  .hnav-links.open{display:flex}
-}
+
+/* ─── SHARED ─────────────────────────────── */
+.pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
+.sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;transition:color .4s}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
+.sec-num{opacity:.5;margin-right:.2rem}
+h2.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp);transition:color .4s}
+h2.sec-title em{font-style:italic;color:var(--amber);transition:color .4s}
+.body-text{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);transition:color .4s}
+.body-text strong{color:var(--tp);font-weight:400}
+.divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem);transition:background .4s}
 .btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
 .btn-p:hover{background:transparent;color:var(--amber)}
 .btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
 .btn-g::after{content:'→';transition:transform .3s;display:inline-block}
-.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
+.btn-g:hover{color:var(--tp)}
+.btn-g:hover::after{transform:translateX(5px)}
+
+/* ─── PAGE HERO ───────────── */
+.page-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,5vh,4rem);position:relative;z-index:2}
+.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;transition:color .4s}
+.page-hero h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--tp);transition:color .4s;max-width:18ch}
+.page-hero h1 em{font-style:italic;color:var(--amber);transition:color .4s}
+.page-hero .hero-lede{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.75;color:var(--ts);max-width:54ch;margin-top:1.8rem;border-left:2px solid var(--amber-dim);padding-left:1.4rem;transition:color .4s}
+
+/* ─── CONTENT SECTIONS ───────────────── */
+.content-section{transition:background .5s}
+.content-section.alt{background:var(--sur)}
+
+/* ─── HIGHLIGHT BOX ───────────────── */
+.highlight-box{border:1px solid var(--rul);padding:1.8rem 2rem;background:var(--spore);margin:2rem 0;transition:border-color .4s}
+.highlight-box p{font-size:.95rem;font-weight:300;line-height:1.78;color:var(--ts)}
+.highlight-box strong{color:var(--tp);font-weight:400}
+
+/* ─── OUTCOME LIST ───────────────── */
+.outcome-list{display:flex;flex-direction:column;gap:0;margin:2rem 0}
+.outcome-item{display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;padding:1.2rem 0;border-bottom:1px solid var(--rul);align-items:start}
+.outcome-item:first-child{border-top:1px solid var(--rul)}
+.outcome-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;color:var(--amber);opacity:.6;padding-top:.2rem}
+.outcome-text{font-size:.98rem;font-weight:300;line-height:1.78;color:var(--ts);transition:color .4s}
+.outcome-text strong{color:var(--tp);font-weight:400}
+
+/* ─── DOWNLOAD PANEL ─────────────── */
+.download-panel{border:1px solid var(--amber-dim);background:var(--amber-glow);padding:2.2rem 2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin:2.5rem 0}
+@media(max-width:700px){.download-panel{grid-template-columns:1fr;gap:1.2rem}}
+.dp-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.5rem}
+.dp-title{font-size:1.15rem;font-weight:400;color:var(--tp);margin-bottom:.4rem;transition:color .4s}
+.dp-desc{font-size:.92rem;font-weight:300;line-height:1.7;color:var(--ts);max-width:52ch;transition:color .4s}
+.dp-meta{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-top:.5rem}
+
+/* ─── SIGNUP PANEL ─────────────── */
+.signup-panel{border:1px solid var(--rul);background:var(--sur);padding:2.2rem 2.5rem;margin:2.5rem 0}
+.sp-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.6rem}
+.sp-title{font-size:1.2rem;font-weight:300;color:var(--tp);margin-bottom:.6rem;line-height:1.3}
+.sp-desc{font-size:.95rem;font-weight:300;line-height:1.75;color:var(--ts);max-width:52ch;margin-bottom:1.4rem}
+.sp-form{display:flex;gap:.8rem;flex-wrap:wrap}
+.sp-input{flex:1;min-width:220px;padding:.75rem 1rem;background:var(--ink);border:1px solid var(--rul);color:var(--tp);font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.06em;transition:border-color .3s;outline:none}
+.sp-input:focus{border-color:var(--amber-dim)}
+.sp-input::placeholder{color:var(--tm)}
+.sp-submit{padding:.75rem 1.6rem;border:1px solid var(--amber);background:var(--amber);color:var(--ink);font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;white-space:nowrap}
+.sp-submit:hover{background:transparent;color:var(--amber)}
+
+/* ─── CTA ────────────────────────────── */
+.section-cta{text-align:center;position:relative;overflow:hidden}
+.section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
+.cta-word{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;color:var(--tp);transition:color .4s}
+.cta-word em{font-style:italic;color:var(--amber);transition:color .4s}
+.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 2.5rem;transition:color .4s}
+.cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
+
+/* ─── FOOTER ─────────────────────────── */
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem;transition:border-color .4s}
+.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);transition:color .4s}
+.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6;transition:color .4s}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a:hover{opacity:1}
+
+/* ─── ANIMATIONS ─────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
-footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
-@media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
-@media(max-width:480px){.hnav{flex-wrap:wrap;gap:.5rem;padding:1rem}.hnav-links{gap:.8rem}}
-</style></head><body>
-<nav class="hnav" id="hnav"><a href="index.html" class="wordmark"><svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
-  <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
-  <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
-  <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
-  <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-  <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-  <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-  <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-  <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"/>
-  <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"/>
-</svg><span class="wordmark-name">Limicelia</span></a><ul class="hnav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="commons-model.html">Our Model</a></li><li><a href="bios.html">About</a></li><li><a href="mission.html" class="active">Mission</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 
-<!-- HERO -->
-<section style="padding:clamp(5rem,10vh,8rem) clamp(2rem,7vw,7rem) clamp(3rem,6vh,5rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · Mission &amp; Purpose</p>
-  <h1 class="reveal" style="font-size:clamp(2.8rem,5.5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;max-width:18ch;margin-bottom:2rem">Accompanying organizations<br>through the <em style="font-style:italic;color:var(--amber)">threshold.</em></h1>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:52ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem">We help organizations navigate profound technological change in a way that preserves and deepens human agency, trust, and meaning at work — accompanying them through the threshold, not managing them across it.</p>
-</section>
+/* ─── RESPONSIVE ─────────────────────── */
+@media(max-width:700px){
+  .hnav-links{gap:1.2rem}
+  footer{flex-direction:column;text-align:center}
+  .ps{bottom:1rem;right:1rem}
+}
+</style>
+</head>
+<body>
 
-<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<div class="ps">
+  <p class="ps-lbl">Theme</p>
+  <div class="ps-row">
+    <button class="ps-dot on" data-p="dark"   title="Dark"></button>
+    <button class="ps-dot"    data-p="warm"   title="Warm"></button>
+    <button class="ps-dot"    data-p="slate"  title="Slate"></button>
+    <button class="ps-dot"    data-p="forest" title="Forest"></button>
+    <button class="ps-dot"    data-p="light"  title="Light"></button>
+  </div>
+</div>
+<canvas id="mc"></canvas>
 
-<!-- 01 THE CHANGE WE WANT TO CREATE -->
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / The change we want to create</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2rem">Organizations that absorb AI in ways<br><em style="font-style:italic;color:var(--amber)">that strengthen the relationship<br>between leadership and workers.</em></h2>
-  <p class="reveal rd1" style="font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);max-width:62ch;margin-bottom:1.2rem">Where the humans closest to the impact have genuine voice in how technology reshapes their labor, their decisions, and their sense of purpose.</p>
-  <p class="reveal rd2" style="font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);max-width:62ch">The current dominant path for AI adoption — mandated, top-down, optimization-focused — is producing real harm: eroded trust, talent loss, surface compliance, and decisions made faster than organizations can understand their consequences. <strong style="color:var(--tp);font-weight:400">This is not inevitable.</strong> It is a choice about whose knowledge counts and who holds authority over change.</p>
-</section>
-
-<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-
-<!-- 02 WHO WE SERVE -->
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2;background:var(--sur)">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / Who we serve</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">Two layers<br><em style="font-style:italic;color:var(--amber)">of change.</em></h2>
-  <div class="reveal rd1" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul)">
-    <div style="background:var(--ink);padding:2rem 2.2rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1rem">Primary</p>
-      <h3 style="font-size:1.15rem;font-weight:400;color:var(--tp);margin-bottom:.8rem">Senior leaders &amp; the people they are responsible for</h3>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts)">CHROs, COOs, heads of transformation navigating AI adoption without adequate support, honest information, or meaningful participation in the decisions being made about their work. And the employees alongside them — particularly those most affected who have had the least say.</p>
+<nav class="hnav" id="hnav">
+    <div class="wordmark">
+      <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
+        <line x1="14" y1="11.8" x2="14"  y2="3"   stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
+        <line x1="14" y1="16.2" x2="14"  y2="25"  stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
+        <line x1="11.8" y1="14" x2="3"   y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+        <line x1="16.2" y1="14" x2="25"  y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+        <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+        <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+        <line x1="15.6" y1="12.4" x2="22.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
+        <line x1="12.4" y1="15.6" x2="5.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
+        <circle cx="14"  cy="3"   r="1.1" fill="var(--amber)" opacity=".4"/>
+        <circle cx="14"  cy="25"  r="1.1" fill="var(--amber)" opacity=".25"/>
+        <circle cx="3"   cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
+        <circle cx="25"  cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
+        <circle cx="5.5" cy="5.5" r=".9"  fill="var(--amber)" opacity=".22"/>
+        <circle cx="22.5" cy="22.5" r=".9" fill="var(--amber)" opacity=".22"/>
+      </svg>
+      <div class="wordmark-text">
+        <a href="index.html"><span class="wordmark-name">Limicelia</span></a>
+      </div>
     </div>
-    <div style="background:var(--ink);padding:2rem 2.2rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1rem">Secondary</p>
-      <h3 style="font-size:1.15rem;font-weight:400;color:var(--tp);margin-bottom:.8rem">Organizations as systems</h3>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts)">Governance structures, decision-making practices, workflows, and the norms that shape how power moves when technology is introduced. We work at the level of the system — not just the individual leader — because the patterns that need to change are often structural, not personal.</p>
+    <ul class="hnav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="our-approach.html">Our Approach</a></li>
+      <li><a href="bios.html">About</a></li>
+      <li><a href="https://calendly.com/limicelia">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="page-hero">
+  <p class="eyebrow">Limicelia · Mission &amp; Impact</p>
+  <h1>Why this work.<br><em>What we're building toward.</em></h1>
+  <p class="hero-lede">A brief account of our purpose, what we are trying to change, and how we will know when we are getting somewhere.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- 01 / PURPOSE -->
+<section class="content-section pad" id="purpose">
+  <p class="sec-label reveal"><span class="sec-num">01 /</span> Purpose</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">Human agency<br><em>through the threshold.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:60ch">We help organizations navigate profound technological and structural change in a way that preserves and deepens human agency, trust, and meaning at work. We accompany them through the threshold — not managing them across it, not prescribing the path, but staying present through the hard middle where most transformation work breaks down.</p>
+  <p class="body-text reveal rd2" style="max-width:60ch;margin-top:1.2rem">The current dominant model for organizational change — top-down, optimization-focused, often mandated — is producing real harm: eroded trust, talent loss, surface compliance, and decisions made faster than organizations can understand their consequences. This is not inevitable. It is a choice about whose knowledge counts and who holds authority over change.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- 02 / WHAT WE WANT TO CHANGE -->
+<section class="content-section alt pad" id="change">
+  <p class="sec-label reveal"><span class="sec-num">02 /</span> What we want to change</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">The positive<br><em>we are building toward.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:60ch;margin-bottom:1.5rem">Organizations that absorb change in ways that strengthen — rather than erode — the relationship between leadership and the people doing the work. Where the humans closest to the impact have genuine voice in how technology and structure reshapes their labor, their decisions, and their sense of purpose.</p>
+
+  <div class="highlight-box reveal rd2">
+    <p><strong>The people we focus on:</strong> Senior leaders — CHROs, COOs, heads of transformation — and the employees they are responsible for, particularly those navigating change without adequate support, honest information, or meaningful participation in the decisions being made about their work.</p>
+  </div>
+
+  <p class="body-text reveal rd3" style="max-width:60ch;margin-top:1.5rem">At the organizational level, we work on governance structures, decision-making practices, and the norms that shape how power moves when change is introduced. The people question and the systems question are not separate.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03 / OUTCOMES -->
+<section class="content-section pad" id="outcomes">
+  <p class="sec-label reveal"><span class="sec-num">03 /</span> What changes</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">Five things<br><em>we are working toward.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:.5rem">These are the outcomes we are building toward and will hold ourselves accountable to — not abstract aspirations, but the things we will actually look for when an engagement ends.</p>
+
+  <div class="outcome-list reveal rd2">
+    <div class="outcome-item">
+      <span class="outcome-num">01</span>
+      <p class="outcome-text"><strong>Leaders can name what change is actually doing</strong> to their organization — to labor, to decision-making, to power — before committing to a path. Not adoption metrics. The underlying reality.</p>
+    </div>
+    <div class="outcome-item">
+      <span class="outcome-num">02</span>
+      <p class="outcome-text"><strong>Employees have meaningful participation</strong> in designing how change reshapes their work. Architects of redesigned workflows, not subjects of them.</p>
+    </div>
+    <div class="outcome-item">
+      <span class="outcome-num">03</span>
+      <p class="outcome-text"><strong>Organizations build internal governance capacity</strong> — the ongoing ability to make decisions about change well, without permanent dependence on outside support.</p>
+    </div>
+    <div class="outcome-item">
+      <span class="outcome-num">04</span>
+      <p class="outcome-text"><strong>Trust is preserved or rebuilt</strong> through the process of change, not sacrificed to it. The relationship between leadership and workforce comes out stronger.</p>
+    </div>
+    <div class="outcome-item">
+      <span class="outcome-num">05</span>
+      <p class="outcome-text"><strong>The honest conversation happens.</strong> The grief, the uncertainty, the contradictions are named and worked with — rather than managed, suppressed, or spun into a narrative that nobody believes.</p>
     </div>
   </div>
 </section>
 
-<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<div class="divider"></div>
 
-<!-- 03 WHAT CHANGES -->
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / What changes</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">Five shifts<br><em style="font-style:italic;color:var(--amber)">we work toward.</em></h2>
-  <div class="reveal rd1" style="border-top:1px solid var(--rul)">
-    <div style="display:grid;grid-template-columns:3rem 1fr 2fr;gap:2rem;padding:1.8rem 0;border-bottom:1px solid var(--rul);align-items:baseline">
-      <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--amber);opacity:.5">01</span>
-      <p style="font-size:1rem;font-weight:400;color:var(--tp)">Trust</p>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts)">Trust between leadership and workforce — eroded by mandated AI adoption, rebuilt through co-design and honest conversation.</p>
+<!-- 04 / WHERE WE ARE -->
+<section class="content-section alt pad" id="where-we-are">
+  <p class="sec-label reveal"><span class="sec-num">04 /</span> Where we are</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">Building the evidence<br><em>as we go.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:60ch">This practice is developing through live engagements. We are building the evidence base as we work — which is itself a statement about how we think change happens. We don't arrive with a proven model. We arrive with well-grounded methods, genuine curiosity, and a commitment to staying honest about what is and isn't working.</p>
+
+  <p class="body-text reveal rd2" style="max-width:60ch;margin-top:1.2rem">What we are focused on now: deepening the diagnostic practice, launching The AI Confessional as a gathering series for leaders navigating the gap between AI's public narrative and their lived organizational reality, and developing the AI Accompaniment Cohort for leaders who want peer accompaniment through this threshold.</p>
+
+  <!-- SIGNUP PANEL — AI WORKSHOP / COHORT -->
+  <div class="signup-panel reveal rd3">
+    <p class="sp-label">Forming now · 2026</p>
+    <h3 class="sp-title">The AI Accompaniment Cohort</h3>
+    <p class="sp-desc">A peer learning cohort for senior leaders navigating AI transformation. Eight sessions, small group, real situations brought by the people in the room. We are forming the first cohort now.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.2rem">
+      <a href="https://calendly.com/limicelia" class="sp-submit" style="display:inline-flex;align-items:center;gap:.5rem;text-decoration:none">Express interest →</a>
+      <a href="ai.html#cohort" style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.4rem;align-self:center">Full cohort detail →</a>
     </div>
-    <div style="display:grid;grid-template-columns:3rem 1fr 2fr;gap:2rem;padding:1.8rem 0;border-bottom:1px solid var(--rul);align-items:baseline">
-      <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--amber);opacity:.5">02</span>
-      <p style="font-size:1rem;font-weight:400;color:var(--tp)">Decision-making quality</p>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts)">From reactive and vendor-driven to deliberate and evidence-based — grounded in what is actually happening to people and work.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:3rem 1fr 2fr;gap:2rem;padding:1.8rem 0;border-bottom:1px solid var(--rul);align-items:baseline">
-      <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--amber);opacity:.5">03</span>
-      <p style="font-size:1rem;font-weight:400;color:var(--tp)">Governance capacity</p>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts)">Organizations develop the ongoing ability to make AI decisions well, without always needing outside support. We work toward our own irrelevance.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:3rem 1fr 2fr;gap:2rem;padding:1.8rem 0;border-bottom:1px solid var(--rul);align-items:baseline">
-      <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--amber);opacity:.5">04</span>
-      <p style="font-size:1rem;font-weight:400;color:var(--tp)">Participation</p>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts)">Employees become architects of redesigned workflows rather than subjects of them. Communities affected by technology have a genuine role in its design.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:3rem 1fr 2fr;gap:2rem;padding:1.8rem 0;align-items:baseline">
-      <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--amber);opacity:.5">05</span>
-      <p style="font-size:1rem;font-weight:400;color:var(--tp)">Clarity</p>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts)">Leaders can honestly name what they are gaining and what they are losing — including the grief, the uncertainty, and the contradictions that most AI conversations manage away.</p>
-    </div>
+    <p style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;color:var(--tm);margin-top:.8rem">No list. No newsletter. We follow up personally.</p>
   </div>
 </section>
 
-<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<div class="divider"></div>
 
-<!-- 04 WHY IT MATTERS -->
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2;background:var(--sur)">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / Why it matters</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:2.5rem">The honest conversation<br><em style="font-style:italic;color:var(--amber)">isn't happening anywhere else.</em></h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)" class="reveal rd1">
+<!-- 05 / CONCEPT PAPER DOWNLOAD -->
+<section class="content-section pad" id="paper">
+  <p class="sec-label reveal"><span class="sec-num">05 /</span> Concept paper</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">Read our thinking<br><em>in full.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:.5rem">Our concept paper sets out the full argument: why the current path for organizational change is producing harm, what a different path looks like, and how we think about our role in it. Written for practitioners, funders, and potential partners who want to understand the reasoning behind the work.</p>
+
+  <div class="download-panel reveal rd2">
     <div>
-      <p style="font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts);margin-bottom:1.2rem">The scale and speed of AI adoption in organizations is outrunning the human infrastructure needed to absorb it well. Governance is lagging. Trust is fraying. The people closest to the work — who understand its texture most clearly — are rarely in the room where decisions are made.</p>
-      <p style="font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts)">The public narrative about AI has come apart from lived organizational reality. Leaders are navigating more uncertainty than they can admit publicly. Employees are absorbing changes they had no voice in designing. The gap between what organizations say about their values and what their technology decisions reflect is widening.</p>
+      <p class="dp-label">Concept paper · 2026</p>
+      <h3 class="dp-title">Limicelia — Purpose, Practice &amp; Impact</h3>
+      <p class="dp-desc">An account of our mission, the change we are building toward, and why we believe this work matters now. Includes our thinking on AI and organizational transformation.</p>
+      <p class="dp-meta">PDF · Available on request · hello@limicelia.org</p>
     </div>
     <div>
-      <p style="font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts);margin-bottom:1.2rem">Limicelia exists to offer a different path — one that takes seriously both the potential of the technology and the cost of getting the human side wrong. Not adoption consulting. <strong style="color:var(--tp);font-weight:400">Accompaniment through technological change.</strong></p>
-      <p style="font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts)">We believe the organizations that navigate this well will be the ones that kept the human relationship at the center — not as a soft consideration but as the substrate everything else depends on.</p>
+      <a href="mailto:hello@limicelia.org?subject=Concept paper request" class="btn-p" style="white-space:nowrap">Request the paper</a>
     </div>
   </div>
+
+  <p class="body-text reveal rd3" style="max-width:58ch;font-size:.92rem;color:var(--tm)">We send it directly — not via an automated download — because we want to know who we are in conversation with. It takes one email.</p>
 </section>
 
-<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-
-<!-- 05 WHERE WE ARE -->
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">05 / Where we are</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Building the evidence<br><em style="font-style:italic;color:var(--amber)">as we go.</em></h2>
-  <p class="reveal rd1" style="font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);max-width:60ch;margin-bottom:3rem">This practice is developing through live engagements. We are building the evidence base as we work — which is itself a statement about how we think change happens. Three threads are active right now.</p>
-  <div class="reveal rd2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul)">
-    <div style="background:var(--ink);padding:2rem 1.8rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.7rem">Practice</p>
-      <h3 style="font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.8rem">The Diagnostic</h3>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);margin-bottom:1.2rem">A relational inquiry into what technology is already doing to decision-making, labor, equity, and power in an organization. The right starting point before any strategy is designed.</p>
-      <a href="ai.html" style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;transition:opacity .3s">Learn more →</a>
-    </div>
-    <div style="background:var(--ink);padding:2rem 1.8rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.7rem">Gathering</p>
-      <h3 style="font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.8rem">The AI Confessional</h3>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);margin-bottom:1.2rem">An invite-only evening for thirty leaders — telling the honest story of AI inside their organizations. For the people holding the distance between narrative and reality.</p>
-      <a href="limicelia-confessional-v3.html" style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;transition:opacity .3s">Learn more →</a>
-    </div>
-    <div style="background:var(--ink);padding:2rem 1.8rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.7rem">Cohort</p>
-      <h3 style="font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.8rem">The AI Accompaniment Cohort</h3>
-      <p style="font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);margin-bottom:1.2rem">A peer learning cohort for senior leaders — not a curriculum to complete, but a practice to build together. Eight sessions. A small group. Real situations brought by the people in the room.</p>
-      <a href="ai.html#cohort" style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;transition:opacity .3s">Learn more →</a>
-    </div>
-  </div>
-</section>
-
-<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+<div class="divider"></div>
 
 <!-- CTA -->
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2">
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">The first conversation<br>is not a <em style="font-style:italic;color:var(--amber)">sales call.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:52ch;line-height:1.788;margin-bottom:1.5rem">It is genuine inquiry into what is happening in your organization. Tell us what you are navigating. We will tell you whether we can help — and if not, what might.</p>
-  <div class="reveal rd2" style="display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center">
-    <a href="contact.html" class="btn-p">Begin a conversation</a>
-    <a href="services.html" class="btn-g">See our practice</a>
+<section class="section-cta pad">
+  <h2 class="cta-word reveal">Something in this<br><em>resonates?</em></h2>
+  <p class="cta-sub reveal rd1">Tell us what you are navigating. We will tell you honestly whether we are the right fit — and if not, who might be.</p>
+  <div class="cta-group reveal rd2">
+    <a href="mailto:hello@limicelia.org" class="btn-p">Begin a conversation</a>
+    <a href="https://calendly.com/limicelia" class="btn-g">Schedule a call</a>
   </div>
 </section>
 
-<footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026</span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="mission.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Mission</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer>
-<div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark" title="Dark"></button><button class="ps-dot" data-p="warm" title="Warm"></button><button class="ps-dot" data-p="slate" title="Slate"></button><button class="ps-dot" data-p="forest" title="Forest"></button><button class="ps-dot" data-p="light" title="Light"></button></div></div>
+<footer>
+  <span class="footer-logo">Limicelia</span>
+  <div class="footer-links">
+    <a href="our-approach.html">Our Approach</a>
+    <a href="services.html">Services</a>
+    <a href="ai.html">AI Work</a>
+    <a href="bios.html">About</a>
+  </div>
+  <span class="footer-note">ISI 501(c)(3) · Est. 2026</span>
+</footer>
+
 <script>
-const nav=document.getElementById("hnav");
-if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
-document.querySelectorAll(".ps-dot").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));btn.classList.add("on");const p=btn.dataset.p;document.body.className=p==="dark"?"":"p-"+p;});});
-document.querySelectorAll(".reveal").forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add("visible")},{threshold:.1}).observe(el);});
-const hbg=document.querySelector(".hamburger");if(hbg){hbg.addEventListener("click",()=>{hbg.classList.toggle("open");document.querySelector(".hnav-links").classList.toggle("open");});}
+(function(){
+  var bd = document.body;
+  var dots = document.querySelectorAll('.ps-dot');
+  var canvas = document.getElementById('mc');
+  var ctx = canvas.getContext('2d');
+  var W, H, nodes = [], edges = [], frame = 0;
+  var rgb = [201,145,74];
+  var PALETTES = {
+    dark:[201,145,74], warm:[192,128,60], slate:[126,170,191],
+    forest:[143,175,120], light:[150,96,28]
+  };
+
+  function getTimePalette() {
+    var h = new Date().getHours();
+    if (h >= 5  && h < 8)  return 'warm';
+    if (h >= 8  && h < 13) return 'light';
+    if (h >= 13 && h < 17) return 'slate';
+    if (h >= 17 && h < 20) return 'forest';
+    return 'dark';
+  }
+
+  function setPalette(p) {
+    bd.classList.remove('p-warm','p-slate','p-forest','p-light');
+    if (p !== 'dark') bd.classList.add('p-' + p);
+    dots.forEach(function(d){ d.classList.toggle('on', d.dataset.p === p); });
+    rgb = PALETTES[p] || PALETTES.dark;
+  }
+
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      setPalette(d.dataset.p);
+      try { sessionStorage.setItem('lim-manual', d.dataset.p); } catch(e){}
+    });
+  });
+
+  var manual = null;
+  try { manual = sessionStorage.getItem('lim-manual'); } catch(e){}
+  setPalette(manual || getTimePalette());
+
+  setInterval(function(){
+    var m = null;
+    try { m = sessionStorage.getItem('lim-manual'); } catch(e){}
+    if (!m) setPalette(getTimePalette());
+  }, 300000);
+
+  function buildEdges() {
+    edges = [];
+    var mx = 130;
+    for (var i = 0; i < nodes.length; i++)
+      for (var j = i+1; j < nodes.length; j++) {
+        var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d < mx) edges.push([i, j, d, mx]);
+      }
+  }
+  function initNet() {
+    nodes = []; edges = [];
+    var n = Math.floor(W * H / 28000);
+    for (var i = 0; i < n; i++)
+      nodes.push({
+        x: Math.random()*W, y: Math.random()*H,
+        vx: (Math.random()-.5)*.12, vy: (Math.random()-.5)*.09,
+        r: Math.random()*1.2+.3
+      });
+    buildEdges();
+  }
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight * 3;
+    initNet();
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var r=rgb[0], g=rgb[1], b=rgb[2];
+    for (var e = 0; e < edges.length; e++) {
+      var a = (1 - edges[e][2]/edges[e][3]) * .18;
+      ctx.strokeStyle = 'rgba('+r+','+g+','+b+','+a+')';
+      ctx.lineWidth   = (1 - edges[e][2]/edges[e][3]) * .6;
+      ctx.beginPath();
+      ctx.moveTo(nodes[edges[e][0]].x, nodes[edges[e][0]].y);
+      ctx.lineTo(nodes[edges[e][1]].x, nodes[edges[e][1]].y);
+      ctx.stroke();
+    }
+    for (var ni = 0; ni < nodes.length; ni++) {
+      ctx.fillStyle = 'rgba('+r+','+g+','+b+',.32)';
+      ctx.beginPath();
+      ctx.arc(nodes[ni].x, nodes[ni].y, nodes[ni].r, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+  function tick() {
+    for (var ni = 0; ni < nodes.length; ni++) {
+      nodes[ni].x += nodes[ni].vx; nodes[ni].y += nodes[ni].vy;
+      if (nodes[ni].x < 0 || nodes[ni].x > W) nodes[ni].vx *= -1;
+      if (nodes[ni].y < 0 || nodes[ni].y > H) nodes[ni].vy *= -1;
+    }
+  }
+  function loop() {
+    tick();
+    if (frame % 4 === 0) buildEdges();
+    draw();
+    frame++;
+    requestAnimationFrame(loop);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  loop();
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+
+  var nav = document.querySelector('.hnav');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, {passive:true});
+})();
+
 </script>
-</body></html>
+</body>
+</html>

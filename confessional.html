@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Confessional — Limicelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0e0d0a; --amber: #c9914a;
+  --amber-glow: rgba(201,145,74,.11); --amber-dim: rgba(201,145,74,.28);
+  --tp: #f2ead8; --ts: rgba(242,234,216,.68);
+  --tm: rgba(242,234,216,.38); --sur: #191710; --rul: rgba(242,234,216,.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.75;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.3rem clamp(1.5rem,6vw,5rem);transition:background .4s}
+nav.scrolled{background:rgba(14,13,10,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--rul)}
+.wm{display:flex;align-items:center;gap:.75rem}
+.wm svg{width:22px;height:22px;flex-shrink:0}
+.wm-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:300;letter-spacing:.26em;text-transform:uppercase;color:var(--tp)}
+.nav-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(1.5rem,6vw,5rem) clamp(3.5rem,7vh,6rem)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,13,10,.06) 0%,rgba(14,13,10,.5) 45%,rgba(14,13,10,.97) 80%,rgba(14,13,10,1) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:780px}
+.eyebrow{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.85;margin-bottom:1.4rem;animation:up .6s .15s ease both}
+.hero-title{font-size:clamp(4rem,9vw,10rem);font-weight:300;line-height:.92;letter-spacing:-.02em;margin-bottom:1.8rem;animation:up .7s .3s ease both}
+.hero-title em{display:block;font-style:italic;color:var(--amber)}
+.hero-one-liner{font-size:clamp(1rem,1.6vw,1.15rem);font-weight:300;line-height:1.75;color:var(--ts);max-width:44ch;border-left:2px solid var(--amber-dim);padding-left:1.2rem;margin-bottom:2.5rem;animation:up .6s .46s ease both}
+.hero-btns{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap;animation:up .6s .6s ease both}
+
+/* BUTTONS */
+.btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);background:var(--amber);color:var(--ink);font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s;cursor:pointer}
+.btn-p:hover{background:transparent;color:var(--amber)}
+.btn-g{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.5rem;transition:color .25s;cursor:pointer;border:none;background:none}
+.btn-g::after{content:'→';display:inline-block;transition:transform .25s}
+.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(4px)}
+
+/* SHOCKER */
+.shocker{background:var(--amber);position:relative;z-index:2;padding:1.6rem clamp(1.5rem,6vw,5rem);display:flex;align-items:baseline;gap:1.4rem;flex-wrap:wrap}
+.shocker-kicker{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(14,13,10,.45);white-space:nowrap;flex-shrink:0}
+.shocker-text{font-size:clamp(.95rem,1.4vw,1.1rem);font-weight:300;line-height:1.55;color:var(--ink)}
+.shocker-text strong{font-weight:600}
+
+/* MAIN LAYOUT */
+.main-section{padding:clamp(3.5rem,7vh,5.5rem) clamp(1.5rem,6vw,5rem);display:grid;grid-template-columns:320px 1fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:start}
+@media(max-width:860px){.main-section{grid-template-columns:1fr}}
+
+/* EVENT CARD */
+.event-card{border:1px solid rgba(201,145,74,.22);background:var(--sur);position:sticky;top:5rem}
+@media(max-width:860px){.event-card{position:static}}
+.ec-image{width:100%;height:160px;overflow:hidden;border-bottom:1px solid rgba(201,145,74,.12)}
+.ec-image img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:brightness(.62) sepia(.1)}
+.ec-body{padding:1.5rem}
+.ec-eyebrow{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.ec-title{font-size:1.5rem;font-weight:300;line-height:1.05;color:var(--tp);margin-bottom:1.4rem}
+.ec-title em{font-style:italic;color:var(--amber)}
+.ec-rows{display:flex;flex-direction:column}
+.ec-row{display:flex;justify-content:space-between;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--rul);gap:.8rem}
+.ec-row:last-child{border-bottom:none}
+.ec-k{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.5;flex-shrink:0}
+.ec-v{font-size:.88rem;font-weight:300;color:var(--ts);text-align:right;line-height:1.35}
+.ec-rule{height:1px;background:rgba(201,145,74,.14);margin:1.3rem 0}
+.ec-hosts-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.85rem}
+.ec-hosts{display:flex;flex-direction:column;gap:.85rem}
+.ec-host{display:flex;align-items:center;gap:.75rem}
+.ec-avatar{width:34px;height:34px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.04em;color:var(--amber);flex-shrink:0}
+.ec-host-name{font-size:.92rem;font-weight:400;color:var(--tp);line-height:1.2}
+.ec-host-role{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.06em;color:var(--tm);margin-top:.12rem;line-height:1.4}
+.ec-goal{padding:1rem;background:var(--amber-glow);border:1px solid var(--amber-dim);margin-top:1.3rem}
+.ec-goal-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.45rem}
+.ec-goal-text{font-size:.86rem;font-weight:300;line-height:1.75;color:var(--ts)}
+.ec-cta{display:block;text-align:center;margin-top:1.3rem;width:100%;padding:.82rem;border:1px solid var(--amber);background:var(--amber);color:var(--ink);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s;cursor:pointer}
+.ec-cta:hover{background:transparent;color:var(--amber)}
+
+/* ACCORDION COL */
+.faq-col h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;line-height:1.1;margin-bottom:1.8rem}
+.faq-col h2 em{font-style:italic;color:var(--amber)}
+.faq-item{border-bottom:1px solid var(--rul)}
+.faq-item:first-child{border-top:1px solid var(--rul)}
+.faq-btn{width:100%;background:none;border:none;cursor:pointer;padding:1.2rem 0;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-q{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-weight:400;color:var(--tp);line-height:1.35;transition:color .25s}
+.faq-btn:hover .faq-q{color:var(--amber)}
+.faq-icon{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--amber);opacity:.55;flex-shrink:0;transition:transform .35s;width:16px;text-align:center}
+.faq-item.open .faq-icon{transform:rotate(45deg);opacity:1}
+.faq-body{overflow:hidden;max-height:0;transition:max-height .4s ease,padding .35s ease}
+.faq-item.open .faq-body{padding-bottom:1.3rem}
+.faq-a{font-size:.97rem;font-weight:300;line-height:1.82;color:var(--ts);max-width:58ch}
+.faq-a strong{color:var(--tp);font-weight:400}
+.faq-a a{border-bottom:1px solid var(--amber-dim);color:var(--ts);transition:color .2s}
+.faq-a a:hover{color:var(--amber)}
+
+/* CTA */
+.cta{padding:clamp(5rem,9vh,7rem) clamp(1.5rem,6vw,5rem);text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
+.cta-title{font-size:clamp(2.2rem,4.5vw,4rem);font-weight:300;line-height:1.05;letter-spacing:-.01em;margin-bottom:1rem;position:relative}
+.cta-title em{font-style:italic;color:var(--amber)}
+.cta-sub{font-size:1rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:38ch;margin:0 auto 1rem}
+.cta-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:2.2rem;font-style:italic}
+.cta-btns{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* FOOTER */
+footer{padding:1.6rem clamp(1.5rem,6vw,5rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.f-brand{font-size:.9rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--tm)}
+.f-links{display:flex;gap:2rem}
+.f-links a{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.45;transition:opacity .2s}
+.f-links a:hover{opacity:1}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
+.r.v{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:500px){footer{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="wm">
+    <svg viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
+      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
+      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
+      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+    </svg>
+    <span class="wm-name">Limicelia</span>
+  </a>
+  <span class="nav-label">A Gathering · June 22, 2026</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=82&fit=crop&crop=center" alt="People in candid conversation" loading="eager">
+  </div>
+  <div class="hero-inner">
+    <p class="eyebrow">Limicelia · Invite-only · June 22, 2026</p>
+    <h1 class="hero-title">The AI<br><em>Confessional.</em></h1>
+    <p class="hero-one-liner">What is actually happening with AI inside organizations — told honestly, in a room built for it.</p>
+    <div class="hero-btns">
+      <a href="https://calendly.com/limicelia" class="btn-p">Request an Invitation</a>
+      <a href="#main" class="btn-g">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<div class="shocker">
+  <span class="shocker-kicker">The gap</span>
+  <p class="shocker-text">Companies declared they no longer need engineers the way they used to. <strong>They are quietly posting hundreds of engineering roles.</strong> The public narrative about AI has come apart from lived reality. This gathering is for the people holding that distance.</p>
+</div>
+
+<div class="main-section" id="main">
+
+  <!-- EVENT CARD -->
+  <div class="event-card r">
+    <div class="ec-image">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&q=80&fit=crop&crop=faces,center" alt="Intimate gathering" loading="lazy">
+    </div>
+    <div class="ec-body">
+      <div class="ec-eyebrow">The gathering</div>
+      <div class="ec-title">The AI<br><em>Confessional</em></div>
+      <div class="ec-rows">
+        <div class="ec-row"><span class="ec-k">Date</span><span class="ec-v">June 22, 2026</span></div>
+        <div class="ec-row"><span class="ec-k">Duration</span><span class="ec-v">Two hours</span></div>
+        <div class="ec-row"><span class="ec-k">Format</span><span class="ec-v">5 speakers · open conversation</span></div>
+        <div class="ec-row"><span class="ec-k">Size</span><span class="ec-v">Thirty people · invite-only</span></div>
+        <div class="ec-row"><span class="ec-k">Location</span><span class="ec-v">Announced to invited guests</span></div>
+      </div>
+
+      <div class="ec-rule"></div>
+
+      <div class="ec-hosts-label">Hosted by</div>
+      <div class="ec-hosts">
+        <div class="ec-host">
+          <div class="ec-avatar">CX</div>
+          <div>
+            <div class="ec-host-name">Carol Xu</div>
+            <div class="ec-host-role">Co-steward · OD practitioner</div>
+          </div>
+        </div>
+        <div class="ec-host">
+          <div class="ec-avatar">BK</div>
+          <div>
+            <div class="ec-host-name">B. Kaur</div>
+            <div class="ec-host-role">Co-steward · AI &amp; org systems</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ec-goal">
+        <div class="ec-goal-label">Why we're hosting this</div>
+        <p class="ec-goal-text">We work with organizations navigating AI — helping people see clearly what technology is already doing to their work and their people. We are building this room because the honest conversation isn't happening anywhere else. What we hear here shapes what we do.</p>
+      </div>
+
+      <a href="https://calendly.com/limicelia" class="ec-cta">Request an Invitation</a>
+    </div>
+  </div>
+
+  <!-- ACCORDIONS -->
+  <div class="faq-col r d1">
+    <h2>Questions<br><em>answered.</em></h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">What actually happens on the night?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a"><strong>Two hours, loosely held.</strong> Doors open for informal conversation. Four or five speakers take twelve minutes each — no slides, no transitions. A short break, then open conversation with the whole room. We close when the conversation finds its own end. There is no agenda in advance. The room is the agenda.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">How do I know if this is for me?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">If you are responsible for something real — a team, a tool rollout, a budget, a workforce — and are navigating more uncertainty about AI than the public conversation allows you to admit, this room is for you. <strong>You don't need to have answers.</strong> You need to have a genuine experience of navigating this.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Who is usually in the room?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">CHROs navigating the gap between what the board wants and what the workforce is experiencing. COOs who know the bottleneck isn't the tool. Heads of transformation whose rollout is stalling. L&amp;D leaders upskilling for a future they can't yet see. <strong>People who own something real</strong> and are moving through it honestly.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">We invested in AI and the ROI isn't clear. Worth sharing?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">That is exactly the kind of story this room is built for. <strong>Ambiguous, unresolved, still in progress</strong> — that is more useful to the people in this room than any polished retrospective. The rollout that stalled. The team that quietly checked out. The dashboard that looked good and meant nothing.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">What if my story involves things I can't say publicly?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">That is what the room is designed for. <strong>Nothing leaves without your explicit permission.</strong> We ask speakers before anything is attributed or shared beyond the gathering. The intimacy of the format depends on this, and we treat it seriously.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">How do I prepare if I'm attending?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">Before you arrive, sit with one question: <strong>what is the thing about AI in your organization that you haven't said out loud yet?</strong> You don't need to share it. But knowing what it is will make the room more useful to you. Leave the laptop behind.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">How do I prepare if I'm speaking?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">We will be in touch before the gathering. The only preparation: <strong>a rough answer to four things</strong> — what was the situation, what did you do, what happened, what is still unresolved. No slides. Notes are fine. Twelve minutes is yours to use however feels true. We will talk through the shape of it with you beforehand.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">Is Limicelia going to pitch us something?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">No. We are building this room because <strong>the conversation needs to exist</strong> — and because what we hear here informs the work we do with organizations. There is no pitch. If something we do becomes relevant to you at some point, that is a separate conversation, entirely on your terms.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="faq-q">How do I request an invitation?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p class="faq-a">Use the button on this page or <a href="https://calendly.com/limicelia">reach out directly</a>. Tell us briefly what you are navigating. We follow up personally — <strong>not a form, not a funnel.</strong> We want to understand whether this room is right for you, and whether you are right for it.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<section class="cta">
+  <h2 class="cta-title r">The first conversation<br>is not a <em>sales call.</em></h2>
+  <p class="cta-sub r d1">Tell us what you are navigating. We'll tell you if this room is the right place for it.</p>
+  <p class="cta-note r d2">Invite-only · Thirty people · Hosted by Limicelia · 2026</p>
+  <div class="cta-btns r">
+    <a href="https://calendly.com/limicelia" class="btn-p">Request an Invitation</a>
+    <a href="ai.html" class="btn-g">Our AI work</a>
+  </div>
+</section>
+
+<footer>
+  <span class="f-brand">Limicelia</span>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="mission.html">Mission</a>
+    <a href="ai.html">AI Work</a>
+    <a href="https://calendly.com/limicelia">Contact</a>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const body = item.querySelector('.faq-body');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-body').style.maxHeight = null;
+      i.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+</script>
+</body>
+</html>

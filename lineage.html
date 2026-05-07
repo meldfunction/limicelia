@@ -1,367 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Our lineage draws from participatory action research, community organizing, systems thinking, restorative justice, and commons governance traditions.">
-    <title>Our Lineage - Limicelia</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lineage &amp; Practice — Limicelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+/* ─── PALETTES ─────────────────────────── */
+:root{
+  --ink:#0e0d0a;--parchment:#f2ead8;--amber:#c9914a;
+  --amber-glow:rgba(201,145,74,.15);--amber-dim:rgba(201,145,74,.4);
+  --soil:#1a1710;--spore:rgba(242,234,216,.06);
+  --tp:#f2ead8;--ts:rgba(242,234,216,.75);--tm:rgba(242,234,216,.48);
+  --sur:#1c1a15;--rul:rgba(242,234,216,.1);--ca:.32;
+}
+body.p-warm{--ink:#221b12;--parchment:#f6edd8;--amber:#c0803c;--amber-glow:rgba(192,128,60,.18);--amber-dim:rgba(192,128,60,.45);--soil:#302516;--spore:rgba(246,237,216,.07);--tp:#f6edd8;--ts:rgba(246,237,216,.78);--tm:rgba(246,237,216,.48);--sur:#302516;--rul:rgba(246,237,216,.1);--ca:.22}
+body.p-slate{--ink:#131820;--parchment:#dce6f0;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.15);--amber-dim:rgba(126,170,191,.4);--soil:#1a2230;--spore:rgba(220,230,240,.05);--tp:#dce6f0;--ts:rgba(220,230,240,.75);--tm:rgba(220,230,240,.45);--sur:#1a2230;--rul:rgba(220,230,240,.1);--ca:.28}
+body.p-forest{--ink:#0d1510;--parchment:#d8ecd8;--amber:#8faf78;--amber-glow:rgba(143,175,120,.15);--amber-dim:rgba(143,175,120,.4);--soil:#141f16;--spore:rgba(216,236,216,.05);--tp:#d8ecd8;--ts:rgba(216,236,216,.75);--tm:rgba(216,236,216,.45);--sur:#141f16;--rul:rgba(216,236,216,.1);--ca:.25}
+body.p-light{--ink:#f5f0e8;--parchment:#1e1a14;--amber:#96601c;--amber-glow:rgba(150,96,28,.1);--amber-dim:rgba(150,96,28,.35);--soil:#ede6d6;--spore:rgba(30,26,20,.04);--tp:#1e1a14;--ts:rgba(30,26,20,.72);--tm:rgba(30,26,20,.45);--sur:#ede6d6;--rul:rgba(30,26,20,.1);--ca:.1}
 
-        :root {
-            --primary: #0d5c63;
-            --secondary: #7d8e7f;
-            --accent: #c96a3d;
-            --energy: #e8a754;
-            --text: #1a1a1a;
-            --text-light: #5a5a5a;
-            --bg: #f7f3ed;
-            --white: #ffffff;
-            --border: #e0ddd8;
-            --forest: #2d4a3e;
-            --nav-height: 70px;
-        }
+/* ─── BASE ─────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
+a{color:inherit;text-decoration:none}
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: calc(var(--nav-height) + 2rem);
-        }
+/* ─── PALETTE SWITCHER ─────────────────── */
+.ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
+.ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
+.ps-row{display:flex;gap:.35rem}
+.ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
+.ps-dot:hover{transform:scale(1.2)}
+.ps-dot.on{border-color:var(--amber)}
+.ps-dot[data-p="dark"] {background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
+.ps-dot[data-p="warm"] {background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
+.ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
+.ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
+.ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--bg);
-            overflow-x: hidden;
-        }
+/* ─── CANVAS ───────────────────────────── */
+#mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+section{position:relative;z-index:2}
 
-        nav {
-            background: var(--white);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            height: var(--nav-height);
-        }
+/* ─── WORDMARK ───────────────────────────── */
+.wordmark{display:inline-flex;align-items:center;gap:.9rem}
+.wordmark-glyph{width:28px;height:28px;flex-shrink:0}
+.wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1;transition:color .4s}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-        }
+/* ─── STICKY NAV ──────────────────────── */
+.hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
+.hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
+.hnav.scrolled::after{opacity:1}
+.hnav-links{display:flex;gap:2.5rem;list-style:none}
+.hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
+.hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-        }
+/* ─── SHARED ─────────────────────────────── */
+.pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
+.pad-sm{padding:clamp(2rem,4vh,3rem) clamp(2rem,7vw,7rem)}
+.sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;transition:color .4s}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
+.sec-num{opacity:.5;margin-right:.2rem}
+h2.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp);transition:color .4s}
+h2.sec-title em{font-style:italic;color:var(--amber);transition:color .4s}
+.body-text{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);transition:color .4s}
+.body-text strong{color:var(--tp);font-weight:400}
+.divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem);transition:background .4s}
+.btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
+.btn-p:hover{background:transparent;color:var(--amber)}
+.btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
+.btn-g::after{content:'→';transition:transform .3s;display:inline-block}
+.btn-g:hover{color:var(--tp)}
+.btn-g:hover::after{transform:translateX(5px)}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: clamp(1rem, 2vw, 1.75rem);
-        }
+/* ─── PAGE HERO ───────────── */
+.page-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,5vh,4rem);position:relative;z-index:2}
+.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;transition:color .4s}
+.page-hero h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--tp);transition:color .4s;max-width:18ch}
+.page-hero h1 em{font-style:italic;color:var(--amber);transition:color .4s}
+.page-hero .hero-lede{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.75;color:var(--ts);max-width:54ch;margin-top:1.8rem;border-left:2px solid var(--amber-dim);padding-left:1.4rem;transition:color .4s}
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
+/* ─── CONTENT SECTIONS ───────────────── */
+.content-section{transition:background .5s}
+.content-section.alt{background:var(--sur)}
 
-        .nav-links a:hover { color: var(--primary); }
+/* ─── TWO-COL ─────────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+@media(max-width:900px){.two-col{grid-template-columns:1fr;gap:2rem}}
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 0.5rem;
-            flex-shrink: 0;
-            z-index: 1002;
-        }
+/* ─── TRADITION ITEMS ────────────────── */
+.tradition-list{display:flex;flex-direction:column;gap:.6rem;margin-top:1.2rem}
+.tradition-item{padding:1rem 1.2rem;border-left:2px solid var(--amber-dim);background:var(--spore);transition:border-color .3s,background .3s;cursor:default}
+.tradition-item:hover{border-left-color:var(--amber);background:var(--amber-glow)}
+.tradition-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
+.tradition-roots{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;color:var(--amber);opacity:.6;margin-bottom:.4rem}
+.tradition-desc{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm);transition:color .4s}
 
-        .nav-overlay {
-            display: none;
-            position: fixed;
-            top: var(--nav-height);
-            left: 0;
-            width: 100%;
-            height: calc(100vh - var(--nav-height));
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
+/* ─── SHIFT GRID ──────────────────────── */
+.shift-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul);margin:2rem 0}
+.shift-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
+.shift-card.alt{background:var(--sur)}
+.shift-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
+.shift-item{font-size:.95rem;font-weight:300;line-height:1.7;color:var(--ts);padding:.4rem 0;border-bottom:1px solid var(--rul);transition:color .4s}
+.shift-item:last-child{border-bottom:none}
+@media(max-width:700px){.shift-grid{grid-template-columns:1fr}}
 
-        .nav-overlay.active {
-            display: block;
-            opacity: 1;
-        }
+/* ─── PRACTICE ACCORDIONS ────────────── */
+.practice-list{display:flex;flex-direction:column;gap:1px;background:var(--rul);margin:2rem 0}
+.practice-item{background:var(--ink);transition:background .3s}
+.practice-item:hover{background:var(--spore)}
+.practice-head{display:flex;justify-content:space-between;align-items:baseline;padding:1.4rem 1.8rem;cursor:pointer;gap:2rem}
+.practice-q{font-size:1.05rem;font-weight:400;color:var(--tp);transition:color .4s}
+.practice-q em{font-style:italic;color:var(--amber)}
+.practice-toggle{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--amber);opacity:.5;flex-shrink:0;transition:transform .3s,opacity .3s}
+.practice-item.open .practice-toggle{transform:rotate(45deg);opacity:.9}
+.practice-collapse{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.practice-item.open .practice-collapse{grid-template-rows:1fr}
+.practice-collapse-inner{overflow:hidden;padding:0 1.8rem}
+.practice-body{padding-bottom:1.4rem}
+.practice-body p{font-size:.95rem;font-weight:300;line-height:1.78;color:var(--ts);margin-bottom:.8rem}
+.practice-examples{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.practice-tag{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border:1px solid var(--rul);color:var(--tm);transition:all .2s}
+.practice-tag:hover{border-color:var(--amber-dim);color:var(--ts)}
 
-        @media (max-width: 1280px) {
-            .nav-links {
-                position: fixed;
-                top: var(--nav-height);
-                left: -100%;
-                width: 100%;
-                max-width: 350px;
-                height: calc(100vh - var(--nav-height));
-                background: var(--white);
-                flex-direction: column;
-                padding: 2rem 1.5rem;
-                gap: 0;
-                transition: left 0.3s ease-in-out;
-                overflow-y: auto;
-                box-shadow: 2px 0 12px rgba(0,0,0,0.15);
-                z-index: 1001;
-            }
-            
-            .nav-links.active { left: 0; }
-            .nav-links li { width: 100%; }
-            .nav-links a {
-                font-size: 1rem;
-                padding: 1rem 0;
-                display: block;
-                width: 100%;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-links li:last-child a { border-bottom: none; }
-            .mobile-menu-btn { display: block; }
-        }
+/* ─── LINEAGE TAGS ───────────────────── */
+.lineage-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0}
+.ltag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .85rem;border:1px solid var(--rul);color:var(--tm);transition:all .3s}
+.ltag:hover{border-color:var(--amber-dim);color:var(--ts);background:var(--amber-glow)}
 
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
+/* ─── CTA ────────────────────────────── */
+.section-cta{text-align:center;position:relative;overflow:hidden}
+.section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
+.cta-word{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;color:var(--tp);transition:color .4s}
+.cta-word em{font-style:italic;color:var(--amber);transition:color .4s}
+.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 2.5rem;transition:color .4s}
+.cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
 
-        @media (max-width: 768px) {
-            section { padding: 2.5rem 1rem; }
-        }
+/* ─── FOOTER ─────────────────────────── */
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem;transition:border-color .4s}
+.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);transition:color .4s}
+.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6;transition:color .4s}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a:hover{opacity:1}
 
-        h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.3; color: var(--primary); }
-        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--primary); margin-bottom: 2rem; }
-        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
-        h4 { font-size: clamp(1rem, 2vw, 1.15rem); }
+/* ─── ANIMATIONS ─────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
 
-        .section-intro {
-            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
-            line-height: 1.8;
-            max-width: 900px;
-            margin-bottom: 2rem;
-        }
-
-        .traditions-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 2rem 0;
-            justify-content: center;
-        }
-
-        .tradition-tag {
-            background: var(--white);
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: 2rem;
-            font-size: 0.95rem;
-            color: var(--primary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .comparison-item {
-            background: var(--white);
-            padding: 2rem;
-            border: 1px solid var(--border);
-        }
-
-        .comparison-item h4 {
-            margin-bottom: 1rem;
-        }
-
-        .comparison-item ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .comparison-item li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .comparison-item li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        footer {
-            background: var(--white);
-            border-top: 1px solid var(--border);
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-            color: var(--text-light);
-        }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        footer a:hover { color: var(--accent); text-decoration: underline; }
-    </style>
+/* ─── RESPONSIVE ─────────────────────── */
+@media(max-width:700px){
+  .hnav-links{gap:1.2rem}
+  footer{flex-direction:column;text-align:center}
+  .ps{bottom:1rem;right:1rem}
+}
+</style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Limicelia</div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
-            <ul class="nav-links">
-                <li><a href="#who-we-are">Who We Are</a></li>
-                <li><a href="#our-approach">Our Approach</a></li>
-                <li><a href="#how-we-work">How We Work</a></li>
-                <li><a href="/limicelia/lineage.html">Lineage</a></li>
-                <li><a href="/limicelia/practices.html">Practices</a></li>
-                <li><a href="/limicelia/resources.html">Resources</a></li>
-                <li><a href="#present-of-work">Present of Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+<div class="ps">
+  <p class="ps-lbl">Theme</p>
+  <div class="ps-row">
+    <button class="ps-dot on" data-p="dark"   title="Dark"></button>
+    <button class="ps-dot"    data-p="warm"   title="Warm"></button>
+    <button class="ps-dot"    data-p="slate"  title="Slate"></button>
+    <button class="ps-dot"    data-p="forest" title="Forest"></button>
+    <button class="ps-dot"    data-p="light"  title="Light"></button>
+  </div>
+</div>
+<canvas id="mc"></canvas>
+
+<nav class="hnav">
+  <div class="wordmark">
+    <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
+      <line x1="14" y1="11.8" x2="14"  y2="3"   stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
+      <line x1="14" y1="16.2" x2="14"  y2="25"  stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
+      <line x1="11.8" y1="14" x2="3"   y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="16.2" y1="14" x2="25"  y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+      <line x1="15.6" y1="12.4" x2="22.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
+      <line x1="12.4" y1="15.6" x2="5.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
+      <circle cx="14"  cy="3"   r="1.1" fill="var(--amber)" opacity=".4"/>
+      <circle cx="14"  cy="25"  r="1.1" fill="var(--amber)" opacity=".25"/>
+      <circle cx="3"   cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
+      <circle cx="25"  cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
+      <circle cx="5.5" cy="5.5" r=".9"  fill="var(--amber)" opacity=".22"/>
+      <circle cx="22.5" cy="22.5" r=".9" fill="var(--amber)" opacity=".22"/>
+    </svg>
+    <a href="index.html"><span class="wordmark-name">Limicelia</span></a>
+  </div>
+  <ul class="hnav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="our-approach.html">Our Approach</a></li>
+    <li><a href="index.html#bios">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <p class="eyebrow">Limicelia · Lineage &amp; Practice</p>
+  <h1>Where the work<br><em>comes from.</em></h1>
+  <p class="hero-lede">We don't work in a vacuum. Our practice draws from traditions that have been shaping this work for decades — in movements, in communities, in classrooms and fields long before any consulting firm named it. We name our lineage because attribution matters.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- 01 / ROOTS -->
+<section class="content-section pad" id="roots">
+  <p class="sec-label reveal"><span class="sec-num">01 /</span> Roots</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.2rem">Traditions we draw from.<br><em>Not frameworks. Wells.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">These aren't methodologies applied from outside — they shape how practitioners read a room, what they notice when nothing seems to be happening, when to press and when to wait.</p>
+
+  <div class="lineage-tags reveal rd2">
+    <span class="ltag">Participatory Action Research</span>
+    <span class="ltag">Community Organizing</span>
+    <span class="ltag">Systems Thinking</span>
+    <span class="ltag">Warm Data</span>
+    <span class="ltag">Restorative Justice</span>
+    <span class="ltag">Art of Hosting</span>
+    <span class="ltag">Theory U</span>
+    <span class="ltag">Sociocracy</span>
+    <span class="ltag">Nonviolent Communication</span>
+    <span class="ltag">Contemplative Practice</span>
+    <span class="ltag">Popular Education</span>
+    <span class="ltag">Emergent Strategy</span>
+    <span class="ltag">Gift Economy</span>
+    <span class="ltag">Commons Governance</span>
+    <span class="ltag">Generative Somatics</span>
+    <span class="ltag">Deep Democracy</span>
+    <span class="ltag">Living Systems</span>
+    <span class="ltag">Buddhist Epistemology</span>
+  </div>
+
+  <div class="tradition-list reveal rd3">
+    <div class="tradition-item">
+      <p class="tradition-name">Contemplative &amp; Somatic Lineages</p>
+      <p class="tradition-roots">Staci Haines · Richard Strozzi-Heckler · Generative Somatics</p>
+      <p class="tradition-desc">Embodied presence and regulation. The practitioner's body as an instrument of organizational diagnosis. Social justice work integrated with somatic practice.</p>
+    </div>
+    <div class="tradition-item">
+      <p class="tradition-name">Liberation &amp; Popular Education</p>
+      <p class="tradition-roots">Paulo Freire · Bayo Akomolafe · Tyson Yunkaporta</p>
+      <p class="tradition-desc">People closest to a problem hold the most accurate picture. Listening from the frontline up is epistemic rigor, not humility.</p>
+    </div>
+    <div class="tradition-item">
+      <p class="tradition-name">The Work That Reconnects</p>
+      <p class="tradition-roots">Joanna Macy · The Great Turning</p>
+      <p class="tradition-desc">The emotional arc of transformation. Grief is information about what matters — not an obstacle to manage past.</p>
+    </div>
+    <div class="tradition-item">
+      <p class="tradition-name">Indigenous &amp; Place-Based Ways of Knowing</p>
+      <p class="tradition-roots">Robin Wall Kimmerer · Tyson Yunkaporta</p>
+      <p class="tradition-desc">Knowledge lives in relationships and places. Reciprocity as practice, not value statement.</p>
+    </div>
+    <div class="tradition-item">
+      <p class="tradition-name">Living Systems &amp; Ecological Intelligence</p>
+      <p class="tradition-roots">Donella Meadows · Otto Scharmer · Nora Bateson</p>
+      <p class="tradition-desc">Organizations as living systems — not machines to be optimized. The question is never "who is broken" but "what does this system want to do?"</p>
+    </div>
+    <div class="tradition-item">
+      <p class="tradition-name">Emergence &amp; Complexity</p>
+      <p class="tradition-roots">Dave Snowden · adrienne maree brown · Cynefin</p>
+      <p class="tradition-desc">What wants to emerge cannot be designed from the past. How we are together in the small mirrors what the whole becomes.</p>
+    </div>
+  </div>
+
+  <p class="body-text reveal" style="max-width:58ch;margin-top:2rem;font-size:.95rem;color:var(--tm)">The conditions we help organizations navigate — conflict, power, resource scarcity, structural inequality — are not neutral. The communities and movements we work alongside have been doing this work long before any consultancy named it.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- 02 / ORIENTATION -->
+<section class="content-section alt pad" id="orientation">
+  <p class="sec-label reveal"><span class="sec-num">02 /</span> Orientation</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">What we are<br><em>moving toward.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">Our lineage shapes a clear direction of travel. These aren't aspirational statements — they describe what we actually try to do in every engagement.</p>
+
+  <div class="shift-grid reveal rd2">
+    <div class="shift-card">
+      <p class="shift-label">Moving away from</p>
+      <p class="shift-item">Expert-driven consulting</p>
+      <p class="shift-item">Quick-fix solutions</p>
+      <p class="shift-item">Extractive engagement models</p>
+      <p class="shift-item">One-size-fits-all frameworks</p>
+      <p class="shift-item">Dependency on consultants</p>
+      <p class="shift-item">Separation of head, heart, body</p>
+      <p class="shift-item">Ignoring power dynamics</p>
+    </div>
+    <div class="shift-card alt">
+      <p class="shift-label">Moving toward</p>
+      <p class="shift-item">Collaborative accompaniment</p>
+      <p class="shift-item">Sustained becoming</p>
+      <p class="shift-item">Regenerative relationships</p>
+      <p class="shift-item">Context-specific adaptation</p>
+      <p class="shift-item">Building internal capacity</p>
+      <p class="shift-item">Integrated ways of knowing</p>
+      <p class="shift-item">Liberation as practice</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03 / PRACTICE TOOLKIT -->
+<section class="content-section pad" id="toolkit">
+  <p class="sec-label reveal"><span class="sec-num">03 /</span> Practice toolkit</p>
+  <h2 class="sec-title reveal" style="margin-bottom:.8rem">Methods in the toolkit.<br><em>Servants of the work.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">Different situations require different approaches. We draw from these as the moment requires — never because it's what we know, but because it's what the situation calls for.</p>
+
+  <div class="practice-list reveal rd2">
+
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Circle &amp; <em>Dialogue</em> Practice</h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>How do we create genuine listening and speaking? Structured conversation formats that shift groups from debate to dialogue.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Circle Process</span><span class="practice-tag">World Café</span><span class="practice-tag">Fishbowl Conversations</span><span class="practice-tag">Council Practice</span><span class="practice-tag">Appreciative Inquiry</span>
         </div>
-    </nav>
+      </div></div></div>
+    </div>
 
-    <div class="nav-overlay"></div>
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Systems &amp; <em>Complexity</em> Work</h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>How do we see the whole, not just the parts? Methods for mapping relationships, feedback loops, and emergent patterns.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Causal Loop Diagrams</span><span class="practice-tag">Network Mapping</span><span class="practice-tag">Theory U</span><span class="practice-tag">Warm Data Labs</span><span class="practice-tag">Pattern Languages</span><span class="practice-tag">Viable Systems Model</span>
+        </div>
+      </div></div></div>
+    </div>
 
-    <main>
-        <section id="lineage" class="bg-white">
-            <h1>Our Lineage</h1>
-            <p class="section-intro">
-                We don't work in a vacuum. Our practice draws from multiple traditions, lineages, and movements. 
-                We honor these roots while adapting practices to contemporary contexts.
-            </p>
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Decision-Making &amp; <em>Governance</em></h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>How do we share power without gridlock or chaos? Structures for distributed decision-making and shared governance.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Sociocracy</span><span class="practice-tag">Consent-Based Decision-Making</span><span class="practice-tag">Holacracy</span><span class="practice-tag">Advice Process</span><span class="practice-tag">Delegation Poker</span>
+        </div>
+      </div></div></div>
+    </div>
 
-            <div class="traditions-grid">
-                <span class="tradition-tag">Participatory Action Research</span>
-                <span class="tradition-tag">Community Organizing</span>
-                <span class="tradition-tag">Systems Thinking</span>
-                <span class="tradition-tag">Warm Data</span>
-                <span class="tradition-tag">Restorative Justice</span>
-                <span class="tradition-tag">Art of Hosting</span>
-                <span class="tradition-tag">Theory U</span>
-                <span class="tradition-tag">Sociocracy</span>
-                <span class="tradition-tag">Nonviolent Communication</span>
-                <span class="tradition-tag">Contemplative Practice</span>
-                <span class="tradition-tag">Popular Education</span>
-                <span class="tradition-tag">Emergent Strategy</span>
-                <span class="tradition-tag">Gift Economy</span>
-                <span class="tradition-tag">Commons Governance</span>
-            </div>
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Conflict <em>Transformation</em></h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>Can conflict be a doorway instead of a dead-end? Approaches that work with tension productively — not avoiding or escalating.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Nonviolent Communication</span><span class="practice-tag">Restorative Justice</span><span class="practice-tag">Transformative Mediation</span><span class="practice-tag">Deep Democracy</span><span class="practice-tag">Conflict Resilience</span>
+        </div>
+      </div></div></div>
+    </div>
 
-            <div class="comparison-grid" style="margin-top: 3rem;">
-                <div class="comparison-item">
-                    <h4 style="color: var(--primary);">What We're Moving Away From</h4>
-                    <ul>
-                        <li>Expert-driven consulting</li>
-                        <li>Quick-fix solutions</li>
-                        <li>Extractive engagement models</li>
-                        <li>One-size-fits-all frameworks</li>
-                        <li>Dependency on consultants</li>
-                        <li>Separation of head, heart, body</li>
-                        <li>Ignoring power dynamics</li>
-                    </ul>
-                </div>
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Embodied &amp; <em>Arts-Based</em> Practice</h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>Do our bodies know things our minds don't? Somatic and creative practices that access embodied wisdom — not as therapeutic detour, but as organizational intelligence.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Social Presencing Theater</span><span class="practice-tag">Theatre of the Oppressed</span><span class="practice-tag">Systemic Constellations</span><span class="practice-tag">Authentic Relating</span><span class="practice-tag">Visual Harvesting</span><span class="practice-tag">Ritual Design</span>
+        </div>
+      </div></div></div>
+    </div>
 
-                <div class="comparison-item">
-                    <h4 style="color: var(--primary);">What We're Moving Toward</h4>
-                    <ul>
-                        <li>Collaborative accompaniment</li>
-                        <li>Sustained becoming</li>
-                        <li>Regenerative relationships</li>
-                        <li>Context-specific adaptation</li>
-                        <li>Building internal capacity</li>
-                        <li>Integrated ways of knowing</li>
-                        <li>Liberation as practice</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Story, Narrative &amp; <em>Meaning</em></h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>What stories are we telling ourselves about what is possible? Practices for collective storytelling and narrative shift.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Collective Story Harvest</span><span class="practice-tag">Story Circles</span><span class="practice-tag">Journey Mapping</span><span class="practice-tag">Future Histories</span><span class="practice-tag">Narrative Intelligence</span>
+        </div>
+      </div></div></div>
+    </div>
 
-    <footer>
-        <p><strong>Limicelia</strong> — Accompanying threshold-crossing</p>
-        <p style="margin-top: 1rem;">Stewarded by Carol Xu, Ph.D. & BK Dubé</p>
-        <p style="margin-top: 1rem;">
-            Connected to <a href="https://presentofwork.org" target="_blank" rel="noopener">Present of Work</a> | 
-            <a href="https://www.intentionalsociety.org/dojo" target="_blank" rel="noopener">Intentional Society</a> |
-            <a href="https://startercultures.substack.com" target="_blank" rel="noopener">Starter Cultures</a>
-        </p>
-        <p style="margin-top: 1rem;">
-            <a href="https://warmdatastories.substack.com" target="_blank" rel="noopener">Podcast</a> | 
-            <a href="/limicelia/resources.html">Resources</a> | 
-            <a href="/present-of-work.html">About Present of Work</a> |
-            <a href="/blog/the-medium-is-the-teaching.html">Blog</a> |
-            <a href="/media.html">Share</a>
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">Work globally. Aligned economics. No one turned away.</p>
-        <p style="margin-top: 2rem; font-size: 0.8rem;">© 2025 Limicelia</p>
-    </footer>
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Open Space &amp; <em>Self-Organization</em></h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>Could we trust the group to organize itself? Frameworks for emergence and distributed coordination.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Open Space Technology</span><span class="practice-tag">Unconferences</span><span class="practice-tag">Emergent Strategy</span><span class="practice-tag">Liberating Structures</span><span class="practice-tag">Self-Organizing Teams</span>
+        </div>
+      </div></div></div>
+    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        const navOverlay = document.querySelector('.nav-overlay');
-        
-        function toggleMobileMenu(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (navLinks) navLinks.classList.toggle('active');
-            if (navOverlay) navOverlay.classList.toggle('active');
-            document.body.style.overflow = navLinks && navLinks.classList.contains('active') ? 'hidden' : '';
-        }
-        
-        function closeMobileMenu() {
-            if (navLinks) navLinks.classList.remove('active');
-            if (navOverlay) navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu, false);
-        if (navOverlay) navOverlay.addEventListener('click', closeMobileMenu);
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-        });
-    </script>
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Community Research &amp; <em>Learning</em></h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>Who gets to be the expert on our experience? Participatory approaches that center lived experience over abstracted data.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Popular Education</span><span class="practice-tag">Learning Circles</span><span class="practice-tag">Action Learning Sets</span><span class="practice-tag">Communities of Practice</span><span class="practice-tag">Asset-Based Community Development</span>
+        </div>
+      </div></div></div>
+    </div>
+
+    <div class="practice-item" onclick="togglePractice(this)">
+      <div class="practice-head">
+        <h3 class="practice-q">Governance of <em>the Commons</em></h3>
+        <span class="practice-toggle">+</span>
+      </div>
+      <div class="practice-collapse"><div class="practice-collapse-inner"><div class="practice-body">
+        <p>How do we care for what belongs to everyone? Models for stewarding shared resources collectively — including the organizations themselves.</p>
+        <div class="practice-examples">
+          <span class="practice-tag">Ostrom's Principles</span><span class="practice-tag">Time Banking</span><span class="practice-tag">Gift Economy</span><span class="practice-tag">Mutual Aid Networks</span><span class="practice-tag">Cooperative Governance</span>
+        </div>
+      </div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="section-cta pad">
+  <h2 class="cta-word reveal">See the approach<br><em>in full.</em></h2>
+  <p class="cta-sub reveal rd1">How these traditions come together in practice — and what we actually do when we work with an organization.</p>
+  <div class="cta-group reveal rd2">
+    <a href="our-approach.html" class="btn-p">Our approach</a>
+    <a href="services.html" class="btn-g">Service domains</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Limicelia</span>
+  <div class="footer-links">
+    <a href="our-approach.html">Our Approach</a>
+    <a href="services.html">Services</a>
+    <a href="mission.html">Mission</a>
+    <!-- Commons Model hidden pending ISI analysis -->
+    <a href="index.html#bios">About</a>
+  </div>
+  <span class="footer-note">ISI 501(c)(3) · Est. 2026</span>
+</footer>
+
+<script>
+(function(){
+  var bd = document.body;
+  var dots = document.querySelectorAll('.ps-dot');
+  var canvas = document.getElementById('mc');
+  var ctx = canvas.getContext('2d');
+  var W, H, nodes = [], edges = [], frame = 0;
+  var rgb = [201,145,74];
+  var PALETTES = {
+    dark:[201,145,74], warm:[192,128,60], slate:[126,170,191],
+    forest:[143,175,120], light:[150,96,28]
+  };
+  function getTimePalette() {
+    var h = new Date().getHours();
+    if (h >= 5  && h < 8)  return 'warm';
+    if (h >= 8  && h < 13) return 'light';
+    if (h >= 13 && h < 17) return 'slate';
+    if (h >= 17 && h < 20) return 'forest';
+    return 'dark';
+  }
+  function setPalette(p) {
+    bd.classList.remove('p-warm','p-slate','p-forest','p-light');
+    if (p !== 'dark') bd.classList.add('p-' + p);
+    dots.forEach(function(d){ d.classList.toggle('on', d.dataset.p === p); });
+    rgb = PALETTES[p] || PALETTES.dark;
+  }
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      setPalette(d.dataset.p);
+      try { sessionStorage.setItem('lim-manual', d.dataset.p); } catch(e){}
+    });
+  });
+  var manual = null;
+  try { manual = sessionStorage.getItem('lim-manual'); } catch(e){}
+  setPalette(manual || getTimePalette());
+  setInterval(function(){
+    var m = null;
+    try { m = sessionStorage.getItem('lim-manual'); } catch(e){}
+    if (!m) setPalette(getTimePalette());
+  }, 300000);
+  function buildEdges() {
+    edges = [];
+    var mx = 130;
+    for (var i = 0; i < nodes.length; i++)
+      for (var j = i+1; j < nodes.length; j++) {
+        var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d < mx) edges.push([i, j, d, mx]);
+      }
+  }
+  function initNet() {
+    nodes = []; edges = [];
+    var n = Math.floor(W * H / 28000);
+    for (var i = 0; i < n; i++)
+      nodes.push({ x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.12, vy: (Math.random()-.5)*.09, r: Math.random()*1.2+.3 });
+    buildEdges();
+  }
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight * 3; initNet(); }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var r=rgb[0], g=rgb[1], b=rgb[2];
+    for (var e = 0; e < edges.length; e++) {
+      var a = (1 - edges[e][2]/edges[e][3]) * .18;
+      ctx.strokeStyle = 'rgba('+r+','+g+','+b+','+a+')';
+      ctx.lineWidth   = (1 - edges[e][2]/edges[e][3]) * .6;
+      ctx.beginPath(); ctx.moveTo(nodes[edges[e][0]].x, nodes[edges[e][0]].y); ctx.lineTo(nodes[edges[e][1]].x, nodes[edges[e][1]].y); ctx.stroke();
+    }
+    for (var ni = 0; ni < nodes.length; ni++) {
+      ctx.fillStyle = 'rgba('+r+','+g+','+b+',.32)';
+      ctx.beginPath(); ctx.arc(nodes[ni].x, nodes[ni].y, nodes[ni].r, 0, Math.PI*2); ctx.fill();
+    }
+  }
+  function tick() {
+    for (var ni = 0; ni < nodes.length; ni++) {
+      nodes[ni].x += nodes[ni].vx; nodes[ni].y += nodes[ni].vy;
+      if (nodes[ni].x < 0 || nodes[ni].x > W) nodes[ni].vx *= -1;
+      if (nodes[ni].y < 0 || nodes[ni].y > H) nodes[ni].vy *= -1;
+    }
+  }
+  function loop() { tick(); if (frame % 4 === 0) buildEdges(); draw(); frame++; requestAnimationFrame(loop); }
+  window.addEventListener('resize', resize);
+  resize(); loop();
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+  var nav = document.querySelector('.hnav');
+  window.addEventListener('scroll', function(){ if (window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }, {passive:true});
+})();
+
+function togglePractice(el) {
+  el.classList.toggle('open');
+}
+</script>
 </body>
 </html>

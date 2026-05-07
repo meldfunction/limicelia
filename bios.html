@@ -1,51 +1,72 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>About — Limicelia</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"><style>
-:root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
-body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
-body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
-body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);--amber-dim:rgba(143,175,120,.38);--tp:#d8ecd8;--ts:rgba(216,236,216,.72);--tm:rgba(216,236,216,.43);--sur:#141f16;--rul:rgba(216,236,216,.09);--ca:.22}
-body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Limicelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+/* ─── PALETTES ─────────────────────────── */
+:root{
+  --ink:#0e0d0a;--parchment:#f2ead8;--amber:#c9914a;
+  --amber-glow:rgba(201,145,74,.15);--amber-dim:rgba(201,145,74,.4);
+  --soil:#1a1710;--spore:rgba(242,234,216,.06);
+  --tp:#f2ead8;--ts:rgba(242,234,216,.75);--tm:rgba(242,234,216,.48);
+  --sur:#1c1a15;--rul:rgba(242,234,216,.1);--ca:.32;
+}
+body.p-warm{--ink:#221b12;--parchment:#f6edd8;--amber:#c0803c;--amber-glow:rgba(192,128,60,.18);--amber-dim:rgba(192,128,60,.45);--soil:#302516;--spore:rgba(246,237,216,.07);--tp:#f6edd8;--ts:rgba(246,237,216,.78);--tm:rgba(246,237,216,.48);--sur:#302516;--rul:rgba(246,237,216,.1);--ca:.22}
+body.p-slate{--ink:#131820;--parchment:#dce6f0;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.15);--amber-dim:rgba(126,170,191,.4);--soil:#1a2230;--spore:rgba(220,230,240,.05);--tp:#dce6f0;--ts:rgba(220,230,240,.75);--tm:rgba(220,230,240,.45);--sur:#1a2230;--rul:rgba(220,230,240,.1);--ca:.28}
+body.p-forest{--ink:#0d1510;--parchment:#d8ecd8;--amber:#8faf78;--amber-glow:rgba(143,175,120,.15);--amber-dim:rgba(143,175,120,.4);--soil:#141f16;--spore:rgba(216,236,216,.05);--tp:#d8ecd8;--ts:rgba(216,236,216,.75);--tm:rgba(216,236,216,.45);--sur:#141f16;--rul:rgba(216,236,216,.1);--ca:.25}
+body.p-light{--ink:#f5f0e8;--parchment:#1e1a14;--amber:#96601c;--amber-glow:rgba(150,96,28,.1);--amber-dim:rgba(150,96,28,.35);--soil:#ede6d6;--spore:rgba(30,26,20,.04);--tp:#1e1a14;--ts:rgba(30,26,20,.72);--tm:rgba(30,26,20,.45);--sur:#ede6d6;--rul:rgba(30,26,20,.1);--ca:.1}
+
+/* ─── BASE ─────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:18px;line-height:1.785}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
 a{color:inherit;text-decoration:none}
-.ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
+
+/* ─── PALETTE SWITCHER ─────────────────── */
+.ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem;background:rgba(14,13,10,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--rul);border-radius:8px;padding:.6rem .8rem}
 .ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
 .ps-row{display:flex;gap:.35rem}
 .ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
-.ps-dot:hover{transform:scale(1.2)}.ps-dot.on{border-color:var(--amber)}
-.ps-dot[data-p="dark"]{background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
-.ps-dot[data-p="warm"]{background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
+.ps-dot:hover{transform:scale(1.2)}
+.ps-dot.on{border-color:var(--amber)}
+.ps-dot[data-p="dark"] {background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
+.ps-dot[data-p="warm"] {background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
 .ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
 .ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
 .ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
+
+/* ─── CANVAS ───────────────────────────── */
 #mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 section{position:relative;z-index:2}
+
+/* ─── WORDMARK ───────────────────────────── */
 .wordmark{display:inline-flex;align-items:center;gap:.9rem}
 .wordmark-glyph{width:28px;height:28px;flex-shrink:0}
+.wordmark-text{display:flex;flex-direction:column;gap:.2rem}
 .wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1;transition:color .4s}
+
+/* ─── STICKY NAV ──────────────────────── */
 .hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
 .hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
 .hnav.scrolled::after{opacity:1}
 .hnav-links{display:flex;gap:2.5rem;list-style:none}
 .hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
 .hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
-.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
-.hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
-@media(max-width:600px){
-  .hamburger{display:flex}
-  .hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}
-  .hnav-links.open{display:flex}
-}
+
+/* ─── SHARED ─────────────────────────────── */
 .pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
+.pad-sm{padding:clamp(2rem,4vh,3rem) clamp(2rem,7vw,7rem)}
 .sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;transition:color .4s}
 .sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
 .sec-num{opacity:.5;margin-right:.2rem}
 h2.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp);transition:color .4s}
-h2.sec-title em{font-style:italic;color:var(--amber)}
+h2.sec-title em{font-style:italic;color:var(--amber);transition:color .4s}
 .body-text{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);transition:color .4s}
 .body-text strong{color:var(--tp);font-weight:400}
 .divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem);transition:background .4s}
@@ -53,214 +74,773 @@ h2.sec-title em{font-style:italic;color:var(--amber)}
 .btn-p:hover{background:transparent;color:var(--amber)}
 .btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
 .btn-g::after{content:'→';transition:transform .3s;display:inline-block}
-.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}.rd4{transition-delay:.5s}
-.content-section.alt{background:var(--sur)}.content-section{transition:background .5s}
-/* HERO */
-.hero{padding:clamp(5rem,10vh,8rem) clamp(2rem,7vw,7rem) clamp(3rem,6vh,5rem);min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:2;background-image:linear-gradient(to bottom,rgba(245,240,232,0) 0%,rgba(245,240,232,.55) 55%,rgba(245,240,232,.95) 100%),url('forest-path.jpg');background-size:cover;background-position:center top}
-body.p-dark .hero,body.p-warm .hero,body.p-slate .hero,body.p-forest .hero{background-image:linear-gradient(to bottom,rgba(14,13,10,0) 0%,rgba(14,13,10,.6) 55%,rgba(14,13,10,.97) 100%),url('forest-path.jpg')}
-.hero-headline{font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);max-width:14ch;margin-bottom:2rem;transition:color .4s}
-.hero-headline em{font-style:italic;color:var(--amber)}
-.hero-lede{font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:50ch;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2.5rem;transition:color .4s,border-color .4s}
-.hero-sub{font-size:clamp(.88rem,3.5vw,.98rem);font-weight:300;line-height:1.78;color:var(--ts);max-width:48ch;margin-bottom:2rem;opacity:.75;transition:color .4s}
-.hero-cta{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap}
-/* PHOTO CREDIT */
-.photo-credit{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.06em;color:var(--tm);opacity:.5;margin-top:.6rem;line-height:1.6}
-.photo-credit a{color:var(--tm);opacity:.7;border-bottom:1px solid var(--rul)}
-/* MISSION BLOCK */
-.mission-block{padding:clamp(2.5rem,5vh,4rem) clamp(2rem,7vw,7rem);background:var(--sur);border-top:1px solid var(--rul);border-bottom:1px solid var(--rul);position:relative;z-index:2;transition:background .5s}
-.mission-body{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.85;color:var(--ts);max-width:64ch;margin-bottom:1.5rem;transition:color .4s}
-.mission-body em{font-style:italic;color:var(--amber)}
-.mission-close{font-size:clamp(1.15rem,2vw,1.5rem);font-weight:300;line-height:1.4;color:var(--tp);font-style:italic;transition:color .4s}
-/* NAME */
-.name-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
-@media(max-width:800px){.name-grid{grid-template-columns:1fr}}
-.ety-row{display:flex;gap:1rem;align-items:baseline;margin-bottom:.6rem}
-.ety-word{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);min-width:5rem}
-.ety-def{font-size:1rem;font-weight:300;color:var(--tm);transition:color .4s}
-.crossing-list{font-size:1rem;font-weight:300;line-height:2;color:var(--ts);margin:1.2rem 0;font-style:italic;transition:color .4s}
-/* WHO */
-.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:.8rem 0 0;transition:background .4s}
-@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
-.who-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
-.who-card:hover{background:var(--amber-glow)}
-.who-cluster-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.9rem}
-@media(max-width:600px){.who-cluster{margin-bottom:1.5rem}}
-.who-card-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
-.who-card-name em{font-style:italic;color:var(--amber)}
-.who-card-scene{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.who-card-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55}
-/* SERVICES */
-.service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
-@media(max-width:700px){.service-grid{grid-template-columns:1fr}}
-.service-card{background:var(--ink);padding:1.8rem 2rem;transition:background .4s}
-.service-card:hover{background:var(--sur)}
-.service-path{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.5rem}
-.service-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.6rem;transition:color .4s}
-.service-name em{font-style:italic;color:var(--amber)}
-.service-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
-.service-badge{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.8rem;display:inline-block;padding:.25rem .65rem;border:1px solid var(--amber-dim);color:var(--amber)}
-/* PATHS */
-.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
-@media(max-width:900px){.paths-grid{grid-template-columns:1fr}}
-.path-card{background:var(--ink);padding:2rem 2rem 2.4rem;transition:background .4s}
-.path-card:hover{background:var(--sur)}
-.path-num{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
-.path-name{font-size:1.25rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
-.path-when{font-size:1rem;font-weight:300;font-style:italic;color:var(--amber);margin-bottom:1rem;line-height:1.4}
-.path-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
-.path-tags{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2}
-.path-link{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;transition:opacity .3s}
-.path-link::after{content:'→';display:inline-block;transition:transform .3s}
-.path-link:hover{opacity:.75}.path-link:hover::after{transform:translateX(4px)}
-/* LINEAGE */
-.tradition-row{display:flex;gap:1.5rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
-.tradition-row:last-child{border-bottom:none}
-.tradition-name{font-size:1rem;font-weight:400;color:var(--tp);min-width:16ch;flex-shrink:0;transition:color .4s}
-.tradition-note{font-size:1rem;font-weight:300;line-height:1.785;color:var(--tm);transition:color .4s}
-@media(max-width:600px){.tradition-row{flex-direction:column;gap:.4rem}.tradition-name{min-width:unset}}
-/* HOW WE HOLD */
-.how-prose{max-width:62ch}
-.how-prose p{font-size:1.05rem;font-weight:300;line-height:1.9;color:var(--ts);margin-bottom:1.2rem;transition:color .4s}
-.how-prose p:last-child{margin-bottom:0}
-.how-prose strong{color:var(--tp);font-weight:400}
-/* BIOS */
-.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
-@media(max-width:800px){.bio-grid{grid-template-columns:1fr}}
-.bio-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s}
-.bio-avatar{width:52px;height:52px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--amber);margin-bottom:1.2rem}
-.bio-name{font-size:1.1rem;font-weight:400;color:var(--tp);margin-bottom:.2rem;transition:color .4s}
-.bio-role{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1rem}
-.bio-body{font-size:1rem;font-weight:300;line-height:1.788;color:var(--ts);margin-bottom:.8rem;transition:color .4s}
-.bio-clients{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--amber);opacity:.55;line-height:2;margin-bottom:.8rem}
-.bio-tags{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;line-height:2.2}
-/* PARTNER */
-.partner-card{border:1px solid var(--amber-dim);padding:1.8rem 2rem;background:var(--amber-glow);margin:2rem 0}
-.partner-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem}
-.partner-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
-.partner-body{font-size:1rem;font-weight:300;line-height:1.785;color:var(--ts);transition:color .4s}
-/* CTA */
+.btn-g:hover{color:var(--tp)}
+.btn-g:hover::after{transform:translateX(5px)}
+
+/* ─── PAGE HERO (subpages) ───────────── */
+.page-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,5vh,4rem);position:relative;z-index:2}
+.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;transition:color .4s}
+.page-hero h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--tp);transition:color .4s;max-width:16ch}
+.page-hero h1 em{font-style:italic;color:var(--amber);transition:color .4s}
+.page-hero .hero-lede{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.75;color:var(--ts);max-width:54ch;margin-top:1.8rem;border-left:2px solid var(--amber-dim);padding-left:1.4rem;transition:color .4s}
+
+/* ─── CONTENT SECTIONS ───────────────── */
+.content-section{transition:background .5s}
+.content-section.alt{background:var(--sur)}
+
+/* ─── DOMAIN CARDS ───────────────────── */
+.domain-list{display:flex;flex-direction:column;gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+.domain-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s}
+.domain-card:hover{background:var(--amber-glow)}
+.domain-card-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.7rem;gap:2rem}
+.domain-card-name{font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:400;color:var(--tp);transition:color .4s}
+.domain-card-name em{font-style:italic;color:var(--amber)}
+.domain-card-meta{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;white-space:nowrap}
+.domain-card-tags{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:.6rem}
+.domain-card-body{font-size:.95rem;font-weight:300;line-height:1.75;color:var(--ts);max-width:60ch;transition:color .4s}
+
+/* ─── TIER GRID ──────────────────────── */
+.tier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
+.tier-card{background:var(--ink);padding:2rem;transition:background .4s}
+.tier-card:hover{background:var(--sur)}
+.tier-card.span{grid-column:1/-1}
+.tier-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.6rem}
+.tier-name{font-size:1.15rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
+.tier-body{font-size:.92rem;font-weight:300;line-height:1.78;color:var(--ts);transition:color .4s}
+.tier-body em{font-style:italic;color:var(--amber)}
+
+/* ─── TRADITION ITEMS ────────────────── */
+.tradition-item{padding:1.3rem 1.5rem;border-left:2px solid var(--amber-dim);background:var(--spore);margin-bottom:.8rem;transition:border-color .4s}
+.tradition-item:hover{border-left-color:var(--amber)}
+.tradition-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
+.tradition-roots{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;color:var(--amber);opacity:.6;margin-bottom:.5rem}
+.tradition-desc{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm);transition:color .4s}
+
+/* ─── METHOD PILLS ───────────────────── */
+.method-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0}
+.method-pill{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .85rem;border:1px solid var(--rul);color:var(--tm);transition:all .3s}
+.method-pill:hover{border-color:var(--amber-dim);color:var(--ts);background:var(--amber-glow)}
+
+/* ─── FLYWHEEL / HIGHLIGHT ───────────── */
+.highlight-box{border:1px solid var(--rul);padding:1.8rem 2rem;background:var(--spore);margin:2rem 0;transition:border-color .4s}
+.highlight-box p{font-size:.95rem;font-weight:300;line-height:1.78;color:var(--ts)}
+.highlight-box strong{color:var(--tp);font-weight:400}
+
+/* ─── PRINCIPLES LIST ────────────────── */
+.principle-item{padding:1.2rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
+.principle-item:first-child{border-top:1px solid var(--rul)}
+.principle-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;color:var(--amber);opacity:.6;margin-bottom:.3rem}
+.principle-text{font-size:.98rem;font-weight:300;line-height:1.78;color:var(--ts);transition:color .4s}
+.principle-text strong{color:var(--tp);font-weight:400}
+
+/* ─── NETWORK CARDS ──────────────────── */
+.network-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0}
+.network-card{background:var(--ink);padding:1.6rem 1.8rem;transition:background .4s}
+.network-card:hover{background:var(--sur)}
+.network-card-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem}
+.network-card-desc{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm)}
+
+/* ─── CTA ────────────────────────────── */
 .section-cta{text-align:center;position:relative;overflow:hidden}
 .section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
 .cta-word{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;color:var(--tp);transition:color .4s}
-.cta-word em{font-style:italic;color:var(--amber)}
-.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 1rem;transition:color .4s}
-.cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--amber);max-width:44ch;margin:0 auto 2.5rem;font-style:italic;transition:color .4s}
+.cta-word em{font-style:italic;color:var(--amber);transition:color .4s}
+.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 2.5rem;transition:color .4s}
 .cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
-footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
-.footer-note{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
+
+/* ─── FOOTER ─────────────────────────── */
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem;transition:border-color .4s}
+.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);transition:color .4s}
+.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6;transition:color .4s}
 .footer-links{display:flex;gap:2rem}
-.footer-links a{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
-@media(max-width:700px){.hnav-links{gap:1.2rem}footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
-/* MOBILE FIXES */
-@media(max-width:480px){
-  /* Nav: wrap to two lines on very small screens */
-  .hnav{flex-wrap:wrap;gap:.5rem;padding:1rem}
-  .hnav-links{gap:.8rem}
-  /* Hero: reduce min-height, ensure text readable over image */
-  .hero{min-height:70vh}
-  /* Mission block: remove negative margins on mobile */
-  .mission-block > div:first-child{margin-left:0!important;margin-right:0!important;border-radius:0}
-  /* System cluster: 3 cards stack to 1 col (already handled at 700px) */
-  /* Service cards: ensure no overflow */
-  .service-grid{grid-template-columns:1fr}
-  /* Partner card wrapping */
-  .partner-card{padding:1.2rem}
-  /* CTA group stack */
-  .cta-group{flex-direction:column;align-items:stretch;text-align:center}
-  .btn-p,.btn-g{text-align:center;justify-content:center}
-  /* Bio grid */
-  .bio-grid{grid-template-columns:1fr}
-  /* Lineage rows: allow wrapping on very narrow screens */
-  .tradition-row{flex-direction:column;gap:.4rem}
-  .tradition-name{min-width:unset}
+
+/* ─── ANIMATIONS ─────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
+
+/* ─── RESPONSIVE ─────────────────────── */
+@media(max-width:1000px){
+  .tier-grid{grid-template-columns:1fr}
+  .network-grid{grid-template-columns:1fr}
 }
-@media(max-width:375px){
-  /* Smallest common phone - iPhone SE */
-  .hero-headline{font-size:2.4rem}
-  .hnav-links a{font-size:.68rem;letter-spacing:.08em}
-  .wordmark-name{font-size:1rem}
+@media(max-width:700px){
+  .hnav-links{gap:1.2rem}
+  footer{flex-direction:column;text-align:center}
+  .ps{bottom:1rem;right:1rem}
 }
-.toggle-btn{width:100%;background:transparent;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.6rem 0 0;margin-top:.8rem;border-top:1px solid var(--amber-dim)}
-.toggle-lbl{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;transition:opacity .2s}
-.toggle-btn:hover .toggle-lbl{opacity:1}
-.toggle-icon{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--amber);transition:transform .3s;display:inline-block;width:16px;text-align:center}
-.toggle-btn.open .toggle-icon{transform:rotate(45deg)}
-.toggle-body{display:none;padding-top:.8rem}
-.toggle-body.open{display:block}
-</style></head><body><nav class="hnav" id="hnav"><a href="index.html" class="wordmark"><svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"></circle>
-      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"></line>
-      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"></line>
-      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
-      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"></line>
-      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
-      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"></line>
-      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"></circle>
-      <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"></circle>
-    </svg><span class="wordmark-name">Limicelia</span></a><ul class="hnav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="commons-model.html">Our Model</a></li><li><a href="bios.html" class="active">About</a></li><li><a href="mission.html">Mission</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
-<section style="position:relative;z-index:2;padding:clamp(5rem,10vw,9rem) clamp(2rem,7vw,7rem) clamp(3rem,6vw,6rem)">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.6rem">Limicelia · About</p>
-  <h1 class="reveal" style="font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.08;max-width:18ch;margin-bottom:2rem">Two stewards.<br><em>A living network.</em></h1>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ts);max-width:54ch;line-height:1.788">Limicelia is co-stewarded, not managed. Our collaborators are practitioners who share practice, mutual accountability, and the patient work of organizational transformation. Trust is built inside the network before any client engagement happens.</p>
-</section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / BK</p>
-  <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;margin-bottom:3rem" class="reveal">
-    <div style="width:64px;height:64px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:1rem;color:var(--amber)">BK</div>
-    <div><h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;margin-bottom:.25rem">BK <span style="font-size:1rem;color:var(--tm)">(he/él)</span></h2>
-    <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:1.2rem">Co-Steward · Systems &amp; Governance Coach · Technology Strategist</p>
-    <p style="font-size:1rem;color:var(--ts);line-height:1.788;margin-bottom:1rem">BK is a philosopher and social commentator focused on the paradigm-shift happening in how we work. As a skilled convenor and systems leader, he illuminates what lies beyond business as usual — a more relational and integral approach in which self-study provides a means for greater purpose and meaning.</p>
-    <p style="font-size:1rem;color:var(--ts);line-height:1.788;margin-bottom:1rem">He brings over fifteen years spanning private sector, cooperatives, nonprofits, and community organizing — moving between worlds most consultants occupy only one of. He is a certified IC-Agile Coach and trained Sociocracy Consultant, grounded in consent-based governance and distributed decision-making. His systems thinking draws from cybernetics, Nora Bateson’s warm data methodology, and the living systems tradition. He brings contemplative practice, Buddhist epistemology, and a monastic approach to work — not as philosophy, but as a way of paying attention that changes what becomes visible.</p>
-    <p style="font-size:1rem;color:var(--ts);line-height:1.788;margin-bottom:1.2rem">Outside of Limicelia, BK is building the Present of Work — a translocal ecosystem exploring how modern work, workers, and workplaces can become more humane and alive. He lives in Richmond, Virginia.</p>
-    <div style="display:flex;gap:2rem;flex-wrap:wrap">
-      <div><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem">Credentials</p><p style="font-size:.92rem;color:var(--tm);line-height:1.8">IC-Agile Certified Coach · Sociocracy Consultant (trained) · Warm Data Lab Host · Trauma-Informed Leadership</p></div>
-      <div><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem">Selected clients</p><p style="font-size:.92rem;color:var(--tm);line-height:1.8">Street Sense DC · DC Social Innovation Project · Building Belonging · DataKind</p></div>
-    </div></div>
+
+
+@media(max-width:1000px){
+  #bk > div[style*="grid-template-columns"],
+  #cx > div[style*="grid-template-columns"] {
+    display:block !important;
+  }
+  #bk > div[style*="grid-template-columns"] > div:last-child,
+  #cx > div[style*="grid-template-columns"] > div:last-child {
+    margin-top:2rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--rul);
+  }
+}
+
+/* ─── COLLABORATOR CARDS ─────────────── */
+.collab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rul);margin:2rem 0}
+.collab-card{background:var(--ink);padding:1.8rem;cursor:pointer;transition:background .4s}
+.collab-card:hover{background:var(--amber-glow)}
+.collab-initials{width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--amber);transition:background .4s,border-color .4s}
+.collab-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
+.collab-role{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.7rem}
+.collab-blurb{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm);transition:color .4s}
+.collab-more{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-top:1rem;display:inline-flex;align-items:center;gap:.4rem;opacity:.5;transition:opacity .3s}
+.collab-card:hover .collab-more{opacity:1}
+
+/* ─── MODAL ──────────────────────────── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:600;display:none;align-items:center;justify-content:center;padding:2rem;opacity:0;transition:opacity .35s}
+.modal-overlay.open{display:flex;opacity:1}
+.modal-box{background:var(--ink);border:1px solid var(--rul);max-width:720px;width:100%;max-height:85vh;overflow-y:auto;padding:3rem;position:relative;animation:fadeUp .4s ease}
+.modal-close{position:absolute;top:1.2rem;right:1.4rem;background:none;border:none;font-size:1.3rem;color:var(--tm);cursor:pointer;transition:color .2s;font-family:'DM Mono',monospace}
+.modal-close:hover{color:var(--tp)}
+.modal-initials{width:52px;height:52px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;color:var(--amber)}
+.modal-name{font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:300;color:var(--tp);margin-bottom:.3rem}
+.modal-role{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1.8rem}
+.modal-body p{font-size:.98rem;font-weight:300;line-height:1.85;color:var(--ts);margin-bottom:1rem}
+.modal-body strong{color:var(--tp);font-weight:400}
+.modal-section-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin:2rem 0 .7rem;padding-top:1rem;border-top:1px solid var(--rul)}
+.modal-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.modal-tag{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)}
+.modal-clients span{font-size:.92rem;font-weight:300;color:var(--ts);padding:.4rem 0;display:block;border-bottom:1px solid var(--rul)}
+
+@media(max-width:1000px){
+  .collab-grid{grid-template-columns:repeat(2,1fr)}
+  #bk .bio-grid, #cx .bio-grid{display:block !important}
+  #bk .bio-grid > div:last-child, #cx .bio-grid > div:last-child{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rul)}
+}
+@media(max-width:700px){
+  .collab-grid{grid-template-columns:1fr}
+  .modal-box{padding:2rem 1.5rem}
+}
+
+</style>
+</head>
+<body>
+
+<div class="ps">
+  <p class="ps-lbl">Theme</p>
+  <div class="ps-row">
+    <button class="ps-dot on" data-p="dark"   title="Dark"></button>
+    <button class="ps-dot"    data-p="warm"   title="Warm"></button>
+    <button class="ps-dot"    data-p="slate"  title="Slate"></button>
+    <button class="ps-dot"    data-p="forest" title="Forest"></button>
+    <button class="ps-dot"    data-p="light"  title="Light"></button>
   </div>
-</section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / Carol Xu</p>
-  <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;margin-bottom:3rem" class="reveal">
-    <div style="width:64px;height:64px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:1rem;color:var(--amber)">CX</div>
-    <div><h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:300;margin-bottom:.25rem">Carol Xu <span style="font-size:1rem;color:var(--tm)">(she/her)</span></h2>
-    <p style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);margin-bottom:1.2rem">Co-Steward · Organizational Transformation Designer</p>
-    <p style="font-size:1rem;color:var(--ts);line-height:1.788;margin-bottom:1rem">CX has worn a few hats: academic researcher, startup co-founder, podcast host, and discovery partner for leaders and organizations on their paths of transformation. Her purpose has always remained the same: to help unleash human potential through a deeper understanding of people, work, and community.</p>
-    <p style="font-size:1rem;color:var(--ts);line-height:1.788;margin-bottom:1rem">She holds a Ph.D. in Management Science and Engineering from Stanford — and has spent her career translating that rigorous training into something warmer, more embodied, and more alive. Her practice is rooted in a conviction that organizational transformation is not just a cognitive event. It is somatic. It is relational. It is imaginative.</p>
-    <p style="font-size:1rem;color:var(--ts);line-height:1.788;margin-bottom:1.2rem">Based in the San Francisco Bay Area. She believes the best conversations happen in motion.</p>
-    <div style="display:flex;gap:2rem;flex-wrap:wrap">
-      <div><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem">Credentials</p><p style="font-size:.92rem;color:var(--tm);line-height:1.8">Ph.D., Management Science &amp; Engineering — Stanford · Experiential Program Design · Complexity Leadership · Trauma-Informed Collaboration</p></div>
-      <div><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem">Selected clients</p><p style="font-size:.92rem;color:var(--tm);line-height:1.8">General Motors · Microsoft · Seva Exchange · TimebankUSA · Building Belonging</p></div>
-    </div></div>
-  </div>
+</div>
+<canvas id="mc"></canvas>
+
+<nav class="hnav">
+    <div class="wordmark">
+      <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
+        <line x1="14" y1="11.8" x2="14"  y2="3"   stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
+        <line x1="14" y1="16.2" x2="14"  y2="25"  stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
+        <line x1="11.8" y1="14" x2="3"   y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+        <line x1="16.2" y1="14" x2="25"  y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+        <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+        <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+        <line x1="15.6" y1="12.4" x2="22.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
+        <line x1="12.4" y1="15.6" x2="5.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
+        <circle cx="14"  cy="3"   r="1.1" fill="var(--amber)" opacity=".4"/>
+        <circle cx="14"  cy="25"  r="1.1" fill="var(--amber)" opacity=".25"/>
+        <circle cx="3"   cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
+        <circle cx="25"  cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
+        <circle cx="5.5" cy="5.5" r=".9"  fill="var(--amber)" opacity=".22"/>
+        <circle cx="22.5" cy="22.5" r=".9" fill="var(--amber)" opacity=".22"/>
+      </svg>
+      <div class="wordmark-text">
+        <a href="index.html"><span class="wordmark-name">Limicelia</span></a>
+      </div>
+    </div>
+    <ul class="hnav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="our-approach.html">Our Approach</a></li>
+      <!-- Our Model hidden pending ISI analysis -->
+      <li><a href="bios.html">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+<section class="page-hero">
+  <p class="eyebrow">Limicelia · People</p>
+  <h1>Two stewards.<br>A living <em>network.</em></h1>
+  <p class="hero-lede">Limicelia is co-stewarded — not managed. Our collaborators are practitioners who share practice, mutual accountability, and the patient work of organizational transformation. Trust is built inside the network before any client engagement happens.</p>
 </section>
-<div style="background:url(images/conversation-outdoor.jpg) center/cover no-repeat;height:38vh;position:relative;z-index:2"></div><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / Together</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Co-stewards,<br><em>not executives.</em></h2>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem" class="reveal rd1">
-    <div><p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:100%;line-height:1.788;margin-bottom:1.5rem">BK reads organizations through governance, systems architecture, and the structural conditions that produce behavior. CX reads them through relational fields, somatic intelligence, and the experiential conditions that produce change.</p><p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:100%;line-height:1.788;margin-bottom:1.5rem">Together, they hold both the structural and the human — which is where transformation actually lives.</p></div>
-    <div style="background:var(--sur);border:1px solid var(--rul);padding:1.8rem">
-      <p style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem">How the practice is held</p>
-      <ul style="list-style:none;padding:0;font-size:1rem;color:var(--ts);line-height:1.9">
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">Co-stewarded, not managed</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">Commons pool model — surplus funds solidarity work</li>
-        <li style="padding:.25rem 0;border-bottom:1px solid var(--rul)">Practitioner network developed through real engagements</li>
-        <li style="padding:.25rem 0">Ongoing peer supervision and shared practice</li>
-      </ul>
-      <a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:block;margin-top:1rem">Our model →</a>
+
+<div class="divider"></div>
+
+<!-- ═══ BK ═══ -->
+<section class="content-section pad" id="bk">
+  <p class="sec-label reveal"><span class="sec-num">01 /</span> BK</p>
+  <h2 class="sec-title reveal" style="margin-bottom:.4rem">BK <span style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--tm);font-weight:300">(he/él)</span></h2>
+  <p style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:2rem" class="reveal">Co-Steward · Regenerative Technologist · Systems &amp; Governance Coach</p>
+
+  <div class="bio-grid reveal rd1" style="display:grid;grid-template-columns:1fr 280px;gap:4rem;align-items:start">
+    <div>
+      <p class="body-text">BK works at the intersection of systems thinking, organizational practice, and contemplative inquiry. His practice explores what becomes possible when organizations stop treating their people as resources to be optimized — and start treating them as the conditions from which good work actually grows.</p>
+
+      <p class="body-text" style="margin-top:1rem">He brings over fifteen years spanning private sector, cooperatives, nonprofits, and community organizing — moving between worlds most practitioners occupy only one of. That range shapes how he reads organizational situations: what looks like a strategy problem is often a relational one; what presents as a culture problem is often structural. His highest aim is to help create conditions where people can genuinely flourish in their work.</p>
+
+      <p class="body-text" style="margin-top:1rem">BK is a certified IC-Agile Coach and trained Sociocracy Consultant, grounded in consent-based governance and distributed decision-making. His systems thinking draws from cybernetics, Nora Bateson's warm data methodology, and the living systems tradition. He is a practitioner of Warm Data, designing and hosting labs that surface patterns and relationships conventional analysis misses.</p>
+
+      <p class="body-text" style="margin-top:1rem">He brings contemplative practice, Buddhist epistemology, and a monastic approach to work — not as philosophy, but as a way of paying attention that changes what becomes visible. His approach integrates trauma-informed leadership, nonviolent communication, and Dragon Dreaming into organizational contexts.</p>
+
+      <p class="body-text" style="margin-top:1rem">Outside of Limicelia, BK is building the <em>Present of Work</em> — a translocal ecosystem and podcast exploring how modern work, workers, and workplaces can become more humane and alive. Conversations with leading-edge thinkers illuminate the paradigm-shift already underway. He also performs as DJ MadMarti, using sonic technology for collective transformation. He is a Montessori alum and lives in Richmond, Virginia.</p>
+    </div>
+    <div>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem">Credentials &amp; practice</p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">IC-Agile Certified Coach</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Sociocracy Consultant (trained)</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Warm Data Lab Host</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Trauma-Informed Leadership</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Nonviolent Communication</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Dragon Dreaming</p>
+      </div>
+
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem;margin-top:2rem">Transformative systems</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Warm Data</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Sociocracy</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Agile</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Microsolidarity</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Network Weaving</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Montessori</span>
+      </div>
+
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem;margin-top:2rem">Areas of interest</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Cooperatives</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Community</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Complexity</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Emergence</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Inner Life</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">DEIB</span>
+      </div>
+
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem;margin-top:2rem">Selected clients</p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">Street Sense DC</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">DC Social Innovation Project</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">Building Belonging</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">DataKind</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">Startup Weekend</p>
+      </div>
     </div>
   </div>
-</section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / The network</p><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">The network behind<br><em>the work.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:58ch;line-height:1.788;margin-bottom:1.5rem">Every practitioner in our network is developed through shared practice, peer accountability, and real engagements — not certification programs. When you work with Limicelia, you get the network behind them.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul)" class="reveal rd1">
-    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1rem">AR</div><h3 style="font-size:1rem;font-weight:300;margin-bottom:.25rem">AR</h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.8rem">Cooperative Organizer · Mediator · Facilitator</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Cooperative organizer and certified mediator. Brings a relational, culture-driven approach to conflict navigation. Co-owns Colmenar Consulting Cooperative and Dorchester Art Project. Sits on the boards of the US Federation of Worker Cooperatives and Greater Boston Chamber of Cooperatives.</p><p style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.06em;color:var(--tm);margin-top:.6rem">Cooperative Development · Conflict Navigation · Mediation · Governance Design</p></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1rem">EP</div><h3 style="font-size:1rem;font-weight:300;margin-bottom:.25rem">EP</h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.8rem">Executive Coach · Human-Centric Leadership · Team Culture</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">Executive coach with 35 years of global experience. Developed Human-Centric Leading — a model that uproots the assumptions about what it means to be human at work.</p><p style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.06em;color:var(--tm);margin-top:.6rem">Executive Coaching · Leadership Development · Team Culture</p></div>
-    <div style="background:var(--ink);padding:2rem 1.8rem"><div style="width:40px;height:40px;border-radius:50%;background:var(--amber-glow);border:1px solid var(--amber-dim);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--amber);margin-bottom:1rem">NW</div><h3 style="font-size:1rem;font-weight:300;margin-bottom:.25rem">NW</h3><p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--tm);margin-bottom:.8rem">Systems Leadership · Adult Development · Network Weaving</p><p style="font-size:1rem;color:var(--ts);line-height:1.782">COO at Sareta, consultant at Cultivating Leadership, co-author of Human Work. Maps the systems others navigate by feel.</p><p style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.06em;color:var(--tm);margin-top:.6rem">Systems Leadership · Adult Development · Network Weaving</p></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CX ═══ -->
+<section class="content-section alt pad" id="cx">
+  <p class="sec-label reveal"><span class="sec-num">02 /</span> CX</p>
+  <h2 class="sec-title reveal" style="margin-bottom:.4rem">CX <span style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.06em;color:var(--tm);font-weight:300">(she/her)</span></h2>
+  <p style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:2rem" class="reveal">Co-Steward · Organizational Transformation Designer</p>
+
+  <div class="bio-grid reveal rd1" style="display:grid;grid-template-columns:1fr 280px;gap:4rem;align-items:start">
+    <div>
+      <p class="body-text">CX has worn a few hats: academic researcher, founding team member of an early-stage company, podcast host, and discovery partner for leaders and organizations on their paths of learning and transformation. Her purpose has always remained the same: to help unleash human potential through a deeper understanding of people, work, and community.</p>
+
+      <p class="body-text" style="margin-top:1rem">She holds a Ph.D. in Management Science and Engineering from Stanford — and has spent her career translating that rigorous training into something warmer, more embodied, and more alive. Where most people with her credentials build models, she builds containers: experiential spaces that integrate contemplative, creative, and strategic elements into genuine learning and healing.</p>
+
+      <p class="body-text" style="margin-top:1rem">Her practice is rooted in a conviction that organizational transformation is not just a cognitive event. It is somatic — held in the body. It is relational — shaped by the quality of connection between people. And it is imaginative — requiring the capacity to see beyond what currently exists. Her work integrates complexity leadership, T-group and effective communication, psychological safety in teams, and trauma-informed collaboration.</p>
+
+      <p class="body-text" style="margin-top:1rem">CX designs experiential programs for organizational leaders, community stewards, and purpose-driven individuals across sectors. She brings particular depth to transformative learning experiences — retreats, intensives, and ongoing containers where leaders can do the inner work that their organizational roles demand but rarely make space for.</p>
+
+      <p class="body-text" style="margin-top:1rem">Based in the San Francisco Bay Area, she loves going on hikes with people from all walks of life — in-person, virtual, or metaphorical. She believes the best conversations happen in motion.</p>
+    </div>
+    <div>
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem">Credentials &amp; practice</p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Ph.D., Management Science &amp; Engineering — Stanford</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Experiential Program Design</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Contemplative &amp; Somatic Practice</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Complexity Leadership</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Psychological Safety in Teams</p>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts);padding:.55rem 0;border-bottom:1px solid var(--rul)">Trauma-Informed Collaboration</p>
+      </div>
+
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem;margin-top:2rem">Expertise</p>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Team Dynamics</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Ecosystem Development</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Innovation</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Organizational Resilience</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Ethnography</span>
+        <span style="font-family:'DM Mono',monospace;font-size:.49rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--rul);color:var(--tm)">Design Thinking</span>
+      </div>
+
+      <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem;margin-top:2rem">Selected clients</p>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">General Motors</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">Microsoft</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">Seva Exchange</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">TimebankUSA</p>
+        <p style="font-size:.88rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul)">Building Belonging</p>
+      </div>
+    </div>
   </div>
-</section><hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-<section style="padding:clamp(4rem,7vw,7rem) clamp(2rem,7vw,7rem);position:relative;z-index:2"><h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem">Start with<br>a <em>conversation.</em></h2>
-  <p class="reveal rd1" style="font-size:clamp(1rem,1.1vw,1.05rem);color:var(--ts);max-width:48ch;line-height:1.788;margin-bottom:1.5rem">Tell us what is happening. We will tell you honestly whether it is something we can help with.</p>
-  <a href="contact.html" class="reveal rd2" style="display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tp);background:var(--amber);padding:.7rem 1.6rem">Begin a conversation</a>
-</section><footer style="padding:2rem clamp(2rem,7vw,7rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--rul);position:relative;z-index:2"><span style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm)">Limicelia · Est. 2026<!-- · Fiscally sponsored by ISI 501(c)(3) --></span><ul style="display:flex;gap:2rem;list-style:none"><li><a href="index.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Home</a></li><li><a href="services.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Services</a></li><li><a href="approach.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Approach</a></li><li><a href="commons-model.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Our Model</a></li><li><a href="bios.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">About</a></li><li><a href="mission.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Mission</a></li><li><a href="contact.html" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm)">Contact</a></li></ul></footer><div class="ps"><p class="ps-lbl">Theme</p><div class="ps-row"><button class="ps-dot on" data-p="dark"></button><button class="ps-dot" data-p="warm"></button><button class="ps-dot" data-p="slate"></button><button class="ps-dot" data-p="forest"></button><button class="ps-dot" data-p="light"></button></div></div><script>const nav=document.getElementById("hnav");if(nav)window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));document.querySelectorAll(".ps-dot").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".ps-dot").forEach(b=>b.classList.remove("on"));btn.classList.add("on");const p=btn.dataset.p;document.body.className=p==="dark"?"":"p-"+p;});});document.querySelectorAll(".reveal").forEach(el=>{new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add("visible")},{threshold:.1}).observe(el);});</script></body></html>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ Together ═══ -->
+<section class="content-section pad" id="together">
+  <p class="sec-label reveal"><span class="sec-num">03 /</span> Together</p>
+  <h2 class="sec-title reveal" style="margin-bottom:1.4rem">Co-stewards,<br><em>not executives.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch">BK and CX bring complementary orientations to the same work. BK reads organizations through governance, systems architecture, and the structural conditions that produce behavior. CX reads them through relational fields, somatic intelligence, and the experiential conditions that produce change. Together, they hold both the structural and the human — which is where transformation actually lives.</p>
+  <p class="body-text reveal rd2" style="margin-top:1rem;max-width:58ch">Their highest aim is to co-create a world where people can flourish — in their work, their communities, and themselves. They believe this kind of accompaniment is possible when it stays close to how living systems actually work: through connection, through honest feedback, through creating the conditions for what is trying to emerge.</p>
+
+  <div style="border:1px solid var(--rul);padding:1.8rem 2rem;background:var(--spore);margin-top:2.5rem;max-width:58ch" class="reveal">
+    <p style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:.7rem">Organizational home</p>
+    <p class="body-text" style="font-size:.95rem">Limicelia is a project of <strong>Inquiring Systems Institute (ISI)</strong>, a 501(c)(3). We are organized as a practitioner collective — co-stewarded, not managed — and we shape every engagement to fit the actual resources of the organizations we work with.</p>
+    <div style="margin-top:1.2rem;display:flex;gap:1.5rem;flex-wrap:wrap">
+      <!-- Our model link hidden pending ISI analysis -->
+      <!-- <a href="commons-model.html" class="btn-g" style="display:inline-flex">Our model →</a> -->
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ COLLABORATORS ═══ -->
+<section class="content-section alt pad" id="collaborators">
+  <p class="sec-label reveal"><span class="sec-num">04 /</span> Collaborators</p>
+  <h2 class="sec-title reveal" style="margin-bottom:.7rem">The network behind<br><em>the work.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:1rem">Every practitioner in our network is developed primarily through shared practice, peer accountability, and real engagements. When you work with Limicelia, you get the network behind the work.</p>
+
+  <div class="collab-grid reveal rd2">
+    <div class="collab-card" data-modal="ar">
+      <div class="collab-initials">AR</div>
+      <p class="collab-name">AR</p>
+      <p class="collab-role">Cooperative Organizer · Mediator · Facilitator</p>
+      <p class="collab-blurb">Cooperative organizer and certified mediator. Brings a relational, culture-driven approach to conflict navigation — co-owns Colmenar Consulting Cooperative and Dorchester Art Project.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+    <div class="collab-card" data-modal="ep">
+      <div class="collab-initials">EP</div>
+      <p class="collab-name">EP</p>
+      <p class="collab-role">Executive Coach · Human-Centric Leadership · Team Culture</p>
+      <p class="collab-blurb">Executive coach with 35 years of global experience. Developed Human-Centric Leading — a model that uproots the assumptions about what it means to be human at work.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+    <div class="collab-card" data-modal="nw">
+      <div class="collab-initials">NW</div>
+      <p class="collab-name">NW</p>
+      <p class="collab-role">Systems Leadership · Adult Development · Network Weaving</p>
+      <p class="collab-blurb">COO at Sareta, consultant at Cultivating Leadership, co-author of <em>Human Work</em>. Maps the systems others navigate by feel.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+    <div class="collab-card" data-modal="jm">
+      <div class="collab-initials">JM</div>
+      <p class="collab-name">JM</p>
+      <p class="collab-role">Adaptive Human Systems · Social Fabric · Community Weaving</p>
+      <p class="collab-blurb">Social fabric designer who works at the intersection of belonging, emergence, and the kind of group intelligence that only shows up when people feel safe enough to be honest.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+    <div class="collab-card" data-modal="agm">
+      <div class="collab-initials">AGM</div>
+      <p class="collab-name">AGM</p>
+      <p class="collab-role">Philanthropy · Nonprofit Development · Equity & Belonging</p>
+      <p class="collab-blurb">Twenty years in philanthropy and nonprofits. Holds space for strategic inquiry, relationship building, and the kind of deep dialogue around equity that most organizations avoid.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+    <div class="collab-card" data-modal="ic">
+      <div class="collab-initials">IC</div>
+      <p class="collab-name">IC</p>
+      <p class="collab-role">Systems Design · Emotional Complexity · Nervous System Theory</p>
+      <p class="collab-blurb">Systems designer who uses distress as a tool — helping teams engage with the emotional complexity they usually avoid, so they stop perpetuating the systems they're trying to change.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+    <div class="collab-card" data-modal="th">
+      <div class="collab-initials">TH</div>
+      <p class="collab-name">TH</p>
+      <p class="collab-role">Relational Practice · Nervous System Health · Community Tending</p>
+      <p class="collab-blurb">Works relationally — around nervous system health, communication, autonomy, and what it takes for groups to actually thrive together rather than just coexist.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+    <div class="collab-card" data-modal="bc">
+      <div class="collab-initials">BC</div>
+      <p class="collab-name">BC</p>
+      <p class="collab-role">Human Dynamics · Psychotherapy · Relational Depth</p>
+      <p class="collab-blurb">Studies human dynamics from the vantage point of psychotherapy. Interested in what happens when people come into contact with their own knowing — and build relationships from that place.</p>
+      <span class="collab-more">Full profile +</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MODALS ═══ -->
+  <div class="modal-overlay" id="modal-ar">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">AR</div>
+      <h3 class="modal-name">AR</h3>
+      <p class="modal-role">Cooperative Organizer · Mediator · Facilitator</p>
+      <div class="modal-body">
+      <p>AR organizes cooperatives, mediates conflicts, and facilitates groups through the hard part of building something together. His work starts from a conviction: prioritize the culture of the team and its relationship to the community, and you get organizations resilient enough to adapt and care for those involved.</p>
+      <p>He has supported teams through governance design, conflict navigation, and organizational capacity-building — often in settings where power differentials are real and unspoken. He is a certified mediator, a re-entry mediation advocate, and an authorized teacher of Full Presence Mindfulness.</p>
+      <p>He co-owns Colmenar Consulting Cooperative and Dorchester Art Project. He sits on the boards of the US Federation of Worker Cooperatives and the Greater Boston Chamber of Cooperatives. For AR, art is a way to shift culture and speak clearly about the state of our times.</p>
+      <p>He is from Miami, of Cuban and Chilean descent. His culture and family history are not background — they inform every engagement.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Cooperative Development</span>
+        <span class="modal-tag">Conflict Navigation</span>
+        <span class="modal-tag">Mediation</span>
+        <span class="modal-tag">Governance Design</span>
+        <span class="modal-tag">Full Presence Mindfulness</span>
+        <span class="modal-tag">Culture & Art</span>
+      </div>
+      <p class="modal-section-label">Affiliations</p>
+      <div class="modal-clients">
+        <span>Colmenar Consulting Cooperative (co-owner)</span>
+        <span>Dorchester Art Project (co-owner)</span>
+        <span>US Federation of Worker Cooperatives (board)</span>
+        <span>Greater Boston Chamber of Cooperatives (board)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-ep">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">EP</div>
+      <h3 class="modal-name">EP</h3>
+      <p class="modal-role">Executive Coach · Human-Centric Leadership · Team Culture</p>
+      <div class="modal-body">
+      <p>EP spent twenty years leading strategy and partnership teams at large global organizations — across countries as diverse as Brazil, Russia, India, China, and throughout Europe. She observed the same patterns of leadership and team dysfunction in every setting. Different languages, same breakdowns.</p>
+      <p>A serious accident during a business trip changed her trajectory. After months of recovery, the question shifted from <em>what's good for my career?</em> to <em>what's the best way to use my life force?</em> She left her position, completed her coaching education, and started over.</p>
+      <p>Working with teams steeped in tension, bully behavior, silent conflict, and false harmony, she noticed the root: people were seeing each other as titles and job functions, not whole humans. To address this, she developed Human-Centric Leading — a leadership model, mindset, and toolset that puts people at the center of decisions.</p>
+      <p>She holds an MBA, is a Professional Certified Coach (PCC) recognized by the International Coaching Federation, and is affiliated with UVA Darden Executive Education. She has published five Human-Centric Leading Toolkits and is the author of <em>Reclaiming Our Humanity in the Workplace</em>.</p>
+      <p>She co-leads Leaders for Good, a leadership development and team culture design firm. The differentiator is working at the mindset level before launching into structural transformation — and that changes everything.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Executive Coaching</span>
+        <span class="modal-tag">Leadership Development</span>
+        <span class="modal-tag">Team Culture Design</span>
+        <span class="modal-tag">Human-Centric Leading</span>
+        <span class="modal-tag">Conflict & Resistance</span>
+        <span class="modal-tag">Change Management</span>
+      </div>
+      <p class="modal-section-label">Affiliations</p>
+      <div class="modal-clients">
+        <span>Leaders for Good (co-lead)</span>
+        <span>UVA Darden Executive Education</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-nw">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">NW</div>
+      <h3 class="modal-name">NW</h3>
+      <p class="modal-role">Systems Leadership · Adult Development · Network Weaving</p>
+      <div class="modal-body">
+      <p>NW spent a decade as an operations leader — strategy, analytics, marketing, call center operations — holding eleven different roles in different parts of the same business. That range taught him something most specialists miss: how culture, communication, incentives, and technology affect teams in patterns that are real but invisible to the people inside them.</p>
+      <p>He moved into systems leadership, applying that understanding to complex challenges: improving customer experience for millions, supporting global crisis response, spreading a network mindset among NGOs, and weaving learning communities in Toronto.</p>
+      <p>He is a consultant at Cultivating Leadership, working with executives in tech, pharma, and consumer goods. He co-authored <em>Human Work: Five Leadership Mindsets for Humanising the Workplace</em>. He founded ThinkBetter, focused on systems mapping and collective sense-making.</p>
+      <p>Recently he led a team mapping the Wellbeing Economies Landscape across Canada — roughly 500 organizations, projects, and people working toward an economy that serves people and planet first. He is COO at Sareta, an AI materials science startup, where he is responsible for growing a healthy organization from the inside out.</p>
+      <p>He is based in Toronto. Outside of work, he DJs, canoes, camps, and is learning what 'villaging' looks like as a new parent.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Systems Leadership</span>
+        <span class="modal-tag">Adult Development</span>
+        <span class="modal-tag">Network Weaving</span>
+        <span class="modal-tag">Wellbeing Economy</span>
+        <span class="modal-tag">Complexity</span>
+        <span class="modal-tag">Systems Mapping</span>
+      </div>
+      <p class="modal-section-label">Affiliations</p>
+      <div class="modal-clients">
+        <span>Sareta (COO)</span>
+        <span>Cultivating Leadership (consultant)</span>
+        <span>ThinkBetter (founder)</span>
+        <span>Wellbeing Economy Alliance</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-jm">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">JM</div>
+      <h3 class="modal-name">JM</h3>
+      <p class="modal-role">Adaptive Human Systems · Social Fabric · Community Weaving</p>
+      <div class="modal-body">
+      <p>JM co-creates communities of learning and meaningful connection — in work and in play. She designs for what happens when structures take away freedom for exploration, sensing into the complexities of social dynamics through emotional, social, and spiritual intelligence.</p>
+      <p>She belongs to both old paradigms and new transformative systems, navigating the divide as she lives through it. Her practice is less about method and more about presence — breathing into spaces where all stories of belonging can see the light of day.</p>
+      <p>She is resilient, playfully creative, and draws on compassion and empathy for self and others. She lives in curiosity across all areas of life, with particular attention to people, food, travel, and music.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Adaptive Systems</span>
+        <span class="modal-tag">Community Weaving</span>
+        <span class="modal-tag">Social Fabric Design</span>
+        <span class="modal-tag">Belonging</span>
+        <span class="modal-tag">Emergence</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-agm">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">AGM</div>
+      <h3 class="modal-name">AGM</h3>
+      <p class="modal-role">Philanthropy · Nonprofit Development · Equity & Belonging</p>
+      <div class="modal-body">
+      <p>AGM has over twenty years of experience in philanthropy and nonprofit organizational and programmatic development. She has deep experience across sectors including the arts, gender-based violence, grantmaking strategy, and community-based organizing.</p>
+      <p>Her practice centers on something specific: catalyzing the power of people to become agents of their own change. She works by holding space for strategic inquiry, relationship building, and openness to learning — inviting heart and mind into the journey of personal transformation and collective action.</p>
+      <p>She holds an MBA from DePaul University's Kellstadt School of Business and a Certificate in Nonprofit Management from Northwestern's Kellogg School of Management. Previously she served as Director of Strategic Initiatives at Chicago Foundation for Women, where she connected the dots around gender-based violence and its impact on the social, health, and economic issues communities face. Before that, twelve years as Senior Program Officer at Alphawood Foundation.</p>
+      <p>As a convener, she has a rare ability to bring different — often disparate — stakeholder groups to the table in a way that both advances and practices equity. She hosts and nurtures deep dialogue around equity and belonging, not as a topic but as a lived practice.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Philanthropy</span>
+        <span class="modal-tag">Nonprofit Development</span>
+        <span class="modal-tag">Equity & Belonging</span>
+        <span class="modal-tag">Strategic Planning</span>
+        <span class="modal-tag">Grantmaking</span>
+        <span class="modal-tag">Collaborative Action</span>
+      </div>
+      <p class="modal-section-label">Affiliations</p>
+      <div class="modal-clients">
+        <span>AGMeneses Consulting (principal)</span>
+        <span>Crossroads Fund (board)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-ic">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">IC</div>
+      <h3 class="modal-name">IC</h3>
+      <p class="modal-role">Systems Design · Emotional Complexity · Nervous System Theory</p>
+      <div class="modal-body">
+      <p>IC is a systems designer and strategist. Her focus is specific and unusual: helping designers and teams engage with the emotional complexity surrounding problems — so they stop perpetuating systems of oppression in their work and in their team dynamics.</p>
+      <p>She uses distress as a tool for design. Where most practitioners try to manage tension out of the room, she works with the despair, confusion, and insecurity that complex systemic injustice actually produces — treating emotional unrest as a catalyst for reimagining solutions at the margins of collective imagination.</p>
+      <p>Her approach integrates design thinking, nervous system theory, and complexity science. With over a decade of consulting experience in reproductive justice, ed-tech justice, liberation movements, and maternal health, she recently led a three-year grant initiative focused on reducing infant mortality in Brooklyn.</p>
+      <p>She writes about recurring conflict in high-performing teams — how implicit memory powers the 'elevator ride' from observation to certainty, and how teams can learn to slow down the meaning-making process enough to actually see what's happening. She holds a BS in Global Studies from The New School.</p>
+      <p>She was Designer in Residence at SVA's Design for Social Innovation program. Her collaborations include the NAACP Climate Justice Working Group, ACLU of Northern California, and Elephant Circle.</p>
+      <p>Her favorite social spaces: holiday dinners, barbershops, packed kitchens, rap battles, and workshops of unlikely collaborators.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Systems Design</span>
+        <span class="modal-tag">Emotional Complexity</span>
+        <span class="modal-tag">Nervous System Theory</span>
+        <span class="modal-tag">Complexity Science</span>
+        <span class="modal-tag">Reproductive Justice</span>
+        <span class="modal-tag">Team Conflict</span>
+      </div>
+      <p class="modal-section-label">Affiliations</p>
+      <div class="modal-clients">
+        <span>IfWeThen Studio</span>
+        <span>SVA DSI (Designer in Residence)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-th">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">TH</div>
+      <h3 class="modal-name">TH</h3>
+      <p class="modal-role">Relational Practice · Nervous System Health · Community Tending</p>
+      <div class="modal-body">
+      <p>TH cares about nurturing a thriving community and network of humans who want to live differently — and be supported while supporting, stewarding, and tending to the whole.</p>
+      <p>Her work centers on nervous system health, communication, connection and autonomy, working with differences and conflict, and what she calls mutual thrival. She experiments and learns in groups, moving toward more holistic well-being together — not as an idea but as a lived, daily practice.</p>
+      <p>She is deeply embedded in intentional community, living alongside others who share the commitment. Her approach is experiential and relational. The way we are together matters as much as what we produce.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Nervous System Health</span>
+        <span class="modal-tag">Relational Practice</span>
+        <span class="modal-tag">Conflict & Difference</span>
+        <span class="modal-tag">Community Tending</span>
+        <span class="modal-tag">Mutual Thrival</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-bc">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div class="modal-initials">BC</div>
+      <h3 class="modal-name">BC</h3>
+      <p class="modal-role">Human Dynamics · Psychotherapy · Relational Depth</p>
+      <div class="modal-body">
+      <p>BC is deeply interested in human dynamics, studying them from the vantage point of psychotherapy. His focus is less on technique and more on what happens when people are met with genuine attention and allowed to discover what they already know.</p>
+      <p>He cares about the process of people coming more deeply in touch with their own knowing — and building relationships from that place. This orientation informs his work in group settings, organizational contexts, and one-on-one encounters.</p>
+      </div>
+      <p class="modal-section-label">Domains</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Psychotherapy</span>
+        <span class="modal-tag">Human Dynamics</span>
+        <span class="modal-tag">Relational Depth</span>
+        <span class="modal-tag">Inner Knowing</span>
+      </div>
+    </div>
+  </div>
+
+<div class="divider"></div>
+
+<section class="section-cta pad">
+  <h2 class="cta-word reveal">Let's find out<br>if we're a <em>fit.</em></h2>
+  <p class="cta-sub reveal rd1">A first conversation is free and without obligation.</p>
+  <div class="cta-group reveal rd2">
+    <a href="mailto:hello@limicelia.org" class="btn-p">Begin a conversation</a>
+    <a href="index.html" class="btn-g">Back to home</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Limicelia</span>
+  <div class="footer-links">
+    <a href="our-approach.html">Our Approach</a>
+    <a href="services.html">Services</a>
+    <a href="mission.html">Mission</a>
+    <!-- Commons Model hidden pending ISI analysis -->
+    <a href="bios.html">About</a>
+  </div>
+  <span class="footer-note">ISI 501(c)(3) · Est. 2026</span>
+</footer>
+
+<script>
+(function(){
+  var bd = document.body;
+  var dots = document.querySelectorAll('.ps-dot');
+  var canvas = document.getElementById('mc');
+  var ctx = canvas.getContext('2d');
+  var W, H, nodes = [], edges = [], frame = 0;
+  var rgb = [201,145,74];
+  var PALETTES = {
+    dark:[201,145,74], warm:[192,128,60], slate:[126,170,191],
+    forest:[143,175,120], light:[150,96,28]
+  };
+
+
+  /* ── Time-of-day palette cycling ──────────────────── */
+  function getTimePalette() {
+    var h = new Date().getHours();
+    if (h >= 5  && h < 8)  return 'warm';
+    if (h >= 8  && h < 13) return 'light';
+    if (h >= 13 && h < 17) return 'slate';
+    if (h >= 17 && h < 20) return 'forest';
+    return 'dark';
+  }
+
+  function setPalette(p) {
+    bd.classList.remove('p-warm','p-slate','p-forest','p-light');
+    if (p !== 'dark') bd.classList.add('p-' + p);
+    dots.forEach(function(d){ d.classList.toggle('on', d.dataset.p === p); });
+    rgb = PALETTES[p] || PALETTES.dark;
+  }
+
+  /* Manual click: override for this session */
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      setPalette(d.dataset.p);
+      try { sessionStorage.setItem('lim-manual', d.dataset.p); } catch(e){}
+    });
+  });
+
+  /* On load: manual override wins, otherwise follow the clock */
+  var manual = null;
+  try { manual = sessionStorage.getItem('lim-manual'); } catch(e){}
+  setPalette(manual || getTimePalette());
+
+  /* Check every 5 min — if no manual override, shift with the light */
+  setInterval(function(){
+    var m = null;
+    try { m = sessionStorage.getItem('lim-manual'); } catch(e){}
+    if (!m) setPalette(getTimePalette());
+  }, 300000);
+
+  function buildEdges() {
+    edges = [];
+    var mx = 130;
+    for (var i = 0; i < nodes.length; i++)
+      for (var j = i+1; j < nodes.length; j++) {
+        var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d < mx) edges.push([i, j, d, mx]);
+      }
+  }
+  function initNet() {
+    nodes = []; edges = [];
+    var n = Math.floor(W * H / 28000);
+    for (var i = 0; i < n; i++)
+      nodes.push({
+        x: Math.random()*W, y: Math.random()*H,
+        vx: (Math.random()-.5)*.12, vy: (Math.random()-.5)*.09,
+        r: Math.random()*1.2+.3
+      });
+    buildEdges();
+  }
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight * 3;
+    initNet();
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var r=rgb[0], g=rgb[1], b=rgb[2];
+    for (var e = 0; e < edges.length; e++) {
+      var a = (1 - edges[e][2]/edges[e][3]) * .18;
+      ctx.strokeStyle = 'rgba('+r+','+g+','+b+','+a+')';
+      ctx.lineWidth   = (1 - edges[e][2]/edges[e][3]) * .6;
+      ctx.beginPath();
+      ctx.moveTo(nodes[edges[e][0]].x, nodes[edges[e][0]].y);
+      ctx.lineTo(nodes[edges[e][1]].x, nodes[edges[e][1]].y);
+      ctx.stroke();
+    }
+    for (var ni = 0; ni < nodes.length; ni++) {
+      ctx.fillStyle = 'rgba('+r+','+g+','+b+',.32)';
+      ctx.beginPath();
+      ctx.arc(nodes[ni].x, nodes[ni].y, nodes[ni].r, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+  function tick() {
+    for (var ni = 0; ni < nodes.length; ni++) {
+      nodes[ni].x += nodes[ni].vx; nodes[ni].y += nodes[ni].vy;
+      if (nodes[ni].x < 0 || nodes[ni].x > W) nodes[ni].vx *= -1;
+      if (nodes[ni].y < 0 || nodes[ni].y > H) nodes[ni].vy *= -1;
+    }
+  }
+  function loop() {
+    tick();
+    if (frame % 4 === 0) buildEdges();
+    draw();
+    frame++;
+    requestAnimationFrame(loop);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  loop();
+
+  /* ── Scroll reveal ── */
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ obs.observ
