@@ -65,7 +65,13 @@ section{position:relative;z-index:2}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
 
 /* ─── HERO ── */
-.svc-hero{display:flex;flex-direction:column;justify-content:flex-end;padding:3rem clamp(2rem,7vw,7rem) 2rem;position:relative;z-index:2}
+.svc-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;position:relative;z-index:2;min-height:320px}
+@media(max-width:800px){.svc-hero{grid-template-columns:1fr;min-height:auto}}
+.svc-hero-text{display:flex;flex-direction:column;justify-content:flex-end;padding:3rem clamp(2rem,7vw,7rem) 2rem}
+.svc-hero-img{position:relative;overflow:hidden;min-height:260px}
+.svc-hero-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.55) saturate(.7);transition:filter .6s}
+.svc-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--ink) 0%,transparent 35%)}
+@media(max-width:800px){.svc-hero-img{min-height:220px}.svc-hero-img::after{background:linear-gradient(to bottom,transparent 30%,var(--ink) 100%)}}
 .svc-hero-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1.2rem}
 .svc-hero-h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;max-width:22ch;margin-bottom:1rem;color:var(--tp)}
 .svc-hero-h1 em{font-style:italic;color:var(--amber)}
@@ -298,9 +304,14 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 
 <!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section class="svc-hero">
-  <p class="svc-hero-eyebrow reveal">Limicelia · Practice domains</p>
-  <h1 class="svc-hero-h1 reveal rd1">The work<br>lives inside<br>the <em>situation.</em></h1>
-  <p class="svc-hero-sub reveal rd2">We don't prescribe a practice. We enter what's actually happening and stay until something shifts. Every engagement begins with a diagnostic conversation — not a service selection.</p>
+  <div class="svc-hero-text">
+    <p class="svc-hero-eyebrow reveal">Limicelia · Practice domains</p>
+    <h1 class="svc-hero-h1 reveal rd1">The work<br>lives inside<br>the <em>situation.</em></h1>
+    <p class="svc-hero-sub reveal rd2">We don't prescribe a practice. We enter what's actually happening and stay until something shifts. Every engagement begins with a diagnostic conversation — not a service selection.</p>
+  </div>
+  <div class="svc-hero-img">
+    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1200&q=80&auto=format&fit=crop" alt="" aria-hidden="true" loading="eager">
+  </div>
 </section>
 
 <!-- ══ CONSTELLATION — rapid visual overview ═════════════════ -->

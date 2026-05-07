@@ -49,11 +49,17 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .staging-banner{background:rgba(201,145,74,.12);border-bottom:1px solid var(--amber-dim);padding:1.2rem clamp(2rem,7vw,7rem);position:relative;z-index:200;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;line-height:1.9}
 .staging-banner strong{color:var(--amber);display:block;margin-bottom:.4rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
 .staging-banner p{color:var(--ts);opacity:.85}
-.guide-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,4vh,4rem);position:relative;z-index:2}
+.guide-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;position:relative;z-index:2;min-height:280px}
+@media(max-width:800px){.guide-hero{grid-template-columns:1fr;min-height:auto}}
+.guide-hero-text{padding:2.5rem clamp(2rem,7vw,7rem) 2rem;display:flex;flex-direction:column;justify-content:flex-end}
+.guide-hero-img{position:relative;overflow:hidden;min-height:240px}
+.guide-hero-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.5) saturate(.65);transition:filter .6s}
+.guide-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--ink) 0%,transparent 40%)}
+@media(max-width:800px){.guide-hero-img{min-height:180px}.guide-hero-img::after{background:linear-gradient(to bottom,transparent 20%,var(--ink) 100%)}}
 .breadcrumb{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2.5rem;transition:color .2s}
 .breadcrumb:hover{color:var(--ts)}
 .guide-eyebrow{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.2rem}
-.guide-h1{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:300;line-height:1.1;max-width:20ch;margin-bottom:1.8rem}
+.guide-h1{font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.1;max-width:20ch;margin-bottom:1.4rem}
 .guide-h1 em{font-style:italic;color:var(--amber)}
 .guide-lede{font-size:clamp(1rem,1.15vw,1.1rem);color:var(--ts);max-width:60ch;line-height:1.85;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2rem}
 .guide-meta{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);display:flex;gap:2rem;flex-wrap:wrap}
@@ -80,12 +86,13 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .anat-popup-eg{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--amber);opacity:.6;margin-top:.8rem;border-top:1px solid var(--rul);padding-top:.7rem;line-height:1.7}
 .example-banner{background:rgba(201,145,74,.07);border:1px solid var(--amber-dim);padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:2.5rem;display:inline-flex;align-items:center;gap:.7rem}
 .example-banner::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0}
-.example-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
-.example-card{background:var(--sur);padding:2.2rem 2rem;border-left:2px solid var(--amber-dim)}
-.example-card-num{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
-.example-card-title{font-size:.72rem;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:.5rem}
-.example-card-body{font-size:.95rem;color:var(--ts);line-height:1.78}
-.example-card-body em{font-style:italic;color:var(--tp)}
+.example-list{display:flex;flex-direction:column;gap:0;margin-bottom:3rem;border-top:1px solid var(--rul)}
+.example-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.1rem 0;border-bottom:1px solid var(--rul);align-items:start}
+@media(max-width:640px){.example-item{grid-template-columns:1fr;gap:.4rem}}
+.example-item-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.65;padding-top:.2rem;line-height:1.5}
+.example-item-body{font-size:.95rem;color:var(--ts);line-height:1.78}
+.example-item-body em{font-style:italic;color:var(--tp)}
+.example-item-body strong{color:var(--tp);font-weight:400}
 .prompt-stack{display:flex;flex-direction:column;gap:0;margin-bottom:4rem}
 .prompt-row{border-bottom:1px solid var(--rul);padding:2rem 0}
 .prompt-row:first-child{border-top:1px solid var(--rul)}
@@ -94,12 +101,14 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .prompt-q em{font-style:italic;color:var(--amber)}
 .prompt-note{font-size:.88rem;color:var(--tm);line-height:1.72;font-style:italic;max-width:55ch}
 .perf-banner{background:rgba(201,145,74,.06);border:1px dashed var(--amber-dim);padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;opacity:.7}
-.perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
-.perf-card{background:var(--ink);padding:2rem 1.8rem}
-.perf-card-org{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:.5rem}
-.perf-card-situation{font-size:1rem;color:var(--ts);line-height:1.78;margin-bottom:.8rem;font-style:italic}
-.perf-card-outcome{font-size:.9rem;color:var(--tm);line-height:1.72}
-.perf-card-method{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.4;margin-top:.8rem}
+.perf-list{display:flex;flex-direction:column;gap:0;margin-bottom:3rem;border-top:1px solid var(--rul)}
+.perf-item{padding:1.4rem 0;border-bottom:1px solid var(--rul);display:grid;grid-template-columns:160px 1fr;gap:2rem;align-items:start}
+@media(max-width:640px){.perf-item{grid-template-columns:1fr;gap:.4rem}}
+.perf-item-org{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.55;padding-top:.15rem}
+.perf-item-body{display:flex;flex-direction:column;gap:.5rem}
+.perf-item-situation{font-size:.95rem;color:var(--ts);line-height:1.75;font-style:italic}
+.perf-item-outcome{font-size:.9rem;color:var(--tm);line-height:1.7}
+.perf-item-method{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.4}
 .guide-cta{text-align:center;padding:clamp(4rem,7vh,6rem) clamp(2rem,7vw,7rem);position:relative;overflow:hidden}
 .guide-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
 .guide-cta-h{font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.1;margin-bottom:1.2rem}
@@ -132,11 +141,16 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 </nav>
 
 <section class="guide-hero">
-  <a href="services.html" class="breadcrumb reveal">← Services</a>
-  <p class="guide-eyebrow reveal">Service Design Guide · Organizational Memory &amp; Knowledge</p>
-  <h1 class="guide-h1 reveal rd1">How we decide<br>what to<br><em>say about this.</em></h1>
-  <p class="guide-lede reveal rd2">Exploded anatomy of the Organizational Memory domain page — what each section is for, a live draft example, and prompts to resolve before publishing.</p>
-  <div class="guide-meta reveal rd3"><span>Domain: Organizational Memory &amp; Knowledge</span><span>Status: Established practice</span></div>
+  <div class="guide-hero-text">
+    <a href="services.html" class="breadcrumb reveal">← Services</a>
+    <p class="guide-eyebrow reveal">Service Design Guide · Organizational Memory &amp; Knowledge</p>
+    <h1 class="guide-h1 reveal rd1">How we decide<br>what to<br><em>say about this.</em></h1>
+    <p class="guide-lede reveal rd2">Exploded anatomy of the Organizational Memory domain page — what each section is for, a live draft example, and prompts to resolve before publishing.</p>
+    <div class="guide-meta reveal rd3"><span>Domain: Organizational Memory &amp; Knowledge</span><span>Status: Established practice</span></div>
+  </div>
+  <div class="guide-hero-img">
+    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80&auto=format&fit=crop" alt="" aria-hidden="true" loading="eager">
+  </div>
 </section>
 
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
@@ -233,41 +247,34 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   <h2 class="sec-h2 reveal rd1">What it looks like<br><em>filled in.</em></h2>
   <p class="sec-intro reveal rd2">Current working draft. Read for what rings true and what doesn't.</p>
   <div class="example-banner reveal rd3">Live draft · Org Memory · review and revise</div>
-  <div class="example-grid reveal">
-    <div class="example-card">
-      <p class="example-card-num">Section 01</p>
-      <p class="example-card-title">Hero Headline</p>
-      <p class="example-card-body"><em>"When the founding director who held everything in her head for twelve years is leaving — and month three of the new ED's tenure, there are no documents for how any of this actually works."</em></p>
+    <div class="example-list reveal">
+    <div class="example-item">
+      <p class="example-item-label">01 · Hero Headline</p>
+      <div class="example-item-body"><em>"When the founding director who held everything in her head for twelve years is leaving — and the new ED realizes there are no documents for how any of this actually works."</em></div>
     </div>
-    <div class="example-card">
-      <p class="example-card-num">Section 02</p>
-      <p class="example-card-title">Lede</p>
-      <p class="example-card-body">For organizations navigating leadership transitions, growth moments, or mergers where what the organization knows cannot be allowed to leave with the people who currently carry it. We make tacit knowledge legible without making it lifeless — the goal is that understanding lives in the organization, not in a binder.</p>
+    <div class="example-item">
+      <p class="example-item-label">02 · Lede</p>
+      <div class="example-item-body">For organizations navigating leadership transitions, growth moments, or mergers where what the organization knows cannot leave with the people who carry it. We make tacit knowledge legible without making it lifeless.</div>
     </div>
-    <div class="example-card">
-      <p class="example-card-num">Section 03</p>
-      <p class="example-card-title">Entry Scenarios</p>
-      <p class="example-card-body"><em>The founding director who held everything in her head for twelve years.</em><br><br><em>The new ED on month three, realizing there are no documents for how any of this actually works.</em><br><br><em>A merger where two organizations' ways of knowing need to become one — without either being flattened.</em></p>
+    <div class="example-item">
+      <p class="example-item-label">03 · Entry Scenarios</p>
+      <div class="example-item-body"><em>The founding director who held everything in her head for twelve years.</em><br><em>The new ED on month three, realizing there are no documents for how any of this works.</em><br><em>A merger where two organizations' ways of knowing need to become one — without either being flattened.</em></div>
     </div>
-    <div class="example-card">
-      <p class="example-card-num">Section 04</p>
-      <p class="example-card-title">Engagement Types</p>
-      <p class="example-card-body"><strong>Leadership Transition Support</strong> — Accompanying an organization through the knowledge transfer embedded in a leadership change. We work with the outgoing and incoming leader together when possible — and we capture what neither would think to document.<br><br><strong>Narrative Harvest</strong> — Drawing out organizational history, decision logic, and relational knowledge through structured conversation. The output is legible knowledge that the organization can hold and use — not a report that gets filed.<br><br><strong>Knowledge Architecture</strong> — Designing the systems and practices through which an organization captures, stores, and activates what it learns over time. For organizations that want to build this capacity, not just address a single moment.</p>
+    <div class="example-item">
+      <p class="example-item-label">04 · Engagement Types</p>
+      <div class="example-item-body"><strong>Leadership Transition Support</strong> — Accompanying an organization through the knowledge transfer embedded in a leadership change. We capture what neither leader would think to document.<br><br><strong>Narrative Harvest</strong> — Drawing out organizational history, decision logic, and relational knowledge through structured conversation. Output: legible knowledge the organization can hold and use.<br><br><strong>Knowledge Architecture</strong> — Designing systems and practices through which an organization captures, stores, and activates what it learns over time.</div>
     </div>
-    <div class="example-card">
-      <p class="example-card-num">Section 05</p>
-      <p class="example-card-title">Contrast</p>
-      <p class="example-card-body"><strong>What most org knowledge work produces:</strong> Documentation. SOPs, wikis, process maps. Comprehensive, accurate, and then unread within six months because no one built the culture of using them.<br><br><strong>What we do:</strong> Work at the level of understanding — the reasoning behind decisions, the relationships that make things work, the things that are true that nobody has written down. The goal is that the organization can think without the person who held the knowledge. That's different from capturing what they know.</p>
+    <div class="example-item">
+      <p class="example-item-label">05 · Contrast</p>
+      <div class="example-item-body"><strong>What most org knowledge work produces:</strong> Documentation. SOPs, wikis, process maps — comprehensive, accurate, and unread within six months because no one built the culture of using them.<br><br><strong>What we do:</strong> Work at the level of understanding — the reasoning behind decisions, the relationships that make things work, the things that are true but unwritten. The goal is that the organization can think without the person who held the knowledge.</div>
     </div>
-    <div class="example-card">
-      <p class="example-card-num">Section 06</p>
-      <p class="example-card-title">Related Domains</p>
-      <p class="example-card-body"><strong>Organizational Design &amp; Governance</strong> — Knowledge gaps often signal structural gaps. Sometimes the real work is building the roles and processes that carry institutional learning forward.<br><br><strong>Leadership &amp; Culture Transformation</strong> — Leadership transitions are rarely just about knowledge transfer — they're about identity, power, and what the organization becomes next. These domains often run together.</p>
+    <div class="example-item">
+      <p class="example-item-label">06 · Related Domains</p>
+      <div class="example-item-body"><strong>Organizational Design &amp; Governance</strong> — Knowledge gaps often signal structural gaps. Sometimes the real work is building roles and processes that carry institutional learning forward.<br><br><strong>Leadership &amp; Culture</strong> — Leadership transitions are rarely just about knowledge transfer — they're about identity, power, and what the organization becomes next.</div>
     </div>
-    <div class="example-card">
-      <p class="example-card-num">Section 07</p>
-      <p class="example-card-title">Invitation</p>
-      <p class="example-card-body">Tell us what's at stake — who's leaving, what they know, what you're worried about losing. We'll help you figure out what needs to be captured, what needs to be built, and what needs to be let go.<br><br><em>hello [at] limicelia [dot] org</em></p>
+    <div class="example-item">
+      <p class="example-item-label">07 · Invitation</p>
+      <div class="example-item-body">Tell us what's at stake — who's leaving, what they know, what you're worried about losing. We'll help figure out what needs to be captured, what needs to be built, and what needs to be let go.<br><em>hello [at] limicelia [dot] org</em></div>
     </div>
   </div>
 </section>
@@ -319,10 +326,35 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   <h2 class="sec-h2 reveal rd1">Where this work<br>has <em>already happened.</em></h2>
   <p class="sec-intro reveal rd2">Real engagements. Fill in from memory to ground the prompts in actual history.</p>
   <div class="perf-banner reveal">⚠ Staging only — do not promote without co-steward review</div>
-  <div class="perf-grid reveal rd2">
-    <div class="perf-card"><p class="perf-card-org">[ Organization type · Sector ]</p><p class="perf-card-situation">[ Situation — from client's frame ]</p><p class="perf-card-outcome">[ What became possible ]</p><p class="perf-card-method">[ Methods ]</p></div>
-    <div class="perf-card"><p class="perf-card-org">[ Organization type · Sector ]</p><p class="perf-card-situation">[ Situation ]</p><p class="perf-card-outcome">[ What shifted ]</p><p class="perf-card-method">[ Methods ]</p></div>
-    <div class="perf-card"><p class="perf-card-org">[ Organization type · Sector ]</p><p class="perf-card-situation">[ Situation ]</p><p class="perf-card-outcome">[ What shifted ]</p><p class="perf-card-method">[ Methods ]</p></div>
+  <div class="perf-list reveal rd2">
+
+    <div class="perf-item">
+      <p class="perf-item-org">[ Org type · Sector ]</p>
+      <div class="perf-item-body">
+        <p class="perf-item-situation">[ Situation as the client would describe it — what were they experiencing when they called? ]</p>
+        <p class="perf-item-outcome">[ What became possible that wasn't before? Not deliverables — capacity or structural change. ]</p>
+        <p class="perf-item-method">[ Methods — optional ]</p>
+      </div>
+    </div>
+
+    <div class="perf-item">
+      <p class="perf-item-org">[ Org type · Sector ]</p>
+      <div class="perf-item-body">
+        <p class="perf-item-situation">[ Situation — from client's frame ]</p>
+        <p class="perf-item-outcome">[ What shifted ]</p>
+        <p class="perf-item-method">[ Methods ]</p>
+      </div>
+    </div>
+
+    <div class="perf-item">
+      <p class="perf-item-org">[ Org type · Sector ]</p>
+      <div class="perf-item-body">
+        <p class="perf-item-situation">[ Situation — from client's frame ]</p>
+        <p class="perf-item-outcome">[ What shifted ]</p>
+        <p class="perf-item-method">[ Methods ]</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
