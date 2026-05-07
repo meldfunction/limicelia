@@ -65,11 +65,11 @@ section{position:relative;z-index:2}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
 
 /* ─── HERO ── */
-.svc-hero{min-height:72vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(3rem,5vh,4rem);position:relative;z-index:2}
-.svc-hero-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:2.5rem}
-.svc-hero-h1{font-size:clamp(3.5rem,7vw,7rem);font-weight:300;line-height:1.0;letter-spacing:-.03em;max-width:16ch;margin-bottom:2.5rem;color:var(--tp)}
+.svc-hero{display:flex;flex-direction:column;justify-content:flex-end;padding:3rem clamp(2rem,7vw,7rem) 2rem;position:relative;z-index:2}
+.svc-hero-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1.2rem}
+.svc-hero-h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;max-width:22ch;margin-bottom:1rem;color:var(--tp)}
 .svc-hero-h1 em{font-style:italic;color:var(--amber)}
-.svc-hero-sub{font-size:clamp(1rem,1.3vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:52ch;border-left:1px solid var(--amber-dim);padding-left:1.2rem}
+.svc-hero-sub{font-size:.95rem;font-weight:300;line-height:1.7;color:var(--ts);max-width:58ch;border-left:1px solid var(--amber-dim);padding-left:1.2rem}
 
 /* ─── FIELD NAVIGATOR (sticky mini orbital) ── */
 .field-nav{position:fixed;top:6rem;right:clamp(1.5rem,4vw,4rem);z-index:90;width:140px;height:140px;opacity:0;transition:opacity .6s}
@@ -83,7 +83,7 @@ section{position:relative;z-index:2}
 
 .domain-row{
   border-top:1px solid var(--rul);
-  padding:clamp(2.5rem,5vh,4rem) clamp(2rem,7vw,7rem);
+  padding:1.6rem clamp(2rem,7vw,7rem);
   cursor:pointer;
   position:relative;
   transition:background .4s;
@@ -104,7 +104,7 @@ section{position:relative;z-index:2}
 
 /* row number — huge faded */
 .domain-row-num{
-  position:absolute;right:clamp(2rem,7vw,7rem);top:clamp(3.5rem,7vh,6rem);
+  position:absolute;right:clamp(2rem,7vw,7rem);top:1.4rem;
   font-family:'DM Mono',monospace;font-size:clamp(4rem,8vw,9rem);font-weight:300;
   color:var(--amber);opacity:.06;line-height:1;pointer-events:none;
   transition:opacity .4s;user-select:none;
@@ -188,7 +188,7 @@ section{position:relative;z-index:2}
 /* ─── DEVELOPING DIVIDER ── */
 .dev-divider{
   position:relative;z-index:2;
-  padding:clamp(2rem,4vh,3rem) clamp(2rem,7vw,7rem);
+  padding:.9rem clamp(2rem,7vw,7rem);
   border-top:1px solid var(--rul);
   display:flex;align-items:center;gap:2rem;
 }
@@ -201,22 +201,22 @@ section{position:relative;z-index:2}
 }
 
 /* ─── ENTRY TYPES ── */
-.entry-section{position:relative;z-index:2;padding:clamp(4rem,7vh,6rem) clamp(2rem,7vw,7rem);background:var(--sur)}
-.entry-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:2rem;display:flex;align-items:center;gap:.8rem}
+.entry-section{position:relative;z-index:2;padding:2.5rem clamp(2rem,7vw,7rem);background:var(--sur)}
+.entry-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem}
 .entry-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.5}
-.entry-h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.12;color:var(--tp);margin-bottom:3rem}
+.entry-h2{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:300;line-height:1.12;color:var(--tp);margin-bottom:1.5rem}
 .entry-h2 em{font-style:italic;color:var(--amber)}
 .entry-rows{border-top:1px solid var(--rul)}
-.entry-row{display:grid;grid-template-columns:1fr 2fr;gap:3rem;padding:2rem 0;border-bottom:1px solid var(--rul);align-items:start}
+.entry-row{display:grid;grid-template-columns:1fr 2fr;gap:2rem;padding:1.2rem 0;border-bottom:1px solid var(--rul);align-items:start}
 @media(max-width:700px){.entry-row{grid-template-columns:1fr;gap:1rem}}
 .entry-row-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.55;padding-top:.15rem}
 .entry-row-body{font-size:1rem;font-weight:300;line-height:1.8;color:var(--ts)}
 .entry-row-body em{font-style:italic;color:var(--tp)}
 
 /* ─── CTA ── */
-.svc-cta{position:relative;z-index:2;text-align:center;padding:clamp(5rem,9vh,8rem) clamp(2rem,7vw,7rem);overflow:hidden}
+.svc-cta{position:relative;z-index:2;text-align:center;padding:3rem clamp(2rem,7vw,7rem);overflow:hidden}
 .svc-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 60%);pointer-events:none}
-.svc-cta-word{font-size:clamp(2.5rem,5vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);margin-bottom:1.5rem}
+.svc-cta-word{font-size:clamp(2rem,3.5vw,3.8rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);margin-bottom:1rem}
 .svc-cta-word em{font-style:italic;color:var(--amber)}
 .svc-cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:42ch;margin:0 auto 2.5rem}
 .svc-cta-email{font-family:'DM Mono',monospace;font-size:.85rem;letter-spacing:.1em;color:var(--amber)}
@@ -233,7 +233,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 /* ─── DOMAIN CONSTELLATION ── */
 .constellation{
   position:relative;z-index:2;
-  width:100%;height:clamp(420px,70vh,680px);
+  width:100%;height:clamp(260px,38vh,400px);
   border-top:1px solid var(--rul);
   overflow:hidden;cursor:default;
 }
