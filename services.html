@@ -1,434 +1,517 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Limicelia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
-/* ─── PALETTES ─────────────────────────── */
-:root{
-  --ink:#0e0d0a;--parchment:#f2ead8;--amber:#c9914a;
-  --amber-glow:rgba(201,145,74,.15);--amber-dim:rgba(201,145,74,.4);
-  --soil:#1a1710;--spore:rgba(242,234,216,.06);
-  --tp:#f2ead8;--ts:rgba(242,234,216,.75);--tm:rgba(242,234,216,.48);
-  --sur:#1c1a15;--rul:rgba(242,234,216,.1);--ca:.32;
-}
-body.p-warm{--ink:#221b12;--parchment:#f6edd8;--amber:#c0803c;--amber-glow:rgba(192,128,60,.18);--amber-dim:rgba(192,128,60,.45);--soil:#302516;--spore:rgba(246,237,216,.07);--tp:#f6edd8;--ts:rgba(246,237,216,.78);--tm:rgba(246,237,216,.48);--sur:#302516;--rul:rgba(246,237,216,.1);--ca:.22}
-body.p-slate{--ink:#131820;--parchment:#dce6f0;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.15);--amber-dim:rgba(126,170,191,.4);--soil:#1a2230;--spore:rgba(220,230,240,.05);--tp:#dce6f0;--ts:rgba(220,230,240,.75);--tm:rgba(220,230,240,.45);--sur:#1a2230;--rul:rgba(220,230,240,.1);--ca:.28}
-body.p-forest{--ink:#0d1510;--parchment:#d8ecd8;--amber:#8faf78;--amber-glow:rgba(143,175,120,.15);--amber-dim:rgba(143,175,120,.4);--soil:#141f16;--spore:rgba(216,236,216,.05);--tp:#d8ecd8;--ts:rgba(216,236,216,.75);--tm:rgba(216,236,216,.45);--sur:#141f16;--rul:rgba(216,236,216,.1);--ca:.25}
-body.p-light{--ink:#f5f0e8;--parchment:#1e1a14;--amber:#96601c;--amber-glow:rgba(150,96,28,.1);--amber-dim:rgba(150,96,28,.35);--soil:#ede6d6;--spore:rgba(30,26,20,.04);--tp:#1e1a14;--ts:rgba(30,26,20,.72);--tm:rgba(30,26,20,.45);--sur:#ede6d6;--rul:rgba(30,26,20,.1);--ca:.1}
+/* ─── PALETTES ── */
+:root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
+body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
+body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
+body.p-forest{--ink:#0d1510;--amber:#8faf78;--amber-glow:rgba(143,175,120,.12);--amber-dim:rgba(143,175,120,.38);--tp:#d8ecd8;--ts:rgba(216,236,216,.72);--tm:rgba(216,236,216,.43);--sur:#141f16;--rul:rgba(216,236,216,.09);--ca:.22}
+body.p-light{--ink:#f5f0e8;--amber:#96601c;--amber-glow:rgba(150,96,28,.08);--amber-dim:rgba(150,96,28,.3);--tp:#1e1a14;--ts:rgba(30,26,20,.7);--tm:rgba(30,26,20,.43);--sur:#ede6d6;--rul:rgba(30,26,20,.09);--ca:.1}
 
-/* ─── BASE ─────────────────────────────── */
+/* ─── BASE ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:17px;line-height:1.65}
+body{background:var(--ink);color:var(--tp);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;transition:background .5s,color .5s;font-size:18px;line-height:1.7}
 a{color:inherit;text-decoration:none}
 
-/* ─── PALETTE SWITCHER ─────────────────── */
+/* ─── PALETTE SWITCHER ── */
 .ps{position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
 .ps-lbl{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;color:var(--tm);transition:color .4s}
 .ps-row{display:flex;gap:.35rem}
 .ps-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .2s,transform .2s}
-.ps-dot:hover{transform:scale(1.2)}
-.ps-dot.on{border-color:var(--amber)}
-.ps-dot[data-p="dark"] {background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
-.ps-dot[data-p="warm"] {background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
+.ps-dot:hover{transform:scale(1.2)}.ps-dot.on{border-color:var(--amber)}
+.ps-dot[data-p="dark"]{background:#0e0d0a;box-shadow:0 0 0 1px rgba(201,145,74,.3)}
+.ps-dot[data-p="warm"]{background:#221b12;box-shadow:0 0 0 1px rgba(192,128,60,.3)}
 .ps-dot[data-p="slate"]{background:#131820;box-shadow:0 0 0 1px rgba(126,170,191,.3)}
 .ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
 .ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
 
-/* ─── CANVAS ───────────────────────────── */
+/* ─── CANVAS (mycelium bg) ── */
 #mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 section{position:relative;z-index:2}
 
-/* ─── WORDMARK ───────────────────────────── */
+/* ─── NAV ── */
 .wordmark{display:inline-flex;align-items:center;gap:.9rem}
 .wordmark-glyph{width:28px;height:28px;flex-shrink:0}
-.wordmark-text{display:flex;flex-direction:column;gap:.2rem}
 .wordmark-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--tp);line-height:1;transition:color .4s}
-
-/* ─── STICKY NAV ──────────────────────── */
 .hnav{position:sticky;top:0;z-index:100;background:var(--ink);transition:background .5s;display:flex;justify-content:space-between;align-items:center;padding:clamp(1rem,2vw,1.5rem) clamp(2rem,7vw,7rem)}
 .hnav::after{content:'';position:absolute;bottom:0;left:clamp(2rem,7vw,7rem);right:clamp(2rem,7vw,7rem);height:1px;background:var(--rul);opacity:0;transition:opacity .3s}
 .hnav.scrolled::after{opacity:1}
 .hnav-links{display:flex;gap:2.5rem;list-style:none}
 .hnav-links a{font-family:'DM Mono',monospace;font-size:.66rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);transition:color .3s}
 .hnav-links a:hover,.hnav-links a.active{color:var(--amber)}
+.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;cursor:pointer;padding:.4rem}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:600px){
+  .hamburger{display:flex}
+  .hnav-links{display:none;flex-direction:column;gap:1.2rem;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:1.2rem clamp(2rem,7vw,7rem);border-bottom:1px solid var(--rul)}
+  .hnav-links.open{display:flex}
+}
 
-/* ─── SHARED ─────────────────────────────── */
-.pad{padding:clamp(3rem,6vh,5rem) clamp(2rem,7vw,7rem)}
-.pad-sm{padding:clamp(2rem,4vh,3rem) clamp(2rem,7vw,7rem)}
-.sec-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;transition:color .4s}
-.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.6}
-.sec-num{opacity:.5;margin-right:.2rem}
-h2.sec-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;color:var(--tp);transition:color .4s}
-h2.sec-title em{font-style:italic;color:var(--amber);transition:color .4s}
-.body-text{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);transition:color .4s}
-.body-text strong{color:var(--tp);font-weight:400}
-.divider{height:1px;background:var(--rul);margin:0 clamp(2rem,7vw,7rem);transition:background .4s}
-.btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
-.btn-p:hover{background:transparent;color:var(--amber)}
+/* ─── SHARED ── */
 .btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
 .btn-g::after{content:'→';transition:transform .3s;display:inline-block}
-.btn-g:hover{color:var(--tp)}
-.btn-g:hover::after{transform:translateX(5px)}
-
-/* ─── PAGE HERO (subpages) ───────────── */
-.page-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,5vh,4rem);position:relative;z-index:2}
-.page-hero .eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;transition:color .4s}
-.page-hero h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--tp);transition:color .4s;max-width:16ch}
-.page-hero h1 em{font-style:italic;color:var(--amber);transition:color .4s}
-.page-hero .hero-lede{font-size:clamp(1rem,1.5vw,1.15rem);font-weight:300;line-height:1.75;color:var(--ts);max-width:54ch;margin-top:1.8rem;border-left:2px solid var(--amber-dim);padding-left:1.4rem;transition:color .4s}
-
-/* ─── CONTENT SECTIONS ───────────────── */
-.content-section{transition:background .5s}
-.content-section.alt{background:var(--sur)}
-
-/* ─── DOMAIN CARDS ───────────────────── */
-.domain-list{display:flex;flex-direction:column;gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
-.domain-card{background:var(--ink);padding:2rem 2.2rem;transition:background .4s;cursor:pointer;user-select:none}
-.domain-card:hover{background:var(--amber-glow)}
-.domain-card-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0;gap:2rem}
-.domain-card-name{font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:400;color:var(--tp);transition:color .4s}
-.domain-card-name em{font-style:italic;color:var(--amber)}
-.domain-card-meta{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;white-space:nowrap}
-.domain-card-toggle{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--amber);opacity:.5;flex-shrink:0;transition:transform .3s,opacity .3s;margin-left:.8rem}
-.domain-card.open .domain-card-toggle{transform:rotate(45deg);opacity:.8}
-.domain-card-collapse{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
-.domain-card.open .domain-card-collapse{grid-template-rows:1fr}
-.domain-card-collapse-inner{overflow:hidden}
-.domain-card-tags{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:.6rem;margin-top:.7rem}
-.domain-card-body{font-size:.95rem;font-weight:300;line-height:1.75;color:var(--ts);max-width:60ch;transition:color .4s}
-
-/* ─── TIER GRID ──────────────────────── */
-.tier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0;transition:background .4s}
-.tier-card{background:var(--ink);padding:2rem;transition:background .4s}
-.tier-card:hover{background:var(--sur)}
-.tier-card.span{grid-column:1/-1}
-.tier-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:.6rem}
-.tier-name{font-size:1.15rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
-.tier-body{font-size:.92rem;font-weight:300;line-height:1.78;color:var(--ts);transition:color .4s}
-.tier-body em{font-style:italic;color:var(--amber)}
-
-/* ─── TRADITION ITEMS ────────────────── */
-.tradition-item{padding:1.3rem 1.5rem;border-left:2px solid var(--amber-dim);background:var(--spore);margin-bottom:.8rem;transition:border-color .4s}
-.tradition-item:hover{border-left-color:var(--amber)}
-.tradition-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem;transition:color .4s}
-.tradition-roots{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;color:var(--amber);opacity:.6;margin-bottom:.5rem}
-.tradition-desc{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm);transition:color .4s}
-
-/* ─── METHOD PILLS ───────────────────── */
-.method-grid{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0}
-.method-pill{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .85rem;border:1px solid var(--rul);color:var(--tm);transition:all .3s}
-.method-pill:hover{border-color:var(--amber-dim);color:var(--ts);background:var(--amber-glow)}
-
-/* ─── FLYWHEEL / HIGHLIGHT ───────────── */
-.highlight-box{border:1px solid var(--rul);padding:1.8rem 2rem;background:var(--spore);margin:2rem 0;transition:border-color .4s}
-.highlight-box p{font-size:.95rem;font-weight:300;line-height:1.78;color:var(--ts)}
-.highlight-box strong{color:var(--tp);font-weight:400}
-
-/* ─── PRINCIPLES LIST ────────────────── */
-.principle-item{padding:1.2rem 0;border-bottom:1px solid var(--rul);transition:border-color .4s}
-.principle-item:first-child{border-top:1px solid var(--rul)}
-.principle-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;color:var(--amber);opacity:.6;margin-bottom:.3rem}
-.principle-text{font-size:.98rem;font-weight:300;line-height:1.78;color:var(--ts);transition:color .4s}
-.principle-text strong{color:var(--tp);font-weight:400}
-
-/* ─── NETWORK CARDS ──────────────────── */
-.network-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin:2rem 0}
-.network-card{background:var(--ink);padding:1.6rem 1.8rem;transition:background .4s}
-.network-card:hover{background:var(--sur)}
-.network-card-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem}
-.network-card-desc{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm)}
-
-/* ─── DOMAIN FIELD (orbital) ─────────── */
-.domain-field-wrap{margin:2.5rem 0 3rem;position:relative}
-.domain-field-canvas{display:block;width:100%;max-width:720px;height:320px}
-.domain-field-caption{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);opacity:.55;margin-top:.5rem}
-@media(max-width:600px){.domain-field-canvas{height:260px}}
-
-/* ─── VIGNETTE ───────────────────────── */
-.domain-card-vignette{font-family:'Cormorant Garamond',Georgia,serif;font-size:.95rem;font-style:italic;color:var(--amber);opacity:.75;margin-top:.8rem;margin-bottom:.2rem;line-height:1.55;border-left:1px solid var(--amber-dim);padding-left:.9rem}
-
-/* ─── CTA ────────────────────────────── */
-.section-cta{text-align:center;position:relative;overflow:hidden}
-.section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
-.cta-word{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;color:var(--tp);transition:color .4s}
-.cta-word em{font-style:italic;color:var(--amber);transition:color .4s}
-.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 2.5rem;transition:color .4s}
-.cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
-
-/* ─── FOOTER ─────────────────────────── */
-footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem;transition:border-color .4s}
-.footer-logo{font-size:.88rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);transition:color .4s}
-.footer-note{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6;transition:color .4s}
-.footer-links{display:flex;gap:2rem}
-.footer-links a{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
-.footer-links a:hover{opacity:1}
-
-/* ─── ANIMATIONS ─────────────────────── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
+.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}
 
-/* ─── RESPONSIVE ─────────────────────── */
-@media(max-width:1000px){
-  .tier-grid{grid-template-columns:1fr}
-  .network-grid{grid-template-columns:1fr}
+/* ─── HERO ── */
+.svc-hero{min-height:72vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(3rem,5vh,4rem);position:relative;z-index:2}
+.svc-hero-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:2.5rem}
+.svc-hero-h1{font-size:clamp(3.5rem,7vw,7rem);font-weight:300;line-height:1.0;letter-spacing:-.03em;max-width:16ch;margin-bottom:2.5rem;color:var(--tp)}
+.svc-hero-h1 em{font-style:italic;color:var(--amber)}
+.svc-hero-sub{font-size:clamp(1rem,1.3vw,1.15rem);font-weight:300;line-height:1.8;color:var(--ts);max-width:52ch;border-left:1px solid var(--amber-dim);padding-left:1.2rem}
+
+/* ─── FIELD NAVIGATOR (sticky mini orbital) ── */
+.field-nav{position:fixed;top:6rem;right:clamp(1.5rem,4vw,4rem);z-index:90;width:140px;height:140px;opacity:0;transition:opacity .6s}
+.field-nav.visible{opacity:1}
+.field-nav-canvas{display:block;width:140px;height:140px;cursor:pointer}
+.field-nav-label{font-family:'DM Mono',monospace;font-size:.42rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);text-align:center;margin-top:.3rem;opacity:.6}
+@media(max-width:900px){.field-nav{display:none}}
+
+/* ─── DOMAIN ROWS ── */
+.domain-field{position:relative;z-index:2}
+
+.domain-row{
+  border-top:1px solid var(--rul);
+  padding:clamp(3.5rem,7vh,6rem) clamp(2rem,7vw,7rem);
+  cursor:pointer;
+  position:relative;
+  transition:background .4s;
+  overflow:hidden;
 }
-@media(max-width:700px){
-  .hnav-links{gap:1.2rem}
-  footer{flex-direction:column;text-align:center}
-  .ps{bottom:1rem;right:1rem}
+.domain-row::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:var(--amber);opacity:0;transition:opacity .4s;
+}
+.domain-row.est::before{opacity:.6}
+.domain-row.dev::before{background:var(--amber-dim);opacity:.35;
+  background-image:repeating-linear-gradient(to bottom,var(--amber-dim) 0,var(--amber-dim) 4px,transparent 4px,transparent 8px);
+  width:1px;
+}
+.domain-row:hover{background:rgba(201,145,74,.03)}
+.domain-row.dev{opacity:.75}
+.domain-row.dev:hover{opacity:1}
+
+/* row number — huge faded */
+.domain-row-num{
+  position:absolute;right:clamp(2rem,7vw,7rem);top:clamp(3.5rem,7vh,6rem);
+  font-family:'DM Mono',monospace;font-size:clamp(4rem,8vw,9rem);font-weight:300;
+  color:var(--amber);opacity:.06;line-height:1;pointer-events:none;
+  transition:opacity .4s;user-select:none;
+}
+.domain-row:hover .domain-row-num{opacity:.1}
+.domain-row.open .domain-row-num{opacity:.12}
+
+/* label above vignette */
+.domain-row-label{
+  font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:1.4rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.domain-row-label::after{content:'';display:block;height:1px;background:var(--amber);opacity:.3;flex:1;max-width:3rem}
+.domain-row.dev .domain-row-label{opacity:.4}
+
+/* vignette — the dominant element */
+.domain-row-vignette{
+  font-size:clamp(1.4rem,2.8vw,2.4rem);font-weight:300;font-style:italic;
+  line-height:1.25;color:var(--tp);max-width:26ch;
+  transition:color .4s;
+}
+.domain-row.dev .domain-row-vignette{color:var(--ts)}
+
+/* toggle hint */
+.domain-row-hint{
+  font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--amber);opacity:.35;
+  margin-top:1.6rem;display:flex;align-items:center;gap:.5rem;
+  transition:opacity .3s;
+}
+.domain-row:hover .domain-row-hint{opacity:.6}
+.domain-row.open .domain-row-hint{opacity:0;height:0;margin:0;overflow:hidden}
+
+/* expandable detail panel */
+.domain-row-detail{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .5s cubic-bezier(.4,0,.2,1);
+}
+.domain-row.open .domain-row-detail{grid-template-rows:1fr}
+.domain-row-detail-inner{overflow:hidden}
+
+.domain-row-body{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);
+  padding-top:2.5rem;padding-bottom:.5rem;
+}
+@media(max-width:700px){.domain-row-body{grid-template-columns:1fr}}
+
+.domain-row-desc{
+  font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);max-width:48ch;
+}
+.domain-row-methods{padding-top:.2rem}
+.domain-row-methods-label{
+  font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:1rem;
+}
+.domain-row-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.domain-row-tag{
+  font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;
+  text-transform:uppercase;padding:.35rem .7rem;
+  border:1px solid var(--rul);color:var(--tm);
+  transition:border-color .3s,color .3s;
+}
+.domain-row:hover .domain-row-tag{border-color:var(--amber-dim);color:var(--ts)}
+.domain-row-duration{
+  font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--amber);opacity:.45;margin-top:1.4rem;
 }
 
-</style>
-</head>
+/* link domains */
+.domain-row-link{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;
+  font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--amber);opacity:.65;transition:opacity .2s;
+}
+.domain-row-link::after{content:'→';display:inline-block;transition:transform .3s}
+.domain-row-link:hover{opacity:1}
+.domain-row-link:hover::after{transform:translateX(4px)}
+
+/* ─── DEVELOPING DIVIDER ── */
+.dev-divider{
+  position:relative;z-index:2;
+  padding:clamp(2rem,4vh,3rem) clamp(2rem,7vw,7rem);
+  border-top:1px solid var(--rul);
+  display:flex;align-items:center;gap:2rem;
+}
+.dev-divider-line{flex:1;height:1px;
+  background-image:repeating-linear-gradient(to right,var(--amber-dim) 0,var(--amber-dim) 6px,transparent 6px,transparent 12px);
+}
+.dev-divider-text{
+  font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--amber);opacity:.45;white-space:nowrap;
+}
+
+/* ─── ENTRY TYPES ── */
+.entry-section{position:relative;z-index:2;padding:clamp(4rem,7vh,6rem) clamp(2rem,7vw,7rem);background:var(--sur)}
+.entry-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:2rem;display:flex;align-items:center;gap:.8rem}
+.entry-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--amber);opacity:.5}
+.entry-h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.12;color:var(--tp);margin-bottom:3rem}
+.entry-h2 em{font-style:italic;color:var(--amber)}
+.entry-rows{border-top:1px solid var(--rul)}
+.entry-row{display:grid;grid-template-columns:1fr 2fr;gap:3rem;padding:2rem 0;border-bottom:1px solid var(--rul);align-items:start}
+@media(max-width:700px){.entry-row{grid-template-columns:1fr;gap:1rem}}
+.entry-row-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.55;padding-top:.15rem}
+.entry-row-body{font-size:1rem;font-weight:300;line-height:1.8;color:var(--ts)}
+.entry-row-body em{font-style:italic;color:var(--tp)}
+
+/* ─── CTA ── */
+.svc-cta{position:relative;z-index:2;text-align:center;padding:clamp(5rem,9vh,8rem) clamp(2rem,7vw,7rem);overflow:hidden}
+.svc-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 60%);pointer-events:none}
+.svc-cta-word{font-size:clamp(2.5rem,5vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--tp);margin-bottom:1.5rem}
+.svc-cta-word em{font-style:italic;color:var(--amber)}
+.svc-cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:42ch;margin:0 auto 2.5rem}
+.svc-cta-email{font-family:'DM Mono',monospace;font-size:.85rem;letter-spacing:.1em;color:var(--amber)}
+
+/* ─── FOOTER ── */
+footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
+.footer-links a:hover{opacity:1}
+.footer-note{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);opacity:.5}
+@media(max-width:700px){footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
+
+/* ─── EVENT BANNER ── */
+.event-banner{display:block;text-decoration:none;margin:0 clamp(2rem,7vw,7rem) clamp(2rem,4vh,3rem);border:1px solid var(--amber-dim);background:var(--amber-glow);padding:1.4rem 2rem;transition:background .3s;position:relative;z-index:2}
+.event-banner:hover{background:rgba(201,145,74,.18)}
+.event-banner-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.event-banner-date{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:.35rem}
+.event-banner-title{font-size:1.05rem;font-weight:400;color:var(--tp)}
+.event-banner-cta{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap;opacity:.7}
+</style></head>
+
 <body>
-
-<div class="ps">
-  <p class="ps-lbl">Theme</p>
-  <div class="ps-row">
-    <button class="ps-dot on" data-p="dark"   title="Dark"></button>
-    <button class="ps-dot"    data-p="warm"   title="Warm"></button>
-    <button class="ps-dot"    data-p="slate"  title="Slate"></button>
-    <button class="ps-dot"    data-p="forest" title="Forest"></button>
-    <button class="ps-dot"    data-p="light"  title="Light"></button>
-  </div>
-</div>
 <canvas id="mc"></canvas>
 
-<nav class="hnav">
-    <div class="wordmark">
-      <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
-        <line x1="14" y1="11.8" x2="14"  y2="3"   stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
-        <line x1="14" y1="16.2" x2="14"  y2="25"  stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
-        <line x1="11.8" y1="14" x2="3"   y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-        <line x1="16.2" y1="14" x2="25"  y2="14"  stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
-        <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-        <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
-        <line x1="15.6" y1="12.4" x2="22.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
-        <line x1="12.4" y1="15.6" x2="5.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".2"/>
-        <circle cx="14"  cy="3"   r="1.1" fill="var(--amber)" opacity=".4"/>
-        <circle cx="14"  cy="25"  r="1.1" fill="var(--amber)" opacity=".25"/>
-        <circle cx="3"   cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
-        <circle cx="25"  cy="14"  r="1.1" fill="var(--amber)" opacity=".35"/>
-        <circle cx="5.5" cy="5.5" r=".9"  fill="var(--amber)" opacity=".22"/>
-        <circle cx="22.5" cy="22.5" r=".9" fill="var(--amber)" opacity=".22"/>
-      </svg>
-      <div class="wordmark-text">
-        <a href="index.html"><span class="wordmark-name">Limicelia</span></a>
-      </div>
-    </div>
-    <ul class="hnav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="our-approach.html">Our Approach</a></li>
-      <!-- Our Model hidden pending ISI analysis -->
-      <li><a href="index.html#bios">About</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </nav>
+<div class="ps"><span class="ps-lbl">Palette</span><div class="ps-row">
+  <div class="ps-dot on" data-p="dark"></div>
+  <div class="ps-dot" data-p="warm"></div>
+  <div class="ps-dot" data-p="slate"></div>
+  <div class="ps-dot" data-p="forest"></div>
+  <div class="ps-dot" data-p="light"></div>
+</div></div>
 
+<!-- sticky orbital navigator -->
+<div class="field-nav" id="fieldNav">
+  <canvas class="field-nav-canvas" id="fieldNavCanvas" width="280" height="280"></canvas>
+  <p class="field-nav-label">domain field</p>
+</div>
 
-<section class="page-hero">
-  <p class="eyebrow">Limicelia · Services</p>
-  <h1>Practice domains.<br><em>Custom every time.</em></h1>
-  <p class="hero-lede">We don't offer a service menu. We build custom engagements at the intersection of domains — all following the same arc: listen from the frontline up, name what the system produces, stay through the hard part, leave capacity — not a report.</p>
+<nav class="hnav" id="hnav">
+  <a href="index.html" class="wordmark">
+    <svg class="wordmark-glyph" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="2.2" fill="var(--amber)" opacity=".9"/>
+      <line x1="14" y1="11.8" x2="14" y2="3" stroke="var(--amber)" stroke-width=".8" opacity=".55"/>
+      <line x1="14" y1="16.2" x2="14" y2="25" stroke="var(--amber)" stroke-width=".8" opacity=".35"/>
+      <line x1="11.8" y1="14" x2="3" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="16.2" y1="14" x2="25" y2="14" stroke="var(--amber)" stroke-width=".8" opacity=".45"/>
+      <line x1="12.4" y1="12.4" x2="5.5" y2="5.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+      <line x1="15.6" y1="15.6" x2="22.5" y2="22.5" stroke="var(--amber)" stroke-width=".8" opacity=".3"/>
+      <circle cx="14" cy="3" r="1.1" fill="var(--amber)" opacity=".4"/>
+      <circle cx="25" cy="14" r="1.1" fill="var(--amber)" opacity=".35"/>
+    </svg>
+    <span class="wordmark-name">Limicelia</span>
+  </a>
+  <ul class="hnav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="our-approach.html">Our Approach</a></li>
+    <li><a href="bios.html">About</a></li>
+    <li><a href="https://calendly.com/limicelia">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section class="svc-hero">
+  <p class="svc-hero-eyebrow reveal">Limicelia · Practice domains</p>
+  <h1 class="svc-hero-h1 reveal rd1">The work<br>lives inside<br>the <em>situation.</em></h1>
+  <p class="svc-hero-sub reveal rd2">We don't prescribe a practice. We enter what's actually happening and stay until something shifts. Every engagement begins with a diagnostic conversation — not a service selection.</p>
 </section>
 
-<div class="divider"></div>
+<!-- ══ DOMAIN ROWS — established ════════════════════════════ -->
+<div class="domain-field" id="domainField">
 
-<section class="content-section pad" id="domains">
-  <p class="sec-label reveal"><span class="sec-num">01 /</span> Practice domains</p>
-  <h2 class="sec-title reveal" style="margin-bottom:.7rem">Seven practice<br><em>domains.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">We distinguish between work we have a sustained history of doing and work we are still actively developing. Most engagements draw from several domains simultaneously.</p>
-
-  <!-- ─── Domain Field — orbital, non-hierarchical ─── -->
-  <div class="domain-field-wrap reveal rd2">
-    <canvas class="domain-field-canvas" id="domainField" aria-label="Seven practice domains shown as a field of relationships — not a hierarchy"></canvas>
-    <p class="domain-field-caption">Seven domains · most engagements draw from several simultaneously · ◉ established · ○ developing</p>
-  </div>
-
-  <div class="domain-list reveal rd2">
-    <div class="domain-card" onclick="toggleCard(this)">
-      <div class="domain-card-head">
-        <h3 class="domain-card-name">Organizational Design &amp; <em>Governance</em></h3>
-        <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0">
-          <span class="domain-card-meta">6–9 months</span>
-          <span class="domain-card-toggle">+</span>
-        </div>
-      </div>
-      <div class="domain-card-collapse">
-        <div class="domain-card-collapse-inner">
-          <p class="domain-card-vignette">A board meeting where the same three people make every decision. Staff who know the answer but have no place to put it. An org chart that doesn't match how anything actually works.</p>
-          <p class="domain-card-tags">Sociocracy · Consent-Based Decision-Making · Role Clarity</p>
-          <p class="domain-card-body">Sociocratic and participatory structures, decision-making frameworks, role clarity and accountability systems that reflect how the organization actually wants to operate — not how the org chart says it should.</p>
-        </div>
-      </div>
-    </div>
-    <div class="domain-card" onclick="toggleCard(this)">
-      <div class="domain-card-head">
-        <h3 class="domain-card-name">Leadership &amp; <em>Culture</em> Transformation</h3>
-        <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0">
-          <span class="domain-card-meta">6–9 months</span>
-          <span class="domain-card-toggle">+</span>
-        </div>
-      </div>
-      <div class="domain-card-collapse">
-        <div class="domain-card-collapse-inner">
-          <p class="domain-card-vignette">The executive who says all the right things in the all-hands and then does the opposite in 1:1s. The team that's exhausted not from the work but from the gap between what's said and what's real.</p>
-          <p class="domain-card-tags">Inner-Outer Integration · Culture Change · Relational Repair</p>
-          <p class="domain-card-body">Working with leaders and teams through inner and outer work simultaneously — shifting culture, healing relational dynamics, building conditions for sustained change without burning out the people doing it.</p>
-        </div>
-      </div>
-    </div>
-    <div class="domain-card" onclick="toggleCard(this)">
-      <div class="domain-card-head">
-        <h3 class="domain-card-name">Conflict Resolution &amp; <em>Coalition</em> Building</h3>
-        <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0">
-          <span class="domain-card-meta">3–6 months</span>
-          <span class="domain-card-toggle">+</span>
-        </div>
-      </div>
-      <div class="domain-card-collapse">
-        <div class="domain-card-collapse-inner">
-          <p class="domain-card-vignette">Two departments that haven't spoken honestly in eighteen months. A coalition held together by shared values but fracturing on who holds the money. A rupture nobody will name in a meeting.</p>
-          <p class="domain-card-tags">Deep Democracy · Power-Aware · Multi-Stakeholder</p>
-          <p class="domain-card-body">Facilitated processes for navigating conflict, cross-sector tension, and coalition formation where power differentials are real and need to be named, not managed.</p>
-        </div>
-      </div>
-    </div>
-    <div class="domain-card" onclick="toggleCard(this)">
-      <div class="domain-card-head">
-        <h3 class="domain-card-name">Organizational Memory &amp; <em>Knowledge</em></h3>
-        <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0">
-          <span class="domain-card-meta">3–4 months</span>
-          <span class="domain-card-toggle">+</span>
-        </div>
-      </div>
-      <div class="domain-card-collapse">
-        <div class="domain-card-collapse-inner">
-          <p class="domain-card-vignette">The founding director who held everything in her head for twelve years. The new ED on month three, realizing there are no documents for how any of this actually works.</p>
-          <p class="domain-card-tags">Harvest · Transition Support · Living Documents</p>
-          <p class="domain-card-body">Capturing, stewarding, and activating institutional knowledge — especially in leadership transitions where what was learned must not leave with the person who's leaving.</p>
+  <!-- 01 Org Design -->
+  <div class="domain-row est reveal" data-domain="0" onclick="toggleRow(this)">
+    <span class="domain-row-num" aria-hidden="true">01</span>
+    <p class="domain-row-label">Organizational Design &amp; Governance</p>
+    <p class="domain-row-vignette">A board meeting where the same three people make every decision. Staff who know the answer but have no place to put it. An org chart that doesn't match how anything actually works.</p>
+    <p class="domain-row-hint">↓ open</p>
+    <div class="domain-row-detail">
+      <div class="domain-row-detail-inner">
+        <div class="domain-row-body">
+          <div>
+            <p class="domain-row-desc">Sociocratic and participatory structures, decision-making frameworks, role clarity and accountability systems that reflect how the organization actually wants to operate — not how the org chart says it should. We build structure from the inside out, with the people who will live in it.</p>
+            <p class="domain-row-duration">Typical engagement · 6–9 months</p>
+          </div>
+          <div class="domain-row-methods">
+            <p class="domain-row-methods-label">Methods drawn from</p>
+            <div class="domain-row-tags">
+              <span class="domain-row-tag">Sociocracy 3.0</span>
+              <span class="domain-row-tag">Consent-Based Decision-Making</span>
+              <span class="domain-row-tag">Role Clarity</span>
+              <span class="domain-row-tag">Cynefin Sense-Making</span>
+              <span class="domain-row-tag">Governance Design</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<div class="divider"></div>
-
-<section class="content-section pad" id="developing">
-  <p class="sec-label reveal"><span class="sec-num">02 /</span> Developing practice</p>
-  <h2 class="sec-title reveal" style="margin-bottom:.7rem">Where we are<br><em>still learning.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:1.5rem">This is work we are actively developing through live engagements. We take it on selectively — where the situation genuinely calls for it and where we can be honest about where our practice is.</p>
-
-  <div class="domain-list reveal rd2">
-    <div class="domain-card" style="border-left:2px solid var(--amber-dim)" onclick="toggleCard(this)">
-      <div class="domain-card-head">
-        <h3 class="domain-card-name">Community <em>Engagement</em> &amp; Participatory Design</h3>
-        <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0">
-          <span class="domain-card-meta" style="opacity:.5">Developing · 4–6 months</span>
-          <span class="domain-card-toggle">+</span>
-        </div>
-      </div>
-      <div class="domain-card-collapse">
-        <div class="domain-card-collapse-inner">
-          <p class="domain-card-vignette">A city agency that held twelve listening sessions and changed nothing. A product team that surveyed thousands of users and built what they already planned. Community voice, laundered into legitimacy.</p>
-          <p class="domain-card-tags">Frontline Intelligence · Co-Design · Not Consultation Theater</p>
-          <p class="domain-card-body">Bringing community intelligence into the center of strategy, service, and product — not as consultation theater but as actual co-design where what the community knows shapes what gets built.</p>
+  <!-- 02 Leadership & Culture -->
+  <div class="domain-row est reveal" data-domain="1" onclick="toggleRow(this)">
+    <span class="domain-row-num" aria-hidden="true">02</span>
+    <p class="domain-row-label">Leadership &amp; Culture Transformation</p>
+    <p class="domain-row-vignette">The executive who says all the right things in the all-hands and then does the opposite in 1:1s. The team that's exhausted not from the work but from the gap between what's said and what's real.</p>
+    <p class="domain-row-hint">↓ open</p>
+    <div class="domain-row-detail">
+      <div class="domain-row-detail-inner">
+        <div class="domain-row-body">
+          <div>
+            <p class="domain-row-desc">Working with leaders and teams through inner and outer work simultaneously — shifting culture, healing relational dynamics, building conditions for sustained change without burning out the people doing it. The practitioner's body and presence are instruments of this work.</p>
+            <p class="domain-row-duration">Typical engagement · 6–9 months</p>
+          </div>
+          <div class="domain-row-methods">
+            <p class="domain-row-methods-label">Methods drawn from</p>
+            <div class="domain-row-tags">
+              <span class="domain-row-tag">Generative Somatics</span>
+              <span class="domain-row-tag">Theory U</span>
+              <span class="domain-row-tag">Relational Repair</span>
+              <span class="domain-row-tag">Culture Change</span>
+              <span class="domain-row-tag">Inner-Outer Integration</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="domain-card" style="border-left:2px solid var(--amber-dim)" onclick="toggleCard(this)">
-      <div class="domain-card-head">
-        <h3 class="domain-card-name">Field <em>Building</em> &amp; Ecosystem Convening</h3>
-        <div style="display:flex;align-items:center;gap:1rem;flex-shrink:0">
-          <span class="domain-card-meta" style="opacity:.5">Developing · per convening</span>
-          <span class="domain-card-toggle">+</span>
-        </div>
-      </div>
-      <div class="domain-card-collapse">
-        <div class="domain-card-collapse-inner">
-          <p class="domain-card-vignette">Fifty people who work in the same ecosystem and have never been in a room together. A field that talks about systems change but convenes in panels. Something wants to emerge between them.</p>
-          <p class="domain-card-tags">Warm Data Labs · Open Space · Systems Convening</p>
-          <p class="domain-card-body">Designing and hosting convenings that strengthen connective tissue between practitioners, funders, researchers, and institutions at field edges. Not networking events — encounters that change how people think.</p>
-        </div>
-      </div>
-    </div>
-    <a href="ai.html" class="domain-card" style="display:block;text-decoration:none;cursor:pointer;border-left:2px solid var(--amber);background:var(--amber-glow)">
-      <div class="domain-card-head">
-        <h3 class="domain-card-name">AI Governance &amp; <em>Organizational Readiness</em></h3>
-        <span class="domain-card-meta" style="color:var(--amber);opacity:.75">Developing · reach out to explore</span>
-      </div>
-      <p class="domain-card-tags" style="margin-top:.7rem">Governance Frameworks · Participatory Technology Design · Values-Technology Gap</p>
-      <p class="domain-card-body">Helping organizations see clearly what technology is already doing — to decision-making, to labor, to power — and act deliberately from there. Not adoption consulting. Accompaniment through technological change.</p>
-      <p style="font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-top:.8rem">Full detail →</p>
-    </a>
   </div>
 
-  <!-- ── Confessional Event Banner ── -->
-  <a href="confessional.html" style="display:block;text-decoration:none;margin-top:2rem;border:1px solid var(--amber-dim);background:var(--amber-glow);padding:1.4rem 1.8rem;transition:background .3s" class="reveal rd3" onmouseover="this.style.background='rgba(201,145,74,.22)'" onmouseout="this.style.background='var(--amber-glow)'">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
-      <div>
-        <p style="font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:.35rem">June 22, 2026 · By invitation</p>
-        <h3 style="font-size:1.1rem;font-weight:400;color:var(--tp)">The AI Confessional — what organizations won't say publicly</h3>
+  <!-- 03 Conflict & Coalition -->
+  <div class="domain-row est reveal" data-domain="2" onclick="toggleRow(this)">
+    <span class="domain-row-num" aria-hidden="true">03</span>
+    <p class="domain-row-label">Conflict Resolution &amp; Coalition Building</p>
+    <p class="domain-row-vignette">Two departments that haven't spoken honestly in eighteen months. A coalition held together by shared values but fracturing on who holds the money. A rupture nobody will name in a meeting.</p>
+    <p class="domain-row-hint">↓ open</p>
+    <div class="domain-row-detail">
+      <div class="domain-row-detail-inner">
+        <div class="domain-row-body">
+          <div>
+            <p class="domain-row-desc">Facilitated processes for navigating conflict, cross-sector tension, and coalition formation where power differentials are real and need to be named, not managed. We don't mediate toward comfort — we move toward clarity.</p>
+            <p class="domain-row-duration">Typical engagement · 3–6 months</p>
+          </div>
+          <div class="domain-row-methods">
+            <p class="domain-row-methods-label">Methods drawn from</p>
+            <div class="domain-row-tags">
+              <span class="domain-row-tag">Deep Democracy</span>
+              <span class="domain-row-tag">Restorative Circles</span>
+              <span class="domain-row-tag">Nonviolent Communication</span>
+              <span class="domain-row-tag">Power-Aware Facilitation</span>
+              <span class="domain-row-tag">Multi-Stakeholder Process</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <span style="font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);white-space:nowrap">Request invite →</span>
     </div>
+  </div>
+
+  <!-- 04 Org Memory -->
+  <div class="domain-row est reveal" data-domain="3" onclick="toggleRow(this)">
+    <span class="domain-row-num" aria-hidden="true">04</span>
+    <p class="domain-row-label">Organizational Memory &amp; Knowledge</p>
+    <p class="domain-row-vignette">The founding director who held everything in her head for twelve years. The new ED on month three, realizing there are no documents for how any of this actually works.</p>
+    <p class="domain-row-hint">↓ open</p>
+    <div class="domain-row-detail">
+      <div class="domain-row-detail-inner">
+        <div class="domain-row-body">
+          <div>
+            <p class="domain-row-desc">Capturing, stewarding, and activating institutional knowledge — especially in leadership transitions where what was learned must not leave with the person who's leaving. We make tacit knowledge legible without making it lifeless.</p>
+            <p class="domain-row-duration">Typical engagement · 3–4 months</p>
+          </div>
+          <div class="domain-row-methods">
+            <p class="domain-row-methods-label">Methods drawn from</p>
+            <div class="domain-row-tags">
+              <span class="domain-row-tag">Narrative Harvest</span>
+              <span class="domain-row-tag">Transition Support</span>
+              <span class="domain-row-tag">Living Documents</span>
+              <span class="domain-row-tag">Appreciative Inquiry</span>
+              <span class="domain-row-tag">Story-Based Sense-Making</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- developing divider -->
+  <div class="dev-divider reveal">
+    <div class="dev-divider-line"></div>
+    <span class="dev-divider-text">Developing practice · active inquiry · taken on selectively</span>
+    <div class="dev-divider-line"></div>
+  </div>
+
+  <!-- 05 Community Engagement -->
+  <div class="domain-row dev reveal" data-domain="4" onclick="toggleRow(this)">
+    <span class="domain-row-num" aria-hidden="true">05</span>
+    <p class="domain-row-label">Community Engagement &amp; Participatory Design</p>
+    <p class="domain-row-vignette">A city agency that held twelve listening sessions and changed nothing. A product team that surveyed thousands of users and built what they already planned. Community voice, laundered into legitimacy.</p>
+    <p class="domain-row-hint">↓ open</p>
+    <div class="domain-row-detail">
+      <div class="domain-row-detail-inner">
+        <div class="domain-row-body">
+          <div>
+            <p class="domain-row-desc">Bringing community intelligence into the center of strategy, service, and product — not as consultation theater but as actual co-design where what the community knows shapes what gets built. This is distinct from user research. It is a different relationship to who holds authority over the design.</p>
+            <p class="domain-row-duration">Typical engagement · 4–6 months</p>
+          </div>
+          <div class="domain-row-methods">
+            <p class="domain-row-methods-label">Methods drawn from</p>
+            <div class="domain-row-tags">
+              <span class="domain-row-tag">Frontline Intelligence</span>
+              <span class="domain-row-tag">Co-Design</span>
+              <span class="domain-row-tag">Liberating Structures</span>
+              <span class="domain-row-tag">World Café</span>
+              <span class="domain-row-tag">Participatory Action Research</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 Field Building -->
+  <div class="domain-row dev reveal" data-domain="5" onclick="toggleRow(this)">
+    <span class="domain-row-num" aria-hidden="true">06</span>
+    <p class="domain-row-label">Field Building &amp; Ecosystem Convening</p>
+    <p class="domain-row-vignette">Fifty people who work in the same ecosystem and have never been in a room together. A field that talks about systems change but convenes in panels. Something wants to emerge between them.</p>
+    <p class="domain-row-hint">↓ open</p>
+    <div class="domain-row-detail">
+      <div class="domain-row-detail-inner">
+        <div class="domain-row-body">
+          <div>
+            <p class="domain-row-desc">Designing and hosting convenings that strengthen connective tissue between practitioners, funders, researchers, and institutions at field edges. Not networking events — encounters that change how people think. We design for emergence, not extraction.</p>
+            <p class="domain-row-duration">Typical engagement · per convening</p>
+          </div>
+          <div class="domain-row-methods">
+            <p class="domain-row-methods-label">Methods drawn from</p>
+            <div class="domain-row-tags">
+              <span class="domain-row-tag">Warm Data Labs</span>
+              <span class="domain-row-tag">Open Space Technology</span>
+              <span class="domain-row-tag">Systems Convening</span>
+              <span class="domain-row-tag">Bohm Dialogue</span>
+              <span class="domain-row-tag">Harvest Facilitation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 AI Governance — links to ai.html -->
+  <a href="ai.html" class="domain-row dev reveal" data-domain="6" style="display:block;text-decoration:none;border-left:1px solid var(--amber);border-top:1px solid var(--rul)">
+    <span class="domain-row-num" aria-hidden="true">07</span>
+    <p class="domain-row-label" style="opacity:.7">AI Governance &amp; Organizational Readiness <span style="margin-left:.8rem;opacity:.6">full detail →</span></p>
+    <p class="domain-row-vignette" style="color:var(--tp)">Technology is already reorganizing your organization. The question is whether the reorganization happening is the one you intended — and whether the people most affected had any say in it.</p>
+    <p class="domain-row-hint" style="opacity:.5">→ read more on the AI page</p>
   </a>
 
-</section>
+</div><!-- /domain-field -->
 
-<div class="divider"></div>
-
-<section class="content-section alt pad" id="engagement-types">
-  <p class="sec-label reveal"><span class="sec-num">03 /</span> Engagement types</p>
-  <h2 class="sec-title reveal" style="margin-bottom:.7rem">Three ways<br><em>to enter.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:1rem">Most engagements are custom — built at the intersection of several domains. We start with a diagnostic conversation, not a service selection.</p>
-
-  <div class="tier-grid reveal rd2">
-    <div class="tier-card">
-      <p class="tier-label">Diagnostic · 3 months</p>
-      <h3 class="tier-name">What's actually broken</h3>
-      <p class="tier-body">Discovery + deep listening + honest diagnosis. Deliverable: diagnostic report with recommended pathways. For organizations who know something's wrong but aren't sure what it needs.</p>
+<!-- event banner -->
+<a href="confessional.html" class="event-banner reveal">
+  <div class="event-banner-inner">
+    <div>
+      <p class="event-banner-date">June 22, 2026 · By invitation</p>
+      <p class="event-banner-title">The AI Confessional — what organizations won't say publicly</p>
     </div>
-    <div class="tier-card">
-      <p class="tier-label">Transformation · 6 months</p>
-      <h3 class="tier-name">Changing how you work</h3>
-      <p class="tier-body">Full six-phase arc: discovery through harvest. Redesigned structures, practices, and capacity that the organization owns after we leave.</p>
-    </div>
-    <div class="tier-card span">
-      <p class="tier-label">Anchor Partner · 12+ months</p>
-      <h3 class="tier-name">Sustained presence</h3>
-      <p class="tier-body">Embedded practitioner through multiple transitions. For organizations navigating continuous transformation, meta-organizations, and complex systems that need a sustained thinking partner.</p>
-    </div>
+    <span class="event-banner-cta">Request invite →</span>
   </div>
+</a>
 
-  <div class="highlight-box reveal rd3">
-    <p>If you know what's broken but not what it needs, that's the right place to begin. The diagnostic conversation is not a sales call — it is genuine inquiry into what the situation is asking for.</p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="section-cta pad" id="cta">
-  <h2 class="cta-word reveal">Not sure which<br>domain <em>fits?</em></h2>
-  <p class="cta-sub reveal rd1">Start with a conversation. Tell us what's breaking — we'll figure out together what it needs.</p>
-  <div class="cta-group reveal rd2">
-    <a href="mailto:hello@limicelia.org" class="btn-p">Begin a conversation</a>
-    <a href="index.html" class="btn-g">Back to home</a>
+<!-- ══ HOW TO ENTER ══════════════════════════════════════════ -->
+<section class="entry-section">
+  <p class="entry-eyebrow reveal">How to enter</p>
+  <h2 class="entry-h2 reveal rd1">We start with<br><em>what's breaking.</em></h2>
+  <div class="entry-rows reveal rd2">
+    <div class="entry-row">
+      <p class="entry-row-label">Diagnostic · ~3 months</p>
+      <p class="entry-row-body"><em>What's actually wrong.</em> Deep listening, honest diagnosis. For organizations who know something isn't working but aren't sure what it needs. Deliverable: a diagnostic report with recommended pathways — not a sales pitch for what comes next.</p>
+    </div>
+    <div class="entry-row">
+      <p class="entry-row-label">Transformation · 6–9 months</p>
+      <p class="entry-row-body"><em>Changing how you work.</em> Discovery through harvest. Redesigned structures, practices, and capacity that the organization owns after we leave. We don't hand over a report. We build something with you and then step back.</p>
+    </div>
+    <div class="entry-row">
+      <p class="entry-row-label">Anchor Partner · 12+ months</p>
+      <p class="entry-row-body"><em>Sustained thinking partner.</em> For organizations navigating continuous transformation. Meta-organizations, complex coalitions, and institutions where a single project model won't hold. We stay long enough to see the whole arc.</p>
+    </div>
   </div>
 </section>
 
+<!-- ══ CTA ════════════════════════════════════════════════════ -->
+<section class="svc-cta">
+  <p class="svc-cta-word reveal">Not sure<br>which fits<br><em>your situation?</em></p>
+  <p class="svc-cta-sub reveal rd1">Tell us what's breaking. We'll figure out together what it needs. The first conversation is genuine inquiry — not a pitch.</p>
+  <p class="svc-cta-email reveal rd2">hello [at] limicelia [dot] org</p>
+</section>
 
 <footer>
   <span class="footer-logo">Limicelia</span>
@@ -436,294 +519,156 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
     <a href="our-approach.html">Our Approach</a>
     <a href="services.html">Services</a>
     <a href="mission.html">Mission</a>
-    <!-- Commons Model hidden pending ISI analysis -->
-    <a href="index.html#bios">About</a>
+    <a href="bios.html">About</a>
   </div>
-  <span class="footer-note">ISI 501(c)(3) · Est. 2026</span>
+  <span class="footer-note">© 2026 Limicelia · Fiscally sponsored by ISI</span>
 </footer>
 
 <script>
 (function(){
-  var bd = document.body;
+  /* ── Palette ── */
+  var body = document.body;
   var dots = document.querySelectorAll('.ps-dot');
-  var canvas = document.getElementById('mc');
-  var ctx = canvas.getContext('2d');
-  var W, H, nodes = [], edges = [], frame = 0;
-  var rgb = [201,145,74];
-  var PALETTES = {
-    dark:[201,145,74], warm:[192,128,60], slate:[126,170,191],
-    forest:[143,175,120], light:[150,96,28]
-  };
-
-
-  /* ── Time-of-day palette cycling ──────────────────── */
-  function getTimePalette() {
-    var h = new Date().getHours();
-    if (h >= 5  && h < 8)  return 'warm';
-    if (h >= 8  && h < 13) return 'light';
-    if (h >= 13 && h < 17) return 'slate';
-    if (h >= 17 && h < 20) return 'forest';
-    return 'dark';
+  var PALETTES = {dark:[201,145,74],warm:[192,128,60],slate:[126,170,191],forest:[143,175,120],light:[150,96,28]};
+  var rgb = PALETTES.dark;
+  function setPalette(p){
+    body.className = body.className.replace(/p-\w+/g,'').trim();
+    if(p!=='dark') body.classList.add('p-'+p);
+    dots.forEach(function(d){ d.classList.toggle('on', d.dataset.p===p); });
+    rgb = PALETTES[p]||PALETTES.dark;
   }
+  dots.forEach(function(d){ d.addEventListener('click',function(){ setPalette(d.dataset.p); localStorage.setItem('limi-palette',d.dataset.p); }); });
+  var stored = localStorage.getItem('limi-palette');
+  if(stored) setPalette(stored);
 
-  function setPalette(p) {
-    bd.classList.remove('p-warm','p-slate','p-forest','p-light');
-    if (p !== 'dark') bd.classList.add('p-' + p);
-    dots.forEach(function(d){ d.classList.toggle('on', d.dataset.p === p); });
-    rgb = PALETTES[p] || PALETTES.dark;
-  }
+  /* ── Nav scroll ── */
+  var nav = document.getElementById('hnav');
+  window.addEventListener('scroll',function(){ nav.classList.toggle('scrolled',window.scrollY>40); },{passive:true});
 
-  /* Manual click: override for this session */
-  dots.forEach(function(d){
-    d.addEventListener('click', function(){
-      setPalette(d.dataset.p);
-      try { sessionStorage.setItem('lim-manual', d.dataset.p); } catch(e){}
-    });
+  /* ── Hamburger ── */
+  document.getElementById('ham').addEventListener('click',function(){
+    this.classList.toggle('open');
+    document.getElementById('navLinks').classList.toggle('open');
   });
 
-  /* On load: manual override wins, otherwise follow the clock */
-  var manual = null;
-  try { manual = sessionStorage.getItem('lim-manual'); } catch(e){}
-  setPalette(manual || getTimePalette());
-
-  /* Check every 5 min — if no manual override, shift with the light */
-  setInterval(function(){
-    var m = null;
-    try { m = sessionStorage.getItem('lim-manual'); } catch(e){}
-    if (!m) setPalette(getTimePalette());
-  }, 300000);
-
-  function buildEdges() {
-    edges = [];
-    var mx = 130;
-    for (var i = 0; i < nodes.length; i++)
-      for (var j = i+1; j < nodes.length; j++) {
-        var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if (d < mx) edges.push([i, j, d, mx]);
-      }
-  }
-  function initNet() {
-    nodes = []; edges = [];
-    var n = Math.floor(W * H / 28000);
-    for (var i = 0; i < n; i++)
-      nodes.push({
-        x: Math.random()*W, y: Math.random()*H,
-        vx: (Math.random()-.5)*.12, vy: (Math.random()-.5)*.09,
-        r: Math.random()*1.2+.3
-      });
-    buildEdges();
-  }
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight * 3;
-    initNet();
-  }
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    var r=rgb[0], g=rgb[1], b=rgb[2];
-    for (var e = 0; e < edges.length; e++) {
-      var a = (1 - edges[e][2]/edges[e][3]) * .18;
-      ctx.strokeStyle = 'rgba('+r+','+g+','+b+','+a+')';
-      ctx.lineWidth   = (1 - edges[e][2]/edges[e][3]) * .6;
-      ctx.beginPath();
-      ctx.moveTo(nodes[edges[e][0]].x, nodes[edges[e][0]].y);
-      ctx.lineTo(nodes[edges[e][1]].x, nodes[edges[e][1]].y);
-      ctx.stroke();
-    }
-    for (var ni = 0; ni < nodes.length; ni++) {
-      ctx.fillStyle = 'rgba('+r+','+g+','+b+',.32)';
-      ctx.beginPath();
-      ctx.arc(nodes[ni].x, nodes[ni].y, nodes[ni].r, 0, Math.PI*2);
-      ctx.fill();
-    }
-  }
-  function tick() {
-    for (var ni = 0; ni < nodes.length; ni++) {
-      nodes[ni].x += nodes[ni].vx; nodes[ni].y += nodes[ni].vy;
-      if (nodes[ni].x < 0 || nodes[ni].x > W) nodes[ni].vx *= -1;
-      if (nodes[ni].y < 0 || nodes[ni].y > H) nodes[ni].vy *= -1;
-    }
-  }
-  function loop() {
-    tick();
-    if (frame % 4 === 0) buildEdges();
-    draw();
-    frame++;
-    requestAnimationFrame(loop);
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  loop();
-
-  /* ── Scroll reveal ── */
+  /* ── Reveal ── */
   var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, {threshold:0.12});
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  },{threshold:.1});
   document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
 
-  /* ── Nav scroll state ── */
-  var nav = document.querySelector('.hnav');
-  window.addEventListener('scroll', function(){
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }, {passive:true});
+  /* ── Field nav show after scroll ── */
+  var fieldNav = document.getElementById('fieldNav');
+  window.addEventListener('scroll',function(){
+    fieldNav.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
+  },{passive:true});
+
+  /* ── Mycelium canvas ── */
+  var mc = document.getElementById('mc');
+  var mctx = mc.getContext('2d');
+  var W,H,mnodes=[];
+  function mcResize(){ W=mc.width=window.innerWidth; H=mc.height=window.innerHeight; }
+  mcResize();
+  window.addEventListener('resize',mcResize,{passive:true});
+  for(var i=0;i<55;i++) mnodes.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15});
+  function mcDraw(){
+    mctx.clearRect(0,0,W,H);
+    mnodes.forEach(function(n){ n.x+=n.vx; n.y+=n.vy; if(n.x<0||n.x>W)n.vx*=-1; if(n.y<0||n.y>H)n.vy*=-1; });
+    for(var i=0;i<mnodes.length;i++) for(var j=i+1;j<mnodes.length;j++){
+      var dx=mnodes[i].x-mnodes[j].x,dy=mnodes[i].y-mnodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<160){ mctx.beginPath(); mctx.moveTo(mnodes[i].x,mnodes[i].y); mctx.lineTo(mnodes[j].x,mnodes[j].y);
+        mctx.strokeStyle='rgba('+rgb[0]+','+rgb[1]+','+rgb[2]+','+(1-d/160)*.18+')'; mctx.lineWidth=.6; mctx.stroke(); }
+    }
+    requestAnimationFrame(mcDraw);
+  }
+  mcDraw();
 })();
 
-/* ── Domain card accordion ── */
-function toggleCard(card) {
-  var isOpen = card.classList.contains('open');
-  card.classList.toggle('open', !isOpen);
+/* ── Domain row toggle ── */
+function toggleRow(el){
+  if(el.tagName==='A') return; // AI row links out
+  var isOpen = el.classList.contains('open');
+  // close all others
+  document.querySelectorAll('.domain-row.open').forEach(function(r){ r.classList.remove('open'); });
+  if(!isOpen) el.classList.add('open');
+  // notify field nav
+  if(window.fieldNavHighlight) window.fieldNavHighlight(isOpen ? -1 : parseInt(el.dataset.domain));
 }
 
-/* ── Domain field orbital visualization ── */
+/* ── Field navigator orbital ── */
 (function(){
-  var fc = document.getElementById('domainField');
+  var fc = document.getElementById('fieldNavCanvas');
   if(!fc) return;
   var ctx = fc.getContext('2d');
+  var active = -1;
 
-  // 7 domains: name, x%, y%, radius, established(true)/developing(false)
+  window.fieldNavHighlight = function(i){ active = i; };
+
   var domains = [
-    { label:'Org Design &\nGovernance',      xp:.18, yp:.38, r:46, est:true  },
-    { label:'Leadership &\nCulture',         xp:.38, yp:.22, r:44, est:true  },
-    { label:'Conflict &\nCoalition',         xp:.58, yp:.30, r:40, est:true  },
-    { label:'Org Memory &\nKnowledge',       xp:.30, yp:.62, r:36, est:true  },
-    { label:'Community\nEngagement',         xp:.68, yp:.58, r:30, est:false },
-    { label:'Field Building &\nEcosystem',   xp:.50, yp:.74, r:28, est:false },
-    { label:'AI Governance &\nOrg Readiness',xp:.82, yp:.42, r:32, est:false }
+    {xp:.22,yp:.42,r:18,est:true},
+    {xp:.42,yp:.22,r:17,est:true},
+    {xp:.62,yp:.32,r:16,est:true},
+    {xp:.32,yp:.65,r:14,est:true},
+    {xp:.70,yp:.62,r:12,est:false},
+    {xp:.52,yp:.76,r:11,est:false},
+    {xp:.80,yp:.44,r:13,est:false}
   ];
+  var edges=[[0,1],[0,3],[1,2],[1,3],[2,4],[3,5],[4,5],[2,6],[4,6]];
+  var floats=domains.map(function(_,i){return{phase:i*.7,amp:1.5+i%2};});
+  var t=0;
 
-  // overlap connections (pairs that frequently co-occur in engagements)
-  var edges = [[0,1],[0,3],[1,2],[1,3],[2,4],[3,5],[4,5],[2,6],[4,6]];
-
-  var W, H, dpr;
-  var t = 0;
-  // subtle float offsets per node
-  var floats = domains.map(function(_,i){ return { phase: i*0.7, amp: 3+i%3 }; });
-
-  function resize(){
-    dpr = window.devicePixelRatio || 1;
-    var rect = fc.getBoundingClientRect();
-    W = rect.width; H = rect.height;
-    fc.width  = W * dpr;
-    fc.height = H * dpr;
-    fc.style.width  = W + 'px';
-    fc.style.height = H + 'px';
-    ctx.scale(dpr, dpr);
-  }
-
-  function getColor(prop){
-    return getComputedStyle(document.body).getPropertyValue(prop).trim();
-  }
+  function getColor(prop){ return getComputedStyle(document.body).getPropertyValue(prop).trim(); }
 
   function draw(){
+    var W=140,H=140;
     ctx.clearRect(0,0,W,H);
-    t += 0.008;
-
-    var amber     = getColor('--amber');
-    var amberGlow = getColor('--amber-glow');
-    var amberDim  = getColor('--amber-dim');
-    var rul       = getColor('--rul');
-    var tp        = getColor('--tp');
-    var ts        = getColor('--ts');
-    var tm        = getColor('--tm');
-
-    // compute positions with gentle float
-    var pos = domains.map(function(d,i){
-      return {
-        x: d.xp * W + Math.sin(t + floats[i].phase) * floats[i].amp,
-        y: d.yp * H + Math.cos(t * 0.7 + floats[i].phase) * floats[i].amp
-      };
+    t+=0.012;
+    var amber=getColor('--amber'),amberDim=getColor('--amber-dim'),rul=getColor('--rul'),tp=getColor('--tp'),ts=getColor('--ts');
+    var pos=domains.map(function(d,i){
+      return{x:d.xp*W+Math.sin(t+floats[i].phase)*floats[i].amp, y:d.yp*H+Math.cos(t*.7+floats[i].phase)*floats[i].amp};
     });
-
-    // draw edges
     edges.forEach(function(e){
-      var a = pos[e[0]], b = pos[e[1]];
-      var da = domains[e[0]], db = domains[e[1]];
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.lineTo(b.x, b.y);
-      ctx.strokeStyle = (da.est && db.est) ? amberDim : rul;
-      ctx.lineWidth = (da.est && db.est) ? 0.8 : 0.5;
-      if(!da.est || !db.est){ ctx.setLineDash([3,4]); } else { ctx.setLineDash([]); }
-      ctx.globalAlpha = 0.45;
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-      ctx.setLineDash([]);
+      var a=pos[e[0]],b=pos[e[1]],da=domains[e[0]],db=domains[e[1]];
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle=(da.est&&db.est)?amberDim:rul;
+      ctx.lineWidth=(da.est&&db.est)?.6:.4;
+      if(!da.est||!db.est)ctx.setLineDash([2,3]); else ctx.setLineDash([]);
+      ctx.globalAlpha=.4; ctx.stroke(); ctx.globalAlpha=1; ctx.setLineDash([]);
     });
-
-    // draw nodes
     domains.forEach(function(d,i){
-      var p = pos[i];
-
-      // glow halo for established
-      if(d.est){
-        var grd = ctx.createRadialGradient(p.x,p.y,d.r*.5,p.x,p.y,d.r*1.6);
-        grd.addColorStop(0, amberGlow);
-        grd.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,d.r*1.6,0,Math.PI*2);
-        ctx.fillStyle = grd;
-        ctx.fill();
+      var p=pos[i];
+      var isActive=(i===active);
+      // active glow
+      if(isActive){
+        var grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,d.r*2.5);
+        grd.addColorStop(0,getColor('--amber-glow')); grd.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.beginPath(); ctx.arc(p.x,p.y,d.r*2.5,0,Math.PI*2); ctx.fillStyle=grd; ctx.fill();
       }
-
-      // circle
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, d.r, 0, Math.PI*2);
-      if(d.est){
-        ctx.strokeStyle = amber;
-        ctx.lineWidth = 1;
-        ctx.setLineDash([]);
-      } else {
-        ctx.strokeStyle = amberDim;
-        ctx.lineWidth = 0.7;
-        ctx.setLineDash([4,4]);
-      }
-      ctx.globalAlpha = d.est ? 0.9 : 0.6;
-      ctx.stroke();
-      ctx.globalAlpha = 1;
-      ctx.setLineDash([]);
-
-      // center dot
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, d.est ? 3 : 2, 0, Math.PI*2);
-      ctx.fillStyle = d.est ? amber : amberDim;
-      ctx.globalAlpha = d.est ? 0.85 : 0.5;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-
-      // label — split on \n
-      var lines = d.label.split('\n');
-      ctx.font = d.est
-        ? '400 10px "Cormorant Garamond",Georgia,serif'
-        : '300 9.5px "Cormorant Garamond",Georgia,serif';
-      ctx.textAlign = 'center';
-      ctx.fillStyle = d.est ? tp : ts;
-      ctx.globalAlpha = d.est ? 0.9 : 0.65;
-      var lineH = 13;
-      var startY = p.y - (lines.length-1)*lineH/2;
-      lines.forEach(function(ln,li){
-        ctx.fillText(ln, p.x, startY + li*lineH);
-      });
-      ctx.globalAlpha = 1;
-
-      // maturity badge
-      ctx.font = '300 7px "DM Mono",monospace';
-      ctx.fillStyle = amber;
-      ctx.globalAlpha = d.est ? 0.55 : 0.38;
-      ctx.fillText(d.est ? '◉ established' : '○ developing', p.x, p.y + d.r + 11);
-      ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,d.r,0,Math.PI*2);
+      ctx.strokeStyle=isActive?amber:(d.est?amber:amberDim);
+      ctx.lineWidth=isActive?1.2:(d.est?.7:.5);
+      if(!d.est&&!isActive)ctx.setLineDash([3,3]); else ctx.setLineDash([]);
+      ctx.globalAlpha=isActive?1:(d.est?.7:.45); ctx.stroke(); ctx.globalAlpha=1; ctx.setLineDash([]);
+      ctx.beginPath(); ctx.arc(p.x,p.y,isActive?3:1.8,0,Math.PI*2);
+      ctx.fillStyle=isActive?amber:(d.est?amber:amberDim);
+      ctx.globalAlpha=isActive?1:(d.est?.7:.4); ctx.fill(); ctx.globalAlpha=1;
     });
-
     requestAnimationFrame(draw);
   }
-
-  resize();
-  window.addEventListener('resize', function(){ resize(); }, {passive:true});
   draw();
+
+  // scroll tracking — highlight active domain row
+  window.addEventListener('scroll',function(){
+    var rows=document.querySelectorAll('.domain-row[data-domain]');
+    var best=-1,bestDist=Infinity;
+    rows.forEach(function(r){
+      var rect=r.getBoundingClientRect();
+      var mid=rect.top+rect.height/2;
+      var dist=Math.abs(mid-window.innerHeight/2);
+      if(dist<bestDist){bestDist=dist;best=parseInt(r.dataset.domain);}
+    });
+    if(bestDist<window.innerHeight*.6) active=best; else active=-1;
+  },{passive:true});
 })();
 </script>
-</body>
-</html>
+</body></html>
