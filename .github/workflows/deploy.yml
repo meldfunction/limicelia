@@ -1,0 +1,43 @@
+name: Deploy — Public Website Staging
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Push to main → auto-deploys to GitHub Pages (staging)
+# URL: https://meldfunction.github.io/limicelia
+#
+# To promote to production:
+#   Go to meldfunction/limi → Actions → "Promote from Staging" → Run workflow
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-staging
+  cancel-in-progress: true
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    name: Deploy → Staging (GitHub Pages)
+    environment:
+      name: github-pages
+      url: https://meldfunction.github.io/limicelia
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Staging deployed
+        run: echo "✓ Staging → https://meldfunction.github.io/limicelia"
