@@ -441,21 +441,55 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 
   <div class="domain-grid reveal rd2">
     <div class="domain-box">
+      <!-- circles-in-circles: nodes connected, one isolated -->
+      <svg width="48" height="36" viewBox="0 0 48 36" fill="none" style="margin-bottom:1rem;opacity:.5">
+        <circle cx="12" cy="18" r="5" stroke="var(--amber)" stroke-width=".8"/>
+        <circle cx="28" cy="10" r="5" stroke="var(--amber)" stroke-width=".8"/>
+        <circle cx="38" cy="24" r="5" stroke="var(--amber)" stroke-width=".8"/>
+        <line x1="17" y1="18" x2="23" y2="12" stroke="var(--amber)" stroke-width=".6" opacity=".6"/>
+        <line x1="33" y1="12" x2="34" y2="19" stroke="var(--amber)" stroke-width=".6" opacity=".6"/>
+        <circle cx="12" cy="18" r="1.5" fill="var(--amber)" opacity=".7"/>
+        <circle cx="28" cy="10" r="1.5" fill="var(--amber)" opacity=".7"/>
+        <circle cx="38" cy="24" r="1.5" fill="var(--amber)" opacity=".4"/>
+      </svg>
       <p class="db-num">Organizational Design &amp; Governance</p>
       <h3 class="db-title">Structure that reflects<br><em>how you actually decide.</em></h3>
       <p class="db-desc">"We've grown fast and the way we make decisions hasn't kept up. Nobody knows who's accountable for what."</p>
     </div>
     <div class="domain-box">
+      <!-- two opposing arcs — tension -->
+      <svg width="48" height="36" viewBox="0 0 48 36" fill="none" style="margin-bottom:1rem;opacity:.5">
+        <path d="M6 28 Q24 4 42 28" stroke="var(--amber)" stroke-width=".8" fill="none"/>
+        <path d="M6 8 Q24 32 42 8" stroke="var(--amber)" stroke-width=".8" fill="none" opacity=".4"/>
+        <circle cx="24" cy="18" r="2" fill="var(--amber)" opacity=".6"/>
+      </svg>
       <p class="db-num">Conflict Resolution &amp; Coalition Building</p>
       <h3 class="db-title">The conflict you keep<br><em>not naming.</em></h3>
       <p class="db-desc">"There's something underneath all of this that nobody is saying out loud. It's affecting everything."</p>
     </div>
     <div class="domain-box">
+      <!-- concentric rings — inner/outer work -->
+      <svg width="48" height="36" viewBox="0 0 48 36" fill="none" style="margin-bottom:1rem;opacity:.5">
+        <circle cx="24" cy="18" r="4"  stroke="var(--amber)" stroke-width=".8"/>
+        <circle cx="24" cy="18" r="9"  stroke="var(--amber)" stroke-width=".6" opacity=".55"/>
+        <circle cx="24" cy="18" r="14" stroke="var(--amber)" stroke-width=".5" opacity=".3"/>
+        <line x1="24" y1="4" x2="24" y2="14" stroke="var(--amber)" stroke-width=".6" opacity=".4"/>
+      </svg>
       <p class="db-num">Leadership &amp; Culture Transformation</p>
       <h3 class="db-title">When the culture<br><em>hasn't followed the words.</em></h3>
       <p class="db-desc">"Leadership is saying the right things. The organization hasn't moved. There's a gap we can't close."</p>
     </div>
     <div class="domain-box">
+      <!-- branching memory/roots -->
+      <svg width="48" height="36" viewBox="0 0 48 36" fill="none" style="margin-bottom:1rem;opacity:.5">
+        <line x1="24" y1="4" x2="24" y2="22" stroke="var(--amber)" stroke-width=".8"/>
+        <line x1="24" y1="12" x2="12" y2="22" stroke="var(--amber)" stroke-width=".7" opacity=".7"/>
+        <line x1="24" y1="16" x2="36" y2="26" stroke="var(--amber)" stroke-width=".7" opacity=".7"/>
+        <line x1="12" y1="22" x2="6"  y2="32" stroke="var(--amber)" stroke-width=".5" opacity=".4"/>
+        <line x1="12" y1="22" x2="18" y2="32" stroke="var(--amber)" stroke-width=".5" opacity=".4"/>
+        <line x1="36" y1="26" x2="30" y2="34" stroke="var(--amber)" stroke-width=".5" opacity=".4"/>
+        <circle cx="24" cy="4" r="1.5" fill="var(--amber)" opacity=".7"/>
+      </svg>
       <p class="db-num">Organizational Memory &amp; Knowledge</p>
       <h3 class="db-title">What leaves when<br><em>people leave.</em></h3>
       <p class="db-desc">"Key people are walking out the door and taking years of knowledge with them. We have no way to hold it."</p>

@@ -145,15 +145,14 @@ h2.sec-title em{font-style:italic;color:var(--amber);transition:color .4s}
 .network-card-name{font-size:1rem;font-weight:400;color:var(--tp);margin-bottom:.3rem}
 .network-card-desc{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--tm)}
 
-/* ─── HIERARCHY TREE ─────────────────── */
-.hierarchy-wrap{margin:2.5rem 0 3rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.hierarchy-svg{display:block;width:100%;max-width:760px;height:auto}
-.h-root-label{font-family:'Cormorant Garamond',Georgia,serif;font-size:13px;font-weight:400;fill:var(--tp);letter-spacing:.02em}
-.h-branch-label{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:300;letter-spacing:.1em;text-transform:uppercase}
-.h-node-label{font-family:'Cormorant Garamond',Georgia,serif;font-size:11.5px;font-weight:300;fill:var(--ts);line-height:1.4}
-.h-badge{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase}
-.hierarchy-caption{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);opacity:.55;margin-top:.8rem}
-@media(max-width:700px){.hierarchy-svg{min-width:580px}}
+/* ─── DOMAIN FIELD (orbital) ─────────── */
+.domain-field-wrap{margin:2.5rem 0 3rem;position:relative}
+.domain-field-canvas{display:block;width:100%;max-width:720px;height:320px}
+.domain-field-caption{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);opacity:.55;margin-top:.5rem}
+@media(max-width:600px){.domain-field-canvas{height:260px}}
+
+/* ─── VIGNETTE ───────────────────────── */
+.domain-card-vignette{font-family:'Cormorant Garamond',Georgia,serif;font-size:.95rem;font-style:italic;color:var(--amber);opacity:.75;margin-top:.8rem;margin-bottom:.2rem;line-height:1.55;border-left:1px solid var(--amber-dim);padding-left:.9rem}
 
 /* ─── CTA ────────────────────────────── */
 .section-cta{text-align:center;position:relative;overflow:hidden}
@@ -251,96 +250,10 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   <h2 class="sec-title reveal" style="margin-bottom:.7rem">Seven practice<br><em>domains.</em></h2>
   <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">We distinguish between work we have a sustained history of doing and work we are still actively developing. Most engagements draw from several domains simultaneously.</p>
 
-  <!-- ─── Service Hierarchy SVG ─── -->
-  <div class="hierarchy-wrap reveal rd2">
-    <svg class="hierarchy-svg" viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Limicelia service hierarchy: established practice and developing practice">
-
-      <!-- Root node -->
-      <rect x="280" y="10" width="200" height="38" rx="3" style="fill:var(--amber-glow);stroke:var(--amber-dim);stroke-width:1"/>
-      <text x="380" y="25" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="12" font-weight="400" style="fill:var(--tp)">Limicelia</text>
-      <text x="380" y="40" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing=".12em" style="fill:var(--amber)" opacity=".7">practice domains</text>
-
-      <!-- Root → two branches -->
-      <line x1="380" y1="48" x2="380" y2="70" style="stroke:var(--amber-dim);stroke-width:1"/>
-      <line x1="190" y1="70" x2="570" y2="70" style="stroke:var(--amber-dim);stroke-width:1"/>
-      <line x1="190" y1="70" x2="190" y2="88" style="stroke:var(--amber-dim);stroke-width:1"/>
-      <line x1="570" y1="70" x2="570" y2="88" style="stroke:var(--amber-dim);stroke-width:1"/>
-
-      <!-- ── LEFT: Established branch ── -->
-      <rect x="100" y="88" width="180" height="34" rx="3" style="fill:var(--spore);stroke:var(--amber-dim);stroke-width:1"/>
-      <text x="190" y="102" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" letter-spacing=".12em" style="fill:var(--amber)">ESTABLISHED</text>
-      <text x="190" y="115" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="11" font-weight="300" style="fill:var(--ts)">active, ongoing</text>
-
-      <!-- Established → 4 nodes -->
-      <line x1="190" y1="122" x2="190" y2="138" style="stroke:var(--rul);stroke-width:1" opacity=".8"/>
-      <line x1="60"  y1="138" x2="320" y2="138" style="stroke:var(--rul);stroke-width:1" opacity=".8"/>
-      <line x1="60"  y1="138" x2="60"  y2="154" style="stroke:var(--rul);stroke-width:1" opacity=".8"/>
-      <line x1="130" y1="138" x2="130" y2="154" style="stroke:var(--rul);stroke-width:1" opacity=".8"/>
-      <line x1="250" y1="138" x2="250" y2="154" style="stroke:var(--rul);stroke-width:1" opacity=".8"/>
-      <line x1="320" y1="138" x2="320" y2="154" style="stroke:var(--rul);stroke-width:1" opacity=".8"/>
-
-      <!-- E-node 1: Org Design -->
-      <rect x="6" y="154" width="108" height="50" rx="2" style="fill:var(--spore);stroke:var(--rul);stroke-width:1"/>
-      <text x="60" y="170" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Org Design &amp;</text>
-      <text x="60" y="183" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Governance</text>
-      <text x="60" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" style="fill:var(--amber)" opacity=".55">6–9 mo</text>
-
-      <!-- E-node 2: Leadership -->
-      <rect x="76" y="154" width="108" height="50" rx="2" style="fill:var(--spore);stroke:var(--rul);stroke-width:1"/>
-      <text x="130" y="170" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Leadership &amp;</text>
-      <text x="130" y="183" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Culture</text>
-      <text x="130" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" style="fill:var(--amber)" opacity=".55">6–9 mo</text>
-
-      <!-- E-node 3: Conflict -->
-      <rect x="196" y="154" width="108" height="50" rx="2" style="fill:var(--spore);stroke:var(--rul);stroke-width:1"/>
-      <text x="250" y="170" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Conflict &amp;</text>
-      <text x="250" y="183" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Coalition</text>
-      <text x="250" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" style="fill:var(--amber)" opacity=".55">3–6 mo</text>
-
-      <!-- E-node 4: Org Memory -->
-      <rect x="266" y="154" width="108" height="50" rx="2" style="fill:var(--spore);stroke:var(--rul);stroke-width:1"/>
-      <text x="320" y="170" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Org Memory &amp;</text>
-      <text x="320" y="183" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Knowledge</text>
-      <text x="320" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" style="fill:var(--amber)" opacity=".55">3–4 mo</text>
-
-      <!-- ── RIGHT: Developing branch ── -->
-      <rect x="480" y="88" width="180" height="34" rx="3" style="fill:var(--spore);stroke:var(--amber-dim);stroke-width:1;stroke-dasharray:4 3"/>
-      <text x="570" y="102" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8.5" letter-spacing=".12em" style="fill:var(--amber)" opacity=".75">DEVELOPING</text>
-      <text x="570" y="115" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="11" font-weight="300" style="fill:var(--ts)">still learning</text>
-
-      <!-- Developing → 3 nodes -->
-      <line x1="570" y1="122" x2="570" y2="138" style="stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".7"/>
-      <line x1="460" y1="138" x2="680" y2="138" style="stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".7"/>
-      <line x1="460" y1="138" x2="460" y2="154" style="stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".7"/>
-      <line x1="570" y1="138" x2="570" y2="154" style="stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".7"/>
-      <line x1="680" y1="138" x2="680" y2="154" style="stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".7"/>
-
-      <!-- D-node 1: Community Engagement -->
-      <rect x="406" y="154" width="108" height="50" rx="2" style="fill:var(--spore);stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".85"/>
-      <text x="460" y="170" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--ts)">Community</text>
-      <text x="460" y="183" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--ts)">Engagement</text>
-      <text x="460" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" style="fill:var(--amber)" opacity=".45">4–6 mo</text>
-
-      <!-- D-node 2: Field Building -->
-      <rect x="516" y="154" width="108" height="50" rx="2" style="fill:var(--spore);stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".85"/>
-      <text x="570" y="170" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--ts)">Field Building &amp;</text>
-      <text x="570" y="183" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--ts)">Ecosystem</text>
-      <text x="570" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" style="fill:var(--amber)" opacity=".45">per convening</text>
-
-      <!-- D-node 3: AI Governance (amber highlight) -->
-      <rect x="626" y="154" width="108" height="50" rx="2" style="fill:var(--amber-glow);stroke:var(--amber-dim);stroke-width:1;stroke-dasharray:4 3"/>
-      <text x="680" y="170" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">AI Governance &amp;</text>
-      <text x="680" y="183" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="10.5" font-weight="400" style="fill:var(--tp)">Org Readiness</text>
-      <text x="680" y="197" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" style="fill:var(--amber)" opacity=".65">→ ai.html</text>
-
-      <!-- Legend -->
-      <line x1="24" y1="290" x2="52" y2="290" style="stroke:var(--amber-dim);stroke-width:1"/>
-      <text x="58" y="294" font-family="'DM Mono',monospace" font-size="8" style="fill:var(--tm)" opacity=".7">Established</text>
-      <line x1="140" y1="290" x2="168" y2="290" style="stroke:var(--rul);stroke-width:1;stroke-dasharray:3 2" opacity=".7"/>
-      <text x="174" y="294" font-family="'DM Mono',monospace" font-size="8" style="fill:var(--tm)" opacity=".7">Developing · active inquiry</text>
-
-    </svg>
-    <p class="hierarchy-caption">Service maturity map — most engagements cross multiple domains</p>
+  <!-- ─── Domain Field — orbital, non-hierarchical ─── -->
+  <div class="domain-field-wrap reveal rd2">
+    <canvas class="domain-field-canvas" id="domainField" aria-label="Seven practice domains shown as a field of relationships — not a hierarchy"></canvas>
+    <p class="domain-field-caption">Seven domains · most engagements draw from several simultaneously · ◉ established · ○ developing</p>
   </div>
 
   <div class="domain-list reveal rd2">
@@ -354,6 +267,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
       <div class="domain-card-collapse">
         <div class="domain-card-collapse-inner">
+          <p class="domain-card-vignette">A board meeting where the same three people make every decision. Staff who know the answer but have no place to put it. An org chart that doesn't match how anything actually works.</p>
           <p class="domain-card-tags">Sociocracy · Consent-Based Decision-Making · Role Clarity</p>
           <p class="domain-card-body">Sociocratic and participatory structures, decision-making frameworks, role clarity and accountability systems that reflect how the organization actually wants to operate — not how the org chart says it should.</p>
         </div>
@@ -369,6 +283,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
       <div class="domain-card-collapse">
         <div class="domain-card-collapse-inner">
+          <p class="domain-card-vignette">The executive who says all the right things in the all-hands and then does the opposite in 1:1s. The team that's exhausted not from the work but from the gap between what's said and what's real.</p>
           <p class="domain-card-tags">Inner-Outer Integration · Culture Change · Relational Repair</p>
           <p class="domain-card-body">Working with leaders and teams through inner and outer work simultaneously — shifting culture, healing relational dynamics, building conditions for sustained change without burning out the people doing it.</p>
         </div>
@@ -384,6 +299,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
       <div class="domain-card-collapse">
         <div class="domain-card-collapse-inner">
+          <p class="domain-card-vignette">Two departments that haven't spoken honestly in eighteen months. A coalition held together by shared values but fracturing on who holds the money. A rupture nobody will name in a meeting.</p>
           <p class="domain-card-tags">Deep Democracy · Power-Aware · Multi-Stakeholder</p>
           <p class="domain-card-body">Facilitated processes for navigating conflict, cross-sector tension, and coalition formation where power differentials are real and need to be named, not managed.</p>
         </div>
@@ -399,6 +315,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
       <div class="domain-card-collapse">
         <div class="domain-card-collapse-inner">
+          <p class="domain-card-vignette">The founding director who held everything in her head for twelve years. The new ED on month three, realizing there are no documents for how any of this actually works.</p>
           <p class="domain-card-tags">Harvest · Transition Support · Living Documents</p>
           <p class="domain-card-body">Capturing, stewarding, and activating institutional knowledge — especially in leadership transitions where what was learned must not leave with the person who's leaving.</p>
         </div>
@@ -425,6 +342,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
       <div class="domain-card-collapse">
         <div class="domain-card-collapse-inner">
+          <p class="domain-card-vignette">A city agency that held twelve listening sessions and changed nothing. A product team that surveyed thousands of users and built what they already planned. Community voice, laundered into legitimacy.</p>
           <p class="domain-card-tags">Frontline Intelligence · Co-Design · Not Consultation Theater</p>
           <p class="domain-card-body">Bringing community intelligence into the center of strategy, service, and product — not as consultation theater but as actual co-design where what the community knows shapes what gets built.</p>
         </div>
@@ -440,6 +358,7 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
       </div>
       <div class="domain-card-collapse">
         <div class="domain-card-collapse-inner">
+          <p class="domain-card-vignette">Fifty people who work in the same ecosystem and have never been in a room together. A field that talks about systems change but convenes in panels. Something wants to emerge between them.</p>
           <p class="domain-card-tags">Warm Data Labs · Open Space · Systems Convening</p>
           <p class="domain-card-body">Designing and hosting convenings that strengthen connective tissue between practitioners, funders, researchers, and institutions at field edges. Not networking events — encounters that change how people think.</p>
         </div>
@@ -658,6 +577,153 @@ function toggleCard(card) {
   var isOpen = card.classList.contains('open');
   card.classList.toggle('open', !isOpen);
 }
+
+/* ── Domain field orbital visualization ── */
+(function(){
+  var fc = document.getElementById('domainField');
+  if(!fc) return;
+  var ctx = fc.getContext('2d');
+
+  // 7 domains: name, x%, y%, radius, established(true)/developing(false)
+  var domains = [
+    { label:'Org Design &\nGovernance',      xp:.18, yp:.38, r:46, est:true  },
+    { label:'Leadership &\nCulture',         xp:.38, yp:.22, r:44, est:true  },
+    { label:'Conflict &\nCoalition',         xp:.58, yp:.30, r:40, est:true  },
+    { label:'Org Memory &\nKnowledge',       xp:.30, yp:.62, r:36, est:true  },
+    { label:'Community\nEngagement',         xp:.68, yp:.58, r:30, est:false },
+    { label:'Field Building &\nEcosystem',   xp:.50, yp:.74, r:28, est:false },
+    { label:'AI Governance &\nOrg Readiness',xp:.82, yp:.42, r:32, est:false }
+  ];
+
+  // overlap connections (pairs that frequently co-occur in engagements)
+  var edges = [[0,1],[0,3],[1,2],[1,3],[2,4],[3,5],[4,5],[2,6],[4,6]];
+
+  var W, H, dpr;
+  var t = 0;
+  // subtle float offsets per node
+  var floats = domains.map(function(_,i){ return { phase: i*0.7, amp: 3+i%3 }; });
+
+  function resize(){
+    dpr = window.devicePixelRatio || 1;
+    var rect = fc.getBoundingClientRect();
+    W = rect.width; H = rect.height;
+    fc.width  = W * dpr;
+    fc.height = H * dpr;
+    fc.style.width  = W + 'px';
+    fc.style.height = H + 'px';
+    ctx.scale(dpr, dpr);
+  }
+
+  function getColor(prop){
+    return getComputedStyle(document.body).getPropertyValue(prop).trim();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t += 0.008;
+
+    var amber     = getColor('--amber');
+    var amberGlow = getColor('--amber-glow');
+    var amberDim  = getColor('--amber-dim');
+    var rul       = getColor('--rul');
+    var tp        = getColor('--tp');
+    var ts        = getColor('--ts');
+    var tm        = getColor('--tm');
+
+    // compute positions with gentle float
+    var pos = domains.map(function(d,i){
+      return {
+        x: d.xp * W + Math.sin(t + floats[i].phase) * floats[i].amp,
+        y: d.yp * H + Math.cos(t * 0.7 + floats[i].phase) * floats[i].amp
+      };
+    });
+
+    // draw edges
+    edges.forEach(function(e){
+      var a = pos[e[0]], b = pos[e[1]];
+      var da = domains[e[0]], db = domains[e[1]];
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = (da.est && db.est) ? amberDim : rul;
+      ctx.lineWidth = (da.est && db.est) ? 0.8 : 0.5;
+      if(!da.est || !db.est){ ctx.setLineDash([3,4]); } else { ctx.setLineDash([]); }
+      ctx.globalAlpha = 0.45;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      ctx.setLineDash([]);
+    });
+
+    // draw nodes
+    domains.forEach(function(d,i){
+      var p = pos[i];
+
+      // glow halo for established
+      if(d.est){
+        var grd = ctx.createRadialGradient(p.x,p.y,d.r*.5,p.x,p.y,d.r*1.6);
+        grd.addColorStop(0, amberGlow);
+        grd.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,d.r*1.6,0,Math.PI*2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+      }
+
+      // circle
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, d.r, 0, Math.PI*2);
+      if(d.est){
+        ctx.strokeStyle = amber;
+        ctx.lineWidth = 1;
+        ctx.setLineDash([]);
+      } else {
+        ctx.strokeStyle = amberDim;
+        ctx.lineWidth = 0.7;
+        ctx.setLineDash([4,4]);
+      }
+      ctx.globalAlpha = d.est ? 0.9 : 0.6;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      ctx.setLineDash([]);
+
+      // center dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, d.est ? 3 : 2, 0, Math.PI*2);
+      ctx.fillStyle = d.est ? amber : amberDim;
+      ctx.globalAlpha = d.est ? 0.85 : 0.5;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+
+      // label — split on \n
+      var lines = d.label.split('\n');
+      ctx.font = d.est
+        ? '400 10px "Cormorant Garamond",Georgia,serif'
+        : '300 9.5px "Cormorant Garamond",Georgia,serif';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = d.est ? tp : ts;
+      ctx.globalAlpha = d.est ? 0.9 : 0.65;
+      var lineH = 13;
+      var startY = p.y - (lines.length-1)*lineH/2;
+      lines.forEach(function(ln,li){
+        ctx.fillText(ln, p.x, startY + li*lineH);
+      });
+      ctx.globalAlpha = 1;
+
+      // maturity badge
+      ctx.font = '300 7px "DM Mono",monospace';
+      ctx.fillStyle = amber;
+      ctx.globalAlpha = d.est ? 0.55 : 0.38;
+      ctx.fillText(d.est ? '◉ established' : '○ developing', p.x, p.y + d.r + 11);
+      ctx.globalAlpha = 1;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', function(){ resize(); }, {passive:true});
+  draw();
+})();
 </script>
 </body>
 </html>
