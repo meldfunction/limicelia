@@ -126,13 +126,13 @@ h2.sec-title em{font-style:italic;color:var(--amber);transition:color .4s}
 
 /* ─── WHAT WE DO ─────────────────────────── */
 .section-what{}
-.domain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rul);margin-bottom:3rem;transition:background .4s}
-.domain-box{background:var(--ink);padding:1.5rem 1.4rem;transition:background .4s;cursor:default}
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rul);margin-top:2.5rem;transition:background .4s}
+.domain-box{background:var(--ink);padding:2rem 2rem 2.2rem;transition:background .4s;cursor:default}
 .domain-box:hover{background:var(--amber-glow)}
-.db-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--amber);opacity:.6;margin-bottom:.7rem;transition:color .4s}
-.db-title{font-size:1rem;font-weight:400;line-height:1.25;color:var(--tp);margin-bottom:.55rem;transition:color .4s}
+.db-num{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--amber);opacity:.5;margin-bottom:.6rem;transition:color .4s}
+.db-title{font-size:clamp(1.05rem,1.4vw,1.25rem);font-weight:400;line-height:1.2;color:var(--tp);margin-bottom:.7rem;transition:color .4s}
 .db-title em{font-style:italic;color:var(--amber);transition:color .4s}
-.db-desc{font-size:.82rem;font-weight:300;line-height:1.65;color:var(--tm);transition:color .4s}
+.db-desc{font-size:.9rem;font-weight:300;line-height:1.7;color:var(--ts);font-style:italic;transition:color .4s}
 
 .why-not-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem 5rem;align-items:start;margin-bottom:3rem}
 .traditional-list{list-style:none;display:flex;flex-direction:column;gap:0;margin-top:1.2rem}
@@ -258,7 +258,6 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 
 /* ─── RESPONSIVE ─────────────────────────── */
 @media(max-width:1000px){
-  .domain-grid{grid-template-columns:repeat(2,1fr)}
   .why-not-grid{grid-template-columns:1fr}
   .principle-pair{grid-template-columns:1fr}
   .pp-visual{min-height:200px;border-right:none;border-bottom:1px solid var(--rul)}
@@ -437,18 +436,33 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 <section class="section-what pad" id="what">
 
   <p class="sec-label reveal"><span class="sec-num">02 /</span> What we do</p>
-  <h2 class="sec-title reveal" style="margin-bottom:.6rem">Custom work.<br><em>Across these domains.</em></h2>
-  <p class="body-text reveal rd1" style="max-width:58ch;margin-bottom:2rem">We don't offer a service menu. We build engagements at the intersection of what you're facing and what we know how to do.</p>
+  <h2 class="sec-title reveal" style="margin-bottom:.8rem">Organizations get stuck.<br><em>We help them move.</em></h2>
+  <p class="body-text reveal rd1" style="max-width:58ch">Not with a framework or a program — with sustained, practitioner-led work inside the actual situation. Four domains, custom every time.</p>
 
-  <ul class="reveal rd2" style="list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:2rem;max-width:52ch">
-    <li style="font-size:1rem;font-weight:300;color:var(--ts);padding:.4rem 0;border-bottom:1px solid var(--rul)">Organizational Design &amp; Governance</li>
-    <li style="font-size:1rem;font-weight:300;color:var(--ts);padding:.4rem 0;border-bottom:1px solid var(--rul)">Leadership &amp; Culture Transformation</li>
-    <li style="font-size:1rem;font-weight:300;color:var(--ts);padding:.4rem 0;border-bottom:1px solid var(--rul)">Conflict Resolution &amp; Coalition Building</li>
-    <li style="font-size:1rem;font-weight:300;color:var(--ts);padding:.4rem 0;border-bottom:1px solid var(--rul)">Organizational Memory &amp; Knowledge</li>
-    <li style="font-size:.95rem;font-weight:300;color:var(--tm);padding:.4rem 0;border-bottom:1px solid var(--rul);font-style:italic">Community Engagement · Field Building · AI Governance <span style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;font-style:normal;color:var(--amber);opacity:.6;margin-left:.6rem">developing</span></li>
-  </ul>
+  <div class="domain-grid reveal rd2">
+    <div class="domain-box">
+      <p class="db-num">Organizational Design &amp; Governance</p>
+      <h3 class="db-title">Structure that reflects<br><em>how you actually decide.</em></h3>
+      <p class="db-desc">"We've grown fast and the way we make decisions hasn't kept up. Nobody knows who's accountable for what."</p>
+    </div>
+    <div class="domain-box">
+      <p class="db-num">Conflict Resolution &amp; Coalition Building</p>
+      <h3 class="db-title">The conflict you keep<br><em>not naming.</em></h3>
+      <p class="db-desc">"There's something underneath all of this that nobody is saying out loud. It's affecting everything."</p>
+    </div>
+    <div class="domain-box">
+      <p class="db-num">Leadership &amp; Culture Transformation</p>
+      <h3 class="db-title">When the culture<br><em>hasn't followed the words.</em></h3>
+      <p class="db-desc">"Leadership is saying the right things. The organization hasn't moved. There's a gap we can't close."</p>
+    </div>
+    <div class="domain-box">
+      <p class="db-num">Organizational Memory &amp; Knowledge</p>
+      <h3 class="db-title">What leaves when<br><em>people leave.</em></h3>
+      <p class="db-desc">"Key people are walking out the door and taking years of knowledge with them. We have no way to hold it."</p>
+    </div>
+  </div>
 
-  <a href="services.html" class="btn-g reveal rd3" style="display:inline-flex">Full practice detail and service hierarchy →</a>
+  <p class="reveal" style="margin-top:1.8rem"><a href="services.html" class="btn-g" style="display:inline-flex">Full practice detail and service hierarchy →</a></p>
 
   <!-- ── AI Confessional Event Banner ── -->
   <a href="confessional.html" style="display:block;text-decoration:none;margin-top:3rem;border:1px solid var(--amber-dim);background:var(--amber-glow);padding:1.6rem 2rem;position:relative;overflow:hidden;transition:background .3s" class="reveal rd3" onmouseover="this.style.background='rgba(201,145,74,.22)'" onmouseout="this.style.background='var(--amber-glow)'">
