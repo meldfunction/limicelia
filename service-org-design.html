@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Organizational Design &amp; Governance — Limicelia</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Service Design Guide — Org Design &amp; Governance — Limicelia</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"><style>
 :root{--ink:#0e0d0a;--amber:#c9914a;--amber-glow:rgba(201,145,74,.12);--amber-dim:rgba(201,145,74,.35);--spore:rgba(242,234,216,.05);--tp:#f2ead8;--ts:rgba(242,234,216,.72);--tm:rgba(242,234,216,.45);--sur:#1c1a15;--rul:rgba(242,234,216,.08);--ca:.28}
 body.p-warm{--ink:#221b12;--amber:#c0803c;--amber-glow:rgba(192,128,60,.15);--amber-dim:rgba(192,128,60,.4);--tp:#f6edd8;--ts:rgba(246,237,216,.75);--tm:rgba(246,237,216,.46);--sur:#302516;--rul:rgba(246,237,216,.09);--ca:.22}
 body.p-slate{--ink:#131820;--amber:#7eaabf;--amber-glow:rgba(126,170,191,.12);--amber-dim:rgba(126,170,191,.38);--tp:#dce6f0;--ts:rgba(220,230,240,.72);--tm:rgba(220,230,240,.43);--sur:#1a2230;--rul:rgba(220,230,240,.09);--ca:.25}
@@ -19,7 +19,7 @@ a{color:inherit;text-decoration:none}
 .ps-dot[data-p="forest"]{background:#0d1510;box-shadow:0 0 0 1px rgba(143,175,120,.3)}
 .ps-dot[data-p="light"]{background:#f5f0e8;box-shadow:0 0 0 1px rgba(30,26,20,.2)}
 #mc{position:fixed;inset:0;z-index:0;opacity:var(--ca);pointer-events:none;transition:opacity .5s}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height%3D'100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 section{position:relative;z-index:2}
 .wordmark{display:inline-flex;align-items:center;gap:.9rem}
 .wordmark-glyph{width:28px;height:28px;flex-shrink:0}
@@ -44,11 +44,6 @@ section{position:relative;z-index:2}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.22s}.rd3{transition-delay:.36s}.rd4{transition-delay:.5s}
-.btn-p{display:inline-block;padding:.85rem 2.2rem;border:1px solid var(--amber);color:var(--ink);background:var(--amber);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;transition:all .35s ease}
-.btn-p:hover{background:transparent;color:var(--amber)}
-.btn-g{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.6rem;transition:color .3s}
-.btn-g::after{content:'→';transition:transform .3s;display:inline-block}
-.btn-g:hover{color:var(--tp)}.btn-g:hover::after{transform:translateX(5px)}
 footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-size:1rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--tm)}
 .footer-note{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);opacity:.6}
@@ -56,96 +51,113 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .footer-links a{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.5;transition:opacity .2s}
 .footer-links a:hover{opacity:1}
 
-/* ── STAGING DISCUSSION BANNER ── */
-.staging-banner{background:rgba(201,145,74,.15);border:1px solid var(--amber-dim);padding:1.2rem clamp(2rem,7vw,7rem);position:relative;z-index:200;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;line-height:1.8}
-.staging-banner strong{color:var(--amber);display:block;margin-bottom:.4rem;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
+/* ── STAGING BANNER ── */
+.staging-banner{background:rgba(201,145,74,.12);border-bottom:1px solid var(--amber-dim);padding:1.2rem clamp(2rem,7vw,7rem);position:relative;z-index:200;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;line-height:1.9}
+.staging-banner strong{color:var(--amber);display:block;margin-bottom:.4rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
 .staging-banner p{color:var(--ts);opacity:.85}
-.staging-banner ul{color:var(--ts);opacity:.85;margin:.5rem 0 0 1.2rem}
-.staging-banner li{margin-bottom:.25rem}
 
-/* ── ONE-PAGER SPECIFIC ── */
-.hero-onepager{padding:clamp(5rem,9vh,8rem) clamp(2rem,7vw,7rem) clamp(3rem,5vh,5rem);position:relative;z-index:2}
+/* ── GUIDE HERO ── */
+.guide-hero{padding:clamp(4rem,8vh,7rem) clamp(2rem,7vw,7rem) clamp(2.5rem,4vh,4rem);position:relative;z-index:2}
 .breadcrumb{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tm);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2.5rem;transition:color .2s}
 .breadcrumb:hover{color:var(--ts)}
-.status-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber-dim);padding:.3rem .8rem;margin-bottom:2rem;width:fit-content}
-.status-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;flex-shrink:0}
-.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.5rem}
-.hero-h1{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.08;max-width:18ch;margin-bottom:2rem}
-.hero-h1 em{font-style:italic;color:var(--amber)}
-.hero-lede{font-size:clamp(1rem,1.2vw,1.15rem);color:var(--ts);max-width:55ch;line-height:1.788;border-left:2px solid var(--amber-dim);padding-left:1.4rem}
+.guide-eyebrow{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:1.2rem}
+.guide-h1{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:300;line-height:1.1;max-width:20ch;margin-bottom:1.8rem}
+.guide-h1 em{font-style:italic;color:var(--amber)}
+.guide-lede{font-size:clamp(1rem,1.15vw,1.1rem);color:var(--ts);max-width:60ch;line-height:1.85;border-left:2px solid var(--amber-dim);padding-left:1.4rem;margin-bottom:2rem}
+.guide-meta{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);display:flex;gap:2rem;flex-wrap:wrap}
+.guide-meta span{color:var(--amber);opacity:.55}
 
-/* entry points grid */
-.entry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--rul);margin-top:2.5rem}
-.entry-card{background:var(--ink);padding:1.8rem 1.6rem}
-.entry-card:hover{background:var(--sur)}
-.entry-scenario{font-size:1rem;font-style:italic;color:var(--ts);line-height:1.78;margin-bottom:.8rem}
-.entry-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.7}
+/* ── SECTION LABELS ── */
+.sec-label{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.75;margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--rul)}
+.sec-h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.15;margin-bottom:1rem}
+.sec-h2 em{font-style:italic;color:var(--amber)}
+.sec-intro{font-size:1rem;color:var(--tm);max-width:58ch;line-height:1.85;margin-bottom:3rem}
 
-/* engagements table */
-.engagement-row{display:grid;grid-template-columns:2fr 3fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--rul)}
-.engagement-row:last-child{border-bottom:none}
-.engagement-label{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);padding-top:.15rem;line-height:1.5}
-.engagement-body{font-size:1rem;color:var(--ts);line-height:1.785}
-@media(max-width:700px){.engagement-row{grid-template-columns:1fr;gap:.8rem}}
+/* ── ANATOMY CARD SYSTEM ── */
+/* Ghost cards — hover lifts with popup */
+.anatomy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
+.anatomy-card{background:var(--ink);padding:2.2rem 2rem;position:relative;cursor:pointer;transition:background .3s,transform .3s;border:1px dashed rgba(201,145,74,.2);margin:-1px}
+.anatomy-card:hover{background:var(--sur);transform:translateY(-6px);z-index:10;box-shadow:0 20px 48px rgba(0,0,0,.55)}
+.anatomy-card-num{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.4;margin-bottom:.8rem}
+.anatomy-card-title{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;letter-spacing:.01em}
+.anatomy-card-title em{font-style:italic;color:var(--amber)}
+.anatomy-card-ghost{font-size:.9rem;color:var(--tm);line-height:1.72;font-style:italic}
+.anatomy-card-hover-hint{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.35;margin-top:1.2rem;display:flex;align-items:center;gap:.5rem;transition:opacity .3s}
+.anatomy-card:hover .anatomy-card-hover-hint{opacity:.7}
+.anatomy-card-hover-hint::before{content:'↑';font-size:.7rem}
 
-/* contrast compare */
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rul);margin-top:2.5rem}
-@media(max-width:700px){.compare-grid{grid-template-columns:1fr}}
-.compare-col{background:var(--ink);padding:2rem 1.8rem}
-.compare-col-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
-.compare-col-label.dim{color:var(--tm)}
-.compare-col-label.lit{color:var(--amber)}
-.compare-list{list-style:none;padding:0}
-.compare-list li{font-size:1rem;color:var(--ts);padding:.4rem 0;border-bottom:1px solid var(--rul);line-height:1.78}
-.compare-list li:last-child{border-bottom:none}
+/* Popup */
+.anat-popup{position:absolute;bottom:calc(100% + 12px);left:0;right:0;background:var(--sur);border:1px solid var(--amber-dim);padding:1.4rem 1.6rem;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;transform:translateY(6px);z-index:50;min-width:260px;box-shadow:0 16px 48px rgba(0,0,0,.65)}
+.anatomy-card:hover .anat-popup{opacity:1;transform:translateY(0);pointer-events:auto}
+.anat-popup-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:.7rem;opacity:.8}
+.anat-popup-body{font-size:.92rem;color:var(--ts);line-height:1.78}
+.anat-popup-eg{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--amber);opacity:.6;margin-top:.8rem;border-top:1px solid var(--rul);padding-top:.7rem;line-height:1.7}
 
-/* related services */
-.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--rul);margin-top:2rem}
-.related-card{background:var(--ink);padding:1.8rem 2rem;transition:background .3s}
-.related-card:hover{background:var(--sur)}
-.related-domain{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.6;margin-bottom:.6rem}
-.related-name{font-size:1.05rem;font-weight:400;color:var(--tp);margin-bottom:.5rem;transition:color .4s}
-.related-name em{font-style:italic;color:var(--amber)}
-.related-link{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;opacity:.6;transition:opacity .2s}
-.related-link::after{content:'→';display:inline-block}
-.related-card:hover .related-link{opacity:1}
+/* ── REAL EXAMPLE SECTION ── */
+.example-banner{background:rgba(201,145,74,.07);border:1px solid var(--amber-dim);padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:2.5rem;display:inline-flex;align-items:center;gap:.7rem}
+.example-banner::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0}
+.example-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
+.example-card{background:var(--sur);padding:2.2rem 2rem;border-left:2px solid var(--amber-dim)}
+.example-card-num{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);opacity:.5;margin-bottom:.8rem}
+.example-card-title{font-size:.72rem;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:.5rem}
+.example-card-body{font-size:.95rem;color:var(--ts);line-height:1.78}
+.example-card-body em{font-style:italic;color:var(--tp)}
 
-/* CTA */
-.cta-word{font-size:clamp(2.5rem,5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;color:var(--tp);transition:color .4s}
-.cta-word em{font-style:italic;color:var(--amber)}
-.cta-sub{font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ts);max-width:44ch;margin:0 auto 1rem;transition:color .4s}
-.cta-note{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--amber);max-width:44ch;margin:0 auto 2.5rem;font-style:italic}
-.cta-group{display:flex;gap:1.5rem;justify-content:center;align-items:center;flex-wrap:wrap}
-.section-cta{text-align:center;position:relative;overflow:hidden}
-.section-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
-@media(max-width:700px){footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}.cta-group{flex-direction:column;align-items:stretch;text-align:center}.btn-p,.btn-g{text-align:center;justify-content:center}}
+/* ── PROMPTS ── */
+.prompt-stack{display:flex;flex-direction:column;gap:0;margin-bottom:4rem}
+.prompt-row{border-bottom:1px solid var(--rul);padding:2rem 0}
+.prompt-row:first-child{border-top:1px solid var(--rul)}
+.prompt-section-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:.6rem}
+.prompt-q{font-size:clamp(1.05rem,1.5vw,1.25rem);font-weight:300;color:var(--tp);line-height:1.6;margin-bottom:.5rem}
+.prompt-q em{font-style:italic;color:var(--amber)}
+.prompt-note{font-size:.88rem;color:var(--tm);line-height:1.72;font-style:italic;max-width:55ch}
+
+/* ── PAST PERFORMANCE (staging only) ── */
+.perf-banner{background:rgba(201,145,74,.06);border:1px dashed var(--amber-dim);padding:.8rem 1.4rem;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:2rem;opacity:.7}
+.perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--rul);margin-bottom:4rem}
+.perf-card{background:var(--ink);padding:2rem 1.8rem}
+.perf-card-org{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.55;margin-bottom:.5rem}
+.perf-card-situation{font-size:1rem;color:var(--ts);line-height:1.78;margin-bottom:.8rem;font-style:italic}
+.perf-card-outcome{font-size:.9rem;color:var(--tm);line-height:1.72}
+.perf-card-method{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);opacity:.4;margin-top:.8rem}
+
+/* ── CTA ── */
+.guide-cta{text-align:center;padding:clamp(4rem,7vh,6rem) clamp(2rem,7vw,7rem);position:relative;overflow:hidden}
+.guide-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--amber-glow) 0%,transparent 65%);pointer-events:none}
+.guide-cta-h{font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.1;margin-bottom:1.2rem}
+.guide-cta-h em{font-style:italic;color:var(--amber)}
+.guide-cta-sub{font-size:1rem;color:var(--ts);max-width:44ch;margin:0 auto 2rem;line-height:1.8}
+.guide-cta-email{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.1em;color:var(--amber);opacity:.75}
+
+@media(max-width:700px){
+  footer{flex-direction:column;text-align:center}
+  .ps{bottom:1rem;right:1rem}
+  .guide-meta{flex-direction:column;gap:.5rem}
+  .anatomy-card:hover{transform:translateY(0)}
+  .anat-popup{position:fixed;bottom:0;left:0;right:0;top:auto}
+}
 </style></head>
 
 <!-- ════════════════════════════════════════════════════════════
      STAGING ONLY — service-org-design.html
-     ONE-PAGER TEMPLATE v1 — Organizational Design & Governance
+     SERVICE DESIGN GUIDE — Organizational Design & Governance
 
-     PIPELINE: this file lives in staging (limicelia repo) only.
-     Promote to prod (limi repo) only after co-steward review.
+     Purpose: decision-prompting engine for BK + CX to norm on
+     how we describe, frame, and structure each service domain.
+     Not a public-facing one-pager. Promotes only after all
+     prompts are answered and co-stewards are aligned.
+
+     PIPELINE: limicelia (staging) only → promote to limi (prod)
      ════════════════════════════════════════════════════════════ -->
 
 <body>
 <canvas id="mc"></canvas>
 
-<!-- ── STAGING DISCUSSION BANNER ──────────────────────────────
-     REMOVE this banner block before promoting to prod.
-     ─────────────────────────────────────────────────────────── -->
+<!-- STAGING BANNER -->
 <div class="staging-banner">
-  <strong>⚠ Staging only — co-steward review needed before this goes live</strong>
-  <p>This is the one-pager template for Organizational Design &amp; Governance. Five more pages will follow this structure. Decisions needed before promoting:</p>
-  <ul>
-    <li><strong>Hero headline:</strong> Current draft → "When the structure is holding the organization back." Is this the right entry? What situation does a client actually come from?</li>
-    <li><strong>Entry scenarios (§01):</strong> Three scenarios written — do these match real situations you've been called into? Replace with actual language clients have used.</li>
-    <li><strong>Engagements (§02):</strong> Four engagement types listed. Are these the right four? Any missing? Any that overstate what's actually offered at this stage?</li>
-    <li><strong>Contrast (§03):</strong> "What most org consultants do vs Limicelia" — review for accuracy. Should this section exist on every page, or only for AI (where the market distinction is sharper)?</li>
-    <li><strong>Related services:</strong> Currently links to Leadership &amp; Culture and Conflict Resolution — correct cross-references?</li>
-    <li><strong>Missing: real client voice.</strong> §01 entry scenarios are written in Limicelia voice. Ideally these become real client quotes or paraphrased situations. Add to limi-hq kanban: "collect real entry-point language from past clients."</li>
-  </ul>
+  <strong>⚙ Staging — Service Design Guide · Not for public distribution</strong>
+  <p>This page is a decision-prompting engine. Scroll through the anatomy, review the real example, and answer the prompts below to norm on how we describe this domain. Once you've answered all prompts, this becomes the content for the public one-pager. Then promote to prod.</p>
 </div>
 
 <div class="ps"><span class="ps-lbl">Palette</span><div class="ps-row"><div class="ps-dot on" data-p="dark" title="Dark"></div><div class="ps-dot" data-p="warm" title="Warm"></div><div class="ps-dot" data-p="slate" title="Slate"></div><div class="ps-dot" data-p="forest" title="Forest"></div><div class="ps-dot" data-p="light" title="Light"></div></div></div>
@@ -176,112 +188,127 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
-     §00 / HERO
-
-     TEMPLATE NOTES:
-     - Breadcrumb always → services.html
-     - Status badge: "Established practice" or "Developing practice"
-     - Hero h1: one concrete situation, not a description of what you do.
-       Pattern: "When [the situation the client is in]."
-     - Lede: who this is for + what shifts. 2 sentences max. Plain.
+     GUIDE HERO
      ══════════════════════════════════════════════════════════ -->
-<section class="hero-onepager">
-  <a href="services.html" class="breadcrumb">← Services</a>
+<section class="guide-hero">
+  <a href="services.html" class="breadcrumb reveal">← Services</a>
 
-  <!-- STATUS BADGE: "Established practice" for the 4 core domains -->
-  <div class="status-badge reveal">
-    <span class="status-dot"></span>
-    Established practice &nbsp;·&nbsp; 6–9 months typical engagement
-  </div>
+  <p class="guide-eyebrow reveal">Service Design Guide · Organizational Design &amp; Governance</p>
 
-  <p class="hero-eyebrow reveal">Limicelia · Organizational Design &amp; Governance</p>
+  <h1 class="guide-h1 reveal rd1">How we decide<br>what to<br><em>say about this.</em></h1>
 
-  <!-- HERO H1 — DRAFT. DISCUSS: does this match what clients say when they call? -->
-  <h1 class="hero-h1 reveal rd1">When the structure<br>is holding the<br><em>organization back.</em></h1>
+  <p class="guide-lede reveal rd2">This page is an exploded anatomy of a service domain. Each section below shows the design of the page — what information type goes there and why — then shows a live example using real Org Design content. At the bottom: prompts for BK and CX to answer together.</p>
 
-  <!-- LEDE — DISCUSS: accurate? too narrow? who is this for? -->
-  <p class="hero-lede reveal rd2">For organizations that have grown faster than their governance, or changed values without changing how decisions get made. We build structures that reflect how the organization actually wants to operate — not how the org chart says it should.</p>
-</section>
-
-<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
-
-<!-- ══════════════════════════════════════════════════════════
-     §01 / ENTRY POINTS — "When you need this"
-
-     TEMPLATE NOTES:
-     - 3–4 cards. Each = one recognizable situation.
-     - Written as practitioner recognition — client sees themselves.
-     - DISCUSS: Are these the real situations? Replace with actual
-       language from past clients if possible.
-     ══════════════════════════════════════════════════════════ -->
-<section class="pad" style="position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">01 / When you need this</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:.8rem">Situations that<br><em>bring people here.</em></h2>
-  <p class="reveal rd1" style="font-size:1rem;color:var(--tm);max-width:55ch;line-height:1.78;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.04em;margin-bottom:2.5rem"><!-- DISCUSS: is this framing right? Or remove and let the cards speak? -->You know you need this work when a structural problem keeps appearing in relational form.</p>
-
-  <div class="entry-grid reveal rd2">
-    <!-- CARD 1 — DISCUSS: real? too narrow? -->
-    <div class="entry-card">
-      <p class="entry-scenario">"We keep making the same decisions in the same way and getting the same outcomes. Nobody can name who is actually accountable for what."</p>
-      <p class="entry-label">Accountability gap</p>
-    </div>
-    <!-- CARD 2 — DISCUSS: real? -->
-    <div class="entry-card">
-      <p class="entry-scenario">"We went from five people to twenty-five in two years. The way we used to decide things doesn't work anymore but we haven't replaced it with anything."</p>
-      <p class="entry-label">Growth without governance</p>
-    </div>
-    <!-- CARD 3 — DISCUSS: real? -->
-    <div class="entry-card">
-      <p class="entry-scenario">"We say we are participatory but decisions are actually made by three people before any meeting happens. Staff know this and are disengaged."</p>
-      <p class="entry-label">Values-structure gap</p>
-    </div>
-    <!-- CARD 4 — DISCUSS: should this be here or in Conflict domain? -->
-    <div class="entry-card">
-      <p class="entry-scenario">"We are a coalition of organizations with different cultures trying to make joint decisions. There is no shared structure for how we do that and it is grinding us down."</p>
-      <p class="entry-label">Multi-org governance</p>
-    </div>
+  <div class="guide-meta reveal rd3">
+    <span>Domain: Organizational Design &amp; Governance</span>
+    <span>Status: Established practice</span>
+    <span>Page type: Service one-pager</span>
   </div>
 </section>
 
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 
 <!-- ══════════════════════════════════════════════════════════
-     §02 / ENGAGEMENTS — "What we actually do"
-
-     TEMPLATE NOTES:
-     - 3–5 rows. Each = one concrete deliverable or engagement type.
-     - Left col: short label (what it's called).
-     - Right col: what actually happens, written plainly. Not jargon.
-     - DISCUSS: Are these four the right four? Anything overstated?
+     §A — PAGE ANATOMY
+     Hover each card to see what type of content belongs there
+     and why. These are the building blocks of every service page.
      ══════════════════════════════════════════════════════════ -->
-<section class="pad" style="position:relative;z-index:2;background:var(--sur)">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">02 / What we actually do</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:3rem">Four types of<br><em>engagement.</em></h2>
+<section class="pad">
+  <p class="sec-label reveal">A / Page Anatomy — hover each section</p>
+  <h2 class="sec-h2 reveal rd1">Every service page is built<br>from <em>the same bones.</em></h2>
+  <p class="sec-intro reveal rd2">Each card below represents one section of the public-facing service page. Hover to see what information type belongs there, why it exists, and how to know when you've got it right.</p>
 
-  <div style="border-top:1px solid var(--rul)" class="reveal rd1">
+  <div class="anatomy-grid reveal rd3">
 
-    <!-- ENGAGEMENT 1 — DISCUSS: name right? description accurate? -->
-    <div class="engagement-row">
-      <p class="engagement-label">Governance<br>Structure Design</p>
-      <p class="engagement-body">Working with leadership and staff to map how decisions are currently made, where accountability is unclear, and what structures — roles, circles, consent processes — would actually fit how this organization wants to operate. We do not arrive with a framework and install it. We build it from the inside out, with the people who will live in it.<br><br><span style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.08em;color:var(--amber);opacity:.6">Typical: 3–4 months · Includes facilitated sessions + documentation + implementation support</span></p>
+    <!-- 01 Hero headline -->
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 01</p>
+      <p class="anatomy-card-title">Hero Headline</p>
+      <p class="anatomy-card-ghost">[ When the ________ is ________ the ________ back. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">One sentence naming the situation a client is in when they call. Not what you do — what they're experiencing. Written from inside their frame, not yours. The test: a potential client should read it and feel recognized.</p>
+        <p class="anat-popup-eg">Right form: "When [situation]." Not: "We help organizations [verb]."<br>Good signal: someone who has this problem sends it to a colleague.</p>
+      </div>
     </div>
 
-    <!-- ENGAGEMENT 2 — DISCUSS: accurate? -->
-    <div class="engagement-row">
-      <p class="engagement-label">Role Clarity<br>&amp; Accountability</p>
-      <p class="engagement-body">Many organizations have roles that exist on paper but don't match how work actually flows. We surface the gap between the formal structure and the informal one, then redesign roles that reflect real accountability — including where authority lives, where it doesn't, and who needs to be in which conversations.<br><br><span style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.08em;color:var(--amber);opacity:.6">Typical: 6–10 weeks · Usually pairs with governance structure work</span></p>
+    <!-- 02 Lede -->
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 02</p>
+      <p class="anatomy-card-title">Lede — <em>who it's for</em></p>
+      <p class="anatomy-card-ghost">[ Two sentences. Who. What shifts. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">Two sentences maximum. First: who specifically this is for (not "organizations" — what kind, in what moment). Second: what changes as a result of this work. Plain language. No jargon. No promises of outcomes you can't guarantee.</p>
+        <p class="anat-popup-eg">Avoid: "We use a holistic approach to drive systemic transformation."<br>Toward: "For executive teams who've changed their values without changing how decisions get made."</p>
+      </div>
     </div>
 
-    <!-- ENGAGEMENT 3 — DISCUSS: right name? too vague? -->
-    <div class="engagement-row">
-      <p class="engagement-label">Decision-Making<br>Process Design</p>
-      <p class="engagement-body">Not all decisions need the same process. We help organizations build a differentiated decision-making system — consent-based for some, consultative for others, executive for others — with clear criteria for which process applies when. The goal is less energy spent deciding how to decide, more capacity for the actual work.<br><br><span style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.08em;color:var(--amber);opacity:.6">Typical: 4–8 weeks · Often a component of governance structure work</span></p>
+    <!-- 03 Entry scenarios -->
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 03</p>
+      <p class="anatomy-card-title">Entry Scenarios — <em>when you need this</em></p>
+      <p class="anatomy-card-ghost">[ 3–4 cards. Each = one real situation. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">Three to four cards, each describing one recognizable situation a client arrives from. Written as practitioner recognition — the client should see themselves in at least one. Ideally: real language from actual past clients, not invented scenarios.</p>
+        <p class="anat-popup-eg">Best source: things clients have actually said on first calls. Quotes, paraphrased situations, intake emails. Assign to limi-hq kanban.</p>
+      </div>
     </div>
 
-    <!-- ENGAGEMENT 4 — DISCUSS: does this belong here or in Org Memory domain? -->
-    <div class="engagement-row">
-      <p class="engagement-label">Governance<br>Transition Support</p>
-      <p class="engagement-body">When an organization is moving through a structural change — new leadership, merger, shift from founder-led to distributed governance — we support the transition itself, not just the destination. This means accompanying the organization through the discomfort of the in-between, not just designing the structure it is moving toward.<br><br><span style="font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.08em;color:var(--amber);opacity:.6">Typical: 6–9 months · Intensive accompaniment phase</span></p>
+    <!-- 04 What we actually do -->
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 04</p>
+      <p class="anatomy-card-title">Engagement Types — <em>what we do</em></p>
+      <p class="anatomy-card-ghost">[ 3–4 named engagements. Not tiers — types. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">The actual work — named by what it produces, not what we do. Three to four engagement types that represent the real forms this work takes. Not service tiers. Each has a description that conveys the depth and method, not the deliverable list.</p>
+        <p class="anat-popup-eg">Do not say: "Phase 1: Discovery (2 sessions)." Instead: "We surface the gap between formal structure and how authority actually flows — then redesign from the inside."</p>
+      </div>
+    </div>
+
+    <!-- 05 Distinction / contrast -->
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 05</p>
+      <p class="anatomy-card-title">Contrast — <em>what makes us different</em></p>
+      <p class="anatomy-card-ghost">[ What most consultants do vs. what we do. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">A two-column honest comparison — not a marketing claim. Left: what the conventional approach looks like and why it fails. Right: what Limicelia does differently and why. Only include this section when the market distinction is genuinely important for a potential client to understand.</p>
+        <p class="anat-popup-eg">Not every domain needs this. Most urgent for domains where the market is crowded with bad versions (AI, org design, leadership).</p>
+      </div>
+    </div>
+
+    <!-- 06 Related domains -->
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 06</p>
+      <p class="anatomy-card-title">Related Work — <em>what often runs alongside</em></p>
+      <p class="anatomy-card-ghost">[ 2–3 adjacent domains. Honest cross-references. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">Two to three adjacent domains that often run concurrently or arise from the same root. These are not upsells — they're honest recognitions that the work rarely lives in one domain. Only list domains that have a genuine relationship to this one.</p>
+        <p class="anat-popup-eg">For Org Design: Leadership &amp; Culture almost always travel together. Conflict often surfaces in governance gaps. Don't list AI just because it's adjacent.</p>
+      </div>
+    </div>
+
+    <!-- 07 CTA -->
+    <div class="anatomy-card">
+      <p class="anatomy-card-num">Section 07</p>
+      <p class="anatomy-card-title">Invitation — <em>how to reach us</em></p>
+      <p class="anatomy-card-ghost">[ Not a pitch. A genuine next step. ]</p>
+      <p class="anatomy-card-hover-hint">what goes here</p>
+      <div class="anat-popup">
+        <p class="anat-popup-label">What belongs here</p>
+        <p class="anat-popup-body">A short paragraph inviting contact — framed as genuine inquiry, not conversion. Domain-specific: the invitation should reflect the emotional state someone is in after reading this page. Email address only. No intake form. No "schedule a call" button if it reads as transactional.</p>
+        <p class="anat-popup-eg">Tone: "Tell us where your organization is. We'll tell you honestly if this is the work." Not: "Ready to get started? Book a discovery call."</p>
+      </div>
     </div>
 
   </div>
@@ -290,102 +317,200 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 
 <!-- ══════════════════════════════════════════════════════════
-     §03 / WHAT'S DIFFERENT
-
-     TEMPLATE NOTES:
-     - DISCUSS: Should this section appear on every one-pager?
-       Or only for domains where the market distinction is important
-       (AI, Coalition Building)? For Org Design it might be less needed.
-     - If kept: the "most org consultants" list should be accurate —
-       not a strawman. Review before publishing.
+     §B — REAL EXAMPLE
+     Same section structure, populated with actual Org Design
+     content. No hover effects. This is what it looks like live.
      ══════════════════════════════════════════════════════════ -->
-<section class="pad" style="position:relative;z-index:2">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">03 / What's different here</p>
-  <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.12;margin-bottom:1rem">Structure without<br><em>the practitioner inside it</em><br>doesn't hold.</h2>
-  <p class="reveal rd1" style="font-size:1rem;color:var(--tm);max-width:55ch;line-height:1.78;margin-bottom:3rem">Most governance work fails at implementation — not because the design was wrong but because nobody stayed for the part where the culture has to change alongside the structure.</p>
+<section class="pad">
+  <p class="sec-label reveal">B / Live Example — Org Design &amp; Governance</p>
+  <h2 class="sec-h2 reveal rd1">What it looks like<br><em>filled in.</em></h2>
+  <p class="sec-intro reveal rd2">Below: the same seven sections, populated with current draft content for the Organizational Design &amp; Governance domain. This is a working draft — not approved. Read through and note what rings true, what feels off, what's missing.</p>
 
-  <!-- DISCUSS: keep this compare table or remove it from this page? -->
-  <div class="compare-grid reveal rd2">
-    <div class="compare-col">
-      <h4 class="compare-col-label dim">Most org design consulting</h4>
-      <ul class="compare-list">
-        <li>Arrives with a preferred framework (Holacracy, RACI, etc.) and adapts the org to fit it</li>
-        <li>Produces a governance document and exits</li>
-        <li>Works primarily with senior leadership</li>
-        <li>Treats implementation as the client's problem</li>
-        <li>Measures success at handoff, not six months later</li>
-      </ul>
+  <div class="example-banner reveal rd3">Live draft · Org Design &amp; Governance · review and revise</div>
+
+  <div class="example-grid reveal">
+
+    <div class="example-card">
+      <p class="example-card-num">Section 01</p>
+      <p class="example-card-title">Hero Headline</p>
+      <p class="example-card-body"><em>"When the structure is holding the organization back."</em></p>
     </div>
-    <div class="compare-col">
-      <h4 class="compare-col-label lit">Limicelia</h4>
-      <ul class="compare-list">
-        <li>Builds structure from what the organization actually is, not what a framework says it should be</li>
-        <li>Stays through implementation — the document is a byproduct, not the deliverable</li>
-        <li>Brings the people closest to the work into the design</li>
-        <li>Treats resistance as information, not as an obstacle</li>
-        <li>Measures success when the structure is self-sustaining</li>
-      </ul>
+
+    <div class="example-card">
+      <p class="example-card-num">Section 02</p>
+      <p class="example-card-title">Lede</p>
+      <p class="example-card-body">For organizations that have grown faster than their governance, or changed values without changing how decisions get made. We build structures that reflect how the organization actually wants to operate — not how the org chart says it should.</p>
     </div>
+
+    <div class="example-card">
+      <p class="example-card-num">Section 03</p>
+      <p class="example-card-title">Entry Scenarios</p>
+      <p class="example-card-body"><em>A board meeting where the same three people make every decision.</em><br><br><em>Staff who know the answer but have no place to put it.</em><br><br><em>An org chart that doesn't match how anything actually works.</em></p>
+    </div>
+
+    <div class="example-card">
+      <p class="example-card-num">Section 04</p>
+      <p class="example-card-title">Engagement Types</p>
+      <p class="example-card-body"><strong>Governance Structure Design</strong> — Mapping how decisions are currently made, where accountability is unclear, and what structures would fit how this organization wants to operate. Built from the inside out.<br><br><strong>Role Clarity &amp; Accountability</strong> — Surfacing the gap between formal structure and how work actually flows. Redesigning roles that reflect real authority.<br><br><strong>Decision-Making Process Design</strong> — A differentiated system for which decisions need which process. Less energy deciding how to decide.<br><br><strong>Governance Transition Support</strong> — When an organization moves through structural change, we support the transition itself — not just the destination.</p>
+    </div>
+
+    <div class="example-card">
+      <p class="example-card-num">Section 05</p>
+      <p class="example-card-title">Contrast</p>
+      <p class="example-card-body"><strong>What most org consultants do:</strong> Arrive with a framework. Install it. Leave a report. The organization reverts within a year.<br><br><strong>What we do:</strong> Build governance from the inside, with the people who will live in it. The framework is secondary to the process. What remains after we leave is understanding, not documentation.</p>
+    </div>
+
+    <div class="example-card">
+      <p class="example-card-num">Section 06</p>
+      <p class="example-card-title">Related Domains</p>
+      <p class="example-card-body"><strong>Leadership &amp; Culture Transformation</strong> — Structure changes rarely hold without parallel work on leadership behavior. These often run concurrently.<br><br><strong>Conflict Resolution &amp; Coalition Building</strong> — Governance gaps frequently surface as interpersonal conflict. Sometimes both need addressing at once.</p>
+    </div>
+
+    <div class="example-card">
+      <p class="example-card-num">Section 07</p>
+      <p class="example-card-title">Invitation</p>
+      <p class="example-card-body">Tell us where your organization is. We'll tell you honestly whether this is the work — and if not, what might be. No intake form. No deck. Just a conversation.<br><br><em>hello [at] limicelia [dot] org</em></p>
+    </div>
+
   </div>
 </section>
 
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 
 <!-- ══════════════════════════════════════════════════════════
-     §04 / RELATED SERVICES
-
-     TEMPLATE NOTES:
-     - 2–3 cards max. Cross-link to adjacent domains.
-     - DISCUSS: Right adjacencies? Conflict & Coalition and Leadership
-       feel right for Org Design. Confirm.
+     §C — CO-STEWARD PROMPTS
+     One set of questions per section. BK + CX answer together.
+     Answers become the final content for the public one-pager.
      ══════════════════════════════════════════════════════════ -->
-<section class="pad" style="position:relative;z-index:2;background:var(--sur)">
-  <p class="reveal" style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);opacity:.8;margin-bottom:2.5rem">04 / Related work</p>
-  <h2 class="reveal" style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.2;margin-bottom:.5rem">Most engagements<br>draw from several domains.</h2>
-  <p class="reveal rd1" style="font-size:1rem;color:var(--tm);max-width:55ch;line-height:1.78;margin-bottom:2rem">Governance work rarely lives in isolation. Structure and culture travel together.</p>
+<section class="pad">
+  <p class="sec-label reveal">C / Co-Steward Prompts</p>
+  <h2 class="sec-h2 reveal rd1">Questions to answer<br><em>together.</em></h2>
+  <p class="sec-intro reveal rd2">Work through these in order. Your answers are the content. When all prompts are answered, you have a one-pager. Not every question has a right answer — some are designed to surface a real disagreement that needs to be resolved before the page is live.</p>
 
-  <div class="related-grid reveal rd2">
-    <!-- DISCUSS: correct adjacencies? -->
-    <a href="service-leadership.html" class="related-card">
-      <p class="related-domain">Established · 6–9 months</p>
-      <p class="related-name">Leadership &amp; <em>Culture</em> Transformation</p>
-      <p style="font-size:.95rem;color:var(--ts);line-height:1.78">Structure changes rarely hold without parallel work on culture and leadership behavior. These often run concurrently.</p>
-      <span class="related-link">Explore domain</span>
-    </a>
-    <a href="service-conflict.html" class="related-card">
-      <p class="related-domain">Established · 3–6 months</p>
-      <p class="related-name">Conflict Resolution &amp; <em>Coalition</em> Building</p>
-      <p style="font-size:.95rem;color:var(--ts);line-height:1.78">Governance gaps often surface as interpersonal conflict. Sometimes both need addressing at once.</p>
-      <span class="related-link">Explore domain</span>
-    </a>
-    <a href="services.html" class="related-card">
-      <p class="related-domain">All seven domains</p>
-      <p class="related-name">Full service <em>overview</em></p>
-      <p style="font-size:.95rem;color:var(--ts);line-height:1.78">See how all domains relate and how engagements typically combine.</p>
-      <span class="related-link">Back to services</span>
-    </a>
+  <div class="prompt-stack reveal rd3">
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 01 · Hero Headline</p>
+      <p class="prompt-q">What does a client actually say when they call about governance? What's the first sentence of that call?</p>
+      <p class="prompt-note">Current draft: "When the structure is holding the organization back." Does that land for the clients you've actually worked with? Or is it too abstract?</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 01 · Hero Headline</p>
+      <p class="prompt-q">Is the entry to this work usually from a leadership problem, a structural problem, a growth problem, or something else entirely?</p>
+      <p class="prompt-note">The headline should reflect the actual entry, not the category of work. People don't call and say "we have a governance problem." They say something else first.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 02 · Lede</p>
+      <p class="prompt-q">Who specifically is the first reader of this page? Name a real person or org type — not a persona.</p>
+      <p class="prompt-note">The lede should be written for that person. If you can't name them, the lede will be too general.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 03 · Entry Scenarios</p>
+      <p class="prompt-q">What are the two or three most common situations you've been called into for org design work? Describe them as the client would describe them, not as you would diagnose them.</p>
+      <p class="prompt-note">These should be grounded in real situations, not invented. If you have an intake email or first-call note that captures the scenario well, paste it in. We'll shape the language from there.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 03 · Entry Scenarios</p>
+      <p class="prompt-q">Is there a situation that often brings people to this domain that's surprising or counterintuitive — one that wouldn't obviously look like a "governance problem" from the outside?</p>
+      <p class="prompt-note">Those are often the strongest entry scenarios. They signal to the right clients that you understand what's actually happening.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 04 · Engagement Types</p>
+      <p class="prompt-q">Are the four engagement types listed (Governance Structure, Role Clarity, Decision-Making Process, Transition Support) the right four? What's missing? What's overstated?</p>
+      <p class="prompt-note">This is about what you're currently able and willing to offer — not a comprehensive list of everything possible in this domain.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 04 · Engagement Types</p>
+      <p class="prompt-q">For each engagement type: what does the organization have at the end that it didn't have before? Not deliverables — capacity, understanding, something structural.</p>
+      <p class="prompt-note">If you can't answer this for any one of them, it may not belong on the page yet.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 05 · Contrast</p>
+      <p class="prompt-q">Should the contrast section appear on every service one-pager, or only where the market distinction really matters?</p>
+      <p class="prompt-note">Current hypothesis: yes for Org Design and AI (crowded markets), maybe not for Org Memory or Field Building (less crowded). What's your read?</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 05 · Contrast</p>
+      <p class="prompt-q">What's the most important thing that's different about how Limicelia does governance work compared to how it's typically done? One sentence, no hedging.</p>
+      <p class="prompt-note">The contrast section only earns its place if the distinction is real and specific — not "we're more human-centered." What's actually different?</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 06 · Related Domains</p>
+      <p class="prompt-q">When you're doing governance work, which other domain almost always comes up? Which one surprises clients when it's connected?</p>
+      <p class="prompt-note">The surprising connection is often more interesting than the obvious one. Both belong on the page.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Section 07 · Invitation</p>
+      <p class="prompt-q">What's the right emotional register for someone who just read this page? What are they feeling, and what should the invitation say to that feeling?</p>
+      <p class="prompt-note">Current draft is generic. The invitation should match the domain. Someone reading the Conflict page is in a different state than someone reading the Org Memory page.</p>
+    </div>
+
+    <div class="prompt-row">
+      <p class="prompt-section-tag">Overall · Before Publishing</p>
+      <p class="prompt-q">Is there anything on this page you wouldn't want a prospective client to read? If yes, what and why?</p>
+      <p class="prompt-note">That's always the most honest editorial question. If it's there, it needs to be cut or fixed before the page goes live.</p>
+    </div>
+
   </div>
 </section>
 
 <hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
 
 <!-- ══════════════════════════════════════════════════════════
-     §05 / CTA
-
-     TEMPLATE NOTES:
-     - Always: hello@limicelia.org + calendly.com/limicelia
-     - Headline: domain-specific, plain.
-     - DISCUSS: "Ready to talk?" is placeholder — what's the right
-       invitation for this domain?
+     §D — PAST PERFORMANCE (STAGING ONLY)
+     Real examples of this domain in practice. Remove or
+     anonymize before promoting to prod.
      ══════════════════════════════════════════════════════════ -->
-<section class="pad section-cta" style="position:relative;z-index:2">
-  <p class="cta-word reveal">Not sure if<br>this is the right<br><em>fit?</em></p>
-  <p class="cta-sub reveal rd1">Tell us where your organization is. We will tell you honestly whether this is the work, and if not, what might be.</p>
-  <p class="cta-note reveal rd2">No intake form. No deck. Just a conversation.</p>
-  <div class="cta-group reveal rd3">
-    <a href="mailto:hello@limicelia.org" class="btn-p">hello@limicelia.org</a>
-    <a href="https://calendly.com/limicelia" class="btn-g">Schedule a call</a>
+<section class="pad">
+  <p class="sec-label reveal">D / Past Performance — staging only</p>
+  <h2 class="sec-h2 reveal rd1">Where this work<br>has <em>already happened.</em></h2>
+  <p class="sec-intro reveal rd2">Real engagements in this domain. Anonymized or described with permission. For co-steward use only — to ground the prompts above in actual history, and to identify real language to bring back into the public page.</p>
+
+  <div class="perf-banner reveal">⚠ Staging only — do not promote to prod without co-steward review of each entry</div>
+
+  <div class="perf-grid reveal rd2">
+
+    <div class="perf-card">
+      <p class="perf-card-org">[ Organization type · Sector ]</p>
+      <p class="perf-card-situation">[ Describe the situation as the client would have described it at the start. What were they experiencing? What had they already tried? ]</p>
+      <p class="perf-card-outcome">[ What shifted by the end? Not deliverables — what became possible that wasn't before? ]</p>
+      <p class="perf-card-method">[ Methods used — optional ]</p>
+    </div>
+
+    <div class="perf-card">
+      <p class="perf-card-org">[ Organization type · Sector ]</p>
+      <p class="perf-card-situation">[ Situation — from client's frame ]</p>
+      <p class="perf-card-outcome">[ What shifted ]</p>
+      <p class="perf-card-method">[ Methods ]</p>
+    </div>
+
+    <div class="perf-card">
+      <p class="perf-card-org">[ Organization type · Sector ]</p>
+      <p class="perf-card-situation">[ Situation — from client's frame ]</p>
+      <p class="perf-card-outcome">[ What shifted ]</p>
+      <p class="perf-card-method">[ Methods ]</p>
+    </div>
+
   </div>
+</section>
+
+<hr style="height:1px;background:var(--rul);border:none;position:relative;z-index:2">
+
+<!-- CTA -->
+<section class="guide-cta" style="position:relative;z-index:2">
+  <p class="guide-cta-h reveal">Not sure what<br><em>to do next?</em></p>
+  <p class="guide-cta-sub reveal rd1">When prompts are answered, let's build the final page together. Or send a voice memo with your answers — we'll write from there.</p>
+  <p class="guide-cta-email reveal rd2">hello [at] limicelia [dot] org</p>
 </section>
 
 <footer>
@@ -393,16 +518,15 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   <div class="footer-links">
     <a href="our-approach.html">Our Approach</a>
     <a href="services.html">Services</a>
-    <a href="mission.html">Mission</a>
     <a href="bios.html">About</a>
   </div>
-  <span class="footer-note">© 2026 Limicelia · Fiscally sponsored by ISI</span>
+  <span class="footer-note">© 2026 Limicelia · Staging only</span>
 </footer>
 
 <script>
 // Nav scroll
 var nav=document.getElementById('hnav');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{ passive:true });
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
 // Hamburger
 document.getElementById('ham').addEventListener('click',function(){this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')});
 // Palette
@@ -418,7 +542,7 @@ document.querySelectorAll('.ps-dot').forEach(function(d){d.addEventListener('cli
   localStorage.setItem('limi-palette',p);
 })});
 // Reveal on scroll
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
 // Mycelium canvas
 (function(){
