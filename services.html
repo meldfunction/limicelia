@@ -154,7 +154,7 @@ section{position:relative;z-index:2}
 @media(max-width:700px){.domain-row-body{grid-template-columns:1fr}}
 
 .domain-row-desc{
-  font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--ts);max-width:48ch;
+  font-size:.9rem;font-weight:300;line-height:1.78;color:var(--tm);max-width:48ch;
 }
 .domain-row-methods{padding-top:.2rem}
 .domain-row-methods-label{
@@ -229,6 +229,21 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
 .footer-note{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tm);opacity:.5}
 @media(max-width:700px){footer{flex-direction:column;text-align:center}.ps{bottom:1rem;right:1rem}}
 
+/* ─── DOMAIN CONSTELLATION ── */
+.constellation{
+  position:relative;z-index:2;
+  width:100%;height:clamp(420px,70vh,680px);
+  border-top:1px solid var(--rul);
+  overflow:hidden;cursor:default;
+}
+#constCanvas{display:block;width:100%;height:100%}
+.const-hint{
+  position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);
+  font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--tm);opacity:.45;white-space:nowrap;
+  pointer-events:none;
+}
+
 /* ─── EVENT BANNER ── */
 .event-banner{display:block;text-decoration:none;margin:0 clamp(2rem,7vw,7rem) clamp(2rem,4vh,3rem);border:1px solid var(--amber-dim);background:var(--amber-glow);padding:1.4rem 2rem;transition:background .3s;position:relative;z-index:2}
 .event-banner:hover{background:rgba(201,145,74,.18)}
@@ -286,6 +301,12 @@ footer{padding:1.8rem clamp(2rem,7vw,7rem);border-top:1px solid var(--rul);displ
   <h1 class="svc-hero-h1 reveal rd1">The work<br>lives inside<br>the <em>situation.</em></h1>
   <p class="svc-hero-sub reveal rd2">We don't prescribe a practice. We enter what's actually happening and stay until something shifts. Every engagement begins with a diagnostic conversation — not a service selection.</p>
 </section>
+
+<!-- ══ CONSTELLATION — rapid visual overview ═════════════════ -->
+<div class="constellation" id="constellation">
+  <canvas id="constCanvas"></canvas>
+  <p class="const-hint">tap a domain to explore ↓</p>
+</div>
 
 <!-- ══ DOMAIN ROWS — established ════════════════════════════ -->
 <div class="domain-field" id="domainField">
@@ -669,6 +690,219 @@ function toggleRow(el){
     });
     if(bestDist<window.innerHeight*.6) active=best; else active=-1;
   },{passive:true});
+})();
+
+/* ══ DOMAIN CONSTELLATION ══════════════════════════════════════
+   7 domains as weighted nodes in a field.
+   Established: larger, full opacity.  Developing: smaller, dimmed.
+   Organic filament edges between related domains.
+   Click/tap a node → smooth scroll to that domain row.
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+  var el=document.getElementById('constCanvas');
+  if(!el)return;
+  var wrap=document.getElementById('constellation');
+  var ctx=el.getContext('2d');
+  var W,H,dpr;
+
+  // Domain definitions — position as fractions [x,y] of canvas, tweaked for feel
+  var domains=[
+    // Established (4) — larger, full opacity
+    {id:0, label:'Org Design\n& Governance',      x:.22, y:.38, r:52, est:true,  anchor:'domain-0'},
+    {id:1, label:'Leadership\n& Culture',          x:.48, y:.22, r:48, est:true,  anchor:'domain-1'},
+    {id:2, label:'Conflict\n& Coalition',          x:.72, y:.36, r:46, est:true,  anchor:'domain-2'},
+    {id:3, label:'Org Memory\n& Knowledge',        x:.35, y:.62, r:44, est:true,  anchor:'domain-3'},
+    // Developing (3) — smaller, dimmer
+    {id:4, label:'Community\nEngagement',          x:.60, y:.58, r:34, est:false, anchor:'domain-4'},
+    {id:5, label:'Field\nBuilding',                x:.80, y:.62, r:32, est:false, anchor:'domain-5'},
+    {id:6, label:'AI &\nReadiness',               x:.20, y:.72, r:30, est:false, anchor:'domain-6'},
+  ];
+
+  // Affinity edges [a,b] — related domains
+  var edges=[
+    [0,1],[0,2],[0,3],[1,2],[1,4],[2,0],[2,5],[3,0],[3,1],[4,5],[4,2],[5,6],[6,0]
+  ];
+
+  // Floating drift — each node drifts gently
+  domains.forEach(function(d){
+    d.ox=d.x; d.oy=d.y;
+    d.vx=(Math.random()-.5)*.0003;
+    d.vy=(Math.random()-.5)*.0002;
+    d.phase=Math.random()*Math.PI*2;
+  });
+
+  var amber=[201,145,74];
+  var hovered=-1;
+  var t=0;
+
+  function resize(){
+    dpr=window.devicePixelRatio||1;
+    W=wrap.offsetWidth;
+    H=wrap.offsetHeight;
+    el.width=W*dpr;
+    el.height=H*dpr;
+    el.style.width=W+'px';
+    el.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
+
+  // Get pixel position of a domain node
+  function pos(d){
+    var drift=Math.sin(t*.0008+d.phase)*0.018;
+    return {
+      x: (d.x+drift)*W,
+      y: (d.y+Math.cos(t*.0006+d.phase)*.012)*H
+    };
+  }
+
+  // Get scaled radius
+  function rad(d){ return d.r*(W/900); }
+
+  function draw(){
+    t++;
+    ctx.clearRect(0,0,W,H);
+
+    // Draw edges first
+    edges.forEach(function(e){
+      var a=domains[e[0]], b=domains[e[1]];
+      var pa=pos(a), pb=pos(b);
+      var ra=rad(a), rb=rad(b);
+      var dx=pb.x-pa.x, dy=pb.y-pa.y;
+      var dist=Math.sqrt(dx*dx+dy*dy);
+      var nx=dx/dist, ny=dy/dist;
+      // Start/end at circle edges
+      var x1=pa.x+nx*ra, y1=pa.y+ny*ra;
+      var x2=pb.x-nx*rb, y2=pb.y-ny*rb;
+      // Control point — organic curve
+      var mx=(x1+x2)/2+(ny*dist*.18);
+      var my=(y1+y2)/2-(nx*dist*.18);
+
+      var bothEst=a.est&&b.est;
+      var alpha=bothEst?.12:.06;
+      var isHov=(hovered===a.id||hovered===b.id);
+      if(isHov) alpha*=3.5;
+
+      ctx.beginPath();
+      ctx.moveTo(x1,y1);
+      ctx.quadraticCurveTo(mx,my,x2,y2);
+      ctx.strokeStyle='rgba('+amber[0]+','+amber[1]+','+amber[2]+','+alpha+')';
+      ctx.lineWidth=isHov?1.2:.6;
+      ctx.stroke();
+    });
+
+    // Draw nodes
+    domains.forEach(function(d){
+      var p=pos(d);
+      var r=rad(d);
+      var isHov=hovered===d.id;
+      var baseAlpha=d.est?1:.55;
+      var alpha=isHov?1:baseAlpha;
+
+      // Outer glow ring
+      if(d.est||isHov){
+        var grd=ctx.createRadialGradient(p.x,p.y,r*.5,p.x,p.y,r*1.8);
+        grd.addColorStop(0,'rgba('+amber[0]+','+amber[1]+','+amber[2]+','+(isHov?.18:.06)+')');
+        grd.addColorStop(1,'rgba('+amber[0]+','+amber[1]+','+amber[2]+',0)');
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,r*1.8,0,Math.PI*2);
+        ctx.fillStyle=grd;
+        ctx.fill();
+      }
+
+      // Node circle
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,r,0,Math.PI*2);
+      ctx.strokeStyle='rgba('+amber[0]+','+amber[1]+','+amber[2]+','+(isHov?.9:d.est?.45:.22)+')';
+      ctx.lineWidth=isHov?1.5:1;
+      ctx.stroke();
+
+      // Inner dot
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,d.est?3.5:2.5,0,Math.PI*2);
+      ctx.fillStyle='rgba('+amber[0]+','+amber[1]+','+amber[2]+','+(isHov?.95:d.est?.7:.35)+')';
+      ctx.fill();
+
+      // Label — split on \n
+      var lines=d.label.split('\n');
+      ctx.font=(d.est?'300 ':'300 ')+(r*.24)+'px Cormorant Garamond, Georgia, serif';
+      ctx.textAlign='center';
+      ctx.textBaseline='middle';
+      var lh=r*.27;
+      var totalH=lh*(lines.length-1);
+      var labelAlpha=isHov?1:d.est?.65:.35;
+
+      // Subtle bg behind label
+      if(isHov||d.est){
+        var maxW=lines.reduce(function(mx,l){return Math.max(mx,ctx.measureText(l).width)},0);
+        ctx.fillStyle='rgba(14,13,10,'+(isHov?.55:.3)+')';
+        ctx.fillRect(p.x-maxW/2-6,p.y-totalH/2-lh*.6,maxW+12,totalH+lh*1.2);
+      }
+
+      ctx.fillStyle='rgba(242,234,216,'+labelAlpha+')';
+      lines.forEach(function(ln,i){
+        ctx.fillText(ln, p.x, p.y-totalH/2+i*lh);
+      });
+
+      // Status mark (developing: dashed arc)
+      if(!d.est){
+        ctx.beginPath();
+        ctx.setLineDash([3,5]);
+        ctx.arc(p.x,p.y,r+5,0,Math.PI*2);
+        ctx.strokeStyle='rgba('+amber[0]+','+amber[1]+','+amber[2]+','+(isHov?.3:.1)+')';
+        ctx.lineWidth=.8;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Hit test
+  function hitTest(ex,ey){
+    for(var i=0;i<domains.length;i++){
+      var d=domains[i];
+      var p=pos(d);
+      var r=rad(d)*1.3; // generous tap target
+      var dx=ex-p.x, dy=ey-p.y;
+      if(dx*dx+dy*dy<r*r) return d.id;
+    }
+    return -1;
+  }
+
+  el.addEventListener('mousemove',function(e){
+    var rect=el.getBoundingClientRect();
+    hovered=hitTest(e.clientX-rect.left,e.clientY-rect.top);
+    el.style.cursor=hovered>=0?'pointer':'default';
+  });
+  el.addEventListener('mouseleave',function(){hovered=-1;el.style.cursor='default';});
+
+  el.addEventListener('click',function(e){
+    var rect=el.getBoundingClientRect();
+    var id=hitTest(e.clientX-rect.left,e.clientY-rect.top);
+    if(id<0)return;
+    // Scroll to the matching domain row
+    var row=document.querySelector('[data-domain="'+id+'"]');
+    if(row){
+      // Small delay so hover state reads before navigation
+      setTimeout(function(){
+        row.scrollIntoView({behavior:'smooth',block:'start'});
+      },80);
+    }
+  });
+
+  el.addEventListener('touchend',function(e){
+    e.preventDefault();
+    var t=e.changedTouches[0];
+    var rect=el.getBoundingClientRect();
+    var id=hitTest(t.clientX-rect.left,t.clientY-rect.top);
+    if(id<0)return;
+    var row=document.querySelector('[data-domain="'+id+'"]');
+    if(row) row.scrollIntoView({behavior:'smooth',block:'start'});
+  });
 })();
 </script>
 </body></html>
